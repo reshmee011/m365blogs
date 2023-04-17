@@ -1,0 +1,8 @@
+---
+title: 'JSOM SharePoint Online Create Term with custom shared and local properties'
+date: Fri, 15 Apr 2016 21:14:04 +0000
+draft: false
+tags: ['CSOM', 'HTML', 'JavaScript', 'JSOM', 'JSOM Taxonomy Term Custom Shared Properties', 'SharePoint 2013', 'SharePoint Online']
+---
+
+The sp.Taxonomy.js can be used to create a term in the taxonomy store. I wanted to create Shared Custom properties on the term. However the JavaScript library on [MSDN](https://msdn.microsoft.com/en-us/library/office/dn312560.aspx)  mentions only  the method setLocalCustomProperty which creates or updates a local custom property. The SetCustomProperty is mentioned in [MSDN](https://msdn.microsoft.com/en-us/library/microsoft.sharepoint.taxonomy.term.setcustomproperty(v=office.15).aspx) to use in CSOM managed code to create or update shared custom property on a term. There is a lack of documentation how to use the method in JSOM.  Following the convention of method name in JavaScript ,i.e. camelCase , I called the  method on a term object in JavaScript and it worked. `term.setCustomProperty("ClientId",1234);` The JSOM code below provides a UI to specify the term to create. To test the code, copy and paste the code into a JavaScript file, upload the JavaScript file into the site and reference the JavaScript file from a Content Editor WebPart. ![CreateTerm](https://reshmeeauckloo.files.wordpress.com/2016/04/createterm.png) When the button "Create Term" is clicked, the term is created with the shared and local custom property. ![TermWithCustomProperties](https://reshmeeauckloo.files.wordpress.com/2016/04/termwithcustomproperties.png) https://gist.github.com/reshmee011/f1cbf3f9d3914a9bfcd8c70f37971ed3

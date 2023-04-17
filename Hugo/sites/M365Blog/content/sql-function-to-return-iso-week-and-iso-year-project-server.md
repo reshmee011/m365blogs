@@ -1,0 +1,8 @@
+---
+title: 'SQL Function to return ISO Week and ISO Year Project Server'
+date: Wed, 18 Nov 2015 14:40:28 +0000
+draft: false
+tags: ['Project Server', 'SQL', 'SQL Project Server', 'SSRS']
+---
+
+The table MSP\_TimeByDay  in the reporting database for on premise Project Server stores date information in day, week, year, quarter , etc.. Unfortunately the columns TimeWeekOfTheYear  and TimeYear does not store ISO week and year. The following function returns the ISO week and ISO Year of the date passed. `CREATE FUNCTION [dbo].[FN_UTILITY_ConvertToWeekDate] ( @Date datetime ) RETURNS nvarchar(255) AS BEGIN DECLARE @output nvarchar(255) SET @output = (SELECT RIGHT('00' + CAST(Q.ISOweek AS NVARCHAR(2)), 2) + '-' + CAST(CASE WHEN MONTH(@Date) = 1 AND Q.ISOweek > 50 THEN YEAR(@Date) - 1 WHEN MONTH(@Date) = 12 AND Q.ISOweek < 3 THEN YEAR(@Date) + 1 ELSE YEAR(@Date) END AS VARCHAR(4)) AS ISOweek FROM (SELECT datepart(iso_week,@Date) AS ISOweek) Q)` RETURN @output END select dbo.FN\_UTILITY\_ConvertToWeekDate ('2016-01-01') Result : 53-2015 select dbo.FN\_UTILITY\_ConvertToWeekDate ('2016-01-02') Result: 53-2015 select dbo.FN\_UTILITY\_ConvertToWeekDate ('2016-01-03') Result: 53-2015 select dbo.FN\_UTILITY\_ConvertToWeekDate ('2016-01-04') Result: 01-2016 select dbo.FN\_UTILITY\_ConvertToWeekDate ('2015-12-31') Result: 53-2015 select dbo.FN\_UTILITY\_ConvertToWeekDate ('2016-12-31') Result: 52-1016

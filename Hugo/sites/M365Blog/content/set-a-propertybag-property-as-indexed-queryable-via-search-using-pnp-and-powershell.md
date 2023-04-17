@@ -1,0 +1,8 @@
+---
+title: 'Create Indexed(Queryable via Search) Web PropertyBag using PnP and PowerShell'
+date: Thu, 01 Sep 2016 16:14:19 +0000
+draft: false
+tags: ['PnP', 'PowerShell', 'Set-SPOPropertyBagValue Search', 'SharePoint', 'SharePoint 2013', 'SharePoint Online']
+---
+
+[PropertyBag](https://msdn.microsoft.com/en-us/library/microsoft.sharepoint.spweb.allproperties.aspx) set against SharePoint web object can be indexed which means a corresponding crawled property is created by Search. If search managed properties are created against the crawled property (property bag values), custom search display templates can be created to provide a site directory solution. The post by Phil Harding [Set a PropertyBag Property as Indexed (Queryable via Search) using CSOM + Powershell](https://platinumdogs.me/2015/02/06/set-a-propertybag-property-as-indexed-queryable-via-search-using-csom-powershell/)[ ](https://platinumdogs.me/2015/02/06/set-a-propertybag-property-as-indexed-queryable-via-search-using-csom-powershell/) describes how to create an indexed property on premises using the collection "IndexedPropertyKeys". `$web.IndexedPropertyKeys.Add("MyPropertyName")` However with CSOM, the collection "IndexedPropertyKeys" is not present. Indexed property can be added to another property instead "**vti\_indexedpropertykeys".  **Phil provided the following code how to add an indexed property. https://gist.github.com/phillipharding/2e6ad1e9be8e1316e9af Fortunately with [SharePoint PnP](https://github.com/OfficeDev/PnP-PowerShell/releases), the indexed property can be added using one line of code. `Set-SPOPropertyBagValue -Key "EDRMS_Usage" -Value "Collaboration" -Indexed`

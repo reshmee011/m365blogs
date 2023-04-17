@@ -1,0 +1,8 @@
+---
+title: 'Unable to change Content Type of document in Library'
+date: Fri, 23 Dec 2016 12:45:23 +0000
+draft: false
+tags: ['Change Content Type of document', 'Delete ContentTypeId', 'SharePoint', 'SharePoint 2013']
+---
+
+I was trying to remove a content type from a document library which was associated with multiple content types. As a first action, I identified all documents tagged with the content type to be removed and tried to update them with another content type. However some documents were still showing the old content type despite saving it with the new content type by updating the \[Content Type\] field. ![contenttypecolumn](https://reshmeeauckloo.files.wordpress.com/2016/12/contenttypecolumn.png) I tried removing the document and adding the document back to the document library, unfortunately it was still referencing the old content type. The solution that worked for me was to open the document in desktop office and open the "Advanced Properties". ![advancedproperties](https://reshmeeauckloo.files.wordpress.com/2016/12/advancedproperties.png) Find and select the property ContentTypeId and click on Delete. **![contenttypeiddelete](https://reshmeeauckloo.files.wordpress.com/2016/12/contenttypeiddelete.png)** After deleting the ContentTypeId property I was able to update the content type property of the document and eventually remove the old content type from the document library.
