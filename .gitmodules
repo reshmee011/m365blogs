@@ -1,0 +1,3 @@
+[submodule "Hugo/sites/M365Blog/themes/ananke"]
+	path = Hugo/sites/M365Blog/themes/ananke
+	url = https://github.com/theNewDynamic/gohugo-theme-ananke
