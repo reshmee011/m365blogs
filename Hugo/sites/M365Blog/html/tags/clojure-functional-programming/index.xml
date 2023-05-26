@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clojure Functional Programming on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/clojure-functional-programming/</link>
+    <description>Recent content in Clojure Functional Programming on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Nov 2015 23:48:16 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/clojure-functional-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Starting with Clojure: Factorial function</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/starting-with-clojure-environment-set-up-in-windows/</link>
+      <pubDate>Sat, 28 Nov 2015 23:48:16 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/starting-with-clojure-environment-set-up-in-windows/</guid>
+      <description>My background is mainly C# with some JavaScript. I have heard a lot about functional programming languages like Clojure, F# and Scala. I decided to start learning Clojure. My first reaction after seeing a Clojure code was the syntax and layout which was unreadable to me. Clojure is a member of the Lisp family of languages. The use of parentheses is prominent. Below is some code that calculates factorial of a number in Clojure (defn fac &amp;quot;Returns factorial of n&amp;quot; [n] (if (= n 1) 1 (* n (fac (- n 1))))) Parentheses are used to structure lists and lists are building blocks of code.</description>
+    </item>
+    
+  </channel>
+</rss>

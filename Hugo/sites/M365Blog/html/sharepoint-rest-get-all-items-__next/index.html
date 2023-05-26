@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>SharePoint REST Get all items __next | m365 blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="When a REST query is run against a SharePoint list, not all items are returned if it contains more than 100 items. The default server paging is 100. It is a good practice to check the __next property of the JSON results to make sure all items are returned. Below is a code snippet running from a SharePoint hosted add-in. var url = appUrl &#43; &quot;/_api/SP.AppContextSite(@target)/Web/Lists/getByTitle(&#39;Repairs&#39;)/Items?$select=Title&amp;@target=&#39;&quot; &#43; hostUrl &#43; &quot;&#39;&quot;; jQuery.">
+    <meta name="generator" content="Hugo 0.111.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/sharepoint-rest-get-all-items-__next/index.xml" rel="alternate" type="application/rss+xml" title="m365 blog" />
+      <link href="/sharepoint-rest-get-all-items-__next/index.xml" rel="feed" type="application/rss+xml" title="m365 blog" />
+      
+    
+    
+    <meta property="og:title" content="SharePoint REST Get all items __next" />
+<meta property="og:description" content="When a REST query is run against a SharePoint list, not all items are returned if it contains more than 100 items. The default server paging is 100. It is a good practice to check the __next property of the JSON results to make sure all items are returned. Below is a code snippet running from a SharePoint hosted add-in. var url = appUrl &#43; &quot;/_api/SP.AppContextSite(@target)/Web/Lists/getByTitle(&#39;Repairs&#39;)/Items?$select=Title&amp;@target=&#39;&quot; &#43; hostUrl &#43; &quot;&#39;&quot;; jQuery." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://famous-cajeta-4dad83.netlify.app/sharepoint-rest-get-all-items-__next/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2015-12-04T00:14:41+00:00" />
+<meta property="article:modified_time" content="2015-12-04T00:14:41+00:00" />
+<meta itemprop="name" content="SharePoint REST Get all items __next">
+<meta itemprop="description" content="When a REST query is run against a SharePoint list, not all items are returned if it contains more than 100 items. The default server paging is 100. It is a good practice to check the __next property of the JSON results to make sure all items are returned. Below is a code snippet running from a SharePoint hosted add-in. var url = appUrl &#43; &quot;/_api/SP.AppContextSite(@target)/Web/Lists/getByTitle(&#39;Repairs&#39;)/Items?$select=Title&amp;@target=&#39;&quot; &#43; hostUrl &#43; &quot;&#39;&quot;; jQuery."><meta itemprop="datePublished" content="2015-12-04T00:14:41+00:00" />
+<meta itemprop="dateModified" content="2015-12-04T00:14:41+00:00" />
+<meta itemprop="wordCount" content="128">
+<meta itemprop="keywords" content="REST,SharePoint 2013,SharePoint Online," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SharePoint REST Get all items __next"/>
+<meta name="twitter:description" content="When a REST query is run against a SharePoint list, not all items are returned if it contains more than 100 items. The default server paging is 100. It is a good practice to check the __next property of the JSON results to make sure all items are returned. Below is a code snippet running from a SharePoint hosted add-in. var url = appUrl &#43; &quot;/_api/SP.AppContextSite(@target)/Web/Lists/getByTitle(&#39;Repairs&#39;)/Items?$select=Title&amp;@target=&#39;&quot; &#43; hostUrl &#43; &quot;&#39;&quot;; jQuery."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        m365 blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          SharePoint REST Get all items __next
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>When a REST query is run against a SharePoint list, not all items are returned if it contains more than 100 items. The default server paging is 100. It is a good practice to check the __next property of the JSON results to make sure all items are returned. Below is a code snippet running from a SharePoint hosted add-in. <code>var url = appUrl + &quot;/_api/SP.AppContextSite(@target)/Web/Lists/getByTitle('Repairs')/Items?$select=Title&amp;@target='&quot; + hostUrl + &quot;'&quot;; jQuery.getScript(scriptbase + &quot;SP.RequestExecutor.js&quot;, getRepairDetails); function getRepairDetails() { var executor = new SP.RequestExecutor(appUrl); executor.executeAsync( { url: url, method: &quot;GET&quot;, dataType: &quot;json&quot;, headers: { Accept: &quot;application/json;odata=verbose&quot; }, success: function (data) { var response = JSON.parse(data.body); message.append(String.format(&quot;Retrieved {0} items&quot;, response.d.results.length)); message.append(&quot;   &quot;); if (response.d.__next) { url = response.d.__next; getRepairDetails(); } }, error: function (data, errorCode, errorMessage) { alert(errorMessage); } } );</code></p>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://famous-cajeta-4dad83.netlify.app/" >
+    &copy;  m365 blog 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

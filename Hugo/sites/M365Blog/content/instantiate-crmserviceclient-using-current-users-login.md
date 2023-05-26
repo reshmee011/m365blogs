@@ -2,7 +2,7 @@
 title: 'Instantiate CRMServiceClient using current user''s login'
 date: Thu, 10 Nov 2016 18:12:33 +0000
 draft: false
-tags: ['Connection', 'CRM Dynamics 2015', 'CRMServiceClient', 'Current User's creden', 'Get-CrmConnection', 'PowerShell', 'Uncategorized']
+tags: ['Connection', 'CRM Dynamics 2015', 'CRMServiceClient', 'Current User creden', 'Get-CrmConnection', 'PowerShell', 'Uncategorized']
 ---
 
 The[Get-CrmConnection](https://technet.microsoft.com/en-us/library/dn756303.aspx) method can be used to  return connection to a CRM instance. The syntax to call the method is```

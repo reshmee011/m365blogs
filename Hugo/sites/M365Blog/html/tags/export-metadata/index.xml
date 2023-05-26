@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Export Metadata on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/export-metadata/</link>
+    <description>Recent content in Export Metadata on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Sep 2016 16:28:32 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/export-metadata/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Export Term Set from Term Store as Sample Import file CSV</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/export-term-set-from-term-store-as-sample-import-file-csv/</link>
+      <pubDate>Tue, 06 Sep 2016 16:28:32 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/export-term-set-from-term-store-as-sample-import-file-csv/</guid>
+      <description>The Managed Metadata service provides the &amp;ldquo;Import Term Set&amp;rdquo; Out of the Box. Unfortunately it does not provide the same &amp;ldquo;Export Term Set&amp;rdquo; capability. I had a requirement to export a term set to be reviewed by the business before importing the term set to another SharePoint farm. The Sample Import File has the columns &amp;ldquo;Term Set Name&amp;rdquo;,&amp;ldquo;Term Set Description&amp;rdquo;,&amp;ldquo;LCID&amp;rdquo;,&amp;ldquo;Available for Tagging&amp;rdquo;,&amp;ldquo;Term Description&amp;rdquo;,&amp;ldquo;Level 1 Term&amp;rdquo;,&amp;ldquo;Level 2 Term&amp;rdquo;,&amp;ldquo;Level 3 Term&amp;rdquo;,&amp;ldquo;Level 4 Term&amp;rdquo;,&amp;ldquo;Level 5 Term&amp;rdquo;,&amp;ldquo;Level 6 Term&amp;rdquo; and &amp;ldquo;Level 7 Term&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Filter N-N Add existing Look Up Contact Custom View CRM 2015 | m365 blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I had a requirement to add contacts where the [Account Type] is &ldquo;Lawyer&rdquo; to entity &ldquo;Case&rdquo;. I created a relationship N:N between contacts and cases. Unfortunately the filter for N-N Add Existing button on a sub grid stopped working on from version CRM 2013. It does not work on CRM 2015 on Premises as well. I stumbled upon the blog Filter N:N Add Existing Lookup Dynamics CRM 2013 how to resolve the issue using the CRM function** LookupObjectsWithCallback.">
+    <meta name="generator" content="Hugo 0.111.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/filter-n-n-add-existing-look-up-contact-custom-view-crm-2015/index.xml" rel="alternate" type="application/rss+xml" title="m365 blog" />
+      <link href="/filter-n-n-add-existing-look-up-contact-custom-view-crm-2015/index.xml" rel="feed" type="application/rss+xml" title="m365 blog" />
+      
+    
+    
+    <meta property="og:title" content="Filter N-N Add existing Look Up Contact Custom View CRM 2015" />
+<meta property="og:description" content="I had a requirement to add contacts where the [Account Type] is &ldquo;Lawyer&rdquo; to entity &ldquo;Case&rdquo;. I created a relationship N:N between contacts and cases. Unfortunately the filter for N-N Add Existing button on a sub grid stopped working on from version CRM 2013. It does not work on CRM 2015 on Premises as well. I stumbled upon the blog Filter N:N Add Existing Lookup Dynamics CRM 2013 how to resolve the issue using the CRM function** LookupObjectsWithCallback." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://famous-cajeta-4dad83.netlify.app/filter-n-n-add-existing-look-up-contact-custom-view-crm-2015/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2016-06-10T10:28:19+00:00" />
+<meta property="article:modified_time" content="2016-06-10T10:28:19+00:00" />
+<meta itemprop="name" content="Filter N-N Add existing Look Up Contact Custom View CRM 2015">
+<meta itemprop="description" content="I had a requirement to add contacts where the [Account Type] is &ldquo;Lawyer&rdquo; to entity &ldquo;Case&rdquo;. I created a relationship N:N between contacts and cases. Unfortunately the filter for N-N Add Existing button on a sub grid stopped working on from version CRM 2013. It does not work on CRM 2015 on Premises as well. I stumbled upon the blog Filter N:N Add Existing Lookup Dynamics CRM 2013 how to resolve the issue using the CRM function** LookupObjectsWithCallback."><meta itemprop="datePublished" content="2016-06-10T10:28:19+00:00" />
+<meta itemprop="dateModified" content="2016-06-10T10:28:19+00:00" />
+<meta itemprop="wordCount" content="661">
+<meta itemprop="keywords" content="CRM Dynamics 2015,Filter N-N,JavaScript,LookupObjectsWithCallback," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Filter N-N Add existing Look Up Contact Custom View CRM 2015"/>
+<meta name="twitter:description" content="I had a requirement to add contacts where the [Account Type] is &ldquo;Lawyer&rdquo; to entity &ldquo;Case&rdquo;. I created a relationship N:N between contacts and cases. Unfortunately the filter for N-N Add Existing button on a sub grid stopped working on from version CRM 2013. It does not work on CRM 2015 on Premises as well. I stumbled upon the blog Filter N:N Add Existing Lookup Dynamics CRM 2013 how to resolve the issue using the CRM function** LookupObjectsWithCallback."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        m365 blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Filter N-N Add existing Look Up Contact Custom View CRM 2015
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>I had a requirement to add contacts where the [Account Type] is &ldquo;Lawyer&rdquo; to entity &ldquo;Case&rdquo;.  I created a relationship N:N between contacts and cases. Unfortunately the filter for N-N Add Existing button on a sub grid stopped working on from version CRM 2013. It does not work on CRM 2015 on Premises as well. I stumbled upon the blog <a href="http://www.magnetismsolutions.com/blog/paulnieuwelaar/2014/04/21/filter-n-n-add-existing-lookup-dynamics-crm-2013">Filter N:N Add Existing Lookup Dynamics CRM 2013</a> how to resolve the issue using the CRM function** LookupObjectsWithCallback.** I created a view in the contacts list named &ldquo;Lawyers&rdquo; and noted down the view ID. To find the view Id, open the CRM solution which has the entity, expand entities and &ldquo;contact&rdquo;, select the view &ldquo;Lawyers&rdquo;.  Click on Arrow down next to Actions and select &ldquo;Copy a Link&rdquo;.<img src="https://reshmeeauckloo.files.wordpress.com/2016/06/findcustomviewid1.png" alt="FindCustomViewId"> The URL is in the following format. &lt;[CRM server]/[Organisation]/tools/vieweditor/viewManager.aspx?appSolutionId=%7bFD140AAF-4DF4-11DD-BD17-0019B9312238%7d&amp;id=<strong>%7b5F90BBF5-4409-E511-80CF-00155D580900%7d</strong>&gt; Decode the url encoded id parameter into a valid GUID. {5F90BBF5-4409-E511-80CF-00155D580900} I created a .js file on the file system and examined the different parameters the method &ldquo;LookupObjectsWithCallback&rdquo; accepts and reconstructed the method so as the pop up dialog</p>
+<ol>
+<li>Allows selection of contact(s) from  only  Lawyers view</li>
+<li>Hides the New Button</li>
+<li>Hides other contact views</li>
+<li>Allows search of  contacts from  only  Lawyers view</li>
+</ol>
+<p>The method &ldquo;LookupObjectsWithCallback&rdquo; can accept up to 25 parameters which are optional and position of the relevant parameter needs to be determined to update behaviour of dialog to select contact. <code>//filters an add existing lookup view (N:N) function addExistingFromSubGridCustom(gridTypeCode, gridControl, context) { var viewId = &quot;{5F90BBF5-4409-E511-80CF-00155D580900}&quot;;//Lawyers var relName = gridControl.GetParameter(&quot;relName&quot;); var roleOrd = gridControl.GetParameter(&quot;roleOrd&quot;); /* LookupObjectsWithCallback(callbackReference, lookupField, lookupStyle, // &quot;single&quot; or &quot;multi&quot; lookupTypes, lookupBrowse, bindingColumns, additionalParams, showNew, // &quot;0&quot; or &quot;1&quot; showProp, bPopulateLookup, defaultType searchString, dataProviderOverride, defaultViewId, customViews, filterRelationshipId, rId, rType, rDependAttr, allowFilterOff, disableQuickFind, disableViewPicker, viewsIds, additionalFetchFilter, additionalFetchFilterTypes ); */ //pops the lookup window with our view injected var parent = GetParentObject(null, 0); var parameters = [gridTypeCode, &quot;&quot;, relName, roleOrd, parent]; var callbackRef = Mscrm.Utilities.createCallbackFunctionObject(&quot;locAssocObjAction&quot;, context, parameters, false); //Hide New Button, display only one view to pick up records, keep showing search button LookupObjectsWithCallback(callbackRef, null, &quot;multi&quot;, gridTypeCode, null, null, &quot;&quot;, **&quot;0&quot;**, null, 0, null, null, null, **viewId**, null, null, null, null, null, null, null, null, **viewId**); } //filters the Contact N:N lookup view from Case to show only Lawyers!! function filterAddExistingContact(gridTypeCode, gridControl, primaryEntity) { if (primaryEntity != &quot;case&quot;) { Mscrm.GridRibbonActions.addExistingFromSubGridAssociated(gridTypeCode, gridControl); //default button click function return; } addExistingFromSubGridCustom(gridTypeCode, gridControl, this ); }</code> I uploaded the js file to the web resources of the CRM solution having the entities (including contact) and application ribbon . I downloaded <a href="http://www.develop1.net/public/Download%20Ribbon%20Workbench%202013.aspx">RibbonWorkbench2013 version 2.0.1.3</a> to update the  behaviour of &ldquo;Add Existing&rdquo; button on the Contact Entity Sub Grid.</p>
+<ul>
+<li>Open the Ribbon Workbench and select the CRM solution(s) containing the .js file, application ribbon and entities. Ensure no one else is modifying the CRM solution as their changes will be  lost when the ribbon workbench updates the solution.</li>
+<li>When the solution is loaded into RibbonWorkbench, select entity contact.</li>
+<li>Take an unmanaged backup of the CRM solutionin case roll back is required</li>
+<li>Under the SubGrid section, there are two &ldquo;Add Existing&rdquo; buttons, one for N:N and one for 1:N. The N:N (Mscrm.SubGrid.contact.AddExistingAssoc) is the second one. Right-Click on the second &ldquo;Add Exiting&rdquo; button and click on &ldquo;Customize Command&rdquo;</li>
+<li>Expand &ldquo;Commands&rdquo; in the &ldquo;Solution Elements&rdquo;.</li>
+<li>Select command  ‘Mscrm.AddExistingRecordFromSubGridAssociated’. In the &ldquo;Properties: Command Action&rdquo;  , replace the current FunctionName with the new function from your web resource (in the example code above, it&rsquo;s the second function: filterAddExistingContact), and change the Library to the web resource. The parameter &quot; PrimaryEntityTypeName&quot; needs to be added to the list of Parameters.</li>
+</ul>
+<p><img src="https://reshmeeauckloo.files.wordpress.com/2016/06/amendribbonsubgrid3.png" alt="AmendRibbonSubGrid"></p>
+<ul>
+<li>Click on Publish from the solution and solution will be reimported with the changes.</li>
+</ul>
+<p><img src="https://reshmeeauckloo.files.wordpress.com/2016/06/onlyonecustomviewforcontact3.png" alt="OnlyOneCustomViewForContact"> Navigate to the case entity form having the contacts sub grid to check whether only lawyers are displayed with no &ldquo;New&rdquo; button. When contacts Add Existing button for N:N relationships is clicked, the custom function displays only the Lawyers view. <strong>Note</strong>: Filtering the Add Existing view using the method <strong>LookupObjectsWithCallback</strong> is unspported. It might break in the next release.</p>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://famous-cajeta-4dad83.netlify.app/" >
+    &copy;  m365 blog 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

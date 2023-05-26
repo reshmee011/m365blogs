@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rebuild and Reorganize indexes on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/rebuild-and-reorganize-indexes/</link>
+    <description>Recent content in Rebuild and Reorganize indexes on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Mar 2017 09:55:26 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/rebuild-and-reorganize-indexes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rebuild and Reorganize indexes on all tables in MS database</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/rebuild-and-reorganize-indexes-on-all-tables-in-ms-database/</link>
+      <pubDate>Tue, 14 Mar 2017 09:55:26 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/rebuild-and-reorganize-indexes-on-all-tables-in-ms-database/</guid>
+      <description>As part of database maintenance, indexes on databases have to be rebuilt or reorganised depending on how fragmented the indexes are. From the article Reorganize and Rebuild Indexes, the advice is to reorganise index if avg_fragmentation_in_percent value is between 5 and 30 and to rebuild index if it is more than 30%. The script below queries all fragmented indexes more than 5 percent and using a cursor a loop is performed on the results to rebuild or reorganise indexes depending on the percentage of fragmentation using dynamic SQL, i.</description>
+    </item>
+    
+  </channel>
+</rss>

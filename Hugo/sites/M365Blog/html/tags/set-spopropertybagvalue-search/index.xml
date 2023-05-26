@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Set-SPOPropertyBagValue Search on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/set-spopropertybagvalue-search/</link>
+    <description>Recent content in Set-SPOPropertyBagValue Search on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Sep 2016 16:14:19 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/set-spopropertybagvalue-search/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create Indexed(Queryable via Search) Web PropertyBag using PnP and PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/set-a-propertybag-property-as-indexed-queryable-via-search-using-pnp-and-powershell/</link>
+      <pubDate>Thu, 01 Sep 2016 16:14:19 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/set-a-propertybag-property-as-indexed-queryable-via-search-using-pnp-and-powershell/</guid>
+      <description>PropertyBag set against SharePoint web object can be indexed which means a corresponding crawled property is created by Search. If search managed properties are created against the crawled property (property bag values), custom search display templates can be created to provide a site directory solution. The post by Phil Harding Set a PropertyBag Property as Indexed (Queryable via Search) using CSOM + Powershell describes how to create an indexed property on premises using the collection &amp;ldquo;IndexedPropertyKeys&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

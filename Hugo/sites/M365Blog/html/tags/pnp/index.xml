@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PnP on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/pnp/</link>
+    <description>Recent content in PnP on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Sep 2021 09:09:39 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/pnp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PnP Batch Add /Delete 300k items from a SharePoint Online list</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/pnp-batch-add-delete-300k-items-from-a-sharepoint-online-list/</link>
+      <pubDate>Sun, 12 Sep 2021 09:09:39 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/pnp-batch-add-delete-300k-items-from-a-sharepoint-online-list/</guid>
+      <description>I was tasked to delete more 300k items from a SharePoint list generated as part of testing. I tried the script https://vladilen.com/office-365/spo/fastest-way-to-delete-all-items-in-a-large-list/
+Get-PnPListItem -List $list -Fields &amp;#34;ID&amp;#34; -PageSize 100 -ScriptBlock { Param($items) $items | Sort-Object -Property Id -Descending | ForEach-Object{ $\_.DeleteObject() } } However the script kept failing at irregular intervals with exception messages like &amp;ldquo;A task was cancelled&amp;rdquo;, &amp;ldquo;The collection has not been initialised&amp;rdquo; and &amp;ldquo;operation time out&amp;rdquo;. It was a long processing task which I need to keep monitoring and resumed the script manually to continue the deletion many times to my dismay.</description>
+    </item>
+    
+    <item>
+      <title>Converting taxonomy field into cascading drop down fields using PnP Branding.JsLink</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/converting-taxonomy-field-into-cascading-drop-down-fields-using-pnp-branding-jslink-comments/</link>
+      <pubDate>Thu, 04 May 2017 16:23:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/converting-taxonomy-field-into-cascading-drop-down-fields-using-pnp-branding-jslink-comments/</guid>
+      <description>Arul Britto Kumar - Nov 4, 2017
+Hi Mr.Jozsef, Is it possible use multiple manage metadata fileds? because I have 3 manage metadata columns
+Hi reshmee Is it possible to see how you have created the list Is documnettype a list I can’t seem to get it working</description>
+    </item>
+    
+    <item>
+      <title>Converting taxonomy field into cascading drop down fields using PnP Branding.JsLink</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/converting-taxonomy-field-into-cascading-drop-down-fields-using-pnp-branding-jslink/</link>
+      <pubDate>Thu, 04 May 2017 16:23:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/converting-taxonomy-field-into-cascading-drop-down-fields-using-pnp-branding-jslink/</guid>
+      <description>Managed metadata fields don&amp;rsquo;t provide the same look and feel as choice field type. It is quick clunky specially when there are a lot of terms displayed. The requirement cropped up to display the managed metadata fields as drop downs. After googling for a while, stumbled on PnP sample Branding.JSLink solution which had an example how to achieve it. The solution is a no code sandboxed solution with different examples how to enrich fields.</description>
+    </item>
+    
+    <item>
+      <title>Using PnP PowerShell to export and import Taxonomy</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/using-pnp-powershell-to-export-and-import-taxonomy/</link>
+      <pubDate>Wed, 02 Nov 2016 20:43:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/using-pnp-powershell-to-export-and-import-taxonomy/</guid>
+      <description>PnP provides export taxonomy cmdlet which allows to export all term groups, term sets, terms and child terms to a file with one line of codeConnect-SPOnline -Url &amp;lt;siteurl&amp;gt; -CurrentCredentials Export-SPOTaxonomy -IncludeID -Path &amp;quot;C:\\temp\\Metadata\\terms.txt&amp;quot;PnP also provides an equivalent import taxonomy cmdlet to import all term groups, term sets, terms and child terms from a file with one line of codeConnect-SPOnline -Url &amp;lt;siteurl&amp;gt; -CurrentCredentials Import-SPOTaxonomy -Path &amp;quot;C:\\temp\\Metadata\\terms.txt&amp;quot;However if IncludeId switch parameter is used with the export, the import would fail if the October 2016 PnP PowerShell release is used.</description>
+    </item>
+    
+    <item>
+      <title>Export Lists Schema to XML using CSOM and PnP</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/export-lists-schema-to-xml-using-csom-and-pnp-comments/</link>
+      <pubDate>Sat, 22 Oct 2016 09:36:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/export-lists-schema-to-xml-using-csom-and-pnp-comments/</guid>
+      <description>Create Lists Libraries from Schema as XML using CSOM | reshmeeauckloo - Oct 6, 2016
+[…] ← Export Lists Schema to XML using CSOM and PnP […]</description>
+    </item>
+    
+    <item>
+      <title>Export Lists Schema to XML using CSOM and PnP</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/export-lists-schema-to-xml-using-csom-and-pnp/</link>
+      <pubDate>Sat, 22 Oct 2016 09:36:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/export-lists-schema-to-xml-using-csom-and-pnp/</guid>
+      <description>I had to automate deployment of lists and libraries into different environments, e.g. on premises and online. There are different elements to consider when deploying lists or libraries namely - List Properties - List Content Types - Views - Fields I could have written a configuration file in xml manually to specify the details above. Instead I have decided to configure lists and libraries from a SharePoint 2013 On Premises Dev environment and export the list schemaXML property to a XML file.</description>
+    </item>
+    
+    <item>
+      <title>Provision Search Navigation Settings PnP PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/provision-search-navigation-settings-pnp-powershell/</link>
+      <pubDate>Fri, 30 Sep 2016 16:51:24 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/provision-search-navigation-settings-pnp-powershell/</guid>
+      <description>I was investigating ways how to provision a search centre site with all the configurations automatically. I tried to package all configurations from an already configured Search Centre using &amp;ldquo;Save site as template&amp;rdquo;, however it did not work as Publishing Features are activated in a Search Centre. There are different configuration elements in a search centre site
+Search Navigation Settings Custom Search Display Templates Custom Search Results Pages which can be created using the function Add-PublishingPage Configure web parts in the search results page Refinement WebPart Search Results WebPart This blog post focuses on updating the Search Navigation Settings.</description>
+    </item>
+    
+    <item>
+      <title>Create Indexed(Queryable via Search) Web PropertyBag using PnP and PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/set-a-propertybag-property-as-indexed-queryable-via-search-using-pnp-and-powershell/</link>
+      <pubDate>Thu, 01 Sep 2016 16:14:19 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/set-a-propertybag-property-as-indexed-queryable-via-search-using-pnp-and-powershell/</guid>
+      <description>PropertyBag set against SharePoint web object can be indexed which means a corresponding crawled property is created by Search. If search managed properties are created against the crawled property (property bag values), custom search display templates can be created to provide a site directory solution. The post by Phil Harding Set a PropertyBag Property as Indexed (Queryable via Search) using CSOM + Powershell describes how to create an indexed property on premises using the collection &amp;ldquo;IndexedPropertyKeys&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Metalogix Import From FileShare To SharePoint - Extract Folder Name from FilePath using CSOM PnP</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/metalogix-import-from-fileshare-to-sharepoint-extract-folder-name-from-filepath-using-csom-pnp/</link>
+      <pubDate>Fri, 26 Aug 2016 21:05:05 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/metalogix-import-from-fileshare-to-sharepoint-extract-folder-name-from-filepath-using-csom-pnp/</guid>
+      <description>I was evaluating the Metalogix tool for Migration from fileshare to SharePoint. The file share edition needs to be selected while installing the Metalogix content matrix tool. The good news is that it can fulfil the following requirements:
+Migrate files recursively from within folders , i.e. flatten folder Replace illegal characters with character specified Handle duplicate by either overwriting file or not moving file The CreatedBy, CreatedDate, ModifedBy and ModifiedDate file properties can be maintained by mapping these properties to SharePoint respective Out of the Box columns Can apply custom filter on the following Created Before Created After Modified Before Modified After File Size Max Can migrate user permission as set on the folder/file from fileShare to SharePoint, however I could not find option how to map to SharePoint Groups.</description>
+    </item>
+    
+    <item>
+      <title>Import/Export Columns and Content Types using PnP PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/importexport-columns-and-content-types-sharepointpnp2016powershell-powershell-comments/</link>
+      <pubDate>Fri, 24 Jun 2016 11:52:05 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/importexport-columns-and-content-types-sharepointpnp2016powershell-powershell-comments/</guid>
+      <description>reshmee011 - Oct 4, 2017
+I will update the scripts at some point. Thanks for the comment.
+The Imported TaxonomyFields seems not working, because of missing the second Taxonomy-Note-Field. I always get &amp;ldquo;The SPListItem being updated was not retrieved with all taxonomy fields&amp;rdquo; in Edit-Form of the imported Managed Metadata Columns. I have observed this. http://blog.bugrapostaci.com/2015/07/03/the-splistitem-being-updated-was-not-retrieved-with-all-taxonomy-fields/
+Actually you must use the new PnP-PowerShell-Namespace in the PowerShell-Commands. Example: Connect-PnPOnline instead of Connect-SPOnline and so on&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Import/Export Columns and Content Types using PnP PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/importexport-columns-and-content-types-sharepointpnp2016powershell-powershell/</link>
+      <pubDate>Fri, 24 Jun 2016 11:52:05 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/importexport-columns-and-content-types-sharepointpnp2016powershell-powershell/</guid>
+      <description>It is useful to migrate Site Columns and Content Types from one Site Collection to another under the following scenarios maintaining the original GUIDS.
+SharePoint On Premise environment to SharePoint Online Within SharePoint Online, migrate to another tenant If Content Hub Feature is not used, migrate the contents to another site collection Keep a list for governance/change tracking purpose, i.e. checking in TFS This article covers export/import of site columns and content types using SharePointPnP2016PowerShell commands which needs to be installed to be able to use the relevant commands.</description>
+    </item>
+    
+  </channel>
+</rss>

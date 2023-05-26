@@ -2,7 +2,7 @@
 title: 'Create Virtual Machine(VM) in Azure throws "Long running operation failed with status ''Failed''." through PowerShell'
 date: Fri, 18 Nov 2016 17:25:22 +0000
 draft: false
-tags: ['Azure', 'Create Virtual Machine in Azure', 'Long running operation failed with status 'Failed', 'New-AzureRMVM', 'PowerShell', 'SharePoint 2016', 'Virtual Machine', 'VM 'adVM' has not reported status for VM agent or extensions. Please verify the VM has a running VM agent, and can establish outbound connections to Azure storage']
+tags: ['Azure', 'Create Virtual Machine in Azure', 'Long running operation failed with status Failed', 'New-AzureRMVM', 'PowerShell', 'SharePoint 2016', 'Virtual Machine']
 ---
 
 I was following the article [SharePoint Server 2016 dev/test environment in Azure](https://technet.microsoft.com/library/mt723354.aspx) to create a SharePoint Server 2016 environment in Azure. I reached the step to create the Virtual Machine that will be used as the domain controller using the cmdlet below```

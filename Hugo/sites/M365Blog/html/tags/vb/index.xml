@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VB on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/vb/</link>
+    <description>Recent content in VB on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 27 Oct 2015 09:05:02 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/vb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stripping HTML tags from SSRS text fields</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/stripping-html-tags-from-ssrs-text-fields-comments/</link>
+      <pubDate>Tue, 27 Oct 2015 09:05:02 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/stripping-html-tags-from-ssrs-text-fields-comments/</guid>
+      <description>TimK - Jun 4, 2017
+Appreciate the code. One question; Why is this required? Dim objRegExp AS NEW System.Text.RegularExpressions.Regex( “”) and RETURN objRegExp.Replace(sInput, “”) Wouldn’t a simple return of sInput suffice? What am I missing here? Been racking my brain for hours. Thanks!
+Hi TimK The HTML text I had to work with had encoded characters , for example &amp;ldquo;&amp;amp;&amp;rdquo; instead of &amp;ldquo;&amp;amp;&amp;rdquo;. The regex expression will remove all HTML tags but for my requirements, I wanted to preserve line breaks () , so I am handling these tags individually to be replaced with line feed (chr(10)).</description>
+    </item>
+    
+    <item>
+      <title>Stripping HTML tags from SSRS text fields</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/stripping-html-tags-from-ssrs-text-fields/</link>
+      <pubDate>Tue, 27 Oct 2015 09:05:02 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/stripping-html-tags-from-ssrs-text-fields/</guid>
+      <description>I have worked extensively with SSRS. One of the common requirements is to strip HTML from text values displayed in reports and apply standard formatting to the text. HTML have many encoded characters which end users don&amp;rsquo;t want to see. The function below replaces encoded characters to the correct string http://www.w3schools.com/tags/ref_urlencode.asp The requirement was to add a carriage return whenever a &amp;ldquo;&amp;rdquo; is found. Because in some text the &amp;ldquo;&amp;rdquo; was &amp;ldquo;&amp;rdquo; and &amp;ldquo;&amp;rdquo;, additional code has been added to cater for them.</description>
+    </item>
+    
+  </channel>
+</rss>

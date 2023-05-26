@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQLcmd on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/sqlcmd/</link>
+    <description>Recent content in SQLcmd on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Mar 2017 22:39:41 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/sqlcmd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL script batch execution using sqlcmd in PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sql-script-batch-execution-using-sqlcmd-in-powershell-comments/</link>
+      <pubDate>Wed, 08 Mar 2017 22:39:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sql-script-batch-execution-using-sqlcmd-in-powershell-comments/</guid>
+      <description>reshmee011 - May 1, 2017
+Definitely you can without a manifest file. If you want the scripts to run in some order, you can append a numerical number to the script file. Let me know if you need a sample code.
+This example is great. Really helped me understand a few more things about PowerShell. But is it possible to do the same thing without using a manifest file (i.</description>
+    </item>
+    
+    <item>
+      <title>SQL script batch execution using sqlcmd in PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sql-script-batch-execution-using-sqlcmd-in-powershell/</link>
+      <pubDate>Wed, 08 Mar 2017 22:39:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sql-script-batch-execution-using-sqlcmd-in-powershell/</guid>
+      <description>There is often a mismatch between needs of the development team (multiple discreet T-SQL files for separate concerns) and the release team (the requirement for one step automated deployment) . The script bridges the requirement by using sqlcmd.exe to run a batch of SQL scripts. A text file is used listing all sql files that need to run in a particular order to avoid errors which may occur if there are dependencies between the scripts.</description>
+    </item>
+    
+  </channel>
+</rss>

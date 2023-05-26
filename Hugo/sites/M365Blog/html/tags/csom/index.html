@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>CSOM | m365 blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.111.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/csom/index.xml" rel="alternate" type="application/rss+xml" title="m365 blog" />
+      <link href="/tags/csom/index.xml" rel="feed" type="application/rss+xml" title="m365 blog" />
+      
+    
+    
+    <meta property="og:title" content="CSOM" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://famous-cajeta-4dad83.netlify.app/tags/csom/" />
+<meta itemprop="name" content="CSOM">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CSOM"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        m365 blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          CSOM
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “CSOM”</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/using-pnp-powershell-to-export-and-import-taxonomy/" class="link black dim">
+        Using PnP PowerShell to export and import Taxonomy
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      PnP provides export taxonomy cmdlet which allows to export all term groups, term sets, terms and child terms to a file with one line of codeConnect-SPOnline -Url &lt;siteurl&gt; -CurrentCredentials Export-SPOTaxonomy -IncludeID -Path &quot;C:\\temp\\Metadata\\terms.txt&quot;PnP also provides an equivalent import taxonomy cmdlet to import all term groups, term sets, terms and child terms from a file with one line of codeConnect-SPOnline -Url &lt;siteurl&gt; -CurrentCredentials Import-SPOTaxonomy -Path &quot;C:\\temp\\Metadata\\terms.txt&quot;However if IncludeId switch parameter is used with the export, the import would fail if the October 2016 PnP PowerShell release is used.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/instantiate-sharepoint-client-context-using-current-user-credentials-in-powershell-comments/" class="link black dim">
+        Instantiate SharePoint Client Context using current user credentials in PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      M - Oct 2, 2017
+The PnP cmdlets have been updated&hellip; Connect-SPOnline -Url “http://dev-sp-001a:1214/Teams/Legal” -CurrentCredentials $ctx= Get-SPOContext Should now be: Connect-PnPOnline -Url “http://dev-sp-001a:1214/Teams/Legal” $ctx= Get-PnPContext Thanks for posting!
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/instantiate-sharepoint-client-context-using-current-user-credentials-in-powershell/" class="link black dim">
+        Instantiate SharePoint Client Context using current user credentials in PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      In C# managed code, SharePoint Client Context can be created using System.Net.CredentialCache to pass logged in user credentials.ICredentials credentials = CredentialCache.DefaultCredentials; clientContext.Credentials = credentials;I could not find anywhere how to achieve it in PowerShell. If using PnP PowerShell module, the switch parameter CurrentCredentials can be used with the cmdlet Connect-Online.Connect-SPOnline -Url “http://dev-sp-001a:1214/Teams/Legal” -CurrentCredentials $ctx= Get-SPOContextIn most of my CSOM code without use of PnP I used to get current user name using [Environment]::UserName[Environment]::UserNameI used to prompt the current user to enter password$AdminPassword = Read-Host &quot;Enter password: &quot; -AsSecureStringLately I discovered I could use system.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/create-lists-libraries-from-schema-as-xml-using-csom-comments/" class="link black dim">
+        Create Lists Libraries from Schema as XML using CSOM
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Export Lists Schema to XML using CSOM and PnP | reshmeeauckloo - Oct 6, 2016
+[…] To create lists/libraries using the XML config file, refer to post Create Lists Libraries from Schema as XML using CSOM […]
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/create-lists-libraries-from-schema-as-xml-using-csom/" class="link black dim">
+        Create Lists Libraries from Schema as XML using CSOM
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Following on my article Export List Schema XML to a configuration file, I went on to create lists and libraries with same metadata on a new SharePoint environment. Although CSOM allows to create a list by update the property SchemaXML using CSOM iterating through the list schema in the config file. However I kept getting &ldquo;Invalid list template&rdquo;. The exported list&rsquo;s Schema XML needs to be modified to remove unnecessary tags so as it can be used to update property SchemaXML as per article &ldquo;How to create List and libraries with CustomSchemaXml property using SchemaXml with CSOM in SharePoint online2010?
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/export-lists-schema-to-xml-using-csom-and-pnp-comments/" class="link black dim">
+        Export Lists Schema to XML using CSOM and PnP
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Create Lists Libraries from Schema as XML using CSOM | reshmeeauckloo - Oct 6, 2016
+[…] ← Export Lists Schema to XML using CSOM and PnP […]
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/export-lists-schema-to-xml-using-csom-and-pnp/" class="link black dim">
+        Export Lists Schema to XML using CSOM and PnP
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      I had to automate deployment of lists and libraries into different environments, e.g. on premises and online. There are different elements to consider when deploying lists or libraries namely - List Properties - List Content Types - Views - Fields I could have written a configuration file in xml manually to specify the details above. Instead I have decided to configure lists and libraries from a SharePoint 2013 On Premises Dev environment and export the list schemaXML property to a XML file.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/update-search-result-web-part-query-text-and-result-source/" class="link black dim">
+        Update Search Result Web Part: Query Text and Result Source
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      I had to automate update of result source and query of a search result web part in a search page as part of deployment script to move changes from DEV to TEST, UAT and PROD. The XML definition of a search result web part is Cannot import this Web Part. 4 True advanced.aspx True False True True True null False True [&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Group_Default.js&quot;,&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Default.js&quot;,&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Site.js&quot;,&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Word.js&quot;,&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_PowerPoint.js&quot;,&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Person_CompactHorizontal.js&quot;,&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_BestBet.js&quot;,&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_WebPage.js&quot;] 10 True True False True True Modeless Search Results True 1 True False ~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_CommonItem_Body.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/add-refiner-to-refinement-web-part-comments/" class="link black dim">
+        Add Refiner to Refinement Web Part using CSOM and PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Update Search Result Web Part: Query Text and Result Source | reshmeeauckloo - Oct 6, 2016
+[…] ← Add Refiner to Refinement Web Part using CSOM and PowerShell […]
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/add-refiner-to-refinement-web-part/" class="link black dim">
+        Add Refiner to Refinement Web Part using CSOM and PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The refinement web part present by default on a search results page help to narrow down search results. The inter connected web parts present in a search result page are
+Search Box Web Part Search Navigation Search Results Refinement Web Part The refinement web part used refiners which are managed properties bound to crawled properties created by search crawl. The managed properties must be enabled as refiners to be able to use on the web part.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/create-default-groups-using-csom-and-powershell-after-creating-site-collections-via-script/" class="link black dim">
+        Create default groups using CSOM and PowerShell after creating site collections via script
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Whenever a site collection is created using PowerShell, the default security groups (visitors, owners and members) are not provisioned. When site collection is created via browser an additional method call is made to create the security groups which is not called while using PowerShell.
+The following scripts will help create the default groups.
+https://gist.github.com/reshmee011/7c4ac90cb3038d16fa1448f4c5678896 Call method CreateWebDefaultGroup passing the parameters context(clientcontext) and UniquePermissions(bool) CreateWebDefaultGroup -Context $ctx -UniquePermissions $false
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/export-term-set-from-term-store-as-sample-import-file-csv/" class="link black dim">
+        Export Term Set from Term Store as Sample Import file CSV
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The Managed Metadata service provides the &ldquo;Import Term Set&rdquo; Out of the Box. Unfortunately it does not provide the same &ldquo;Export Term Set&rdquo; capability. I had a requirement to export a term set to be reviewed by the business before importing the term set to another SharePoint farm. The Sample Import File has the columns &ldquo;Term Set Name&rdquo;,&ldquo;Term Set Description&rdquo;,&ldquo;LCID&rdquo;,&ldquo;Available for Tagging&rdquo;,&ldquo;Term Description&rdquo;,&ldquo;Level 1 Term&rdquo;,&ldquo;Level 2 Term&rdquo;,&ldquo;Level 3 Term&rdquo;,&ldquo;Level 4 Term&rdquo;,&ldquo;Level 5 Term&rdquo;,&ldquo;Level 6 Term&rdquo; and &ldquo;Level 7 Term&rdquo;.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/apply-theme-and-create-composed-look-csom-and-powershell/" class="link black dim">
+        Apply Theme and Create Composed Look CSOM and PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      There are several ways a theme can be applied to a SharePoint site. I tried the PnP command SetSPOTheme as follows on SharePoint 2013 On Premises instance. Set-SPOTheme -ColorPaletteUrl $PathThemeColor -FontSchemeUrl $PathThemeFont Unfortunately I was getting message &lsquo;Field or property &ldquo;AlternateCssUrl&rdquo; does not exist.&rsquo; The error is due not having latest patch installed. Unfortunately the latest SharePoint CU can&rsquo;t be installed as we have heavily customised legacy applications migrated from SharePoint 2007 and SharePoint 2010 running in compatibility mode.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/metalogix-import-from-fileshare-to-sharepoint-extract-folder-name-from-filepath-using-csom-pnp/" class="link black dim">
+        Metalogix Import From FileShare To SharePoint - Extract Folder Name from FilePath using CSOM PnP
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      I was evaluating the Metalogix tool for Migration from fileshare to SharePoint. The file share edition needs to be selected while installing the Metalogix content matrix tool. The good news is that it can fulfil the following requirements:
+Migrate files recursively from within folders , i.e. flatten folder Replace illegal characters with character specified Handle duplicate by either overwriting file or not moving file The CreatedBy, CreatedDate, ModifedBy and ModifiedDate file properties can be maintained by mapping these properties to SharePoint respective Out of the Box columns Can apply custom filter on the following Created Before Created After Modified Before Modified After File Size Max Can migrate user permission as set on the folder/file from fileShare to SharePoint, however I could not find option how to map to SharePoint Groups.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/update-choice-field-values-using-csom-in-powershell-comments/" class="link black dim">
+        Update Choice Field values using CSOM in PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Chris O&rsquo;Connor - Oct 5, 2017
+Thanks !! This was an awesome tip - and works in SharePoint Online. I have an &ldquo;Events&rdquo; list to clear out - and just add PUBLIC + PRIVATE. This technique worked great - thanks again. :-)
+http://veerainduvasi.blogspot.co.uk/2017/01/update-exisiting-choice-column-options.html
+Awesome! AND timely! Two questions: Will this work against a Sharepoint Online doc library with more than 5000 items? Can this alter an existing choice value as well as adding a new one?
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/update-choice-field-values-using-csom-in-powershell/" class="link black dim">
+        Update Choice Field values using CSOM in PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      I wanted a CSOM script in PowerShell to add a new value to a choice field in SharePoint. Most of the examples I found were in CSOM Managed Code (C#) but could not find anything in PowerShell. I came up with the embedded code. The client assemblies are referenced
+SharePoint Assemblies\Microsoft.SharePoint.Client.dll SharePoint Assemblies\Microsoft.SharePoint.Client.Runtime.dll I have created the function Add-ChoiceValueToField to contain the logic to add a value to a choice field.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/csom-query-all-unique-permissions/" class="link black dim">
+        CSOM in PowerShell Query All Unique Permissions
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      I was looking for a script to export all unique permissions/broken permissions for sites, lists or document libraries and Pages items.From a quick Google search, I stumbled upon SharePoint 2010: Export All Unique Permissions from Site Collection using PowerShell. The script would have worked on SharePoint 2013 given it was run directly from the SharePoint server using Server Side Code. I was site collection administrator without access to any SharePoint Servers.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/jsom-sharepoint-online-create-term-with-custom-shared-and-local-properties/" class="link black dim">
+        JSOM SharePoint Online Create Term with custom shared and local properties
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The sp.Taxonomy.js can be used to create a term in the taxonomy store. I wanted to create Shared Custom properties on the term. However the JavaScript library on MSDN mentions only the method setLocalCustomProperty which creates or updates a local custom property. The SetCustomProperty is mentioned in MSDN to use in CSOM managed code to create or update shared custom property on a term. There is a lack of documentation how to use the method in JSOM.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/sharepoint-jsom-to-update-document-id-settings/" class="link black dim">
+        SharePoint JSOM to update Document ID Settings
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The Document ID Service feature is useful to tag unique Id to documents across site collection to make it easier to retrieve. A prefix can be specified to use when the unique Id is generated. The document id settings is stored in the web property bag &ldquo;docid_settings_ui&rdquo; after the feature the activated. The web property bag can be updated using JSOM to assign a prefix with XML snippet like below. var docIdValue = &lsquo; &rsquo; + docIDPrefix + &lsquo; true&rsquo; webProperties.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/sharepoint-2013-how-to-increase-the-file-upload-limit-for-csom-from-2-mb-to-20-mb-comments/" class="link black dim">
+        SharePoint 2013: How to increase the file upload limit for CSOM from 2 Mb to 20 Mb
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      FLEURY Romain (@radjkill) - Mar 2, 2016
+Great !!
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/sharepoint-2013-how-to-increase-the-file-upload-limit-for-csom-from-2-mb-to-20-mb/" class="link black dim">
+        SharePoint 2013: How to increase the file upload limit for CSOM from 2 Mb to 20 Mb
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      In SharePoint 2013, the default file size limit set in Central Administration is for uploading single file manually in SharePoint libraries or using server side code. When I was trying to upload a file more than 2 MB using CSOM, the following error was thrown The request message is too large. The server does not allow messages that are larger than 2097152 bytes. I tried the fix mentioned in the post http://sharepoint.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/csom-sharepoint-update-created-field-of-infopath-file-in-document-library/" class="link black dim">
+        CSOM SharePoint Update Created Field of InfoPath file in Document Library
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      While doing a bulk import of InfoPath documents into document library using a CSV file the &ldquo;Created&rdquo; list out of the box date field is set to today&rsquo;s date and time. The &ldquo;Created&rdquo; date needed to be set to another date property &ldquo;Date Raised&rdquo;. The InfoPath form can be uploaded following the steps described in the post https://reshmeeauckloo.wordpress.com/2015/11/26/programmatically-create-infopath-form-using-csom-sharepoint-2010/ The InfoPath item can be retrieved specifying the URL of the file and field &ldquo;Created&rdquo; set to another date.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/sharepoint-2013-csom-rest-web-proxy-comments/" class="link black dim">
+        SharePoint 2013/Online CSOM REST Web Proxy
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      parthrawal - Jun 5, 2016
+can you please share the code for POST method!? i have currently JS in content editor webpart and want to use the same. can i!?
+Could you please share code snippet for post data
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/sharepoint-2013-csom-rest-web-proxy/" class="link black dim">
+        SharePoint 2013/Online CSOM REST Web Proxy
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Web Proxy SP.WebProxy is used to make requests to external services by SharePoint. SharePoint Add-ins must register target site as remote endpoint in app manifest. If the URL is http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json, the endpoint is http://services.odata.org. However the response size must not exceed 200 kb. CSOM var context = SP.ClientContext.get_current(); var request = new SP.WebRequestInfo(); request.set_url(&quot;http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json&quot;); request.set_method(&quot;GET&quot;); var response = SP.WebProxy.invoke(context,request); context.executeQueryAsync(success, fail); function success(){ if(response.get_statusCode() == 200 { var data = JSON.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/programmatically-create-infopath-form-using-csom-sharepoint-2010-comments/" class="link black dim">
+        Programmatically create InfoPath form using CSOM SharePoint 2010
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      CSOM SharePoint Update Created Field of InfoPath file in Document Library | reshmeeauckloo - Dec 3, 2015
+[…] https://reshmeeauckloo.wordpress.com/2015/11/26/programmatically-create-infopath-form-using-csom-sha… […]
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/programmatically-create-infopath-form-using-csom-sharepoint-2010/" class="link black dim">
+        Programmatically create InfoPath form using CSOM SharePoint 2010
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The blog posts below describe how to create InfoPath form instance using server side code and the class InfopathFormGrocker http://platinumdogs.me/2010/09/02/sharepoint-programmatically-creating-infopath-form-instance-documents-part-2-of-2/ http://platinumdogs.me/2010/07/28/sharepoint-programmatically-creating-infopath-form-instance-documents-1-of-2/ To use CSOM the application has to be modified as follows 1. Add the following assemblies Microsoft.SharePoint.Client.dll Microsoft.SharePoint.Runtime.dll 2. Get the InfoPath file from the content type var clientContext = new ClientContext(siteUrl); var list = clientContext.Web.Lists.GetByTitle(listName); //get list level content type using ContentTypeExtensions var listContentType = clientContext.Web.Lists.GetByTitle(listName).ContentTypes.GetByName(listContentTypeName); var fileInfo = Microsoft.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/updating-resources-custom-field-values-using-csom-project-online-project-server-2013-comments/" class="link black dim">
+        Updating Resources Custom Field values using CSOM, Project Online, #Project Server 2013
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      anil - May 5, 2016
+You can update custom field using csom. Follow the link below http://projectservercode.com/tag/how-to-update-custom-field-using-csom/
+Hi Anil. i am getting below error, can you please suggest me if there are any other way to fix it. projContext.ExecuteQuery(); An unhandled exception of type &lsquo;Microsoft.SharePoint.Client.ServerException&rsquo; occurred in Microsoft.SharePoint.Client.Runtime.dll Additional information: PJClientCallableException: CustomFieldRequiredValueNotProvided Below is my code. static string UserName = &ldquo;raghava@hosting.com&rdquo;; static string Passwords = &ldquo;password&rdquo;; static void Main(string[] args) { string pwaPath = &ldquo;https://epmsolutions.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/updating-resources-custom-field-values-using-csom-project-online-project-server-2013/" class="link black dim">
+        Updating Resources Custom Field values using CSOM, Project Online, #Project Server 2013
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Project Online applications need to be written using CSOM or OData rather the PSI which will be deprecated soon. The CSOM - Client-side object model implements common server functionality. If you are not familiar with development in Project Server 2013 refer to the links below to learn about CSOM, OData, JSOM. ProjectData - Project 2013 OData service reference https://msdn.microsoft.com/en-us/library/office/jj163015(v=office.15).aspx Client-side object model (CSOM) for Project 2013 https://msdn.microsoft.com/en-us/library/office/jj163123(v=office.15).aspx What the CSOM does and does not do https://msdn.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/sharepoint-get-list-items-and-effective-permissions-on-a-list-via-rest-api-from-sharepoint-add-in-comments/" class="link black dim">
+        SharePoint Get list items and Effective Permissions on a list via REST API from SharePoint Add-in
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Ofer Gal - Mar 3, 2017
+I get error: Uncaught (in promise) TypeError: SP.BasePermissions is not a constructor What else should I load?
+Sp.js needs to be loaded. Add the following to your page. /_layouts/15/sp.runtime.js /_layouts/15/sp.js
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/sharepoint-get-list-items-and-effective-permissions-on-a-list-via-rest-api-from-sharepoint-add-in/" class="link black dim">
+        SharePoint Get list items and Effective Permissions on a list via REST API from SharePoint Add-in
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The requirement was to build a SharePoint hosted Add-in to allow logged user to create/edit list item from any site from the site collection. The permissions of the user to be able to create/edit an item against the list needed to be checked. The following script gets list items with effective permissions against the list using jQuery promises from the SharePoint hosted Add-in function getListItemsAndPermissions(webUrl, listTitle) { var appWebUrl = decodeURIComponent(getQueryStringParameter(&quot;SPAppWebUrl&quot;)); var deferredPermissions = $.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/rest-or-csom-with-javascript-to-find-if-user-is-in-particular-sharepoint-group/" class="link black dim">
+        REST or CSOM with JavaScript to find if user is in particular SharePoint group
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Initially I used REST call to find out whether the user is in a particular SharePoint group in SharePoint 2013. Though it works fine when the logged in user is an administrator or part of the queried group, the rest call to /_api/web/sitegroups/getbyid(xx)/users keeps prompting for user name and password for non-administrator users throwing access denied exception at the end. After a while investigating, I could not find anything to resolve the rest call issue and I decided to find to alternatives way to find out if the user is in a particular group.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://famous-cajeta-4dad83.netlify.app/" >
+    &copy;  m365 blog 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

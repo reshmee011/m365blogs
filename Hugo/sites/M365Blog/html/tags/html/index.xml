@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTML on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/html/</link>
+    <description>Recent content in HTML on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 Apr 2016 21:14:04 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JSOM SharePoint Online Create Term with custom shared and local properties</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/jsom-sharepoint-online-create-term-with-custom-shared-and-local-properties/</link>
+      <pubDate>Fri, 15 Apr 2016 21:14:04 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/jsom-sharepoint-online-create-term-with-custom-shared-and-local-properties/</guid>
+      <description>The sp.Taxonomy.js can be used to create a term in the taxonomy store. I wanted to create Shared Custom properties on the term. However the JavaScript library on MSDN mentions only the method setLocalCustomProperty which creates or updates a local custom property. The SetCustomProperty is mentioned in MSDN to use in CSOM managed code to create or update shared custom property on a term. There is a lack of documentation how to use the method in JSOM.</description>
+    </item>
+    
+    <item>
+      <title>Search Display Template js file not created when HTML file for Item_ThreeLines is created</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/search-display-template-js-file-not-created-when-html-file-for-item_threelines-is-created/</link>
+      <pubDate>Mon, 14 Mar 2016 23:41:15 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/search-display-template-js-file-not-created-when-html-file-for-item_threelines-is-created/</guid>
+      <description>On a SharePoint Online site collection where Publishing feature was initially turned on and subsequently turned off, js file was not automatically created/updated whenever a display template was created/edited. We wanted to have a search content web part with three lines instead of two lines. We created a new display template by following the steps below.
+Navigate to Site Settings&amp;gt;Master Pages&amp;gt;Display Templates&amp;gt;Content Web Parts. Download the file Item_TwoLines.html Rename it to Item_ThreeLines.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Updating Resources Custom Field values using CSOM, Project Online, #Project Server 2013 | m365 blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Project Online applications need to be written using CSOM or OData rather the PSI which will be deprecated soon. The CSOM - Client-side object model implements common server functionality. If you are not familiar with development in Project Server 2013 refer to the links below to learn about CSOM, OData, JSOM. ProjectData - Project 2013 OData service reference https://msdn.microsoft.com/en-us/library/office/jj163015(v=office.15).aspx Client-side object model (CSOM) for Project 2013 https://msdn.microsoft.com/en-us/library/office/jj163123(v=office.15).aspx What the CSOM does and does not do https://msdn.">
+    <meta name="generator" content="Hugo 0.111.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/updating-resources-custom-field-values-using-csom-project-online-project-server-2013/index.xml" rel="alternate" type="application/rss+xml" title="m365 blog" />
+      <link href="/updating-resources-custom-field-values-using-csom-project-online-project-server-2013/index.xml" rel="feed" type="application/rss+xml" title="m365 blog" />
+      
+    
+    
+    <meta property="og:title" content="Updating Resources Custom Field values using CSOM, Project Online, #Project Server 2013" />
+<meta property="og:description" content="Project Online applications need to be written using CSOM or OData rather the PSI which will be deprecated soon. The CSOM - Client-side object model implements common server functionality. If you are not familiar with development in Project Server 2013 refer to the links below to learn about CSOM, OData, JSOM. ProjectData - Project 2013 OData service reference https://msdn.microsoft.com/en-us/library/office/jj163015(v=office.15).aspx Client-side object model (CSOM) for Project 2013 https://msdn.microsoft.com/en-us/library/office/jj163123(v=office.15).aspx What the CSOM does and does not do https://msdn." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://famous-cajeta-4dad83.netlify.app/updating-resources-custom-field-values-using-csom-project-online-project-server-2013/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2015-11-18T18:05:30+00:00" />
+<meta property="article:modified_time" content="2015-11-18T18:05:30+00:00" />
+<meta itemprop="name" content="Updating Resources Custom Field values using CSOM, Project Online, #Project Server 2013">
+<meta itemprop="description" content="Project Online applications need to be written using CSOM or OData rather the PSI which will be deprecated soon. The CSOM - Client-side object model implements common server functionality. If you are not familiar with development in Project Server 2013 refer to the links below to learn about CSOM, OData, JSOM. ProjectData - Project 2013 OData service reference https://msdn.microsoft.com/en-us/library/office/jj163015(v=office.15).aspx Client-side object model (CSOM) for Project 2013 https://msdn.microsoft.com/en-us/library/office/jj163123(v=office.15).aspx What the CSOM does and does not do https://msdn."><meta itemprop="datePublished" content="2015-11-18T18:05:30+00:00" />
+<meta itemprop="dateModified" content="2015-11-18T18:05:30+00:00" />
+<meta itemprop="wordCount" content="497">
+<meta itemprop="keywords" content="C#,CSOM,Project Online,Project Server 2013,SharePoint 2013," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Updating Resources Custom Field values using CSOM, Project Online, #Project Server 2013"/>
+<meta name="twitter:description" content="Project Online applications need to be written using CSOM or OData rather the PSI which will be deprecated soon. The CSOM - Client-side object model implements common server functionality. If you are not familiar with development in Project Server 2013 refer to the links below to learn about CSOM, OData, JSOM. ProjectData - Project 2013 OData service reference https://msdn.microsoft.com/en-us/library/office/jj163015(v=office.15).aspx Client-side object model (CSOM) for Project 2013 https://msdn.microsoft.com/en-us/library/office/jj163123(v=office.15).aspx What the CSOM does and does not do https://msdn."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        m365 blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Updating Resources Custom Field values using CSOM, Project Online, #Project Server 2013
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>Project Online applications need to be written using CSOM or OData rather the PSI which will be deprecated soon. The CSOM - Client-side object model implements common server functionality. If you are not familiar with development in Project Server 2013 refer to the links below to learn about CSOM, OData, JSOM. ProjectData - Project 2013 OData service reference <a href="https://msdn.microsoft.com/en-us/library/office/jj163015(v=office.15).aspx">https://msdn.microsoft.com/en-us/library/office/jj163015(v=office.15).aspx</a> Client-side object model (CSOM) for Project 2013 <a href="https://msdn.microsoft.com/en-us/library/office/jj163123(v=office.15).aspx">https://msdn.microsoft.com/en-us/library/office/jj163123(v=office.15).aspx</a> What the CSOM does and does not do <a href="https://msdn.microsoft.com/en-us/library/office/jj163082.aspx">https://msdn.microsoft.com/en-us/library/office/jj163082.aspx</a> The solution has been developed as a console app using Visual Studio 2015 allowing to specify resource name, custom resource field name , field value The code from the console app 1. The projectContext has to be initialised using the url. If the user running the app does not have permissions to the PWA site, then user name and password need to be specified by adding the code ProjContext.Credentials = new SharePointOnlineCredentials credentails = new SharePointOnlineCredentials(username, password); 2. Find the guid of the resource you want to update and set it against variable resUID 3. The code find the resource based on resUID provided, the resource entity id and internal name of the resource custom field 4. The value of the custom field is updated by the following line entRes2Edit[customfield.First().InternalName] = &ldquo;3456&rdquo;; If an out of the box field is updated , e.g. CanLevel. The property can be accessed simply as follows // Toggle the CanLevel property. entRes2Edit.CanLevel = !entRes2Edit.CanLevel; To commit the change , use the following lines projContext.EnterpriseResources.Update(); // Save the change. projContext.ExecuteQuery(); <code>class Program { private const string pwaPath = &quot;https://radev/PWA/&quot;; // Change the path for Project Web App. // Set the Project Server client context. private static ProjectContext projContext; // For applications that access both the Project Server CSOM and the SharePoint CSOM, you could // use the ProjectServer object. Those statements are commented out in this application. // However, it is not necessary to instantiate a ProjectServer object, because the the // ProjectContext object inherits from ClientContext in SharePoint. static void Main(string[] args) { projContext = new ProjectContext(pwaPath); //GUID for reshmee auckloo Guid resUID = new Guid(&quot;02C5EE34-5CE8-E411-80C1-00155D640C06&quot;); string customFieldName = &quot;Staff Number&quot;; string customFieldValue = &quot;000000&quot;; // Get the list of published resources and custom fields in Project Web App. projContext.Load(projContext.EnterpriseResources); projContext.Load(projContext.CustomFields); projContext.ExecuteQuery(); int numResInCollection = projContext.EnterpriseResources.Count(); var usrs = projContext.Web.SiteUsers; if (numResInCollection &gt; 0) { projContext.Load(projContext.EnterpriseResources.GetByGuid(resUID)); projContext.Load(projContext.EntityTypes.ResourceEntity); projContext.ExecuteQuery(); var entRes2Edit = projContext.EnterpriseResources.GetByGuid(resUID); var userCustomFields = entRes2Edit.CustomFields; Guid ResourceEntityUID = projContext.EntityTypes.ResourceEntity.ID; var customfield = projContext.CustomFields.Where(x =&gt; x.Name == customFieldName); entRes2Edit[customfield.First().InternalName] = &quot;3456&quot;; Console.WriteLine(&quot;\nEditing resource : GUID : Can Level&quot;); Console.WriteLine(&quot;\n{0} : {1} : {2}&quot;, entRes2Edit.Name, entRes2Edit.Id.ToString(), entRes2Edit.CanLevel.ToString()); // Toggle the CanLevel property. entRes2Edit.CanLevel = !entRes2Edit.CanLevel; // The entRes2Edit object is in the EnterpriseResources collection. projContext.EnterpriseResources.Update(); // Save the change. projContext.ExecuteQuery(); // Check that the change was made. projContext.Load(projContext.EnterpriseResources.GetByGuid(resUID)); projContext.ExecuteQuery(); entRes2Edit = projContext.EnterpriseResources.GetByGuid(resUID); Console.WriteLine(&quot;\n\nChanged resource : GUID : Can Level&quot;); Console.WriteLine(&quot;\n{0} : {1} : {2}&quot;, entRes2Edit.Name, entRes2Edit.Id.ToString(), entRes2Edit.CanLevel.ToString()); } Console.Write(&quot;\nPress any key to exit: &quot;); Console.ReadKey(false); } }</code> The solution can be downloaded from Github link <a href="https://github.com/reshmee011/ProjectServer-2013/tree/master/CSOM">https://github.com/reshmee011/ProjectServer-2013/tree/master/CSOM</a>_ProjectServer2013</p>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://famous-cajeta-4dad83.netlify.app/" >
+    &copy;  m365 blog 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

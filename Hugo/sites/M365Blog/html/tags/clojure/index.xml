@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clojure on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/clojure/</link>
+    <description>Recent content in Clojure on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Feb 2016 07:31:29 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/clojure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>London ClojureBridge Event as Teaching Assistant</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/london-clojurebridge-event-as-teaching-assistant/</link>
+      <pubDate>Tue, 23 Feb 2016 07:31:29 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/london-clojurebridge-event-as-teaching-assistant/</guid>
+      <description>Clojurebridge experience as teaching assistant I have been learning Clojure/ClojureScript over the last three months in my spare time. I felt lucky to be asked to volunteer to be a teaching assistant for the ClojureBridge event held at USwitch on the 19th and 20th Feb 2016. I was feeling apprehensive initially due to my limited exposure to a functional programming language and most of the teachers and teaching assistants were either working full time with Clojure or had several years of playing with Clojure and were using a Mac while I have used Windows laptop to play with Clojure.</description>
+    </item>
+    
+    <item>
+      <title>Clojure loop: doseq,dotimes, while, loop, recur</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-loop-doseqdotimes-while-loop-recur/</link>
+      <pubDate>Thu, 17 Dec 2015 19:59:30 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-loop-doseqdotimes-while-loop-recur/</guid>
+      <description>In Clojure loop can be performed using doseq, dotimes, while,loop, loop/recur and defn/recur functions. doseq doseq function iterates over a sequence performing something against each element. It is similar to foreach in C#. doseq forces evaluation for a lazy sequence (doseq [n (range 3)] ;;binding each value from the seq to n (println n)) Result : (0 1 2) dotimes dotimes function evaluates same expression n times similar to for loop in C#.</description>
+    </item>
+    
+    <item>
+      <title>Clojure If, cond, case</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-if-cond-case-comments/</link>
+      <pubDate>Sun, 13 Dec 2015 21:33:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-if-cond-case-comments/</guid>
+      <description>reshmee011 - Dec 1, 2015
+@Timothy: Thanks for the clarification. I have updated the post.
+You might consider these conditional macros, too: when-let, cond-&amp;gt;, cond-&amp;raquo; and maybe some-&amp;gt;
+Alsobe aware that case tests for identity, not for equality.
+Hi Timothy Thanks for your feedback. I agree that empty collections are truthy as in the example you provided. However empty sequences are falsey (if (seq []):truthy :falsey); ;;=&amp;gt; falsey
+(seq []) is falsey because it converts an empty sequence (which is truthy) to nil (which is falsey).</description>
+    </item>
+    
+    <item>
+      <title>Clojure If, cond, case</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-if-cond-case/</link>
+      <pubDate>Sun, 13 Dec 2015 21:33:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-if-cond-case/</guid>
+      <description>Clojure has lots of operators for dealing with conditional statements: if, cond, condp, case and when. Each of these is useful for different situations. Let&amp;rsquo;s take a look at them in turn: if if expression in Clojure returns a value similar to ternary operator in c# compared to a statement The ternary expression in C# using the ? operator as follows remark = (rating&amp;gt;10) ? &amp;quot;positive&amp;quot;:&amp;quot;negative&amp;quot; The expression is evaluated, if it is true the &amp;ldquo;then&amp;rdquo; part is executed and result returned otherwise the &amp;ldquo;else&amp;rdquo; part is run and returned.</description>
+    </item>
+    
+    <item>
+      <title>Clojure Sequences</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-sequences/</link>
+      <pubDate>Thu, 10 Dec 2015 09:32:23 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-sequences/</guid>
+      <description>Sequences include data structure lists, vectors and lazy sequences. Functions that can be used with sequences can be found using the clojure cheatsheet. http://clojure.org/cheatsheet Below are some examples using vectors and lists as sequences.
+Syntax
+Definition
+Result
+(seq &amp;lsquo;(1 2 3 4))
+If collection is not empty, return seq object else nil
+(1 2 3 4)
+(first [1 2 3 4])
+returns the first element
+1
+(rest {:a 1 :b 2 :c 3 :d 4})</description>
+    </item>
+    
+    <item>
+      <title>Clojure Destructuring</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-destructuring-comments/</link>
+      <pubDate>Wed, 09 Dec 2015 09:55:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-destructuring-comments/</guid>
+      <description>Links &amp;amp; Reads from 2015 Week 50 – Martin&#39;s Weekly Curations - Feb 1, 2016
+[…] Clojure Destructuring […]
+Utterly indited articles , thankyou for entropy.</description>
+    </item>
+    
+    <item>
+      <title>Clojure Destructuring</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-destructuring/</link>
+      <pubDate>Wed, 09 Dec 2015 09:55:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-destructuring/</guid>
+      <description>Destructuring allows to extract values from datastructures and bind them to symbols without explicitly looping/traversing the datastructure. It allows concise and simple coding.
+Sequential Destructuring Provides vector of symbols to bind by position. Syntax: [symbol another-symbol] [&amp;ldquo;value&amp;rdquo; &amp;ldquo;another-value&amp;rdquo;] (def listNumbers[7 8 9 10 11]) ;;Bind a, b, c to first 3 values in stuff (let [[a b c] listNumbers] (list (+ a b) (+ b c))) Result: (15,17) It binds to nil if there&amp;rsquo;s no data, i.</description>
+    </item>
+    
+    <item>
+      <title>Clojure Immutable Collections</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-immutable-collections/</link>
+      <pubDate>Sun, 06 Dec 2015 16:02:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-immutable-collections/</guid>
+      <description>Clojure data is immutable. Values of simple data types are immutable , e.g. true, 4, 4.05. With immutability values never change, instead new values are generated when new states are needed. It means all states of the collection can be referred throughout the life cycle of the application. Advantages of immutability can be read from blog http://www.developer.com/lang/other/article.php/3874551/Clojure-Immutability-at-the-Language-Level.htm Clojure provides several immutable collections listed below Lists Below are the syntax associated with lists</description>
+    </item>
+    
+    <item>
+      <title>Starting with Clojure: Factorial function</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/starting-with-clojure-environment-set-up-in-windows/</link>
+      <pubDate>Sat, 28 Nov 2015 23:48:16 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/starting-with-clojure-environment-set-up-in-windows/</guid>
+      <description>My background is mainly C# with some JavaScript. I have heard a lot about functional programming languages like Clojure, F# and Scala. I decided to start learning Clojure. My first reaction after seeing a Clojure code was the syntax and layout which was unreadable to me. Clojure is a member of the Lisp family of languages. The use of parentheses is prominent. Below is some code that calculates factorial of a number in Clojure (defn fac &amp;quot;Returns factorial of n&amp;quot; [n] (if (= n 1) 1 (* n (fac (- n 1))))) Parentheses are used to structure lists and lists are building blocks of code.</description>
+    </item>
+    
+  </channel>
+</rss>

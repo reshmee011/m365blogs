@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DocSign on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/docsign/</link>
+    <description>Recent content in DocSign on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Apr 2016 10:04:39 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/docsign/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nintex DocSign Enable Multiple Recipients</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/nintex-docsign-multiple-recipients-comments/</link>
+      <pubDate>Sat, 30 Apr 2016 10:04:39 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/nintex-docsign-multiple-recipients-comments/</guid>
+      <description>Nintex DocSign Enable Multiple Recipients | reshmeeauckloo - Apr 6, 2016
+[…] ← Nintex DocSign Enable Multiple Recipients […]
+[…] Nintex DocSign Enable Multiple Recipients […]</description>
+    </item>
+    
+    <item>
+      <title>Nintex DocSign Enable Multiple Recipients</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/nintex-docsign-multiple-recipients/</link>
+      <pubDate>Sat, 30 Apr 2016 10:04:39 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/nintex-docsign-multiple-recipients/</guid>
+      <description>Doc Sign is a useful secure way of signing documents which is legally binding. Nintex provides the DocuSign send document action that integrates DocuSign service. A trial account for PROD can be created but the trial limit is 3 documents. For development or evaluation purposes, a free developer account can be created on DocuSign site. Follow the instructions from The Quick Quide to Doc Sign to configure your dev account. Part of the process is to create an integrator key which is needed to call DocuSign REST API.</description>
+    </item>
+    
+  </channel>
+</rss>

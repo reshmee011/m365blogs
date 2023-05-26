@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/security/</link>
+    <description>Recent content in Security on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Nov 2016 19:10:01 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Instantiate SharePoint Client Context using current user credentials in PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/instantiate-sharepoint-client-context-using-current-user-credentials-in-powershell-comments/</link>
+      <pubDate>Wed, 02 Nov 2016 19:10:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/instantiate-sharepoint-client-context-using-current-user-credentials-in-powershell-comments/</guid>
+      <description>M - Oct 2, 2017
+The PnP cmdlets have been updated&amp;hellip; Connect-SPOnline -Url “http://dev-sp-001a:1214/Teams/Legal” -CurrentCredentials $ctx= Get-SPOContext Should now be: Connect-PnPOnline -Url “http://dev-sp-001a:1214/Teams/Legal” $ctx= Get-PnPContext Thanks for posting!</description>
+    </item>
+    
+    <item>
+      <title>Instantiate SharePoint Client Context using current user credentials in PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/instantiate-sharepoint-client-context-using-current-user-credentials-in-powershell/</link>
+      <pubDate>Wed, 02 Nov 2016 19:10:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/instantiate-sharepoint-client-context-using-current-user-credentials-in-powershell/</guid>
+      <description>In C# managed code, SharePoint Client Context can be created using System.Net.CredentialCache to pass logged in user credentials.ICredentials credentials = CredentialCache.DefaultCredentials; clientContext.Credentials = credentials;I could not find anywhere how to achieve it in PowerShell. If using PnP PowerShell module, the switch parameter CurrentCredentials can be used with the cmdlet Connect-Online.Connect-SPOnline -Url “http://dev-sp-001a:1214/Teams/Legal” -CurrentCredentials $ctx= Get-SPOContextIn most of my CSOM code without use of PnP I used to get current user name using [Environment]::UserName[Environment]::UserNameI used to prompt the current user to enter password$AdminPassword = Read-Host &amp;quot;Enter password: &amp;quot; -AsSecureStringLately I discovered I could use system.</description>
+    </item>
+    
+    <item>
+      <title>Create default groups using CSOM and PowerShell after creating site collections via script</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/create-default-groups-using-csom-and-powershell-after-creating-site-collections-via-script/</link>
+      <pubDate>Mon, 03 Oct 2016 16:13:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/create-default-groups-using-csom-and-powershell-after-creating-site-collections-via-script/</guid>
+      <description>Whenever a site collection is created using PowerShell, the default security groups (visitors, owners and members) are not provisioned. When site collection is created via browser an additional method call is made to create the security groups which is not called while using PowerShell.
+The following scripts will help create the default groups.
+https://gist.github.com/reshmee011/7c4ac90cb3038d16fa1448f4c5678896 Call method CreateWebDefaultGroup passing the parameters context(clientcontext) and UniquePermissions(bool) CreateWebDefaultGroup -Context $ctx -UniquePermissions $false</description>
+    </item>
+    
+    <item>
+      <title>CSOM in PowerShell Query All Unique Permissions</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/csom-query-all-unique-permissions/</link>
+      <pubDate>Wed, 22 Jun 2016 20:45:10 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/csom-query-all-unique-permissions/</guid>
+      <description>I was looking for a script to export all unique permissions/broken permissions for sites, lists or document libraries and Pages items.From a quick Google search, I stumbled upon SharePoint 2010: Export All Unique Permissions from Site Collection using PowerShell. The script would have worked on SharePoint 2013 given it was run directly from the SharePoint server using Server Side Code. I was site collection administrator without access to any SharePoint Servers.</description>
+    </item>
+    
+    <item>
+      <title>PowerShell break inheritance on SharePoint Library and change permissions of Group</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/powershell-break-inheritance-on-sharepoint-library-and-change-permissions-of-group/</link>
+      <pubDate>Wed, 16 Mar 2016 08:58:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/powershell-break-inheritance-on-sharepoint-library-and-change-permissions-of-group/</guid>
+      <description>I had a requirement to change group members security group which has contribute permissions at the site collection to have read permissions to one document library. The trick is to break inheritance on the document library and amend the role of the security group to Read. $web =Get-SPWeb -Identity $webUrl $docLibrary=$web.Lists.TryGetList($LibraryName) $docLibrary.BreakRoleInheritance($False) #get role definition from web: Full Control or Contribute or Read $roleDefinitions = &amp;quot;Read&amp;quot; #get site group $siteGroup = $web.</description>
+    </item>
+    
+  </channel>
+</rss>

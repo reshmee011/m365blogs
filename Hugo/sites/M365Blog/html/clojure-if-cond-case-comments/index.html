@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Clojure If, cond, case | m365 blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="reshmee011 - Dec 1, 2015
+@Timothy: Thanks for the clarification. I have updated the post.
+You might consider these conditional macros, too: when-let, cond-&gt;, cond-&raquo; and maybe some-&gt;
+Alsobe aware that case tests for identity, not for equality.
+Hi Timothy Thanks for your feedback. I agree that empty collections are truthy as in the example you provided. However empty sequences are falsey (if (seq []):truthy :falsey); ;;=&gt; falsey
+(seq []) is falsey because it converts an empty sequence (which is truthy) to nil (which is falsey).">
+    <meta name="generator" content="Hugo 0.111.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/clojure-if-cond-case-comments/index.xml" rel="alternate" type="application/rss+xml" title="m365 blog" />
+      <link href="/clojure-if-cond-case-comments/index.xml" rel="feed" type="application/rss+xml" title="m365 blog" />
+      
+    
+    
+    <meta property="og:title" content="Clojure If, cond, case" />
+<meta property="og:description" content="reshmee011 - Dec 1, 2015
+@Timothy: Thanks for the clarification. I have updated the post.
+You might consider these conditional macros, too: when-let, cond-&gt;, cond-&raquo; and maybe some-&gt;
+Alsobe aware that case tests for identity, not for equality.
+Hi Timothy Thanks for your feedback. I agree that empty collections are truthy as in the example you provided. However empty sequences are falsey (if (seq []):truthy :falsey); ;;=&gt; falsey
+(seq []) is falsey because it converts an empty sequence (which is truthy) to nil (which is falsey)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://famous-cajeta-4dad83.netlify.app/clojure-if-cond-case-comments/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2015-12-13T21:33:00+00:00" />
+<meta property="article:modified_time" content="2015-12-13T21:33:00+00:00" />
+<meta itemprop="name" content="Clojure If, cond, case">
+<meta itemprop="description" content="reshmee011 - Dec 1, 2015
+@Timothy: Thanks for the clarification. I have updated the post.
+You might consider these conditional macros, too: when-let, cond-&gt;, cond-&raquo; and maybe some-&gt;
+Alsobe aware that case tests for identity, not for equality.
+Hi Timothy Thanks for your feedback. I agree that empty collections are truthy as in the example you provided. However empty sequences are falsey (if (seq []):truthy :falsey); ;;=&gt; falsey
+(seq []) is falsey because it converts an empty sequence (which is truthy) to nil (which is falsey)."><meta itemprop="datePublished" content="2015-12-13T21:33:00+00:00" />
+<meta itemprop="dateModified" content="2015-12-13T21:33:00+00:00" />
+<meta itemprop="wordCount" content="194">
+<meta itemprop="keywords" content="Clojure,Clojure If,cond case condp,Uncategorized," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Clojure If, cond, case"/>
+<meta name="twitter:description" content="reshmee011 - Dec 1, 2015
+@Timothy: Thanks for the clarification. I have updated the post.
+You might consider these conditional macros, too: when-let, cond-&gt;, cond-&raquo; and maybe some-&gt;
+Alsobe aware that case tests for identity, not for equality.
+Hi Timothy Thanks for your feedback. I agree that empty collections are truthy as in the example you provided. However empty sequences are falsey (if (seq []):truthy :falsey); ;;=&gt; falsey
+(seq []) is falsey because it converts an empty sequence (which is truthy) to nil (which is falsey)."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        m365 blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Clojure If, cond, case
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <h4 id="heading"></h4>
+<p><a href="http://reshmeeauckloo.wordpress.com" title="reshmee011@gmail.com">reshmee011</a> - <!-- raw HTML omitted -->Dec 1, 2015<!-- raw HTML omitted --></p>
+<p>@Timothy: Thanks for the clarification. I have updated the post.</p>
+<!-- raw HTML omitted -->
+<p>You might consider these conditional macros, too: when-let, cond-&gt;, cond-&raquo; and maybe some-&gt;</p>
+<!-- raw HTML omitted -->
+<p>Alsobe aware that case tests for identity, not for equality.</p>
+<!-- raw HTML omitted -->
+<p>Hi Timothy Thanks for your feedback. I agree that empty collections are truthy as in the example you provided. However empty sequences are falsey (if (seq []):truthy :falsey); ;;=&gt; falsey</p>
+<!-- raw HTML omitted -->
+<p>(seq []) is falsey because it converts an empty sequence (which is truthy) to nil (which is falsey). So it&rsquo;s not correct to say that an empty sequence is falsey, because by themselves (be they an empty set, hashmap, vector or list), they are truthy. (seq nil) ;;=&gt; nil (seq &lsquo;()) ;;=&gt; nil (seq &ldquo;&rdquo;) ;;=&gt; nil (seq &lsquo;(1)) ;;=&gt; (1) (seq [1 2]) ;;=&gt; (1 2) (seq &ldquo;abc&rdquo;) ;;=&gt; (\a \b \c) <a href="https://clojuredocs.org/clojure.core/seq">https://clojuredocs.org/clojure.core/seq</a></p>
+<!-- raw HTML omitted -->
+<p>&ldquo;In Clojure the syntax is if( boolean then optional)&rdquo; You miswrote the syntax, it&rsquo;s: (if condition val-if-true val-if-false ) Where val-if-false is nil if not provided. &ldquo;In Clojure false, nil and empty sequence return false and the rest return true.&rdquo; Empty sequences are truthy, not falsey. (if [] &ldquo;truthy&rdquo; &ldquo;falsey&rdquo;) ;;=&gt; &ldquo;truthy&rdquo;</p>
+<!-- raw HTML omitted -->
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://famous-cajeta-4dad83.netlify.app/" >
+    &copy;  m365 blog 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

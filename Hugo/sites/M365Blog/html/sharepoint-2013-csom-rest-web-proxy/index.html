@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>SharePoint 2013/Online CSOM REST Web Proxy | m365 blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Web Proxy SP.WebProxy is used to make requests to external services by SharePoint. SharePoint Add-ins must register target site as remote endpoint in app manifest. If the URL is http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json, the endpoint is http://services.odata.org. However the response size must not exceed 200 kb. CSOM var context = SP.ClientContext.get_current(); var request = new SP.WebRequestInfo(); request.set_url(&quot;http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json&quot;); request.set_method(&quot;GET&quot;); var response = SP.WebProxy.invoke(context,request); context.executeQueryAsync(success, fail); function success(){ if(response.get_statusCode() == 200 { var data = JSON.">
+    <meta name="generator" content="Hugo 0.111.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/sharepoint-2013-csom-rest-web-proxy/index.xml" rel="alternate" type="application/rss+xml" title="m365 blog" />
+      <link href="/sharepoint-2013-csom-rest-web-proxy/index.xml" rel="feed" type="application/rss+xml" title="m365 blog" />
+      
+    
+    
+    <meta property="og:title" content="SharePoint 2013/Online CSOM REST Web Proxy" />
+<meta property="og:description" content="Web Proxy SP.WebProxy is used to make requests to external services by SharePoint. SharePoint Add-ins must register target site as remote endpoint in app manifest. If the URL is http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json, the endpoint is http://services.odata.org. However the response size must not exceed 200 kb. CSOM var context = SP.ClientContext.get_current(); var request = new SP.WebRequestInfo(); request.set_url(&quot;http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json&quot;); request.set_method(&quot;GET&quot;); var response = SP.WebProxy.invoke(context,request); context.executeQueryAsync(success, fail); function success(){ if(response.get_statusCode() == 200 { var data = JSON." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://famous-cajeta-4dad83.netlify.app/sharepoint-2013-csom-rest-web-proxy/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2015-12-04T00:01:11+00:00" />
+<meta property="article:modified_time" content="2015-12-04T00:01:11+00:00" />
+<meta itemprop="name" content="SharePoint 2013/Online CSOM REST Web Proxy">
+<meta itemprop="description" content="Web Proxy SP.WebProxy is used to make requests to external services by SharePoint. SharePoint Add-ins must register target site as remote endpoint in app manifest. If the URL is http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json, the endpoint is http://services.odata.org. However the response size must not exceed 200 kb. CSOM var context = SP.ClientContext.get_current(); var request = new SP.WebRequestInfo(); request.set_url(&quot;http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json&quot;); request.set_method(&quot;GET&quot;); var response = SP.WebProxy.invoke(context,request); context.executeQueryAsync(success, fail); function success(){ if(response.get_statusCode() == 200 { var data = JSON."><meta itemprop="datePublished" content="2015-12-04T00:01:11+00:00" />
+<meta itemprop="dateModified" content="2015-12-04T00:01:11+00:00" />
+<meta itemprop="wordCount" content="112">
+<meta itemprop="keywords" content="CSOM,REST,SharePoint 2013,SharePoint 2013 WebProxy,SharePoint Online," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SharePoint 2013/Online CSOM REST Web Proxy"/>
+<meta name="twitter:description" content="Web Proxy SP.WebProxy is used to make requests to external services by SharePoint. SharePoint Add-ins must register target site as remote endpoint in app manifest. If the URL is http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json, the endpoint is http://services.odata.org. However the response size must not exceed 200 kb. CSOM var context = SP.ClientContext.get_current(); var request = new SP.WebRequestInfo(); request.set_url(&quot;http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json&quot;); request.set_method(&quot;GET&quot;); var response = SP.WebProxy.invoke(context,request); context.executeQueryAsync(success, fail); function success(){ if(response.get_statusCode() == 200 { var data = JSON."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        m365 blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          SharePoint 2013/Online CSOM REST Web Proxy
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p><strong>Web Proxy</strong> SP.WebProxy is used to make requests to external services by SharePoint. SharePoint Add-ins must register target site as remote endpoint in app manifest. If the URL is <a href="http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json">http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json</a>, the endpoint is <a href="http://services.odata.org">http://services.odata.org</a>. However the response size must not exceed 200 kb. CSOM <code>var context = SP.ClientContext.get_current(); var request = new SP.WebRequestInfo(); request.set_url(&quot;http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json&quot;); request.set_method(&quot;GET&quot;); var response = SP.WebProxy.invoke(context,request); context.executeQueryAsync(success, fail); function success(){ if(response.get_statusCode() == 200 { var data = JSON.parse(response.get_body()); } else { var errorMessage = response.get_body(); jQuery.each(categories.d.results, function(index,value) { console.log(value.CategoryName); }); }</code> REST <code>var call = jQUery.ajax({ url: _spPageContextInfo.webAbsoluteUrl + &quot;/_api/SP.WebProxy.invoke&quot;, type: &quot;POST&quot;, data: JSON.stringify( { &quot;requestInfo&quot;: {&quot;type&quot;:&quot;SP.WebRequestInfo&quot;}, &quot;Url&quot;:&quot;http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json&quot;, &quot;Method&quot;:&quot;GET&quot; }), headers:{ &quot;Accept&quot;: &quot;application/json;odata=verbose&quot;, &quot;Content-Type&quot;: &quot;application/json;odata=verbose&quot;, &quot;X-RequestDigest&quot;: $(&quot;#_REQUESTDIGEST&quot;).val() } });</code></p>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://famous-cajeta-4dad83.netlify.app/" >
+    &copy;  m365 blog 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

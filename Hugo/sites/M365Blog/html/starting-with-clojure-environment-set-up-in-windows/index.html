@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Starting with Clojure: Factorial function | m365 blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="My background is mainly C# with some JavaScript. I have heard a lot about functional programming languages like Clojure, F# and Scala. I decided to start learning Clojure. My first reaction after seeing a Clojure code was the syntax and layout which was unreadable to me. Clojure is a member of the Lisp family of languages. The use of parentheses is prominent. Below is some code that calculates factorial of a number in Clojure (defn fac &quot;Returns factorial of n&quot; [n] (if (= n 1) 1 (* n (fac (- n 1))))) Parentheses are used to structure lists and lists are building blocks of code.">
+    <meta name="generator" content="Hugo 0.111.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/starting-with-clojure-environment-set-up-in-windows/index.xml" rel="alternate" type="application/rss+xml" title="m365 blog" />
+      <link href="/starting-with-clojure-environment-set-up-in-windows/index.xml" rel="feed" type="application/rss+xml" title="m365 blog" />
+      
+    
+    
+    <meta property="og:title" content="Starting with Clojure: Factorial function" />
+<meta property="og:description" content="My background is mainly C# with some JavaScript. I have heard a lot about functional programming languages like Clojure, F# and Scala. I decided to start learning Clojure. My first reaction after seeing a Clojure code was the syntax and layout which was unreadable to me. Clojure is a member of the Lisp family of languages. The use of parentheses is prominent. Below is some code that calculates factorial of a number in Clojure (defn fac &quot;Returns factorial of n&quot; [n] (if (= n 1) 1 (* n (fac (- n 1))))) Parentheses are used to structure lists and lists are building blocks of code." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://famous-cajeta-4dad83.netlify.app/starting-with-clojure-environment-set-up-in-windows/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2015-11-28T23:48:16+00:00" />
+<meta property="article:modified_time" content="2015-11-28T23:48:16+00:00" />
+<meta itemprop="name" content="Starting with Clojure: Factorial function">
+<meta itemprop="description" content="My background is mainly C# with some JavaScript. I have heard a lot about functional programming languages like Clojure, F# and Scala. I decided to start learning Clojure. My first reaction after seeing a Clojure code was the syntax and layout which was unreadable to me. Clojure is a member of the Lisp family of languages. The use of parentheses is prominent. Below is some code that calculates factorial of a number in Clojure (defn fac &quot;Returns factorial of n&quot; [n] (if (= n 1) 1 (* n (fac (- n 1))))) Parentheses are used to structure lists and lists are building blocks of code."><meta itemprop="datePublished" content="2015-11-28T23:48:16+00:00" />
+<meta itemprop="dateModified" content="2015-11-28T23:48:16+00:00" />
+<meta itemprop="wordCount" content="372">
+<meta itemprop="keywords" content="Clojure,Clojure Functional Programming,Factorial,Functional Programming,Uncategorized," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Starting with Clojure: Factorial function"/>
+<meta name="twitter:description" content="My background is mainly C# with some JavaScript. I have heard a lot about functional programming languages like Clojure, F# and Scala. I decided to start learning Clojure. My first reaction after seeing a Clojure code was the syntax and layout which was unreadable to me. Clojure is a member of the Lisp family of languages. The use of parentheses is prominent. Below is some code that calculates factorial of a number in Clojure (defn fac &quot;Returns factorial of n&quot; [n] (if (= n 1) 1 (* n (fac (- n 1))))) Parentheses are used to structure lists and lists are building blocks of code."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        m365 blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Starting with Clojure: Factorial function
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>My background is mainly C# with some JavaScript. I have heard a lot about functional programming languages like Clojure, F# and Scala. I decided to start learning Clojure. My first reaction after seeing a Clojure code was the syntax and layout which was unreadable to me. Clojure is a member of the Lisp family of languages. The use of parentheses is prominent. Below is some code that calculates factorial of a number in Clojure <code>(defn fac &quot;Returns factorial of n&quot; [n] (if (= n 1) 1 (* n (fac (- n 1)))))</code> Parentheses are used to structure lists and lists are building blocks of code. Each list is just a pair of parentheses with some elements inside and code is data inside list. The first element of the list is normally the function and the rest of the elements are evaluated and passed to the function as its arguments. List is a data type but they are also made up of code. In the code above there is an example of the equals function with n and 1.  <code>(if (= n 1) 1 (* n (fac (- n 1))))</code> n is the first argument of the call and is used in the condition. If true 1 is returned else the rest of the block is evaluated. Unlike most languages, Clojure does not have an explicit else statement. It just evaluates the third element to if which is multiplying the number with the factorial of the number minus 1. Clojure does not have an explicit return, the last expression in a function is used as the return value. Lisp does not have a concept of operators being different from functions so operators are just functions that compares its arguments. The environment set up to code in clojure was another challenge 1. IDE I decided to use Light Table as IDE after reading the stackoverflow post since I was planning to use ClojureScript <a href="http://stackoverflow.com/questions/4248171/choosing-an-ide-editor-for-clojure-coding">http://stackoverflow.com/questions/4248171/choosing-an-ide-editor-for-clojure-coding</a> . It helps greatly with writing Clojure making sure the parentheses are rightly used. Light Table can be downloaded from <a href="http://lighttable.com/">http://lighttable.com/</a> Ctrl/Space open the commands available and type in inst and pick &ldquo;Instarepl: Open a clojure instarepl&rdquo; to open REPL. <a href="https://reshmeeauckloo.files.wordpress.com/2015/11/instarepl.jpg"><img src="https://reshmeeauckloo.files.wordpress.com/2015/11/instarepl.jpg?w=300" alt="Instarepl"></a> The factorial function run and evaluated through Light Table IDE. <img src="https://reshmeeauckloo.files.wordpress.com/2015/11/repl.jpg" alt="REPL"></p>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://famous-cajeta-4dad83.netlify.app/" >
+    &copy;  m365 blog 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

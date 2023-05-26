@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Transforming Taxonomy field into cascading drop down on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/transforming-taxonomy-field-into-cascading-drop-down/</link>
+    <description>Recent content in Transforming Taxonomy field into cascading drop down on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 May 2017 16:23:27 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/transforming-taxonomy-field-into-cascading-drop-down/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Converting taxonomy field into cascading drop down fields using PnP Branding.JsLink</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/converting-taxonomy-field-into-cascading-drop-down-fields-using-pnp-branding-jslink-comments/</link>
+      <pubDate>Thu, 04 May 2017 16:23:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/converting-taxonomy-field-into-cascading-drop-down-fields-using-pnp-branding-jslink-comments/</guid>
+      <description>Arul Britto Kumar - Nov 4, 2017
+Hi Mr.Jozsef, Is it possible use multiple manage metadata fileds? because I have 3 manage metadata columns
+Hi reshmee Is it possible to see how you have created the list Is documnettype a list I can’t seem to get it working</description>
+    </item>
+    
+    <item>
+      <title>Converting taxonomy field into cascading drop down fields using PnP Branding.JsLink</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/converting-taxonomy-field-into-cascading-drop-down-fields-using-pnp-branding-jslink/</link>
+      <pubDate>Thu, 04 May 2017 16:23:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/converting-taxonomy-field-into-cascading-drop-down-fields-using-pnp-branding-jslink/</guid>
+      <description>Managed metadata fields don&amp;rsquo;t provide the same look and feel as choice field type. It is quick clunky specially when there are a lot of terms displayed. The requirement cropped up to display the managed metadata fields as drop downs. After googling for a while, stumbled on PnP sample Branding.JSLink solution which had an example how to achieve it. The solution is a no code sandboxed solution with different examples how to enrich fields.</description>
+    </item>
+    
+  </channel>
+</rss>

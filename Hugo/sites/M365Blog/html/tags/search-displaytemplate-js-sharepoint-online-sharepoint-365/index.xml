@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Search DisplayTemplate js SharePoint Online SharePoint 365 on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/search-displaytemplate-js-sharepoint-online-sharepoint-365/</link>
+    <description>Recent content in Search DisplayTemplate js SharePoint Online SharePoint 365 on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 14 Mar 2016 23:41:15 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/search-displaytemplate-js-sharepoint-online-sharepoint-365/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Search Display Template js file not created when HTML file for Item_ThreeLines is created</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/search-display-template-js-file-not-created-when-html-file-for-item_threelines-is-created/</link>
+      <pubDate>Mon, 14 Mar 2016 23:41:15 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/search-display-template-js-file-not-created-when-html-file-for-item_threelines-is-created/</guid>
+      <description>On a SharePoint Online site collection where Publishing feature was initially turned on and subsequently turned off, js file was not automatically created/updated whenever a display template was created/edited. We wanted to have a search content web part with three lines instead of two lines. We created a new display template by following the steps below.
+Navigate to Site Settings&amp;gt;Master Pages&amp;gt;Display Templates&amp;gt;Content Web Parts. Download the file Item_TwoLines.html Rename it to Item_ThreeLines.</description>
+    </item>
+    
+  </channel>
+</rss>

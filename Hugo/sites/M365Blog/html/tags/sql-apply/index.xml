@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQL Apply on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/sql-apply/</link>
+    <description>Recent content in SQL Apply on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Nov 2015 14:57:19 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/sql-apply/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL Apply statement to break down cost data evenly using date range</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sql-apply-statement-to-break-down-cost-data-evenly-using-date-range/</link>
+      <pubDate>Fri, 20 Nov 2015 14:57:19 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sql-apply-statement-to-break-down-cost-data-evenly-using-date-range/</guid>
+      <description>Refer to my previous post http://wp.me/p54RZl-3e for more information how to return a list of months using function dbo.FN_Utility_GetMonths. Consider the following script DECLARE @MonthCost table (item_id int,StartDate DateTime,EndDate DateTime, Cost decimal(25,6)) insert into @MonthCost values (1,&#39;2015-01-01&#39;,&#39;2015-4-01&#39;,1000) insert into @MonthCost values (2,&#39;2015-01-01&#39;,&#39;2015-6-01&#39;,1000) insert into @MonthCost values (3,&#39;2015-04-01&#39;,&#39;2015-06-01&#39;,1000) select M.MonthYear MonthYear ,M.StartDate StartDate ,MC.item_Id , Mc.Cost / (datediff(month,MC.StartDate,MC.EndDate)+1) Cost from @MonthCost MC &amp;ndash;iterate through each row to get month cost CROSS APPLY dbo.</description>
+    </item>
+    
+  </channel>
+</rss>

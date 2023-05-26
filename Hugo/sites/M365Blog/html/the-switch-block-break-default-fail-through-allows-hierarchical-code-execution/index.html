@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>The Switch Block - Break, Default, Fail-Through Allows Hierarchical code execution | m365 blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="The Switch Block allows to execute some code based on the value itself without a boolean check. Consider the block of code below function colour (id) { switch(id){ case 1: this.colour = &quot;red&quot;; case 2: this.colour = &quot;blue&quot;; case 3: this.colour = &quot;yellow&quot;; case 4: this.colour = &quot;green&quot;; } } var col = new colour(2); console.log(col.colour); The result of the above code is &ldquo;green&rdquo;. The case keyword and its value is just a label for an executable &ldquo;starting point&rdquo;.">
+    <meta name="generator" content="Hugo 0.111.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/the-switch-block-break-default-fail-through-allows-hierarchical-code-execution/index.xml" rel="alternate" type="application/rss+xml" title="m365 blog" />
+      <link href="/the-switch-block-break-default-fail-through-allows-hierarchical-code-execution/index.xml" rel="feed" type="application/rss+xml" title="m365 blog" />
+      
+    
+    
+    <meta property="og:title" content="The Switch Block - Break, Default, Fail-Through Allows Hierarchical code execution" />
+<meta property="og:description" content="The Switch Block allows to execute some code based on the value itself without a boolean check. Consider the block of code below function colour (id) { switch(id){ case 1: this.colour = &quot;red&quot;; case 2: this.colour = &quot;blue&quot;; case 3: this.colour = &quot;yellow&quot;; case 4: this.colour = &quot;green&quot;; } } var col = new colour(2); console.log(col.colour); The result of the above code is &ldquo;green&rdquo;. The case keyword and its value is just a label for an executable &ldquo;starting point&rdquo;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://famous-cajeta-4dad83.netlify.app/the-switch-block-break-default-fail-through-allows-hierarchical-code-execution/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2015-10-27T07:51:09+00:00" />
+<meta property="article:modified_time" content="2015-10-27T07:51:09+00:00" />
+<meta itemprop="name" content="The Switch Block - Break, Default, Fail-Through Allows Hierarchical code execution">
+<meta itemprop="description" content="The Switch Block allows to execute some code based on the value itself without a boolean check. Consider the block of code below function colour (id) { switch(id){ case 1: this.colour = &quot;red&quot;; case 2: this.colour = &quot;blue&quot;; case 3: this.colour = &quot;yellow&quot;; case 4: this.colour = &quot;green&quot;; } } var col = new colour(2); console.log(col.colour); The result of the above code is &ldquo;green&rdquo;. The case keyword and its value is just a label for an executable &ldquo;starting point&rdquo;."><meta itemprop="datePublished" content="2015-10-27T07:51:09+00:00" />
+<meta itemprop="dateModified" content="2015-10-27T07:51:09+00:00" />
+<meta itemprop="wordCount" content="406">
+<meta itemprop="keywords" content="JavaScript," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The Switch Block - Break, Default, Fail-Through Allows Hierarchical code execution"/>
+<meta name="twitter:description" content="The Switch Block allows to execute some code based on the value itself without a boolean check. Consider the block of code below function colour (id) { switch(id){ case 1: this.colour = &quot;red&quot;; case 2: this.colour = &quot;blue&quot;; case 3: this.colour = &quot;yellow&quot;; case 4: this.colour = &quot;green&quot;; } } var col = new colour(2); console.log(col.colour); The result of the above code is &ldquo;green&rdquo;. The case keyword and its value is just a label for an executable &ldquo;starting point&rdquo;."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        m365 blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          The Switch Block - Break, Default, Fail-Through Allows Hierarchical code execution
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>The Switch Block allows to execute some code based on the value itself without a boolean check. Consider the block of code below <code>function colour (id) { switch(id){ case 1: this.colour = &quot;red&quot;; case 2: this.colour = &quot;blue&quot;; case 3: this.colour = &quot;yellow&quot;; case 4: this.colour = &quot;green&quot;; } } var col = new colour(2); console.log(col.colour);</code> The result of the above code is &ldquo;green&rdquo;. The case keyword and its value is just a label for an executable &ldquo;starting point&rdquo;. Adding the break keyword allows to exit the switch statement immediately ensuring that one and only case action is taken. function colour (id) { switch(id){ case 1: this.colour = &ldquo;red&rdquo;; break; case 2: this.colour = &ldquo;blue&rdquo;; break; case 3: this.colour = &ldquo;yellow&rdquo;; break; case 4: this.colour = &ldquo;green&rdquo;; break; } } var col = new colour(2); console.log(col.colour); The result is now &ldquo;blue&rdquo;; If you want same action for similar cases, the more than one case can be stacked before the action. Since JavaScript does not care about case order, the cases can be moved appropriately. function colour (id) { switch(id){ case 4: this.colour = &ldquo;red&rdquo;; break; case 5: this.colour = &ldquo;blue&rdquo;; break; case 3: this.colour = &ldquo;yellow&rdquo;; break; case 1: case 2: case 6: this.colour = &ldquo;green&rdquo;; break; } } var col = new colour(1); console.log(col.colour); The result is &lsquo;green&rsquo;. The Default case help to deal with unavailable value in the switch statement. <code>function colour (id) { switch(id){ case 4: this.colour = &quot;red&quot;; break; case 5: this.colour = &quot;blue&quot;; break; case 3: this.colour = &quot;yellow&quot;; break; case 1: case 2: case 6: this.colour = &quot;green&quot;; break; default: this.colour = &quot;white&quot;; } var col = new colour(100); console.log(col.colour);</code> Result is white. There is no need to add the break as default is the last one. An interesting application of the Switch block is the hierarchical code execution via the use of fail-through. An organised switch block will add least common properties first and common properties last. Let&rsquo;s say the more senior an employee is in the organisation, the more privileges the latter has. <code>function getPrivileges (level) { switch(level){ case &quot;Chairman&quot;: this.IsFounder = true ; case &quot;Director&quot;: this.CanAttendBoardMeeting = true; case &quot;Department Manager&quot;: this.IsResponsibleforDepartment = true; case &quot;Line Manager&quot;: this.IsResponsibleForTeam = true; case &quot;Staff&quot;: this.IsStaff = true; } } var staff= new getPrivileges(&quot;Director&quot;); console.log(staff);</code> Result is getPrivileges {CanAttendBoardMeeting: true, IsResponsibleforDepartment: true, IsResponsibleForTeam: true, IsStaff: true} The switch statement started at &ldquo;Director&rdquo; and experienced fall through acquiring the lower ranks.</p>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://famous-cajeta-4dad83.netlify.app/" >
+    &copy;  m365 blog 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

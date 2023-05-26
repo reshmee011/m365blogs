@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SharePoint CSOM on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-csom/</link>
+    <description>Recent content in SharePoint CSOM on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Dec 2015 11:08:46 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-csom/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CSOM SharePoint Update Created Field of InfoPath file in Document Library</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/csom-sharepoint-update-created-field-of-infopath-file-in-document-library/</link>
+      <pubDate>Wed, 09 Dec 2015 11:08:46 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/csom-sharepoint-update-created-field-of-infopath-file-in-document-library/</guid>
+      <description>While doing a bulk import of InfoPath documents into document library using a CSV file the &amp;ldquo;Created&amp;rdquo; list out of the box date field is set to today&amp;rsquo;s date and time. The &amp;ldquo;Created&amp;rdquo; date needed to be set to another date property &amp;ldquo;Date Raised&amp;rdquo;. The InfoPath form can be uploaded following the steps described in the post https://reshmeeauckloo.wordpress.com/2015/11/26/programmatically-create-infopath-form-using-csom-sharepoint-2010/ The InfoPath item can be retrieved specifying the URL of the file and field &amp;ldquo;Created&amp;rdquo; set to another date.</description>
+    </item>
+    
+  </channel>
+</rss>

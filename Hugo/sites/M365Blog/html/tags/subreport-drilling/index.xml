@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SubReport Drilling on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/subreport-drilling/</link>
+    <description>Recent content in SubReport Drilling on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Feb 2016 21:41:02 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/subreport-drilling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Drilling Down to a Report in a new tab SSRS Integrated Mode</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/drilling-down-to-a-report-in-a-new-tab-ssrs-integrated-mode/</link>
+      <pubDate>Tue, 23 Feb 2016 21:41:02 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/drilling-down-to-a-report-in-a-new-tab-ssrs-integrated-mode/</guid>
+      <description>There are two ways to navigate to another SSRS from a main Report
+Action “Go to Report” Right-click on a TextBox, select Text Box Properties, select Action tab and select option “Go to report”. Click on “Browse” and select the SSRS Report from the report library. If the selected SSRS Report has parameters, click on “Add” to add parameter. From the “Name” dropdown select the parameter name and from the “Value” dropdown select the value to pass to the parameter.</description>
+    </item>
+    
+  </channel>
+</rss>

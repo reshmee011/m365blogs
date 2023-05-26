@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SSRS SharePoint Integrated Mode on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-sharepoint-integrated-mode/</link>
+    <description>Recent content in SSRS SharePoint Integrated Mode on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Jan 2016 17:54:34 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/ssrs-sharepoint-integrated-mode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SSRS SharePoint Integrated Mode - Cells grow vertically to fit content</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/ssrs-sharepoint-integrated-mode-cells-grow-vertically-to-fit-content/</link>
+      <pubDate>Tue, 19 Jan 2016 17:54:34 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/ssrs-sharepoint-integrated-mode-cells-grow-vertically-to-fit-content/</guid>
+      <description>I have come across this issue several times that even the &amp;ldquo;Can Grow&amp;rdquo; property of the cell is set to false, the cell grows vertically to fit contents forcing the same row to stretch to the height of the cell distorting the rendering of the report on the browser though it might display correctly in Report Builder or SQL data tools in Visual Studio. Can Grow is set to False from the cell property.</description>
+    </item>
+    
+  </channel>
+</rss>

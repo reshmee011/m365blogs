@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Result source on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/result-source/</link>
+    <description>Recent content in Result source on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 24 Nov 2015 00:17:48 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/result-source/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ustom Layout Results Page to allow sorting and filtering by property</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/ustom-layout-results-page-to-allow-sorting-and-filtering-by-property/</link>
+      <pubDate>Tue, 24 Nov 2015 00:17:48 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/ustom-layout-results-page-to-allow-sorting-and-filtering-by-property/</guid>
+      <description>Content query webpart does not give the same flexibility as search results page to allow user to filter and sort by property. SharePoint Online provides out of the box display template which can be used in results page. However if custom property needs to be displayed or a custom display format is needed , then a new search result page can be created. Assuming news items need to be displayed in the following format with filters Country and Subject.</description>
+    </item>
+    
+  </channel>
+</rss>

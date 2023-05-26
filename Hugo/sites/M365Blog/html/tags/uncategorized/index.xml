@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Uncategorized on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/uncategorized/</link>
+    <description>Recent content in Uncategorized on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Nov 2021 14:59:52 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/uncategorized/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React News Webpart</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/react-news-webpart/</link>
+      <pubDate>Thu, 04 Nov 2021 14:59:52 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/react-news-webpart/</guid>
+      <description>Great demo and work Alison , looking forward to more demos and articles.</description>
+    </item>
+    
+    <item>
+      <title>Invoke-SPOListDesign to create instances of lists/libraires</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/invoke-spolistdesign-to-create-instances-of-lists-libraires/</link>
+      <pubDate>Wed, 27 Oct 2021 00:50:04 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/invoke-spolistdesign-to-create-instances-of-lists-libraires/</guid>
+      <description>Creating custom list templates is now possible to create both custom document libraries and lists although official microsoft documentation has not specified anything about supporting custom document library templates.
+This article explores the option how to use a combination of list design and PowerShell script to provision multiple instances of document libraries using a CSV file and how to create a document library from a custom list template from UI.</description>
+    </item>
+    
+    <item>
+      <title>PnP Batch Add /Delete 300k items from a SharePoint Online list</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/pnp-batch-add-delete-300k-items-from-a-sharepoint-online-list/</link>
+      <pubDate>Sun, 12 Sep 2021 09:09:39 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/pnp-batch-add-delete-300k-items-from-a-sharepoint-online-list/</guid>
+      <description>I was tasked to delete more 300k items from a SharePoint list generated as part of testing. I tried the script https://vladilen.com/office-365/spo/fastest-way-to-delete-all-items-in-a-large-list/
+Get-PnPListItem -List $list -Fields &amp;#34;ID&amp;#34; -PageSize 100 -ScriptBlock { Param($items) $items | Sort-Object -Property Id -Descending | ForEach-Object{ $\_.DeleteObject() } } However the script kept failing at irregular intervals with exception messages like &amp;ldquo;A task was cancelled&amp;rdquo;, &amp;ldquo;The collection has not been initialised&amp;rdquo; and &amp;ldquo;operation time out&amp;rdquo;. It was a long processing task which I need to keep monitoring and resumed the script manually to continue the deletion many times to my dismay.</description>
+    </item>
+    
+    <item>
+      <title>Modern SharePoint Permission Management : update site members to contribute</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/modern-sharepoint-permission-management-update-site-members-to-contribute/</link>
+      <pubDate>Sat, 11 Sep 2021 02:16:33 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/modern-sharepoint-permission-management-update-site-members-to-contribute/</guid>
+      <description>In SharePoint Online when a team site is automatically created, the Site Members and Site Owners SharePoint groups are created by default with Edit and Full Control permissions. However the permissions levels of Site Members can not be edited from its default Edit value to Contribute for example.
+You can argue we can create a custom SharePoint group with contribute permissions to restrict users from being able to manage lists and libraries however users added to custom SharePoint groups won&amp;rsquo;t benefit from other services in M365 ecosystem like teams, mailbox, etc&amp;hellip; The best practice using SharePoint team sites is to use the M365 groups to edit permissions for full collaboration experience using connected services like teams.</description>
+    </item>
+    
+    <item>
+      <title>Prevent members in &#39;Modern&#39; M365 group connected team sites to delete libraries</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/prevent-members-in-modern-m365-group-connected-team-sites-to-delete-libraries/</link>
+      <pubDate>Sat, 24 Jul 2021 23:06:38 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/prevent-members-in-modern-m365-group-connected-team-sites-to-delete-libraries/</guid>
+      <description>It is not possible for M365 to change the permissions of members from Edit to Contribute to prevent deletion or uncontrolled creation of lists and libraries. The option to &amp;ldquo;Edit User Permissions&amp;rdquo; is greyed out.
+One option would be to create a custom SharePoint Group for contributors but anyone added to the custom SharePoint Group would not be part of the M365 group which means they won&amp;rsquo;t be able to contribute via Teams or any other M365 services.</description>
+    </item>
+    
+    <item>
+      <title>List View Threshold 5k in SharePoint Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/list-view-threshold-5k-in-sharepoint-online/</link>
+      <pubDate>Fri, 07 May 2021 16:11:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/list-view-threshold-5k-in-sharepoint-online/</guid>
+      <description>The list view threshold is 5000 in SharePoint Online and still can not be changed despite it has been raised in the User Voice for improvements.
+I have created more than 5000 files in a library with the use of Power Automate to test what works and does not work.
+I was surprised by navigating to the list or library I did not get any errors and everything seems to be working.</description>
+    </item>
+    
+    <item>
+      <title>You should&#39;ve asked</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/you-shouldve-asked/</link>
+      <pubDate>Tue, 23 May 2017 09:39:13 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/you-shouldve-asked/</guid>
+      <description>Source: You should&amp;rsquo;ve asked</description>
+    </item>
+    
+    <item>
+      <title>Migrate data from one SQL table to another database table</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/migrate-data-from-one-sql-table-to-another-database-table/</link>
+      <pubDate>Sun, 30 Apr 2017 10:08:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/migrate-data-from-one-sql-table-to-another-database-table/</guid>
+      <description>Sometimes you may have to migrate data from one SQL database to another SQL database on another environment, e.g. Live to test and dev environment and vice versa. You may argue the easiest solution is a migration of the backup of database. Unfortunately it does not work well in environments where data in Live is classified as sensitive and are not allowed to be copied across into a dev / test machine where the security is not as strict as a live machine.</description>
+    </item>
+    
+    <item>
+      <title>Delete all list Item and file versions from site and sub sites using CSOM and PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/delete-all-list-item-and-file-versions-from-site-and-sub-sites-using-csom-and-powershell/</link>
+      <pubDate>Sat, 22 Apr 2017 10:51:46 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/delete-all-list-item-and-file-versions-from-site-and-sub-sites-using-csom-and-powershell/</guid>
+      <description>The versions property is not available from client object model on the ListItem class as with server object model. I landed on the article SharePoint - Get List Item Versions Using Client Object Model that describes how to get a list item versions property using the method GetFileByServerRelativeUrl by passing the FileUrl property. The trick is to build the list item url as &amp;ldquo;sites/test/Lists/MyList/30_.000” where 30 is the item id for which the version history needs to be retrieved.</description>
+    </item>
+    
+    <item>
+      <title>SQL script batch execution using sqlcmd in PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sql-script-batch-execution-using-sqlcmd-in-powershell-comments/</link>
+      <pubDate>Wed, 08 Mar 2017 22:39:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sql-script-batch-execution-using-sqlcmd-in-powershell-comments/</guid>
+      <description>reshmee011 - May 1, 2017
+Definitely you can without a manifest file. If you want the scripts to run in some order, you can append a numerical number to the script file. Let me know if you need a sample code.
+This example is great. Really helped me understand a few more things about PowerShell. But is it possible to do the same thing without using a manifest file (i.</description>
+    </item>
+    
+    <item>
+      <title>SQL script batch execution using sqlcmd in PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sql-script-batch-execution-using-sqlcmd-in-powershell/</link>
+      <pubDate>Wed, 08 Mar 2017 22:39:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sql-script-batch-execution-using-sqlcmd-in-powershell/</guid>
+      <description>There is often a mismatch between needs of the development team (multiple discreet T-SQL files for separate concerns) and the release team (the requirement for one step automated deployment) . The script bridges the requirement by using sqlcmd.exe to run a batch of SQL scripts. A text file is used listing all sql files that need to run in a particular order to avoid errors which may occur if there are dependencies between the scripts.</description>
+    </item>
+    
+    <item>
+      <title>Instantiate CRMServiceClient using current user&#39;s login</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/instantiate-crmserviceclient-using-current-users-login/</link>
+      <pubDate>Thu, 10 Nov 2016 18:12:33 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/instantiate-crmserviceclient-using-current-users-login/</guid>
+      <description>TheGet-CrmConnection method can be used to return connection to a CRM instance. The syntax to call the method is``` Parameter Set: OnLine Get-CrmConnection [-OnLineType] [[-Credential] ] [-DeploymentRegion] [[-ProfileName] ] -OrganizationName [ ]
+Parameter Set: OnPrem Get-CrmConnection [-ServerUrl] [[-Credential] ] [-OrganizationName] [[-HomeRealmUrl] ] [[-ProfileName] ] [ ]
+Parameter Set: UIOnly Get-CrmConnection [[-InteractiveMode]] [ ] I wanted to get the crm connection with the current user&#39;s credentials without any prompts. [The first and second options required the object PSCredential which can&#39;t be created using logged current user&#39;s credentials](http://stackoverflow.</description>
+    </item>
+    
+    <item>
+      <title>Instantiate SharePoint Client Context using current user credentials in PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/instantiate-sharepoint-client-context-using-current-user-credentials-in-powershell-comments/</link>
+      <pubDate>Wed, 02 Nov 2016 19:10:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/instantiate-sharepoint-client-context-using-current-user-credentials-in-powershell-comments/</guid>
+      <description>M - Oct 2, 2017
+The PnP cmdlets have been updated&amp;hellip; Connect-SPOnline -Url “http://dev-sp-001a:1214/Teams/Legal” -CurrentCredentials $ctx= Get-SPOContext Should now be: Connect-PnPOnline -Url “http://dev-sp-001a:1214/Teams/Legal” $ctx= Get-PnPContext Thanks for posting!</description>
+    </item>
+    
+    <item>
+      <title>Instantiate SharePoint Client Context using current user credentials in PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/instantiate-sharepoint-client-context-using-current-user-credentials-in-powershell/</link>
+      <pubDate>Wed, 02 Nov 2016 19:10:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/instantiate-sharepoint-client-context-using-current-user-credentials-in-powershell/</guid>
+      <description>In C# managed code, SharePoint Client Context can be created using System.Net.CredentialCache to pass logged in user credentials.ICredentials credentials = CredentialCache.DefaultCredentials; clientContext.Credentials = credentials;I could not find anywhere how to achieve it in PowerShell. If using PnP PowerShell module, the switch parameter CurrentCredentials can be used with the cmdlet Connect-Online.Connect-SPOnline -Url “http://dev-sp-001a:1214/Teams/Legal” -CurrentCredentials $ctx= Get-SPOContextIn most of my CSOM code without use of PnP I used to get current user name using [Environment]::UserName[Environment]::UserNameI used to prompt the current user to enter password$AdminPassword = Read-Host &amp;quot;Enter password: &amp;quot; -AsSecureStringLately I discovered I could use system.</description>
+    </item>
+    
+    <item>
+      <title>External Sharing of Documents with Nintex in SharePoint Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/external-sharing-of-documents-with-nintex-in-sharepoint-online-comments/</link>
+      <pubDate>Tue, 20 Sep 2016 16:53:55 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/external-sharing-of-documents-with-nintex-in-sharepoint-online-comments/</guid>
+      <description>Fernando Hunth - Apr 2, 2017
+Please , enhance the quality of images. I cannot read the configuration you are telling.</description>
+    </item>
+    
+    <item>
+      <title>External Sharing of Documents with Nintex in SharePoint Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/external-sharing-of-documents-with-nintex-in-sharepoint-online/</link>
+      <pubDate>Tue, 20 Sep 2016 16:53:55 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/external-sharing-of-documents-with-nintex-in-sharepoint-online/</guid>
+      <description>The &amp;ldquo;Office 365 update item permissions&amp;rdquo; step available in Nintex Workflow updates item permissions. However if external users are given permissions using this step, it fails with message &amp;ldquo;failed to resolve user &amp;ldquo;. The issue with Office 365 update item permissions is that it does not allow updating permissions for external users.
+With the SharePoint 2016 Remote API Sharing with external users can be achieved using method UpdateDocumentSharingInfo from class SPDocumentSharingManager which fortunately can be called using REST.</description>
+    </item>
+    
+    <item>
+      <title>Apply Theme and Create Composed Look CSOM and PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/apply-theme-and-create-composed-look-csom-and-powershell/</link>
+      <pubDate>Tue, 30 Aug 2016 16:27:50 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/apply-theme-and-create-composed-look-csom-and-powershell/</guid>
+      <description>There are several ways a theme can be applied to a SharePoint site. I tried the PnP command SetSPOTheme as follows on SharePoint 2013 On Premises instance. Set-SPOTheme -ColorPaletteUrl $PathThemeColor -FontSchemeUrl $PathThemeFont Unfortunately I was getting message &amp;lsquo;Field or property &amp;ldquo;AlternateCssUrl&amp;rdquo; does not exist.&amp;rsquo; The error is due not having latest patch installed. Unfortunately the latest SharePoint CU can&amp;rsquo;t be installed as we have heavily customised legacy applications migrated from SharePoint 2007 and SharePoint 2010 running in compatibility mode.</description>
+    </item>
+    
+    <item>
+      <title>Import/Export Columns and Content Types using PnP PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/importexport-columns-and-content-types-sharepointpnp2016powershell-powershell-comments/</link>
+      <pubDate>Fri, 24 Jun 2016 11:52:05 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/importexport-columns-and-content-types-sharepointpnp2016powershell-powershell-comments/</guid>
+      <description>reshmee011 - Oct 4, 2017
+I will update the scripts at some point. Thanks for the comment.
+The Imported TaxonomyFields seems not working, because of missing the second Taxonomy-Note-Field. I always get &amp;ldquo;The SPListItem being updated was not retrieved with all taxonomy fields&amp;rdquo; in Edit-Form of the imported Managed Metadata Columns. I have observed this. http://blog.bugrapostaci.com/2015/07/03/the-splistitem-being-updated-was-not-retrieved-with-all-taxonomy-fields/
+Actually you must use the new PnP-PowerShell-Namespace in the PowerShell-Commands. Example: Connect-PnPOnline instead of Connect-SPOnline and so on&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Import/Export Columns and Content Types using PnP PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/importexport-columns-and-content-types-sharepointpnp2016powershell-powershell/</link>
+      <pubDate>Fri, 24 Jun 2016 11:52:05 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/importexport-columns-and-content-types-sharepointpnp2016powershell-powershell/</guid>
+      <description>It is useful to migrate Site Columns and Content Types from one Site Collection to another under the following scenarios maintaining the original GUIDS.
+SharePoint On Premise environment to SharePoint Online Within SharePoint Online, migrate to another tenant If Content Hub Feature is not used, migrate the contents to another site collection Keep a list for governance/change tracking purpose, i.e. checking in TFS This article covers export/import of site columns and content types using SharePointPnP2016PowerShell commands which needs to be installed to be able to use the relevant commands.</description>
+    </item>
+    
+    <item>
+      <title>CSOM in PowerShell Query All Unique Permissions</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/csom-query-all-unique-permissions/</link>
+      <pubDate>Wed, 22 Jun 2016 20:45:10 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/csom-query-all-unique-permissions/</guid>
+      <description>I was looking for a script to export all unique permissions/broken permissions for sites, lists or document libraries and Pages items.From a quick Google search, I stumbled upon SharePoint 2010: Export All Unique Permissions from Site Collection using PowerShell. The script would have worked on SharePoint 2013 given it was run directly from the SharePoint server using Server Side Code. I was site collection administrator without access to any SharePoint Servers.</description>
+    </item>
+    
+    <item>
+      <title>Nintex DocSign Enable Multiple Recipients</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/nintex-docsign-multiple-recipients-comments/</link>
+      <pubDate>Sat, 30 Apr 2016 10:04:39 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/nintex-docsign-multiple-recipients-comments/</guid>
+      <description>Nintex DocSign Enable Multiple Recipients | reshmeeauckloo - Apr 6, 2016
+[…] ← Nintex DocSign Enable Multiple Recipients […]
+[…] Nintex DocSign Enable Multiple Recipients […]</description>
+    </item>
+    
+    <item>
+      <title>Nintex DocSign Enable Multiple Recipients</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/nintex-docsign-multiple-recipients/</link>
+      <pubDate>Sat, 30 Apr 2016 10:04:39 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/nintex-docsign-multiple-recipients/</guid>
+      <description>Doc Sign is a useful secure way of signing documents which is legally binding. Nintex provides the DocuSign send document action that integrates DocuSign service. A trial account for PROD can be created but the trial limit is 3 documents. For development or evaluation purposes, a free developer account can be created on DocuSign site. Follow the instructions from The Quick Quide to Doc Sign to configure your dev account. Part of the process is to create an integrator key which is needed to call DocuSign REST API.</description>
+    </item>
+    
+    <item>
+      <title>Duplicate Rule Detection Export and publish in CRM Dynamics 2015</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/duplicate-rule-detection-export-and-publish-in-crm-dynamics-2015/</link>
+      <pubDate>Tue, 05 Apr 2016 16:40:37 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/duplicate-rule-detection-export-and-publish-in-crm-dynamics-2015/</guid>
+      <description>I have set up custom duplicate rule detection on some entities&amp;rsquo; fields on a DEV CRM 2015 instance. I needed to export the settings to be able to import into other environments. I used the link Export Duplicate Detection Rules from one organization and import to another organization in CRM 2013 to export the rules. However the CRMDataMigrationUtility.exe SDK tool exports only unpublished duplicate detection rules which I had to do to be able to export the settings.</description>
+    </item>
+    
+    <item>
+      <title>Search Display Template js file not created when HTML file for Item_ThreeLines is created</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/search-display-template-js-file-not-created-when-html-file-for-item_threelines-is-created/</link>
+      <pubDate>Mon, 14 Mar 2016 23:41:15 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/search-display-template-js-file-not-created-when-html-file-for-item_threelines-is-created/</guid>
+      <description>On a SharePoint Online site collection where Publishing feature was initially turned on and subsequently turned off, js file was not automatically created/updated whenever a display template was created/edited. We wanted to have a search content web part with three lines instead of two lines. We created a new display template by following the steps below.
+Navigate to Site Settings&amp;gt;Master Pages&amp;gt;Display Templates&amp;gt;Content Web Parts. Download the file Item_TwoLines.html Rename it to Item_ThreeLines.</description>
+    </item>
+    
+    <item>
+      <title>London ClojureBridge Event as Teaching Assistant</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/london-clojurebridge-event-as-teaching-assistant/</link>
+      <pubDate>Tue, 23 Feb 2016 07:31:29 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/london-clojurebridge-event-as-teaching-assistant/</guid>
+      <description>Clojurebridge experience as teaching assistant I have been learning Clojure/ClojureScript over the last three months in my spare time. I felt lucky to be asked to volunteer to be a teaching assistant for the ClojureBridge event held at USwitch on the 19th and 20th Feb 2016. I was feeling apprehensive initially due to my limited exposure to a functional programming language and most of the teachers and teaching assistants were either working full time with Clojure or had several years of playing with Clojure and were using a Mac while I have used Windows laptop to play with Clojure.</description>
+    </item>
+    
+    <item>
+      <title>Restricting SSRS Report to show only projects users are allowed to see in Project Server 2010/2013 On Premises</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/restricting-ssrs-report-to-show-only-projects-users-are-allowed-to-see-in-project-server-20102013-on-premises/</link>
+      <pubDate>Sun, 17 Jan 2016 19:02:05 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/restricting-ssrs-report-to-show-only-projects-users-are-allowed-to-see-in-project-server-20102013-on-premises/</guid>
+      <description>To restrict the projects users can see from SSRS, there are several options
+1. Use the published database. However Microsoft does not recommend querying directly published database. This approach can be used at your own risk. CREATE FUNCTION [dbo].[PWA_FN_UTILITY_GetProjectsUserCanViewProjectDetails] ( @WRES_NT_ACCOUNT nvarchar(255) ) RETURNS @OUTPUT TABLE ( ProjectUID uniqueidentifier ) AS BEGIN DECLARE @RES_UID uniqueidentifier -- get the user account from the published database, also available in reporting database -- but in reporting database no indication if user is just a resource or an actual user.</description>
+    </item>
+    
+    <item>
+      <title>PowerShell Script to Remove Theme from Sub Sites</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/powershell-script-to-remove-theme-from-sub-sites/</link>
+      <pubDate>Fri, 15 Jan 2016 16:48:56 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/powershell-script-to-remove-theme-from-sub-sites/</guid>
+      <description>I had a requirement to apply a custom css file to a SharePoint collection on which there was a custom composed look with background image applied. I used the composed look option to reset the theme to a default without background image on the main site collection URL. Unfortunately sub sites were still displaying the background image. I tried setting the theme of the Sub Site using function ApplyTo or ApplyTheme without luck.</description>
+    </item>
+    
+    <item>
+      <title>Insert link to CSS/JavaScript script from &#34;Site Assets&#34; library using custom action SharePoint</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/insert-link-to-cssjavascript-script-from-site-assets-library-using-custom-action-sharepoint/</link>
+      <pubDate>Tue, 05 Jan 2016 23:27:38 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/insert-link-to-cssjavascript-script-from-site-assets-library-using-custom-action-sharepoint/</guid>
+      <description>I had a requirement from a client to apply custom css and JavaScript to a site collection including sub sites. The JavaScript file and Css file can be uploaded to &amp;ldquo;Site Assets&amp;rdquo; library using Module Element in SharePoint solution Module element to deploy CSS file &amp;lt;Elements xmlns=&amp;ldquo;http://schemas.microsoft.com/sharepoint/&amp;quot;&amp;gt; &amp;lt;Module Name=&amp;ldquo;CustomCss&amp;rdquo; Url=&amp;ldquo;SiteAssets&amp;rdquo;&amp;gt; &amp;lt;File Path=&amp;ldquo;CustomCss\custom.css&amp;rdquo; Url=&amp;ldquo;CustomCss\custom.css&amp;rdquo; /&amp;gt; &amp;lt;/Module&amp;gt; &amp;lt;/Elements&amp;gt; Module element to deploy CSS file &amp;lt;Elements xmlns=&amp;ldquo;http://schemas.microsoft.com/sharepoint/&amp;quot;&amp;gt; &amp;lt;Module Name=&amp;ldquo;Jquery&amp;rdquo; Url=&amp;ldquo;SiteAssets&amp;rdquo;&amp;gt; &amp;lt;File Path=&amp;ldquo;Jquery\jquery-1.11.1.min.js&amp;rdquo; Url=&amp;ldquo;Jquery/jquery-1.11.1.min.js&amp;rdquo; /&amp;gt; &amp;lt;/Module&amp;gt; &amp;lt;/Elements&amp;gt; There are two options how to add the reference o the js file and css file</description>
+    </item>
+    
+    <item>
+      <title>Input of type date to generate a date picker using Reagent in ClojureScript</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/input-of-type-date-to-generate-a-date-picker-using-reagent-in-clojurescript/</link>
+      <pubDate>Fri, 01 Jan 2016 13:31:48 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/input-of-type-date-to-generate-a-date-picker-using-reagent-in-clojurescript/</guid>
+      <description>I needed a date picker to use in ClojureScript application to enter date of birth. I came across the pikaday which I tried to use but the date range was limited and could not find a solution to not limit the date range. The native HTML input control of type date can be generated in Reagent as follows [:p &amp;quot;Enter Date Of Birth&amp;quot;] ;;using input control of type date to allow a date to be picked [:input {:type &amp;quot;date&amp;quot; :on-change (fn [e] (swap!</description>
+    </item>
+    
+    <item>
+      <title>ClojureScript - Power of Clojure to the web</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojurescript-power-of-clojure-to-the-web/</link>
+      <pubDate>Fri, 01 Jan 2016 12:10:30 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojurescript-power-of-clojure-to-the-web/</guid>
+      <description>ClojureScript is a compiler for Clojure that targets JavaScript. It is designed to emit JavaScript code which is compatible with the advanced compilation mode of the Google Closure optimizing compiler. Why ClojureScript?
+Allows to use functional programming. Uses Immutable data structures. (Immutable.js library is available to enable use of immutable data structures with JavaScript. Watch Christian Johansen&amp;rsquo;s talk on Immutable JavaScript) Uses Google Closure Compiler : advanced code compiling with dead code elimination core.</description>
+    </item>
+    
+    <item>
+      <title>SPUtility to set , hide and make field readonly in EditForm and NewForm</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sputility-to-set-hide-and-make-field-readonly-in-editform-and-newform/</link>
+      <pubDate>Thu, 24 Dec 2015 17:44:17 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sputility-to-set-hide-and-make-field-readonly-in-editform-and-newform/</guid>
+      <description>I was trying to work out how to set, hide and make fields read-only in EditForm.aspx and NewForm.aspx depending on conditions. I stumbled on SPUtility.js library from https://sputility.codeplex.com/ It allows to manipulate fields on EditForm.aspx and NewForm.aspx Set a Text field&amp;rsquo;s value SPUtility.GetSPField(&amp;lsquo;Title&amp;rsquo;).SetValue(&amp;lsquo;Test Set Field&amp;rsquo;); Set a Text field&amp;rsquo;s value to today&amp;rsquo;s date and make it read only vardate = new Date(); SPUtility.GetSPField(&amp;lsquo;Date Realised&amp;rsquo;).SetDate(date.getFullYear(), date.getMonth() + 1, date.getDate()).MakeReadOnly(); Hide a field from view SPUtility.</description>
+    </item>
+    
+    <item>
+      <title>Project Server 2013 Make fields Read Only in PDP depending on SharePoint Groups the logged user belong to</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/project-server-2013-make-fields-read-only-in-pdp-depending-on-sharepoint-groups-the-logged-user-belong-to/</link>
+      <pubDate>Thu, 24 Dec 2015 17:04:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/project-server-2013-make-fields-read-only-in-pdp-depending-on-sharepoint-groups-the-logged-user-belong-to/</guid>
+      <description>I had a requirement depending on the SharePoint group the user belong some fields need to be read only. The script below disable the field &amp;ldquo;Project Code&amp;rdquo; on the PDP (Project Detail Page) if the user is not in the SharePoint group &amp;ldquo;Project Code&amp;rdquo;. Copy the code snippet to a script editor web part in a PDP page. jQuery.noConflict(); function IsCurrentUserMemberOfGroup(groupName, OnComplete) { var currentContext = new SP.ClientContext.get_current(); var currentWeb = currentContext.</description>
+    </item>
+    
+    <item>
+      <title>SSRS Subscription SharePoint Integrated Mode</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/ssrs-subscription-sharepoint-integrated-mode/</link>
+      <pubDate>Thu, 24 Dec 2015 16:12:07 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/ssrs-subscription-sharepoint-integrated-mode/</guid>
+      <description>Subscription option is available on the SSRS report item to allow the run the report automatically. The user need to be logged in as site administrator to create subscription. Follow the steps below
+Create a document library (named for example “Extracts” to store the report extracts. Click on “Manage Subscriptions” from the drop down options available against the SSRS report item. Click on “Add Subscription”. Update the fields Delivery Extension = SharePoint Document Library Document Library = The document library created in first step.</description>
+    </item>
+    
+    <item>
+      <title>Starting with React- Factorial react Component</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/starting-with-react-factorial-react-component/</link>
+      <pubDate>Sun, 20 Dec 2015 21:55:50 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/starting-with-react-factorial-react-component/</guid>
+      <description>React is an Open Source, client-side web library for building composable user interfaces developed by Facebook and Instagram. The Instagram website, Facebook&amp;rsquo;s comment and like components are developed with React. React home page provides code samples that run live and give results just next to it. The getting started page provides necessary documentation and has a download link for the Starter Kit that&amp;rsquo;s a convenient package that includes HTML templates, the React libraries and this set of examples.</description>
+    </item>
+    
+    <item>
+      <title>SharePoint JavaScript OOB Utilities URL</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sharepoint-javascript-oob-utilities-url/</link>
+      <pubDate>Thu, 17 Dec 2015 22:17:12 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sharepoint-javascript-oob-utilities-url/</guid>
+      <description>SharePoint provides Out of Box JavaScript libraries to manipulate URL property. GetUrlKeyValue(KeyName, bNoDecode, url, bCaseInsensitive) Gets the key value from url. The second parameter is a Booleans indicating whether the value needs decoding and the last parameter indicates whether key is case sensitive SetUrlKeyValue(keyName, keyValue, bEncode, url) Set the value of key in the Url. The third parameter indicates whether the value needs to be encoded The two functions below are useful before saving a file to detect any illegal characters in url and file name as both have different sets of illegal characters.</description>
+    </item>
+    
+    <item>
+      <title>Clojure loop: doseq,dotimes, while, loop, recur</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-loop-doseqdotimes-while-loop-recur/</link>
+      <pubDate>Thu, 17 Dec 2015 19:59:30 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-loop-doseqdotimes-while-loop-recur/</guid>
+      <description>In Clojure loop can be performed using doseq, dotimes, while,loop, loop/recur and defn/recur functions. doseq doseq function iterates over a sequence performing something against each element. It is similar to foreach in C#. doseq forces evaluation for a lazy sequence (doseq [n (range 3)] ;;binding each value from the seq to n (println n)) Result : (0 1 2) dotimes dotimes function evaluates same expression n times similar to for loop in C#.</description>
+    </item>
+    
+    <item>
+      <title>SharePoint, Approve Selected List Items</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sharepoint-approve-selected-list-items-comments/</link>
+      <pubDate>Thu, 17 Dec 2015 18:57:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sharepoint-approve-selected-list-items-comments/</guid>
+      <description>Lilia Georgieva - Aug 4, 2016
+Hi there, can you provide some advice here. When I copy-paste your code in the Script Editor, I don&amp;rsquo;t get buttons but Text fields instead. The javascript code also doesn&amp;rsquo;t work for me. Any troubleshooting ideas?
+Hi Lilia Thanks very much for trying my code. The single and double quotes got messed up. I have replaced the code with a link to github https://gist.</description>
+    </item>
+    
+    <item>
+      <title>SharePoint, Approve Selected List Items</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sharepoint-approve-selected-list-items/</link>
+      <pubDate>Thu, 17 Dec 2015 18:57:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sharepoint-approve-selected-list-items/</guid>
+      <description>SharePoint provides Out of the box JavaScript Libraries. The List Views functions are described in the post with an example how to apply some of the functions CountSelectedItems(ctx); return count of selected items in view SelectRowByIndex(ctx,1,true); selects first item in list view DeselectAllItems(ctx, tab.rows, false);deselects all items in view SelectRibbonTab(&amp;ldquo;Ribbon.ListItem&amp;rdquo;,true); displays the listitem ribbon The code below can be copied into a script editor web part on a list view page.</description>
+    </item>
+    
+    <item>
+      <title>Clojure If, cond, case</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-if-cond-case-comments/</link>
+      <pubDate>Sun, 13 Dec 2015 21:33:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-if-cond-case-comments/</guid>
+      <description>reshmee011 - Dec 1, 2015
+@Timothy: Thanks for the clarification. I have updated the post.
+You might consider these conditional macros, too: when-let, cond-&amp;gt;, cond-&amp;raquo; and maybe some-&amp;gt;
+Alsobe aware that case tests for identity, not for equality.
+Hi Timothy Thanks for your feedback. I agree that empty collections are truthy as in the example you provided. However empty sequences are falsey (if (seq []):truthy :falsey); ;;=&amp;gt; falsey
+(seq []) is falsey because it converts an empty sequence (which is truthy) to nil (which is falsey).</description>
+    </item>
+    
+    <item>
+      <title>Clojure If, cond, case</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-if-cond-case/</link>
+      <pubDate>Sun, 13 Dec 2015 21:33:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-if-cond-case/</guid>
+      <description>Clojure has lots of operators for dealing with conditional statements: if, cond, condp, case and when. Each of these is useful for different situations. Let&amp;rsquo;s take a look at them in turn: if if expression in Clojure returns a value similar to ternary operator in c# compared to a statement The ternary expression in C# using the ? operator as follows remark = (rating&amp;gt;10) ? &amp;quot;positive&amp;quot;:&amp;quot;negative&amp;quot; The expression is evaluated, if it is true the &amp;ldquo;then&amp;rdquo; part is executed and result returned otherwise the &amp;ldquo;else&amp;rdquo; part is run and returned.</description>
+    </item>
+    
+    <item>
+      <title>SSRS Format Currency in thousands with suffix K</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/ssrs-format-currency-in-thousands-with-suffix-k/</link>
+      <pubDate>Thu, 10 Dec 2015 17:39:08 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/ssrs-format-currency-in-thousands-with-suffix-k/</guid>
+      <description>Currency values can be displayed in thousands with k suffix using the format &amp;lsquo;£&amp;rsquo;#,0,&amp;lsquo;k&amp;rsquo;;(&amp;lsquo;£&amp;rsquo;#,0,&amp;lsquo;k&amp;rsquo;) Edit the Format property of the textbox with &amp;lsquo;£&amp;rsquo;#,0,&amp;lsquo;k&amp;rsquo;;(&amp;lsquo;£&amp;rsquo;#,0,&amp;lsquo;k&amp;rsquo;) Running the report, all values will be displayed in thousands with K suffix and currency symbol as prefix. </description>
+    </item>
+    
+    <item>
+      <title>Clojure Sequences</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-sequences/</link>
+      <pubDate>Thu, 10 Dec 2015 09:32:23 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-sequences/</guid>
+      <description>Sequences include data structure lists, vectors and lazy sequences. Functions that can be used with sequences can be found using the clojure cheatsheet. http://clojure.org/cheatsheet Below are some examples using vectors and lists as sequences.
+Syntax
+Definition
+Result
+(seq &amp;lsquo;(1 2 3 4))
+If collection is not empty, return seq object else nil
+(1 2 3 4)
+(first [1 2 3 4])
+returns the first element
+1
+(rest {:a 1 :b 2 :c 3 :d 4})</description>
+    </item>
+    
+    <item>
+      <title>CSOM SharePoint Update Created Field of InfoPath file in Document Library</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/csom-sharepoint-update-created-field-of-infopath-file-in-document-library/</link>
+      <pubDate>Wed, 09 Dec 2015 11:08:46 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/csom-sharepoint-update-created-field-of-infopath-file-in-document-library/</guid>
+      <description>While doing a bulk import of InfoPath documents into document library using a CSV file the &amp;ldquo;Created&amp;rdquo; list out of the box date field is set to today&amp;rsquo;s date and time. The &amp;ldquo;Created&amp;rdquo; date needed to be set to another date property &amp;ldquo;Date Raised&amp;rdquo;. The InfoPath form can be uploaded following the steps described in the post https://reshmeeauckloo.wordpress.com/2015/11/26/programmatically-create-infopath-form-using-csom-sharepoint-2010/ The InfoPath item can be retrieved specifying the URL of the file and field &amp;ldquo;Created&amp;rdquo; set to another date.</description>
+    </item>
+    
+    <item>
+      <title>Clojure Immutable Collections</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-immutable-collections/</link>
+      <pubDate>Sun, 06 Dec 2015 16:02:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-immutable-collections/</guid>
+      <description>Clojure data is immutable. Values of simple data types are immutable , e.g. true, 4, 4.05. With immutability values never change, instead new values are generated when new states are needed. It means all states of the collection can be referred throughout the life cycle of the application. Advantages of immutability can be read from blog http://www.developer.com/lang/other/article.php/3874551/Clojure-Immutability-at-the-Language-Level.htm Clojure provides several immutable collections listed below Lists Below are the syntax associated with lists</description>
+    </item>
+    
+    <item>
+      <title>SQL Some|All:  Find if any item value is greater than threshold</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sql-someall-find-if-any-item-value-is-greater-than-threshold/</link>
+      <pubDate>Wed, 02 Dec 2015 22:17:34 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sql-someall-find-if-any-item-value-is-greater-than-threshold/</guid>
+      <description>I had a requirement to return a warning message if any rating exceeds a number. I came across the msdn article describing the use of keyword SOME ALL https://msdn.microsoft.com/en-us/library/ms175064.aspx DECLARE @RiskRating TABLE (ID int,Rating int) ; INSERT @RiskRating VALUES (1,20) ; INSERT @RiskRating VALUES (2,5) ; INSERT @RiskRating VALUES (3,6) ; INSERT @RiskRating VALUES (4,10) ; INSERT @RiskRating VALUES (5,25) ; INSERT @RiskRating VALUES (6,16) ; INSERT @RiskRating VALUES (7,1) ; IF 25 &amp;lt;= SOME (SELECT Rating FROM @RiskRating) PRINT &#39;One or more Risk Rating is equal or above 25&#39; ELSE PRINT &#39;No Risk Rating is equal or above 25&#39; ; IF 25 &amp;lt;= ALL (SELECT Rating FROM @RiskRating) PRINT &#39;All Risk Rating is equal or above 25&#39; ELSE PRINT &#39;Not all Risk Rating is equal or above 25&#39; ; Results One or more Risk Rating is equal or above 25 Not all Risk Rating is equal or above 25</description>
+    </item>
+    
+    <item>
+      <title>SQL RollUp Cube get Totals and Sub Totals of groups</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sql-rollup-cube-get-totals-and-sub-totals-of-groups/</link>
+      <pubDate>Wed, 02 Dec 2015 21:48:26 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sql-rollup-cube-get-totals-and-sub-totals-of-groups/</guid>
+      <description>The cube and rollup are extensions of the group by clause. https://technet.microsoft.com/en-us/library/bb522495(v=sql.105).aspx It allows to return the totals and sub totals of groups. Cube returns all combinations from the groups specified while RollUp returns unique combinations from the groups specified. DECLARE @PortfolioProgramme AS TABLE ( Portfolio VARCHAR(100), Programme VARCHAR(100), Project VARCHAR(100), [Cost (in Thousands)] INT ) INSERT INTO @PortfolioProgramme VALUES(&#39;P001&#39;, &#39;Programme1&#39;,&#39;Project1&#39;,9 ) INSERT INTO @PortfolioProgramme VALUES(&#39;P001&#39;, &#39;Programme1&#39;,&#39;Project11&#39;,8 ) INSERT INTO @PortfolioProgramme VALUES(&#39;P001&#39;, &#39;Programme1&#39;,&#39;Project2&#39;,5.</description>
+    </item>
+    
+    <item>
+      <title>Clojure Language Concepts</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-language-concepts/</link>
+      <pubDate>Wed, 02 Dec 2015 19:06:08 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-language-concepts/</guid>
+      <description>The post provides a description of some of key concepts and words used in Clojure. Let Let binds symbols to immutable values (let [a 7 b 5] (+ a b) ) The bound symbols are available in lexical scope, i.e. a and b can&amp;rsquo;t be accessed outside. Multi-Arity Function Multi-arity functions is same as overloading methods in C# which means varying number of arguments can be passed to the same function name (defn addNumber ([] (addNumber 2 3)) ([a b] (+ a b))) (addNumber) 5 (addNumber 20 30) 50 Variadic arity Function Variadic arity allows one version of a function with variable number of arguments.</description>
+    </item>
+    
+    <item>
+      <title>Content Search WebPart -  SlideShow with LargePicture with up to 6 line mappings</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/content-search-webpart-slideshow-with-largepicture-with-up-to-6-line-mappings-comments/</link>
+      <pubDate>Mon, 30 Nov 2015 19:46:20 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/content-search-webpart-slideshow-with-largepicture-with-up-to-6-line-mappings-comments/</guid>
+      <description>Swa - May 4, 2018
+http://sp2013.blogspot.co.uk/2013/08/sharepoint-content-search-web-part.html Above link is not working. Could you please share complete code?</description>
+    </item>
+    
+    <item>
+      <title>Content Search WebPart -  SlideShow with LargePicture with up to 6 line mappings</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/content-search-webpart-slideshow-with-largepicture-with-up-to-6-line-mappings/</link>
+      <pubDate>Mon, 30 Nov 2015 19:46:20 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/content-search-webpart-slideshow-with-largepicture-with-up-to-6-line-mappings/</guid>
+      <description>In SharePoint Online, the Content Search Web Part allows you to view search results as a Slideshow. Just add a Content Search Web Part to a page and select Slideshow from the control option. The result looks like However there is an issue with the OOB SlideShow, if the results returned are less than the &amp;ldquo;Number of items to show&amp;rdquo; let&amp;rsquo;s say 2 results are returned, it still shows the bar for three items and show blank space when slideshow gets image 3.</description>
+    </item>
+    
+    <item>
+      <title>Starting with Clojure: Factorial function</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/starting-with-clojure-environment-set-up-in-windows/</link>
+      <pubDate>Sat, 28 Nov 2015 23:48:16 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/starting-with-clojure-environment-set-up-in-windows/</guid>
+      <description>My background is mainly C# with some JavaScript. I have heard a lot about functional programming languages like Clojure, F# and Scala. I decided to start learning Clojure. My first reaction after seeing a Clojure code was the syntax and layout which was unreadable to me. Clojure is a member of the Lisp family of languages. The use of parentheses is prominent. Below is some code that calculates factorial of a number in Clojure (defn fac &amp;quot;Returns factorial of n&amp;quot; [n] (if (= n 1) 1 (* n (fac (- n 1))))) Parentheses are used to structure lists and lists are building blocks of code.</description>
+    </item>
+    
+    <item>
+      <title>Nintex Workflow SharePoint Online Create Sub Site using Call HTTP Web Service Action</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/nintex-workflow-sharepoint-online-create-sub-site-http-web-service-comments/</link>
+      <pubDate>Sat, 28 Nov 2015 22:36:21 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/nintex-workflow-sharepoint-online-create-sub-site-http-web-service-comments/</guid>
+      <description>Katie - Jun 4, 2017
+Hi, I followed your instructions, but when I run the workflow, I get a bad request error message. How can I resolve this?
+Hi Team, we add some new attach items nintex workflow to sharepoint online using post web service method. We are break on post web service in nintex workflow. We need some idea for set Request Headers and Request Body. and need to add new item endpoint url for web service method.</description>
+    </item>
+    
+    <item>
+      <title>Nintex Workflow SharePoint Online Create Sub Site using Call HTTP Web Service Action</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/nintex-workflow-sharepoint-online-create-sub-site-http-web-service/</link>
+      <pubDate>Sat, 28 Nov 2015 22:36:21 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/nintex-workflow-sharepoint-online-create-sub-site-http-web-service/</guid>
+      <description>In SharePoint Online, Nintex Workflow has an action named Call HTTP Web Service. The action can be used to call SharePoint REST API, i.e. /_api/web/webinfos/add endpoint to create web site. The workflow app needs to be given full control at the site collection. The app permissions for workflow can be configured by following the steps below (refer to https://msdn.microsoft.com/en-us/library/office/jj822159(v=office.15).aspx for more info)
+Allow workflow to use app permissions a. Navigate to site settings</description>
+    </item>
+    
+    <item>
+      <title>C# Remove Method</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/c-remove-method/</link>
+      <pubDate>Thu, 26 Nov 2015 18:41:14 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/c-remove-method/</guid>
+      <description>The Remove method is a nice alternative to substring method For example, string strStringToTruncate = &amp;ldquo;This is a beautiful house&amp;rdquo;; string strTruncatedString = strStringToTruncate.Remove(5,10); Console.Write(strTruncatedString); strTruncatedString = strStringToTruncate.Remove(5); Console.Write(strTruncatedString); strTruncatedString = strStringToTruncate.Remove(0,5); Console.Write(strTruncatedString); The result &amp;ldquo;This iful house&amp;rdquo; &amp;ldquo;This&amp;rdquo; &amp;ldquo;is a beautiful house&amp;rdquo; More information can be found https://msdn.microsoft.com/en-us/library/d8d7z2kk(v=vs.110).aspx The method removes a number of characters based on a start index.</description>
+    </item>
+    
+    <item>
+      <title>ustom Layout Results Page to allow sorting and filtering by property</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/ustom-layout-results-page-to-allow-sorting-and-filtering-by-property/</link>
+      <pubDate>Tue, 24 Nov 2015 00:17:48 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/ustom-layout-results-page-to-allow-sorting-and-filtering-by-property/</guid>
+      <description>Content query webpart does not give the same flexibility as search results page to allow user to filter and sort by property. SharePoint Online provides out of the box display template which can be used in results page. However if custom property needs to be displayed or a custom display format is needed , then a new search result page can be created. Assuming news items need to be displayed in the following format with filters Country and Subject.</description>
+    </item>
+    
+    <item>
+      <title>Form Submit from a WebPart SharePoint</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/form-submit-from-a-webpart-sharepoint/</link>
+      <pubDate>Mon, 09 Nov 2015 10:13:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/form-submit-from-a-webpart-sharepoint/</guid>
+      <description>Unfortunately a form element can’t exist within a web part. The form element already exists in the master page of the web part. To resolve the issue the the jquery file jquery.SharePointFormSubmit.js file can be downloaded from https://sharepointformsubmit.codeplex.com/ to facilitate form submit from within the web part. Instead of the real HTML, use a div and a button with the submit event attached. However the script had to be modified slightly to work according to blog post http://sadomovalex.</description>
+    </item>
+    
+    <item>
+      <title>GetFieldValueAsHTML on multiline textboxes return  instead of</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/getfieldvalueashtml-on-multiline-textboxes-return-instead-of/</link>
+      <pubDate>Fri, 19 Sep 2014 16:02:31 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/getfieldvalueashtml-on-multiline-textboxes-return-instead-of/</guid>
+      <description>The gets inserted whenever shift&amp;gt;enter is pressed inside a multiline text box in SharePoint list. Above is a sample text entered in multiline column Col_ToBeDel. When the getfieldvalueashtml method is called against the column value , is returned instead of tag. If LoadXML method is called against the value returned by getfieldvalueashtml , it will complain about invalid XML. The fix can be to replace with before calling LoadXML.</description>
+    </item>
+    
+    <item>
+      <title>Office 365 - how to change settings to allow authenticated users to join meetings</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/office-365-how-to-change-settings-for-lync-meetings/</link>
+      <pubDate>Fri, 19 Sep 2014 14:54:14 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/office-365-how-to-change-settings-for-lync-meetings/</guid>
+      <description>Today I was searching how to update lync settings to allow authenticated users to join meetings without waiting in meeting lobby. I stumbled across: http://technet.microsoft.com/en-us/library/gg398648.aspx The command below firsts get all meeting configuration settings in use where property AdmitAnonymousUsersByDefault is set to false and then update property PstnCallersBypassLobby to true. Get-CsMeetingConfiguration | Where-Object {$_.AdmitAnonymousUsersByDefault -eq $False} | Set-CsMeetingConfiguration -PstnCallersBypassLobby $True</description>
+    </item>
+    
+    <item>
+      <title>Me</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/me-comments/</link>
+      <pubDate>Thu, 18 Sep 2014 16:47:49 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/me-comments/</guid>
+      <description>alexott - Dec 6, 2015
+Hi. Just want to say that I&amp;rsquo;ve added your blog into Planet Clojure (the Clojure category only).</description>
+    </item>
+    
+    <item>
+      <title>Me</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/me/</link>
+      <pubDate>Thu, 18 Sep 2014 16:47:49 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/me/</guid>
+      <description>Hi Thank you for visiting my blog. I am using this blog to share everyday experience professionally or personally. Enjoy Reshmee</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SSRS SharePoint Subscription Integrated mode on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-sharepoint-subscription-integrated-mode/</link>
+    <description>Recent content in SSRS SharePoint Subscription Integrated mode on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Dec 2015 16:12:07 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/ssrs-sharepoint-subscription-integrated-mode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SSRS Subscription SharePoint Integrated Mode</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/ssrs-subscription-sharepoint-integrated-mode/</link>
+      <pubDate>Thu, 24 Dec 2015 16:12:07 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/ssrs-subscription-sharepoint-integrated-mode/</guid>
+      <description>Subscription option is available on the SSRS report item to allow the run the report automatically. The user need to be logged in as site administrator to create subscription. Follow the steps below
+Create a document library (named for example “Extracts” to store the report extracts. Click on “Manage Subscriptions” from the drop down options available against the SSRS report item. Click on “Add Subscription”. Update the fields Delivery Extension = SharePoint Document Library Document Library = The document library created in first step.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>SSRS SharePoint Integrated Mode - Cells grow vertically to fit content | m365 blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I have come across this issue several times that even the &ldquo;Can Grow&rdquo; property of the cell is set to false, the cell grows vertically to fit contents forcing the same row to stretch to the height of the cell distorting the rendering of the report on the browser though it might display correctly in Report Builder or SQL data tools in Visual Studio. Can Grow is set to False from the cell property.">
+    <meta name="generator" content="Hugo 0.111.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/ssrs-sharepoint-integrated-mode-cells-grow-vertically-to-fit-content/index.xml" rel="alternate" type="application/rss+xml" title="m365 blog" />
+      <link href="/ssrs-sharepoint-integrated-mode-cells-grow-vertically-to-fit-content/index.xml" rel="feed" type="application/rss+xml" title="m365 blog" />
+      
+    
+    
+    <meta property="og:title" content="SSRS SharePoint Integrated Mode - Cells grow vertically to fit content" />
+<meta property="og:description" content="I have come across this issue several times that even the &ldquo;Can Grow&rdquo; property of the cell is set to false, the cell grows vertically to fit contents forcing the same row to stretch to the height of the cell distorting the rendering of the report on the browser though it might display correctly in Report Builder or SQL data tools in Visual Studio. Can Grow is set to False from the cell property." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://famous-cajeta-4dad83.netlify.app/ssrs-sharepoint-integrated-mode-cells-grow-vertically-to-fit-content/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2016-01-19T17:54:34+00:00" />
+<meta property="article:modified_time" content="2016-01-19T17:54:34+00:00" />
+<meta itemprop="name" content="SSRS SharePoint Integrated Mode - Cells grow vertically to fit content">
+<meta itemprop="description" content="I have come across this issue several times that even the &ldquo;Can Grow&rdquo; property of the cell is set to false, the cell grows vertically to fit contents forcing the same row to stretch to the height of the cell distorting the rendering of the report on the browser though it might display correctly in Report Builder or SQL data tools in Visual Studio. Can Grow is set to False from the cell property."><meta itemprop="datePublished" content="2016-01-19T17:54:34+00:00" />
+<meta itemprop="dateModified" content="2016-01-19T17:54:34+00:00" />
+<meta itemprop="wordCount" content="147">
+<meta itemprop="keywords" content="Project Server 2013,SharePoint 2013,SSRS,SSRS SharePoint Integrated Mode," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SSRS SharePoint Integrated Mode - Cells grow vertically to fit content"/>
+<meta name="twitter:description" content="I have come across this issue several times that even the &ldquo;Can Grow&rdquo; property of the cell is set to false, the cell grows vertically to fit contents forcing the same row to stretch to the height of the cell distorting the rendering of the report on the browser though it might display correctly in Report Builder or SQL data tools in Visual Studio. Can Grow is set to False from the cell property."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        m365 blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          SSRS SharePoint Integrated Mode - Cells grow vertically to fit content
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>I have come across this issue several times that even the &ldquo;Can Grow&rdquo; property  of the cell is set to false, the cell grows vertically to fit contents forcing the same row to stretch to the height of the cell distorting the rendering of the report on the browser though it might display correctly in Report Builder or SQL data tools in Visual Studio. Can Grow is set to False from the cell property. <img src="https://reshmeeauckloo.files.wordpress.com/2016/01/cangrow_false.png" alt="CanGrow_False"> Cell displayed correctly Report Builder <img src="https://reshmeeauckloo.files.wordpress.com/2016/01/displaycorrectly_reportbuilder.png" alt="DisplayCorrectly_ReportBuilder"> Report does not display correctly from report library in SharePoint 2013 <img src="https://reshmeeauckloo.files.wordpress.com/2016/01/displayincorrectly_browser.png" alt="DisplayIncorrectly_Browser"> <strong>Fix</strong></p>
+<ol>
+<li>Clear the cell, i.e. delete the textbox and right click on the cell to add a rectangle.</li>
+</ol>
+<p><img src="https://reshmeeauckloo.files.wordpress.com/2016/01/insert_rectangle.png" alt="Insert_Rectangle"> 2. After adding the rectangle control, right click to add a textbox <img src="https://reshmeeauckloo.files.wordpress.com/2016/01/insert_textbox.png" alt="Insert_TextBox"> 3. Select the field to display in the textbox and set writingmode to 270. <img src="https://reshmeeauckloo.files.wordpress.com/2016/01/textboxinsiderectanglesetto270.png" alt="TextBoxInsideRectangleSetTo270"> 4. Save the report from Report Builder and run the report from browser. <img src="https://reshmeeauckloo.files.wordpress.com/2016/01/fixed_resize.png" alt="fixed_Resize"></p>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://famous-cajeta-4dad83.netlify.app/" >
+    &copy;  m365 blog 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

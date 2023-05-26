@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AddKeyValueQueryString on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/addkeyvaluequerystring/</link>
+    <description>Recent content in AddKeyValueQueryString on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Dec 2015 22:17:12 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/addkeyvaluequerystring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SharePoint JavaScript OOB Utilities URL</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sharepoint-javascript-oob-utilities-url/</link>
+      <pubDate>Thu, 17 Dec 2015 22:17:12 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sharepoint-javascript-oob-utilities-url/</guid>
+      <description>SharePoint provides Out of Box JavaScript libraries to manipulate URL property. GetUrlKeyValue(KeyName, bNoDecode, url, bCaseInsensitive) Gets the key value from url. The second parameter is a Booleans indicating whether the value needs decoding and the last parameter indicates whether key is case sensitive SetUrlKeyValue(keyName, keyValue, bEncode, url) Set the value of key in the Url. The third parameter indicates whether the value needs to be encoded The two functions below are useful before saving a file to detect any illegal characters in url and file name as both have different sets of illegal characters.</description>
+    </item>
+    
+  </channel>
+</rss>

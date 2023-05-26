@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SharePoint Online on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-online/</link>
+    <description>Recent content in SharePoint Online on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Sep 2021 09:09:39 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-online/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PnP Batch Add /Delete 300k items from a SharePoint Online list</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/pnp-batch-add-delete-300k-items-from-a-sharepoint-online-list/</link>
+      <pubDate>Sun, 12 Sep 2021 09:09:39 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/pnp-batch-add-delete-300k-items-from-a-sharepoint-online-list/</guid>
+      <description>I was tasked to delete more 300k items from a SharePoint list generated as part of testing. I tried the script https://vladilen.com/office-365/spo/fastest-way-to-delete-all-items-in-a-large-list/
+Get-PnPListItem -List $list -Fields &amp;#34;ID&amp;#34; -PageSize 100 -ScriptBlock { Param($items) $items | Sort-Object -Property Id -Descending | ForEach-Object{ $\_.DeleteObject() } } However the script kept failing at irregular intervals with exception messages like &amp;ldquo;A task was cancelled&amp;rdquo;, &amp;ldquo;The collection has not been initialised&amp;rdquo; and &amp;ldquo;operation time out&amp;rdquo;. It was a long processing task which I need to keep monitoring and resumed the script manually to continue the deletion many times to my dismay.</description>
+    </item>
+    
+    <item>
+      <title>List View Threshold 5k in SharePoint Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/list-view-threshold-5k-in-sharepoint-online/</link>
+      <pubDate>Fri, 07 May 2021 16:11:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/list-view-threshold-5k-in-sharepoint-online/</guid>
+      <description>The list view threshold is 5000 in SharePoint Online and still can not be changed despite it has been raised in the User Voice for improvements.
+I have created more than 5000 files in a library with the use of Power Automate to test what works and does not work.
+I was surprised by navigating to the list or library I did not get any errors and everything seems to be working.</description>
+    </item>
+    
+    <item>
+      <title>Unable to update User Profile Property due to Policy Settings set to Disabled</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/unable-to-update-user-profile-property-due-to-policy-settings-set-to-disabled/</link>
+      <pubDate>Fri, 23 Dec 2016 13:59:03 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/unable-to-update-user-profile-property-due-to-policy-settings-set-to-disabled/</guid>
+      <description>The web service userprofileservice /_vti_bin/userprofileservice.asmx has to be used to update user profile properties for other users in SharePoint 2013 and SharePoint Online. Even though the HTTP status code response returned was 200 which means successful, the user profile property was blank when the user properties was queried using the REST api method sp.userprofiles.peoplemanager/getpropertiesfor. /_api/sp.userprofiles.peoplemanager/getpropertiesfor(@v)?@v=&amp;lsquo;i%3A0%23.f%7Cmembership%7CfirstName.LastName%40arteliauk.onmicrosoft.com&amp;rsquo; The user profile property updated was PictureUrl , however it was showing as null&amp;lt;d:PictureUrl m:null=&amp;quot;true&amp;quot; /&amp;gt;After spending a couple of hours trying to figure out why the use profile property was not showing, I decided to review the user profiles properties for Picture property and how it is different from the other user profile properties, e.</description>
+    </item>
+    
+    <item>
+      <title>Using PnP PowerShell to export and import Taxonomy</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/using-pnp-powershell-to-export-and-import-taxonomy/</link>
+      <pubDate>Wed, 02 Nov 2016 20:43:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/using-pnp-powershell-to-export-and-import-taxonomy/</guid>
+      <description>PnP provides export taxonomy cmdlet which allows to export all term groups, term sets, terms and child terms to a file with one line of codeConnect-SPOnline -Url &amp;lt;siteurl&amp;gt; -CurrentCredentials Export-SPOTaxonomy -IncludeID -Path &amp;quot;C:\\temp\\Metadata\\terms.txt&amp;quot;PnP also provides an equivalent import taxonomy cmdlet to import all term groups, term sets, terms and child terms from a file with one line of codeConnect-SPOnline -Url &amp;lt;siteurl&amp;gt; -CurrentCredentials Import-SPOTaxonomy -Path &amp;quot;C:\\temp\\Metadata\\terms.txt&amp;quot;However if IncludeId switch parameter is used with the export, the import would fail if the October 2016 PnP PowerShell release is used.</description>
+    </item>
+    
+    <item>
+      <title>Create Lists Libraries from Schema as XML using CSOM</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/create-lists-libraries-from-schema-as-xml-using-csom-comments/</link>
+      <pubDate>Sat, 22 Oct 2016 09:48:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/create-lists-libraries-from-schema-as-xml-using-csom-comments/</guid>
+      <description>Export Lists Schema to XML using CSOM and PnP | reshmeeauckloo - Oct 6, 2016
+[…] To create lists/libraries using the XML config file, refer to post Create Lists Libraries from Schema as XML using CSOM […]</description>
+    </item>
+    
+    <item>
+      <title>Create Lists Libraries from Schema as XML using CSOM</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/create-lists-libraries-from-schema-as-xml-using-csom/</link>
+      <pubDate>Sat, 22 Oct 2016 09:48:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/create-lists-libraries-from-schema-as-xml-using-csom/</guid>
+      <description>Following on my article Export List Schema XML to a configuration file, I went on to create lists and libraries with same metadata on a new SharePoint environment. Although CSOM allows to create a list by update the property SchemaXML using CSOM iterating through the list schema in the config file. However I kept getting &amp;ldquo;Invalid list template&amp;rdquo;. The exported list&amp;rsquo;s Schema XML needs to be modified to remove unnecessary tags so as it can be used to update property SchemaXML as per article &amp;ldquo;How to create List and libraries with CustomSchemaXml property using SchemaXml with CSOM in SharePoint online2010?</description>
+    </item>
+    
+    <item>
+      <title>Export Lists Schema to XML using CSOM and PnP</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/export-lists-schema-to-xml-using-csom-and-pnp-comments/</link>
+      <pubDate>Sat, 22 Oct 2016 09:36:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/export-lists-schema-to-xml-using-csom-and-pnp-comments/</guid>
+      <description>Create Lists Libraries from Schema as XML using CSOM | reshmeeauckloo - Oct 6, 2016
+[…] ← Export Lists Schema to XML using CSOM and PnP […]</description>
+    </item>
+    
+    <item>
+      <title>Export Lists Schema to XML using CSOM and PnP</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/export-lists-schema-to-xml-using-csom-and-pnp/</link>
+      <pubDate>Sat, 22 Oct 2016 09:36:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/export-lists-schema-to-xml-using-csom-and-pnp/</guid>
+      <description>I had to automate deployment of lists and libraries into different environments, e.g. on premises and online. There are different elements to consider when deploying lists or libraries namely - List Properties - List Content Types - Views - Fields I could have written a configuration file in xml manually to specify the details above. Instead I have decided to configure lists and libraries from a SharePoint 2013 On Premises Dev environment and export the list schemaXML property to a XML file.</description>
+    </item>
+    
+    <item>
+      <title>Update Search Result Web Part: Query Text and Result Source</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/update-search-result-web-part-query-text-and-result-source/</link>
+      <pubDate>Sat, 15 Oct 2016 08:17:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/update-search-result-web-part-query-text-and-result-source/</guid>
+      <description>I had to automate update of result source and query of a search result web part in a search page as part of deployment script to move changes from DEV to TEST, UAT and PROD. The XML definition of a search result web part is Cannot import this Web Part. 4 True advanced.aspx True False True True True null False True [&amp;quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Group_Default.js&amp;quot;,&amp;quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Default.js&amp;quot;,&amp;quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Site.js&amp;quot;,&amp;quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Word.js&amp;quot;,&amp;quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_PowerPoint.js&amp;quot;,&amp;quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Person_CompactHorizontal.js&amp;quot;,&amp;quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_BestBet.js&amp;quot;,&amp;quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_WebPage.js&amp;quot;] 10 True True False True True Modeless Search Results True 1 True False ~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_CommonItem_Body.</description>
+    </item>
+    
+    <item>
+      <title>Add Refiner to Refinement Web Part using CSOM and PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/add-refiner-to-refinement-web-part-comments/</link>
+      <pubDate>Wed, 05 Oct 2016 06:06:13 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/add-refiner-to-refinement-web-part-comments/</guid>
+      <description>Update Search Result Web Part: Query Text and Result Source | reshmeeauckloo - Oct 6, 2016
+[…] ← Add Refiner to Refinement Web Part using CSOM and PowerShell […]</description>
+    </item>
+    
+    <item>
+      <title>Add Refiner to Refinement Web Part using CSOM and PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/add-refiner-to-refinement-web-part/</link>
+      <pubDate>Wed, 05 Oct 2016 06:06:13 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/add-refiner-to-refinement-web-part/</guid>
+      <description>The refinement web part present by default on a search results page help to narrow down search results. The inter connected web parts present in a search result page are
+Search Box Web Part Search Navigation Search Results Refinement Web Part The refinement web part used refiners which are managed properties bound to crawled properties created by search crawl. The managed properties must be enabled as refiners to be able to use on the web part.</description>
+    </item>
+    
+    <item>
+      <title>Create default groups using CSOM and PowerShell after creating site collections via script</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/create-default-groups-using-csom-and-powershell-after-creating-site-collections-via-script/</link>
+      <pubDate>Mon, 03 Oct 2016 16:13:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/create-default-groups-using-csom-and-powershell-after-creating-site-collections-via-script/</guid>
+      <description>Whenever a site collection is created using PowerShell, the default security groups (visitors, owners and members) are not provisioned. When site collection is created via browser an additional method call is made to create the security groups which is not called while using PowerShell.
+The following scripts will help create the default groups.
+https://gist.github.com/reshmee011/7c4ac90cb3038d16fa1448f4c5678896 Call method CreateWebDefaultGroup passing the parameters context(clientcontext) and UniquePermissions(bool) CreateWebDefaultGroup -Context $ctx -UniquePermissions $false</description>
+    </item>
+    
+    <item>
+      <title>Provision Search Navigation Settings PnP PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/provision-search-navigation-settings-pnp-powershell/</link>
+      <pubDate>Fri, 30 Sep 2016 16:51:24 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/provision-search-navigation-settings-pnp-powershell/</guid>
+      <description>I was investigating ways how to provision a search centre site with all the configurations automatically. I tried to package all configurations from an already configured Search Centre using &amp;ldquo;Save site as template&amp;rdquo;, however it did not work as Publishing Features are activated in a Search Centre. There are different configuration elements in a search centre site
+Search Navigation Settings Custom Search Display Templates Custom Search Results Pages which can be created using the function Add-PublishingPage Configure web parts in the search results page Refinement WebPart Search Results WebPart This blog post focuses on updating the Search Navigation Settings.</description>
+    </item>
+    
+    <item>
+      <title>External Sharing of Documents with Nintex in SharePoint Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/external-sharing-of-documents-with-nintex-in-sharepoint-online-comments/</link>
+      <pubDate>Tue, 20 Sep 2016 16:53:55 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/external-sharing-of-documents-with-nintex-in-sharepoint-online-comments/</guid>
+      <description>Fernando Hunth - Apr 2, 2017
+Please , enhance the quality of images. I cannot read the configuration you are telling.</description>
+    </item>
+    
+    <item>
+      <title>External Sharing of Documents with Nintex in SharePoint Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/external-sharing-of-documents-with-nintex-in-sharepoint-online/</link>
+      <pubDate>Tue, 20 Sep 2016 16:53:55 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/external-sharing-of-documents-with-nintex-in-sharepoint-online/</guid>
+      <description>The &amp;ldquo;Office 365 update item permissions&amp;rdquo; step available in Nintex Workflow updates item permissions. However if external users are given permissions using this step, it fails with message &amp;ldquo;failed to resolve user &amp;ldquo;. The issue with Office 365 update item permissions is that it does not allow updating permissions for external users.
+With the SharePoint 2016 Remote API Sharing with external users can be achieved using method UpdateDocumentSharingInfo from class SPDocumentSharingManager which fortunately can be called using REST.</description>
+    </item>
+    
+    <item>
+      <title>Rest Api Generate Guest Link SharePoint Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/create-anonymous-link-sharepoint-online-rest-comments/</link>
+      <pubDate>Mon, 12 Sep 2016 17:36:15 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/create-anonymous-link-sharepoint-online-rest-comments/</guid>
+      <description>vamsim - Jun 3, 2017
+Hi this is very helpful, but can you help with the steps to execute this. Also a clear explanation of all the parameters used will really help a lot of people.
+what is the adequate permission one needs on the resource to create its anonymous link, I have logged in as read only user and i am getting access denied error while executing above script, can you explain this</description>
+    </item>
+    
+    <item>
+      <title>Rest Api Generate Guest Link SharePoint Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/create-anonymous-link-sharepoint-online-rest/</link>
+      <pubDate>Mon, 12 Sep 2016 17:36:15 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/create-anonymous-link-sharepoint-online-rest/</guid>
+      <description>The CreateAnonymousLink method creates an anonymous link with option either to read or edit. It is quite useful to share documents with external users. The drawback is that anyone with the link can view/edit the document shared without sign-in. The method &amp;ldquo;CreateAnonymousLink &amp;quot; accomplishes the same as &amp;ldquo;View Link - no sign-in required&amp;rdquo; and &amp;ldquo;Edit Link -no sign-in required&amp;rdquo; from the UI. https://gist.github.com/reshmee011/1f08ae19491e5c094986dfdb55f29731 Once the link is generated, it can be sent by email to the relevant individuals.</description>
+    </item>
+    
+    <item>
+      <title>Export Term Set from Term Store as Sample Import file CSV</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/export-term-set-from-term-store-as-sample-import-file-csv/</link>
+      <pubDate>Tue, 06 Sep 2016 16:28:32 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/export-term-set-from-term-store-as-sample-import-file-csv/</guid>
+      <description>The Managed Metadata service provides the &amp;ldquo;Import Term Set&amp;rdquo; Out of the Box. Unfortunately it does not provide the same &amp;ldquo;Export Term Set&amp;rdquo; capability. I had a requirement to export a term set to be reviewed by the business before importing the term set to another SharePoint farm. The Sample Import File has the columns &amp;ldquo;Term Set Name&amp;rdquo;,&amp;ldquo;Term Set Description&amp;rdquo;,&amp;ldquo;LCID&amp;rdquo;,&amp;ldquo;Available for Tagging&amp;rdquo;,&amp;ldquo;Term Description&amp;rdquo;,&amp;ldquo;Level 1 Term&amp;rdquo;,&amp;ldquo;Level 2 Term&amp;rdquo;,&amp;ldquo;Level 3 Term&amp;rdquo;,&amp;ldquo;Level 4 Term&amp;rdquo;,&amp;ldquo;Level 5 Term&amp;rdquo;,&amp;ldquo;Level 6 Term&amp;rdquo; and &amp;ldquo;Level 7 Term&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Create Indexed(Queryable via Search) Web PropertyBag using PnP and PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/set-a-propertybag-property-as-indexed-queryable-via-search-using-pnp-and-powershell/</link>
+      <pubDate>Thu, 01 Sep 2016 16:14:19 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/set-a-propertybag-property-as-indexed-queryable-via-search-using-pnp-and-powershell/</guid>
+      <description>PropertyBag set against SharePoint web object can be indexed which means a corresponding crawled property is created by Search. If search managed properties are created against the crawled property (property bag values), custom search display templates can be created to provide a site directory solution. The post by Phil Harding Set a PropertyBag Property as Indexed (Queryable via Search) using CSOM + Powershell describes how to create an indexed property on premises using the collection &amp;ldquo;IndexedPropertyKeys&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Apply Theme and Create Composed Look CSOM and PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/apply-theme-and-create-composed-look-csom-and-powershell/</link>
+      <pubDate>Tue, 30 Aug 2016 16:27:50 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/apply-theme-and-create-composed-look-csom-and-powershell/</guid>
+      <description>There are several ways a theme can be applied to a SharePoint site. I tried the PnP command SetSPOTheme as follows on SharePoint 2013 On Premises instance. Set-SPOTheme -ColorPaletteUrl $PathThemeColor -FontSchemeUrl $PathThemeFont Unfortunately I was getting message &amp;lsquo;Field or property &amp;ldquo;AlternateCssUrl&amp;rdquo; does not exist.&amp;rsquo; The error is due not having latest patch installed. Unfortunately the latest SharePoint CU can&amp;rsquo;t be installed as we have heavily customised legacy applications migrated from SharePoint 2007 and SharePoint 2010 running in compatibility mode.</description>
+    </item>
+    
+    <item>
+      <title>Update Choice Field values using CSOM in PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/update-choice-field-values-using-csom-in-powershell-comments/</link>
+      <pubDate>Wed, 13 Jul 2016 16:55:32 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/update-choice-field-values-using-csom-in-powershell-comments/</guid>
+      <description>Chris O&amp;rsquo;Connor - Oct 5, 2017
+Thanks !! This was an awesome tip - and works in SharePoint Online. I have an &amp;ldquo;Events&amp;rdquo; list to clear out - and just add PUBLIC + PRIVATE. This technique worked great - thanks again. :-)
+http://veerainduvasi.blogspot.co.uk/2017/01/update-exisiting-choice-column-options.html
+Awesome! AND timely! Two questions: Will this work against a Sharepoint Online doc library with more than 5000 items? Can this alter an existing choice value as well as adding a new one?</description>
+    </item>
+    
+    <item>
+      <title>Update Choice Field values using CSOM in PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/update-choice-field-values-using-csom-in-powershell/</link>
+      <pubDate>Wed, 13 Jul 2016 16:55:32 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/update-choice-field-values-using-csom-in-powershell/</guid>
+      <description>I wanted a CSOM script in PowerShell to add a new value to a choice field in SharePoint. Most of the examples I found were in CSOM Managed Code (C#) but could not find anything in PowerShell. I came up with the embedded code. The client assemblies are referenced
+SharePoint Assemblies\Microsoft.SharePoint.Client.dll SharePoint Assemblies\Microsoft.SharePoint.Client.Runtime.dll I have created the function Add-ChoiceValueToField to contain the logic to add a value to a choice field.</description>
+    </item>
+    
+    <item>
+      <title>Import/Export Columns and Content Types using PnP PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/importexport-columns-and-content-types-sharepointpnp2016powershell-powershell-comments/</link>
+      <pubDate>Fri, 24 Jun 2016 11:52:05 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/importexport-columns-and-content-types-sharepointpnp2016powershell-powershell-comments/</guid>
+      <description>reshmee011 - Oct 4, 2017
+I will update the scripts at some point. Thanks for the comment.
+The Imported TaxonomyFields seems not working, because of missing the second Taxonomy-Note-Field. I always get &amp;ldquo;The SPListItem being updated was not retrieved with all taxonomy fields&amp;rdquo; in Edit-Form of the imported Managed Metadata Columns. I have observed this. http://blog.bugrapostaci.com/2015/07/03/the-splistitem-being-updated-was-not-retrieved-with-all-taxonomy-fields/
+Actually you must use the new PnP-PowerShell-Namespace in the PowerShell-Commands. Example: Connect-PnPOnline instead of Connect-SPOnline and so on&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Import/Export Columns and Content Types using PnP PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/importexport-columns-and-content-types-sharepointpnp2016powershell-powershell/</link>
+      <pubDate>Fri, 24 Jun 2016 11:52:05 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/importexport-columns-and-content-types-sharepointpnp2016powershell-powershell/</guid>
+      <description>It is useful to migrate Site Columns and Content Types from one Site Collection to another under the following scenarios maintaining the original GUIDS.
+SharePoint On Premise environment to SharePoint Online Within SharePoint Online, migrate to another tenant If Content Hub Feature is not used, migrate the contents to another site collection Keep a list for governance/change tracking purpose, i.e. checking in TFS This article covers export/import of site columns and content types using SharePointPnP2016PowerShell commands which needs to be installed to be able to use the relevant commands.</description>
+    </item>
+    
+    <item>
+      <title>Nintex SharePoint Online Create SharePoint Group with Contribute permissions</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/nintex-sharepoint-online-create-sharepoint-group-with-contribute-permissions-comments/</link>
+      <pubDate>Tue, 03 May 2016 14:53:03 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/nintex-sharepoint-online-create-sharepoint-group-with-contribute-permissions-comments/</guid>
+      <description>Mixons - Nov 1, 2016
+@Dub do you found the solution ?? i have the same problem
+Hello Reshmee, Great tutorial! I could confirm that the content type has to be text/xml (as described above). But when I try to create the Group. I got the following error message: &amp;ldquo;Access denied. You do not have permission to perform this action or access this resource&amp;rdquo;
+Hi, has anyone found a solution to this Access denied error?</description>
+    </item>
+    
+    <item>
+      <title>Nintex SharePoint Online Create SharePoint Group with Contribute permissions</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/nintex-sharepoint-online-create-sharepoint-group-with-contribute-permissions/</link>
+      <pubDate>Tue, 03 May 2016 14:53:03 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/nintex-sharepoint-online-create-sharepoint-group-with-contribute-permissions/</guid>
+      <description>Nintex Workflow has actions &amp;ldquo;Web Request&amp;rdquo; and &amp;ldquo;Call HTTP Web Service&amp;rdquo; which can be used to make calls to the REST API of SharePoint Online/2013 to automate creation of SharePoint groups in a site collection. Add the following steps to the workflow
+Create a Text variable GroupName and Use &amp;ldquo;Set Workflow Variable&amp;rdquo; to assign it to a value. Get request digest from targeted site collection. Please note that workflow app permissions need to amended to give site collection full control access.</description>
+    </item>
+    
+    <item>
+      <title>Nintex DocSign Enable Multiple Recipients</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/nintex-docsign-multiple-recipients-comments/</link>
+      <pubDate>Sat, 30 Apr 2016 10:04:39 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/nintex-docsign-multiple-recipients-comments/</guid>
+      <description>Nintex DocSign Enable Multiple Recipients | reshmeeauckloo - Apr 6, 2016
+[…] ← Nintex DocSign Enable Multiple Recipients […]
+[…] Nintex DocSign Enable Multiple Recipients […]</description>
+    </item>
+    
+    <item>
+      <title>Nintex DocSign Enable Multiple Recipients</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/nintex-docsign-multiple-recipients/</link>
+      <pubDate>Sat, 30 Apr 2016 10:04:39 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/nintex-docsign-multiple-recipients/</guid>
+      <description>Doc Sign is a useful secure way of signing documents which is legally binding. Nintex provides the DocuSign send document action that integrates DocuSign service. A trial account for PROD can be created but the trial limit is 3 documents. For development or evaluation purposes, a free developer account can be created on DocuSign site. Follow the instructions from The Quick Quide to Doc Sign to configure your dev account. Part of the process is to create an integrator key which is needed to call DocuSign REST API.</description>
+    </item>
+    
+    <item>
+      <title>JSOM SharePoint Online Create Term with custom shared and local properties</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/jsom-sharepoint-online-create-term-with-custom-shared-and-local-properties/</link>
+      <pubDate>Fri, 15 Apr 2016 21:14:04 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/jsom-sharepoint-online-create-term-with-custom-shared-and-local-properties/</guid>
+      <description>The sp.Taxonomy.js can be used to create a term in the taxonomy store. I wanted to create Shared Custom properties on the term. However the JavaScript library on MSDN mentions only the method setLocalCustomProperty which creates or updates a local custom property. The SetCustomProperty is mentioned in MSDN to use in CSOM managed code to create or update shared custom property on a term. There is a lack of documentation how to use the method in JSOM.</description>
+    </item>
+    
+    <item>
+      <title>SharePoint JSOM to update Document ID Settings</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sharepoint-jsom-to-update-document-id-settings/</link>
+      <pubDate>Fri, 15 Apr 2016 05:42:48 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sharepoint-jsom-to-update-document-id-settings/</guid>
+      <description>The Document ID Service feature is useful to tag unique Id to documents across site collection to make it easier to retrieve. A prefix can be specified to use when the unique Id is generated. The document id settings is stored in the web property bag &amp;ldquo;docid_settings_ui&amp;rdquo; after the feature the activated. The web property bag can be updated using JSOM to assign a prefix with XML snippet like below. var docIdValue = &amp;lsquo; &amp;rsquo; + docIDPrefix + &amp;lsquo; true&amp;rsquo; webProperties.</description>
+    </item>
+    
+    <item>
+      <title>Search Display Template js file not created when HTML file for Item_ThreeLines is created</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/search-display-template-js-file-not-created-when-html-file-for-item_threelines-is-created/</link>
+      <pubDate>Mon, 14 Mar 2016 23:41:15 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/search-display-template-js-file-not-created-when-html-file-for-item_threelines-is-created/</guid>
+      <description>On a SharePoint Online site collection where Publishing feature was initially turned on and subsequently turned off, js file was not automatically created/updated whenever a display template was created/edited. We wanted to have a search content web part with three lines instead of two lines. We created a new display template by following the steps below.
+Navigate to Site Settings&amp;gt;Master Pages&amp;gt;Display Templates&amp;gt;Content Web Parts. Download the file Item_TwoLines.html Rename it to Item_ThreeLines.</description>
+    </item>
+    
+    <item>
+      <title>CSS to update display of items in SharePoint List View with alternating colour</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/css-to-update-display-of-items-in-sharepoint-list-view-with-alternating-colour-comments/</link>
+      <pubDate>Wed, 27 Jan 2016 22:15:46 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/css-to-update-display-of-items-in-sharepoint-list-view-with-alternating-colour-comments/</guid>
+      <description>Will - Dec 4, 2021
+How would you set the background for a specific row using the css?</description>
+    </item>
+    
+    <item>
+      <title>CSS to update display of items in SharePoint List View with alternating colour</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/css-to-update-display-of-items-in-sharepoint-list-view-with-alternating-colour/</link>
+      <pubDate>Wed, 27 Jan 2016 22:15:46 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/css-to-update-display-of-items-in-sharepoint-list-view-with-alternating-colour/</guid>
+      <description>The list view display of items in a SharePoint List can be updated to have alternating row colour and border set by using CSS. To test the snippet below, edit the page displaying the list items and add a content editor WebPart. Copy and paste the CSS snippet into the content editor WebPart. /*&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-*/ /* &amp;mdash;&amp;mdash;- Set Alternating Rows &amp;mdash;&amp;mdash;- */ /* &amp;mdash;&amp;mdash;- Set background for every row &amp;mdash;&amp;mdash;- */ .</description>
+    </item>
+    
+    <item>
+      <title>Project Server 2013/Online - Customise Track your work WebPart tile colour using CSS</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/project-server-2013-customise-track-your-work-webpart-tile-colour-using-css/</link>
+      <pubDate>Wed, 20 Jan 2016 19:14:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/project-server-2013-customise-track-your-work-webpart-tile-colour-using-css/</guid>
+      <description>In Project Server 2013/Online, there is Track Your Work WebPart which can be added to a page. The composed look can be updated to change the colour of the tiles. If each tile needs a different colour, custom css needs to be used. Copy and paste the css code below into a content editor WebPart. /* &amp;mdash;- #64D9E9 &amp;ndash;&amp;gt; Light Blue /* &amp;mdash;- #FFDE7B &amp;ndash;&amp;gt; Yellow /* &amp;mdash;- #D467A3 &amp;ndash;&amp;gt; Pink /* &amp;mdash;- #FF6685 &amp;ndash;&amp;gt; Red /*&amp;mdash;- #FF0033 &amp;ndash;&amp;gt; Carmine red /* &amp;mdash;- #A995C1 &amp;ndash;&amp;gt; Purple /* &amp;mdash;- #97D4A3 &amp;ndash;&amp;gt; Green /* &amp;mdash;- #667F97 &amp;ndash;&amp;gt; Dark Blue /*&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-*/ /*&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-*/ /* &amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash; Change the color of the tiles &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash; Adding more colors change the 7n to 8n, etc to continue adding colors */ div.</description>
+    </item>
+    
+    <item>
+      <title>SharePoint REST Get all items __next</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sharepoint-rest-get-all-items-__next/</link>
+      <pubDate>Fri, 04 Dec 2015 00:14:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sharepoint-rest-get-all-items-__next/</guid>
+      <description>When a REST query is run against a SharePoint list, not all items are returned if it contains more than 100 items. The default server paging is 100. It is a good practice to check the __next property of the JSON results to make sure all items are returned. Below is a code snippet running from a SharePoint hosted add-in. var url = appUrl + &amp;quot;/_api/SP.AppContextSite(@target)/Web/Lists/getByTitle(&#39;Repairs&#39;)/Items?$select=Title&amp;amp;@target=&#39;&amp;quot; + hostUrl + &amp;quot;&#39;&amp;quot;; jQuery.</description>
+    </item>
+    
+    <item>
+      <title>SharePoint 2013/Online CSOM REST Web Proxy</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sharepoint-2013-csom-rest-web-proxy-comments/</link>
+      <pubDate>Fri, 04 Dec 2015 00:01:11 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sharepoint-2013-csom-rest-web-proxy-comments/</guid>
+      <description>parthrawal - Jun 5, 2016
+can you please share the code for POST method!? i have currently JS in content editor webpart and want to use the same. can i!?
+Could you please share code snippet for post data</description>
+    </item>
+    
+    <item>
+      <title>SharePoint 2013/Online CSOM REST Web Proxy</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sharepoint-2013-csom-rest-web-proxy/</link>
+      <pubDate>Fri, 04 Dec 2015 00:01:11 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sharepoint-2013-csom-rest-web-proxy/</guid>
+      <description>Web Proxy SP.WebProxy is used to make requests to external services by SharePoint. SharePoint Add-ins must register target site as remote endpoint in app manifest. If the URL is http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json, the endpoint is http://services.odata.org. However the response size must not exceed 200 kb. CSOM var context = SP.ClientContext.get_current(); var request = new SP.WebRequestInfo(); request.set_url(&amp;quot;http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json&amp;quot;); request.set_method(&amp;quot;GET&amp;quot;); var response = SP.WebProxy.invoke(context,request); context.executeQueryAsync(success, fail); function success(){ if(response.get_statusCode() == 200 { var data = JSON.</description>
+    </item>
+    
+    <item>
+      <title>Nintex Workflow SharePoint Online Create Sub Site using Call HTTP Web Service Action</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/nintex-workflow-sharepoint-online-create-sub-site-http-web-service-comments/</link>
+      <pubDate>Sat, 28 Nov 2015 22:36:21 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/nintex-workflow-sharepoint-online-create-sub-site-http-web-service-comments/</guid>
+      <description>Katie - Jun 4, 2017
+Hi, I followed your instructions, but when I run the workflow, I get a bad request error message. How can I resolve this?
+Hi Team, we add some new attach items nintex workflow to sharepoint online using post web service method. We are break on post web service in nintex workflow. We need some idea for set Request Headers and Request Body. and need to add new item endpoint url for web service method.</description>
+    </item>
+    
+    <item>
+      <title>Nintex Workflow SharePoint Online Create Sub Site using Call HTTP Web Service Action</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/nintex-workflow-sharepoint-online-create-sub-site-http-web-service/</link>
+      <pubDate>Sat, 28 Nov 2015 22:36:21 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/nintex-workflow-sharepoint-online-create-sub-site-http-web-service/</guid>
+      <description>In SharePoint Online, Nintex Workflow has an action named Call HTTP Web Service. The action can be used to call SharePoint REST API, i.e. /_api/web/webinfos/add endpoint to create web site. The workflow app needs to be given full control at the site collection. The app permissions for workflow can be configured by following the steps below (refer to https://msdn.microsoft.com/en-us/library/office/jj822159(v=office.15).aspx for more info)
+Allow workflow to use app permissions a. Navigate to site settings</description>
+    </item>
+    
+    <item>
+      <title>ustom Layout Results Page to allow sorting and filtering by property</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/ustom-layout-results-page-to-allow-sorting-and-filtering-by-property/</link>
+      <pubDate>Tue, 24 Nov 2015 00:17:48 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/ustom-layout-results-page-to-allow-sorting-and-filtering-by-property/</guid>
+      <description>Content query webpart does not give the same flexibility as search results page to allow user to filter and sort by property. SharePoint Online provides out of the box display template which can be used in results page. However if custom property needs to be displayed or a custom display format is needed , then a new search result page can be created. Assuming news items need to be displayed in the following format with filters Country and Subject.</description>
+    </item>
+    
+    <item>
+      <title>Date Crawled properties Search SharePoint Online KQL Optional Date Filter if Date is null</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/date-crawled-properties-search-sharepoint-online-fql-optional-date-filter-if-date-is-null-comments/</link>
+      <pubDate>Mon, 23 Nov 2015 22:49:14 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/date-crawled-properties-search-sharepoint-online-fql-optional-date-filter-if-date-is-null-comments/</guid>
+      <description>Date Crawled properties Search SharePoint Online FQL Optional Date Filter if Date is null | reshmeeauckloo - Nov 1, 2015
+[…] ← Date Crawled properties Search SharePoint Online FQL Optional Date Filter if Date is nul… […]</description>
+    </item>
+    
+    <item>
+      <title>Date Crawled properties Search SharePoint Online KQL Optional Date Filter if Date is null</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/date-crawled-properties-search-sharepoint-online-fql-optional-date-filter-if-date-is-null/</link>
+      <pubDate>Mon, 23 Nov 2015 22:49:14 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/date-crawled-properties-search-sharepoint-online-fql-optional-date-filter-if-date-is-null/</guid>
+      <description>Crawled date fields from SharePoint Online are mapped to string properties which make it hard to apply a date filter on search results. If the filter EndDateOWSDATE is used in a Content Search Web Part, it won&amp;rsquo;t work as the mapped property EndDateOWSDATE is of type text -EndDateOWSDATE :1900-01-01..{Today} Instead the crawled property ows_EndDate can be mapped to any out of box refinable date properties, i.e. RefinableDate00 and the filter will work.</description>
+    </item>
+    
+    <item>
+      <title>KQL SharePoint Online filtering on user profile multi values managed metadata properties</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/kql-sharepoint-online-filtering-on-user-profile-multi-values-managed-metadata-properties/</link>
+      <pubDate>Thu, 19 Nov 2015 23:15:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/kql-sharepoint-online-filtering-on-user-profile-multi-values-managed-metadata-properties/</guid>
+      <description>Keyword Query Language (KQL) is a powerful way to query search results in SharePoint Online. It is possible to filter data based on the user profile property ,e.g. owstaxidJobTitle:{User.SPS-JobTitle} The above is a valid property restriction which will return all items having the managed metadata field JobTitle equal to the user profile property JobTitle of the logged in user. When managed metadata field is crawled, two crawled properties are created in the format of ows_taxid_ and ows_.</description>
+    </item>
+    
+    <item>
+      <title>Convert UTC Date returned from SharePoint API to Local time using JavaScript and C#</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/convert-utc-date-returned-from-sharepoint-api-to-local-time-using-javascript-and-c/</link>
+      <pubDate>Thu, 19 Nov 2015 12:44:37 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/convert-utc-date-returned-from-sharepoint-api-to-local-time-using-javascript-and-c/</guid>
+      <description>SharePoint Online stores all date fields in UTC format and convert it to appropriate time zone whenever it is retrieved by a user. However when using SharePoint API, the date returned is in UTC format and have to be converted to local time. Using the JavaScript function below the local time can be returned. self.toLocalDate = function (utc_date) { //The getTimezoneOffset() value is in minutes var offset = new Date().getTimezoneOffset(); //offset will be in minutes.</description>
+    </item>
+    
+    <item>
+      <title>SharePoint Get list items and Effective Permissions on a list via REST API from SharePoint Add-in</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sharepoint-get-list-items-and-effective-permissions-on-a-list-via-rest-api-from-sharepoint-add-in-comments/</link>
+      <pubDate>Mon, 16 Nov 2015 09:41:59 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sharepoint-get-list-items-and-effective-permissions-on-a-list-via-rest-api-from-sharepoint-add-in-comments/</guid>
+      <description>Ofer Gal - Mar 3, 2017
+I get error: Uncaught (in promise) TypeError: SP.BasePermissions is not a constructor What else should I load?
+Sp.js needs to be loaded. Add the following to your page. /_layouts/15/sp.runtime.js /_layouts/15/sp.js</description>
+    </item>
+    
+    <item>
+      <title>SharePoint Get list items and Effective Permissions on a list via REST API from SharePoint Add-in</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sharepoint-get-list-items-and-effective-permissions-on-a-list-via-rest-api-from-sharepoint-add-in/</link>
+      <pubDate>Mon, 16 Nov 2015 09:41:59 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sharepoint-get-list-items-and-effective-permissions-on-a-list-via-rest-api-from-sharepoint-add-in/</guid>
+      <description>The requirement was to build a SharePoint hosted Add-in to allow logged user to create/edit list item from any site from the site collection. The permissions of the user to be able to create/edit an item against the list needed to be checked. The following script gets list items with effective permissions against the list using jQuery promises from the SharePoint hosted Add-in function getListItemsAndPermissions(webUrl, listTitle) { var appWebUrl = decodeURIComponent(getQueryStringParameter(&amp;quot;SPAppWebUrl&amp;quot;)); var deferredPermissions = $.</description>
+    </item>
+    
+  </channel>
+</rss>

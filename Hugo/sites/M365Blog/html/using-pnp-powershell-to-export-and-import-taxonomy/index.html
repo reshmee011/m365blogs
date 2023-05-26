@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Using PnP PowerShell to export and import Taxonomy | m365 blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="PnP provides export taxonomy cmdlet which allows to export all term groups, term sets, terms and child terms to a file with one line of codeConnect-SPOnline -Url &lt;siteurl&gt; -CurrentCredentials Export-SPOTaxonomy -IncludeID -Path &quot;C:\\temp\\Metadata\\terms.txt&quot;PnP also provides an equivalent import taxonomy cmdlet to import all term groups, term sets, terms and child terms from a file with one line of codeConnect-SPOnline -Url &lt;siteurl&gt; -CurrentCredentials Import-SPOTaxonomy -Path &quot;C:\\temp\\Metadata\\terms.txt&quot;However if IncludeId switch parameter is used with the export, the import would fail if the October 2016 PnP PowerShell release is used.">
+    <meta name="generator" content="Hugo 0.111.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/using-pnp-powershell-to-export-and-import-taxonomy/index.xml" rel="alternate" type="application/rss+xml" title="m365 blog" />
+      <link href="/using-pnp-powershell-to-export-and-import-taxonomy/index.xml" rel="feed" type="application/rss+xml" title="m365 blog" />
+      
+    
+    
+    <meta property="og:title" content="Using PnP PowerShell to export and import Taxonomy" />
+<meta property="og:description" content="PnP provides export taxonomy cmdlet which allows to export all term groups, term sets, terms and child terms to a file with one line of codeConnect-SPOnline -Url &lt;siteurl&gt; -CurrentCredentials Export-SPOTaxonomy -IncludeID -Path &quot;C:\\temp\\Metadata\\terms.txt&quot;PnP also provides an equivalent import taxonomy cmdlet to import all term groups, term sets, terms and child terms from a file with one line of codeConnect-SPOnline -Url &lt;siteurl&gt; -CurrentCredentials Import-SPOTaxonomy -Path &quot;C:\\temp\\Metadata\\terms.txt&quot;However if IncludeId switch parameter is used with the export, the import would fail if the October 2016 PnP PowerShell release is used." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://famous-cajeta-4dad83.netlify.app/using-pnp-powershell-to-export-and-import-taxonomy/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2016-11-02T20:43:35+00:00" />
+<meta property="article:modified_time" content="2016-11-02T20:43:35+00:00" />
+<meta itemprop="name" content="Using PnP PowerShell to export and import Taxonomy">
+<meta itemprop="description" content="PnP provides export taxonomy cmdlet which allows to export all term groups, term sets, terms and child terms to a file with one line of codeConnect-SPOnline -Url &lt;siteurl&gt; -CurrentCredentials Export-SPOTaxonomy -IncludeID -Path &quot;C:\\temp\\Metadata\\terms.txt&quot;PnP also provides an equivalent import taxonomy cmdlet to import all term groups, term sets, terms and child terms from a file with one line of codeConnect-SPOnline -Url &lt;siteurl&gt; -CurrentCredentials Import-SPOTaxonomy -Path &quot;C:\\temp\\Metadata\\terms.txt&quot;However if IncludeId switch parameter is used with the export, the import would fail if the October 2016 PnP PowerShell release is used."><meta itemprop="datePublished" content="2016-11-02T20:43:35+00:00" />
+<meta itemprop="dateModified" content="2016-11-02T20:43:35+00:00" />
+<meta itemprop="wordCount" content="211">
+<meta itemprop="keywords" content="CSOM,Debug PnP,Enable Trace on PnP,Export-SPOTaxonomy,Git,Import-SPOTaxonomy,PnP,PowerShell,Set-SPOTraceLog,SharePoint 2013,SharePoint 2016,SharePoint Online,Taxonomy,Terms,TermSet," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Using PnP PowerShell to export and import Taxonomy"/>
+<meta name="twitter:description" content="PnP provides export taxonomy cmdlet which allows to export all term groups, term sets, terms and child terms to a file with one line of codeConnect-SPOnline -Url &lt;siteurl&gt; -CurrentCredentials Export-SPOTaxonomy -IncludeID -Path &quot;C:\\temp\\Metadata\\terms.txt&quot;PnP also provides an equivalent import taxonomy cmdlet to import all term groups, term sets, terms and child terms from a file with one line of codeConnect-SPOnline -Url &lt;siteurl&gt; -CurrentCredentials Import-SPOTaxonomy -Path &quot;C:\\temp\\Metadata\\terms.txt&quot;However if IncludeId switch parameter is used with the export, the import would fail if the October 2016 PnP PowerShell release is used."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        m365 blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Using PnP PowerShell to export and import Taxonomy
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p><a href="https://github.com/OfficeDev/PnP-PowerShell/releases">PnP</a> provides export taxonomy cmdlet which allows to export all term groups, term sets, terms and child terms to a file with one line of code<code>Connect-SPOnline -Url &lt;siteurl&gt; -CurrentCredentials  Export-SPOTaxonomy -IncludeID -Path &quot;C:\\temp\\Metadata\\terms.txt&quot;</code><a href="https://github.com/OfficeDev/PnP-PowerShell/releases">PnP</a> also provides an equivalent import taxonomy cmdlet to import all term groups, term sets, terms and child terms from a file with one line of code<code>Connect-SPOnline -Url &lt;siteurl&gt; -CurrentCredentials Import-SPOTaxonomy -Path &quot;C:\\temp\\Metadata\\terms.txt&quot;</code>However if IncludeId switch parameter is used with the export, the import would fail if the <a href="https://github.com/OfficeDev/PnP-PowerShell/releases/tag/2.8.1610.1">October 2016 PnP PowerShell release</a> is used. The error message appears<code>Import-SPOTaxonomy : Exception on line 5: Failed to read from or write to database.  Refresh and try again. If the problem persists, please contact the administrator</code>I decided to enable Trace on the PnP to get debug messages using the Set-SPOTraceLog<code>  Set-SPOTraceLog -On -Level Debug</code>Debug messages appear to monitor progress of execution but was not helpful. <img src="https://reshmeeauckloo.files.wordpress.com/2016/11/errorimportingterm.png" alt="errorimportingterm"> I tried to google the message, found out that the error happened as the code is trying to create a term or term set with an unique identifier (GUID)  which already exists in the taxonomy store. I inspected the taxonomy file exported and found that terms having child terms were wrongly formatted.In the example below the term group EDRMS is repeated 3 times.```
+EDRMS;#383eab6e-a944-430d-9a18-f8b872322c2c|EDRMS;#383eab6e-a944-430d-9a18-f8b872322c2c|Directorate;#a99db510-121a-407b-87ec-0b4911e59469|EDRMS;#383eab6e-a944-430d-9a18-f8b872322c2c|Directorate;#a99db510-121a-407b-87ec-0b4911e59469|Finance;#fbab08b3-bc7d-4363-a1c4-1f5d4a466b07|Credit and Collections;#0ec6cefe-c92c-4dfe-81d4-1fe56183f8a2</p>
+<pre tabindex="0"><code class="language-The" data-lang="The"></code></pre>
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://famous-cajeta-4dad83.netlify.app/" >
+    &copy;  m365 blog 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

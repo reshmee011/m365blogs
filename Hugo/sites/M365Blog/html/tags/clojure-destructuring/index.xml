@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clojure Destructuring on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/clojure-destructuring/</link>
+    <description>Recent content in Clojure Destructuring on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Dec 2015 09:55:41 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/clojure-destructuring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clojure Destructuring</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-destructuring-comments/</link>
+      <pubDate>Wed, 09 Dec 2015 09:55:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-destructuring-comments/</guid>
+      <description>Links &amp;amp; Reads from 2015 Week 50 – Martin&#39;s Weekly Curations - Feb 1, 2016
+[…] Clojure Destructuring […]
+Utterly indited articles , thankyou for entropy.</description>
+    </item>
+    
+    <item>
+      <title>Clojure Destructuring</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojure-destructuring/</link>
+      <pubDate>Wed, 09 Dec 2015 09:55:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojure-destructuring/</guid>
+      <description>Destructuring allows to extract values from datastructures and bind them to symbols without explicitly looping/traversing the datastructure. It allows concise and simple coding.
+Sequential Destructuring Provides vector of symbols to bind by position. Syntax: [symbol another-symbol] [&amp;ldquo;value&amp;rdquo; &amp;ldquo;another-value&amp;rdquo;] (def listNumbers[7 8 9 10 11]) ;;Bind a, b, c to first 3 values in stuff (let [[a b c] listNumbers] (list (+ a b) (+ b c))) Result: (15,17) It binds to nil if there&amp;rsquo;s no data, i.</description>
+    </item>
+    
+  </channel>
+</rss>

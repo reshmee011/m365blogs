@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQL on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/sql/</link>
+    <description>Recent content in SQL on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Apr 2017 10:08:27 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Migrate data from one SQL table to another database table</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/migrate-data-from-one-sql-table-to-another-database-table/</link>
+      <pubDate>Sun, 30 Apr 2017 10:08:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/migrate-data-from-one-sql-table-to-another-database-table/</guid>
+      <description>Sometimes you may have to migrate data from one SQL database to another SQL database on another environment, e.g. Live to test and dev environment and vice versa. You may argue the easiest solution is a migration of the backup of database. Unfortunately it does not work well in environments where data in Live is classified as sensitive and are not allowed to be copied across into a dev / test machine where the security is not as strict as a live machine.</description>
+    </item>
+    
+    <item>
+      <title>Rebuild and Reorganize indexes on all tables in MS database</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/rebuild-and-reorganize-indexes-on-all-tables-in-ms-database/</link>
+      <pubDate>Tue, 14 Mar 2017 09:55:26 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/rebuild-and-reorganize-indexes-on-all-tables-in-ms-database/</guid>
+      <description>As part of database maintenance, indexes on databases have to be rebuilt or reorganised depending on how fragmented the indexes are. From the article Reorganize and Rebuild Indexes, the advice is to reorganise index if avg_fragmentation_in_percent value is between 5 and 30 and to rebuild index if it is more than 30%. The script below queries all fragmented indexes more than 5 percent and using a cursor a loop is performed on the results to rebuild or reorganise indexes depending on the percentage of fragmentation using dynamic SQL, i.</description>
+    </item>
+    
+    <item>
+      <title>SQL script batch execution using sqlcmd in PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sql-script-batch-execution-using-sqlcmd-in-powershell-comments/</link>
+      <pubDate>Wed, 08 Mar 2017 22:39:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sql-script-batch-execution-using-sqlcmd-in-powershell-comments/</guid>
+      <description>reshmee011 - May 1, 2017
+Definitely you can without a manifest file. If you want the scripts to run in some order, you can append a numerical number to the script file. Let me know if you need a sample code.
+This example is great. Really helped me understand a few more things about PowerShell. But is it possible to do the same thing without using a manifest file (i.</description>
+    </item>
+    
+    <item>
+      <title>SQL script batch execution using sqlcmd in PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sql-script-batch-execution-using-sqlcmd-in-powershell/</link>
+      <pubDate>Wed, 08 Mar 2017 22:39:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sql-script-batch-execution-using-sqlcmd-in-powershell/</guid>
+      <description>There is often a mismatch between needs of the development team (multiple discreet T-SQL files for separate concerns) and the release team (the requirement for one step automated deployment) . The script bridges the requirement by using sqlcmd.exe to run a batch of SQL scripts. A text file is used listing all sql files that need to run in a particular order to avoid errors which may occur if there are dependencies between the scripts.</description>
+    </item>
+    
+    <item>
+      <title>Add SSRS report to Project Detail Page Project Server</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/add-ssrs-report-to-project-detail-page-project-server/</link>
+      <pubDate>Tue, 23 Feb 2016 20:59:40 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/add-ssrs-report-to-project-detail-page-project-server/</guid>
+      <description>Often clients want to be able to drill down to SSRS reports with the project pre selected when they are viewing project information from project detail pages. This post describes how to embed SSRS report in a project detail page.
+Add SSRS Report to Project Detail Page in Project Server 1. Navigate to a PDP (Project Detail Page) , e.g. Schedule PDP. 2. Edit Page 3. Click “Add a Web Part”.</description>
+    </item>
+    
+    <item>
+      <title>Create a TimeLine View for Milestones and Project Duration using Matrix in SSRS</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/create-a-timeline-view-for-milestones-in-ssrs-comments/</link>
+      <pubDate>Tue, 12 Jan 2016 00:01:31 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/create-a-timeline-view-for-milestones-in-ssrs-comments/</guid>
+      <description>Julia - Jul 4, 2017
+Is it possible to insert a Linebreak after each Milestone? So if you have a bunch of Milestones that you can read it more easily.
+It&amp;rsquo;s quit easy to add a Linebreak in Tooltipp. Just edited the Statement as below: ,(STUFF( ( SELECT &amp;rsquo; &amp;rsquo; + convert(nvarchar(3), day(TaskFinishDate)) + &amp;rsquo; &amp;rsquo; + + convert(char(3), TaskFinishDate , 0) + &amp;rsquo; &amp;rsquo; + + convert(nvarchar(6), year(TaskFinishDate)) + &amp;rsquo; - &amp;rsquo; + T.</description>
+    </item>
+    
+    <item>
+      <title>Create a TimeLine View for Milestones and Project Duration using Matrix in SSRS</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/create-a-timeline-view-for-milestones-in-ssrs/</link>
+      <pubDate>Tue, 12 Jan 2016 00:01:31 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/create-a-timeline-view-for-milestones-in-ssrs/</guid>
+      <description>A range chart in SSRS can be used to produce a Gantt chart.of project. Below is a link to a great post that explains how to do it. http://pnarayanaswamy.blogspot.co.uk/2010/09/range-bar-chart-gantt-chart-using-ssrs.html Unfortunately I have found the following limitations
+The width and height of the range chart does not grow dynamically when run. If too much data is displayed, the chart is unreadable To counteract the above limitations, I have used the matrix control which can grow dynamically in terms of width and height to fit the data which remains readable.</description>
+    </item>
+    
+    <item>
+      <title>SQL Get Financial Year (April to March)</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sql-get-financial-year-april-to-march/</link>
+      <pubDate>Wed, 02 Dec 2015 17:59:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sql-get-financial-year-april-to-march/</guid>
+      <description>The following query will return the financial year starting April to March YEAR(DATEADD(Month,-((DATEPART(Month,StartDate)+8) %12),StartDate)) SELECT YEAR(DATEADD(Month,-((DATEPART(Month,&amp;lsquo;2014-03-31&amp;rsquo;)+8) %12),&amp;lsquo;2014-03-31&amp;rsquo;)) SELECT YEAR(DATEADD(Month,-((DATEPART(Month,&amp;lsquo;2014-04-01&amp;rsquo;)+8) %12),&amp;lsquo;2014-04-01&amp;rsquo;)) SELECT YEAR(DATEADD(Month,-((DATEPART(Month,&amp;lsquo;2014-12-31&amp;rsquo;)+8) %12),&amp;lsquo;2014-12-31&amp;rsquo;)) SELECT YEAR(DATEADD(Month,-((DATEPART(Month,&amp;lsquo;2015-03-31&amp;rsquo;)+8) %12),&amp;lsquo;2015-03-31&amp;rsquo;)) SELECT YEAR(DATEADD(Month,-((DATEPART(Month,&amp;lsquo;2015-04-01&amp;rsquo;)+8) %12),&amp;lsquo;2015-04-01&amp;rsquo;)) The results are </description>
+    </item>
+    
+    <item>
+      <title>Passing Date Parameter To SubReport SSRS SharePoint Integrated Mode</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/passing-date-parameter-to-subreport-ssrs-sharepoint-integrated-mode/</link>
+      <pubDate>Thu, 26 Nov 2015 18:25:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/passing-date-parameter-to-subreport-ssrs-sharepoint-integrated-mode/</guid>
+      <description>When SSRS is rendered in SharePoint Integrated Mode if there is a drop down parameter of type DateTime and it is passed to a parameter of DateTime in the SubReport, the subreport fails to load when rendering in browser though it loads correctly from reportbuilder. Again much pain, I decided to convert the date parameters into Text as the parameters were drop down displaying in dd/MM/yyyy format. The SQL query to populate the parameter SELECT CONVERT(nvarchar(10),Min(TimeByDay),103) DisplayDate ,Convert(date,Min(TimeByDay)) StartTime ,CONVERT(VARCHAR(10), Min(TimeByDay), 112) FormatStartTime FROM [dbo].</description>
+    </item>
+    
+    <item>
+      <title>SQL Apply statement to break down cost data evenly using date range</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sql-apply-statement-to-break-down-cost-data-evenly-using-date-range/</link>
+      <pubDate>Fri, 20 Nov 2015 14:57:19 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sql-apply-statement-to-break-down-cost-data-evenly-using-date-range/</guid>
+      <description>Refer to my previous post http://wp.me/p54RZl-3e for more information how to return a list of months using function dbo.FN_Utility_GetMonths. Consider the following script DECLARE @MonthCost table (item_id int,StartDate DateTime,EndDate DateTime, Cost decimal(25,6)) insert into @MonthCost values (1,&#39;2015-01-01&#39;,&#39;2015-4-01&#39;,1000) insert into @MonthCost values (2,&#39;2015-01-01&#39;,&#39;2015-6-01&#39;,1000) insert into @MonthCost values (3,&#39;2015-04-01&#39;,&#39;2015-06-01&#39;,1000) select M.MonthYear MonthYear ,M.StartDate StartDate ,MC.item_Id , Mc.Cost / (datediff(month,MC.StartDate,MC.EndDate)+1) Cost from @MonthCost MC &amp;ndash;iterate through each row to get month cost CROSS APPLY dbo.</description>
+    </item>
+    
+    <item>
+      <title>SQL With statement to return list of Months with date range</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sql-with-statement-to-return-list-of-months-with-date-range/</link>
+      <pubDate>Fri, 20 Nov 2015 14:55:44 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sql-with-statement-to-return-list-of-months-with-date-range/</guid>
+      <description>With temporary named result set, known as a common table expression (CTE). More information regarding With can be found from the link below https://msdn.microsoft.com/en-GB/library/ms175972.aspx I have a function that accept a start date and end date and return a list of months CREATE FUNCTION [dbo].[FN_Utility_GetMonths](@startDate DateTime, @EndDate DateTime) RETURNS @Months table (MonthYear nvarchar(25),StartDate DateTime) AS BEGIN ;With [Months] as ( select StartDate = @startDate where @startDate &amp;lt;= @endDate union all select dateadd(month, 1, StartDate) from [Months] M &amp;ndash;iterate through each row to get month benefit where dateadd(Month, 1, StartDate) &amp;lt;= @endDate ) INSERT INTO @Months select CONVERT(VARCHAR(3),StartDate,0) + &amp;lsquo;-&amp;rsquo; + RIGHT(0+YEAR(StartDate),2) ,StartDate from [Months] option (maxrecursion 0) RETURN END The function can be used against a list of rows from a table to break down start date and end date into range of months splitting for example cost information evenly using Apply statement Refer to the following post for more details http://wp.</description>
+    </item>
+    
+    <item>
+      <title>SQL Function to return ISO Week and ISO Year Project Server</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sql-function-to-return-iso-week-and-iso-year-project-server/</link>
+      <pubDate>Wed, 18 Nov 2015 14:40:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sql-function-to-return-iso-week-and-iso-year-project-server/</guid>
+      <description>The table MSP_TimeByDay in the reporting database for on premise Project Server stores date information in day, week, year, quarter , etc.. Unfortunately the columns TimeWeekOfTheYear and TimeYear does not store ISO week and year. The following function returns the ISO week and ISO Year of the date passed. CREATE FUNCTION [dbo].[FN_UTILITY_ConvertToWeekDate] ( @Date datetime ) RETURNS nvarchar(255) AS BEGIN DECLARE @output nvarchar(255) SET @output = (SELECT RIGHT(&#39;00&#39; + CAST(Q.ISOweek AS NVARCHAR(2)), 2) + &#39;-&#39; + CAST(CASE WHEN MONTH(@Date) = 1 AND Q.</description>
+    </item>
+    
+    <item>
+      <title>SQL function to abbreviate a set of words</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/sql-function-to-abbreviate-a-set-of-words/</link>
+      <pubDate>Mon, 16 Nov 2015 08:49:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/sql-function-to-abbreviate-a-set-of-words/</guid>
+      <description>The SQL Function script below will abbreviate a set of words using space as delimiter between the words up to number of letters specified CREATE FUNCTION [dbo].FN_UTILITY_GetAbbreviation ( -- Add the parameters for the function here @string NVARCHAR(max), @delimiter NVARCHAR(2) = &#39; &#39;,-- default delimiter to space @intNum int = 5 --default max number characters to be returned to 5, can change it to number of words passed ) RETURNS NVARCHAR(512) AS BEGIN -- Declare the return variable here DECLARE @output NVARCHAR(512) DECLARE @abbr NVARCHAR(512) &amp;ndash; Add the T-SQL statements to compute the return value here DECLARE @level INT SET @level = 0 DECLARE @lastDotPosition INT SET @lastDotPosition = 0 DECLARE @nextDotPosition INT SET @output = @string SET @abbr = &amp;rsquo;&amp;rsquo; &amp;ndash;depends on number of string let&amp;rsquo;s say up to 5 WHILE(@level 0 THEN CHARINDEX(@delimiter, @string, @lastDotPosition+1) ELSE LEN(@string)+1 END SET @output = SUBSTRING(@string, @lastDotPosition, @nextDotPosition-@lastDotPosition) &amp;ndash;substring(@string, @lastDotPosition, charindex(&amp;rsquo;.</description>
+    </item>
+    
+    <item>
+      <title>SSRS Export to PDF results in sentence to be concatenated into one long word</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/ssrs-export-to-pdf-results-in-sentence-to-be-concatenated-into-one-long-word/</link>
+      <pubDate>Tue, 27 Oct 2015 14:09:42 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/ssrs-export-to-pdf-results-in-sentence-to-be-concatenated-into-one-long-word/</guid>
+      <description>Sometimes invalid ASCII code invisible to naked eye are stored in the SQL database. If the value with the invalid ASCII is displayed in a SSRS report and exported to PDF, the set of words become concatenated into one word Example &amp;ldquo;The director of the company has given approval&amp;rdquo; displayed in a textbox in SSRS become &amp;ldquo;Thedirectorofthecompanyhasgivenapproval&amp;rdquo; in PDF. The first character of the text value was ASCII code 63. Unfortunately there are other characters that are mapped to 63.</description>
+    </item>
+    
+    <item>
+      <title>Get week number based on start date of financial year - April</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/get-week-number-based-on-start-date-of-financial-year-april/</link>
+      <pubDate>Tue, 27 Oct 2015 12:37:43 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/get-week-number-based-on-start-date-of-financial-year-april/</guid>
+      <description>Most organisations start their financial year in April in UK. The requirement is to set first week in April to 1. I have found the script from blog which creates a function which fulfills the objective above. See more at: http://www.sqlteam.com/article/returning-a-week-number-for-any-given-date-and-starting-fiscal-month#sthash.vegLomU6.dpuf CREATE FUNCTION GetFiscalWeek (@startMonth varchar(2), @myDate datetime) RETURNS INT AS BEGIN declare @firstWeek datetime declare @weekNum int declare @year int set @year = datepart(year, @myDate)+1 --Get 4th day of month of next year, this will always be in week 1 set @firstWeek = convert(datetime, str(@year)+@startMonth+&#39;04&#39;, 102) --Retreat to beginning of week set @firstWeek = dateadd(day, (1-datepart(dw, @firstWeek)), @firstWeek) WHILE @myDate &amp;lt; @firstWeek --Repeat the above steps but for previous year BEGIN set @year = @year - 1 set @firstWeek = convert(datetime, str(@year)+@startMonth+&#39;04&#39;, 102) set @firstWeek = dateadd(day, (1-datepart(dw, @firstWeek)), @firstWeek) END SET @weekNum = (@year*100)+((datediff(day, @firstweek, @myDate)/7)+1) RETURN @weekNum END Examples of using the function Use SET DATEFIRST 1 to set the first day of the week to be Monday SET DATEFIRST 1 Select [dbo].</description>
+    </item>
+    
+    <item>
+      <title>EOMONTH Function in SQL</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/eomonth-function-in-sql/</link>
+      <pubDate>Tue, 27 Oct 2015 12:05:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/eomonth-function-in-sql/</guid>
+      <description>EOMONTH returns the last day of the month that is the indicated number of months before or after start_date. Syntax SELECT EOMONTH(start_date, months) The EOMONTH function syntax has the following arguments: 1. Start_date: Required argument. A date that represents the starting date. 2. Months: Optional argument. The number of months before or after start_date. A positive value for months returns a future date; a negative value returns a past date. Please note that if months is not an integer, it is truncated.</description>
+    </item>
+    
+  </channel>
+</rss>

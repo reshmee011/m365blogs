@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Invoke-SPOListDesign to create instances of lists/libraires | m365 blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Creating custom list templates is now possible to create both custom document libraries and lists although official microsoft documentation has not specified anything about supporting custom document library templates.
+This article explores the option how to use a combination of list design and PowerShell script to provision multiple instances of document libraries using a CSV file and how to create a document library from a custom list template from UI.">
+    <meta name="generator" content="Hugo 0.111.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/invoke-spolistdesign-to-create-instances-of-lists-libraires/index.xml" rel="alternate" type="application/rss+xml" title="m365 blog" />
+      <link href="/invoke-spolistdesign-to-create-instances-of-lists-libraires/index.xml" rel="feed" type="application/rss+xml" title="m365 blog" />
+      
+    
+    
+    <meta property="og:title" content="Invoke-SPOListDesign to create instances of lists/libraires" />
+<meta property="og:description" content="Creating custom list templates is now possible to create both custom document libraries and lists although official microsoft documentation has not specified anything about supporting custom document library templates.
+This article explores the option how to use a combination of list design and PowerShell script to provision multiple instances of document libraries using a CSV file and how to create a document library from a custom list template from UI." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://famous-cajeta-4dad83.netlify.app/invoke-spolistdesign-to-create-instances-of-lists-libraires/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2021-10-27T00:50:04+00:00" />
+<meta property="article:modified_time" content="2021-10-27T00:50:04+00:00" />
+<meta itemprop="name" content="Invoke-SPOListDesign to create instances of lists/libraires">
+<meta itemprop="description" content="Creating custom list templates is now possible to create both custom document libraries and lists although official microsoft documentation has not specified anything about supporting custom document library templates.
+This article explores the option how to use a combination of list design and PowerShell script to provision multiple instances of document libraries using a CSV file and how to create a document library from a custom list template from UI."><meta itemprop="datePublished" content="2021-10-27T00:50:04+00:00" />
+<meta itemprop="dateModified" content="2021-10-27T00:50:04+00:00" />
+<meta itemprop="wordCount" content="1419">
+<meta itemprop="keywords" content="Uncategorized," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Invoke-SPOListDesign to create instances of lists/libraires"/>
+<meta name="twitter:description" content="Creating custom list templates is now possible to create both custom document libraries and lists although official microsoft documentation has not specified anything about supporting custom document library templates.
+This article explores the option how to use a combination of list design and PowerShell script to provision multiple instances of document libraries using a CSV file and how to create a document library from a custom list template from UI."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        m365 blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Invoke-SPOListDesign to create instances of lists/libraires
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p> <a href="https://docs.microsoft.com/en-us/sharepoint/lists-custom-template">Creating custom list templates</a> is now possible to create both custom document libraries and lists although official microsoft documentation has not specified anything about supporting custom document library templates.</p>
+<p>This article explores the option how to use a combination of list design and PowerShell script to provision multiple instances of document libraries using a CSV file and how to create a document library from a custom list template from UI. Although cmdlet Invoke-SPOList Design is not in the official documentation yet. I tried to submit a <a href="https://github.com/MicrosoftDocs/OfficeDocs-SharePoint-PowerShell/pull/49">pull request</a> to include it in their documentation but was eventually closed because they can accept submissions from Microsoft Employees. Below is a snippet of the cmdlet definition.</p>
+<pre tabindex="0"><code># Invoke-SPOListDesign
+
+## SYNOPSIS
+
+Applies a published list design to a specified site collection. The supported list templates you can apply a list design to include: &#34;modern&#34; team site with M365 group, &#34;modern&#34; team site without an M365 group, communication site, classic team site, and classic publishing site.
+
+## SYNTAX
+
+```powershell
+Invoke-SPOListDesign
+  [-Identity] &lt;SPOListDesignPipeBind&gt;
+  -WebUrl &lt;string&gt;
+  [&lt;CommonParameters&gt;]
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>Applies a published list design to a specified site collection.</p>
+<h2 id="examples">EXAMPLES</h2>
+<h3 id="example-1">Example 1</h3>
+<p>This example applies a list design whose script creates one list with content types, views and fields.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Invoke-SPOListDesign -Identity 5b38e500-0fab-4da7-b011-ad7113228920 -WebUrl <span style="color:#e6db74">&#34;https://contoso.sharepoint.com/sites/testgo&#34;</span>
+</span></span></code></pre></div><h3 id="output">OUTPUT</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">Title                                        OutcomeText Outcome</span>
+</span></span><span style="display:flex;"><span>-----                                        ----------- -------
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Create site column WorkAddress through XML               Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Create site column _Status through XML                   Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Create site column digits through XML                    Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Create site column remarks through XML                   Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Create site column workinghours through XML              Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Create site column Progress through XML                  Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Create content type Legal                                   NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add site column WorkAddress to content type                 NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add site column _Status to content type                     NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Create content type test_210304                             NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add site column digits to content type                      NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add site column remarks to content type                     NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add site column workinghours to content type                NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add site column Progress to content type                    NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add site column _Status to content type                     NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Create content type test_StatusComm                         NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add site column _Status to content type                     NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Create content type test_11                                 NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add site column _Status to content type                     NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Create or update library &#34;test_ct&#34;                       Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add list column &#34;ActualWork&#34;                             Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add list column &#34;Initials&#34;                               Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add list column &#34;_Status&#34;                                Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add list column &#34;digits&#34;                                 Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add list column &#34;remarks&#34;                                Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add list column &#34;workinghours&#34;                           Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add list column &#34;Progress&#34;                               Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add list column &#34;_Comments&#34;                              Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add list column &#34;TriggerFlowInfo&#34;                        Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add list column &#34;SelectFilename&#34;                         Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add content type &#34;Document&#34;                                 NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add content type &#34;Folder&#34;                                   NoOp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add content type &#34;Legal&#34;                                 Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add content type &#34;test_210304&#34;                           Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add content type &#34;test_StatusComm&#34;                       Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add content type &#34;test_11&#34;                               Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add view &#34;All Documents&#34;                                 Success</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Add view &#34;All Documents sorted&#34;                          Success</span>
+</span></span></code></pre></div><h2 id="parameters">PARAMETERS</h2>
+<h3 id="-identity">-Identity</h3>
+<p>The ID of the list design to apply.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Type</span>: <span style="color:#ae81ff">SPOListDesignPipeBind</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Parameter Sets</span>: <span style="color:#ae81ff">(All)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Aliases</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Applicable</span>: <span style="color:#ae81ff">SharePoint Online</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Required</span>: <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Position</span>: <span style="color:#ae81ff">Named</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Default value</span>: <span style="color:#ae81ff">None</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Accept pipeline input</span>: <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Accept wildcard characters</span>: <span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><h3 id="-weburl">-WebUrl</h3>
+<p>The URL of the site collection where the list design will be applied.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Type</span>: <span style="color:#ae81ff">String</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Parameter Sets</span>: <span style="color:#ae81ff">(All)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Aliases</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Applicable</span>: <span style="color:#ae81ff">SharePoint Online</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Required</span>: <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Position</span>: <span style="color:#ae81ff">Named</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Default value</span>: <span style="color:#ae81ff">None</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Accept pipeline input</span>: <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Accept wildcard characters</span>: <span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><h3 id="commonparameters">CommonParameters</h3>
+<p>This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see <a href="https://go.microsoft.com/fwlink/?LinkID=113216">about_CommonParameters</a>.</p>
+<h2 id="inputs">INPUTS</h2>
+<h3 id="microsoftonlinesharepointpowershellspolistdesignpipebind">Microsoft.Online.SharePoint.PowerShell.SPOListDesignPipeBind</h3>
+<h2 id="outputs">OUTPUTS</h2>
+<h3 id="systemobject">System.Object</h3>
+<h2 id="notes">NOTES</h2>
+<h2 id="related-links">RELATED LINKS</h2>
+<p>Getting started with <a href="/powershell/sharepoint/sharepoint-online/connect-sharepoint-online?view=sharepoint-ps">SharePoint Online Management Shell</a>.</p>
+<pre tabindex="0"><code>
+First we can create a list design for our library based on an existing configured document library with custom content types, fields and views.
+
+Create a List design for the document library using **Get-SPOSiteScriptFromList** and **Add-SPOListDesign**
+</code></pre><p>Import-Module Microsoft.Online.SharePoint.PowerShell
+$adminSiteUrl = &ldquo;<a href="https://contoso-admin.sharepoint.com">https://contoso-admin.sharepoint.com</a>&rdquo;
+$listUrl = &ldquo;<a href="https://contoso.sharepoint.com/sites/investment/test_ct%22">https://contoso.sharepoint.com/sites/investment/test_ct&quot;</a></p>
+<p>Connect-SPOService $adminSiteUrl
+#$relativeListUrls
+$extracted = Get-SPOSiteScriptFromList  -ListUrl $listUrl</p>
+<p>Add-SPOSiteScript -Title &ldquo;Test Document Library&rdquo; -Description &ldquo;This creates a custom document library&rdquo; -Content $extracted
+$siteScripts = Get-SPOSiteScript</p>
+<p>$siteScriptObj = $siteScripts | Where-Object {$_.Title -eq &ldquo;Test Document Library&rdquo;}</p>
+<p>Add-SPOListDesign -Title &ldquo;Test Document Library&rdquo; -Description &ldquo;Deploy document library with content types and views&rdquo; -SiteScripts $siteScriptObj.Id-ListColor Pink -ListIcon BullseyeTarget</p>
+<pre tabindex="0"><code>
+From the UI , the list design for the custom library is available when clicking on New &gt;List and selecting the tab &#34;From your organization&#34; under &#34;Templates&#34;
+
+[![](https://reshmeeauckloo.files.wordpress.com/2021/10/image.png?w=421)](https://reshmeeauckloo.files.wordpress.com/2021/10/image.png)
+
+Click on the custom list design to select it , click on &#34;Use Template&#34; button and enter a name and optionally a description for the library. 
+
+Once &#34;Create&#34; is clicked the library is created with the relevant views , content types and fields.
+
+That&#39;s great that we can create a document library using the custom list/library template, however there are some settings like versionings , indexed columns, permissions, etc.. which are not included in the list design template. 
+
+I have used a PowerShell script with the cmdlet Invoke-SPOListDesign to apply the site design recursively to create multiple instances of the document library updating the internal name and display name based on the csv file and update the settings like creating indexed columns and setting versioning.
+
+Sample CSV file format saved as libraries.csv
+</code></pre><p>InternalName,DisplayName
+AR,Annual Reports
+CR,Credit Risk
+Audit,Audit
+PO,Purchase Orders</p>
+<pre tabindex="0"><code>
+Execute the **Invoke-SPOListDesign **cmdlet
+</code></pre><p>[CmdletBinding()]
+Param(
+[Parameter(Mandatory=$false,  Position=0)]
+[String]$adminSiteUrl = &ldquo;<a href="https://contoso-admin.sharepoint.com">https://contoso-admin.sharepoint.com</a>&rdquo;,
+[Parameter(Mandatory=$false,  Position=1)]
+[String]$siteUrl =  &ldquo;<a href="https://contoso.sharepoint.com/sites/investment%22">https://contoso.sharepoint.com/sites/investment&quot;</a>,
+[Parameter(Mandatory=$false,  Position=2)]
+[String]$librariesCSV =  &ldquo;C:\Scripts\DocumentLibraryTemplate\libraries_1.csv&rdquo;,</p>
+<pre><code>[Parameter(Mandatory=$false,  Position=4)]
+[String]$listDesignId = &quot;5b38e500-0fab-4da7-b011-ad7113228920&quot; # use Get-SPOListDesign to find the Id of the list design containing the document library template
+</code></pre>
+<p>)
+#creating indexed columns might help with performance of large libraries, i.e. &gt;5000 files
+function Create-Index ($list, $targetFieldName)
+{
+$targetField = Get-PnPField -List $list -Identity $targetFieldName
+$targetField.Indexed = 1;
+$targetField.Update();
+$list.Context.ExecuteQuery();
+}
+Connect-SPOService $adminSiteUrl
+Connect-PnPOnline -Url $siteUrl -Interactive
+Import-Csv $librariesCSV | ForEach-Object {
+Invoke-SPOListDesign -Identity $listDesignId -WebUrl $siteUrl
+#Get library just created and update Internal name and display name
+$lib = Get-PnPList -Identity &ldquo;test_ct&rdquo; -Includes RootFolder
+while(!$lib)
+{
+$lib = Get-PnPList -Identity &ldquo;test_ct&rdquo; -Includes RootFolder
+sleep -second 5
+}
+if($lib)
+{
+$lib.Rootfolder.MoveTo($($<em>.InternalName))<br>
+Invoke-PnPQuery<br>
+#this will change library title<br>
+Set-PnPList -Identity $lib.Id -Title $($</em>.DisplayName)
+#add list to quick launch
+Add-PnPNavigationNode -Title $<em>.DisplayName -Url $($</em>.InternalName + &ldquo;/&rdquo;) -Location &ldquo;QuickLaunch&rdquo;
+#enable versioning on the library
+Set-PnPList -Identity $lib.Id -EnableVersioning $True -EnableMinorVersions $True -MajorVersions 500 -MinorVersions 10
+Write-host &ldquo;`tSetting versioning to major/minor to :&quot;$_.DisplayName
+Create-Index $lib &ldquo;Created By&rdquo;
+Create-Index $lib &ldquo;Modified&rdquo;
+}
+}</p>
+<pre tabindex="0"><code>
+Screenshot of the output running the script. **OutPut**
+</code></pre><p>PS C:\Windows\system32&gt; C:\Scripts\DocumentLibraryTemplate\ApplySiteDesignToCreateLibaries.ps1</p>
+<p>Title                                        OutcomeText                            Outcome</p>
+<hr>
+<p>Create site column WorkAddress through XML                                          Success
+Create site column _Status through XML                                              Success
+Create site column digits through XML                                               Success
+Create site column remarks through XML                                              Success
+Create site column workinghours through XML                                         Success
+Create site column Progress through XML                                             Success
+Create content type Legal                                                              NoOp
+Add site column WorkAddress to content type                                            NoOp
+Add site column _Status to content type                                                NoOp
+Create content type test_210304                                                        NoOp
+Add site column digits to content type                                                 NoOp
+Add site column remarks to content type                                                NoOp
+Add site column workinghours to content type                                           NoOp
+Add site column Progress to content type                                               NoOp
+Add site column _Status to content type                                                NoOp
+Create content type test_StatusComm                                                    NoOp
+Add site column _Status to content type                                                NoOp
+Create content type test_11                                                            NoOp
+Add site column _Status to content type                                                NoOp
+Create or update library &ldquo;test_ct&rdquo;           List with name test_ct already exists.    NoOp
+Add list column &ldquo;ActualWork&rdquo;                 List with name test_ct already exists.    NoOp
+Add list column &ldquo;Initials&rdquo;                   List with name test_ct already exists.    NoOp
+Add list column &ldquo;_Status&rdquo;                    List with name test_ct already exists.    NoOp
+Add list column &ldquo;digits&rdquo;                     List with name test_ct already exists.    NoOp
+Add list column &ldquo;remarks&rdquo;                    List with name test_ct already exists.    NoOp
+Add list column &ldquo;workinghours&rdquo;               List with name test_ct already exists.    NoOp
+Add list column &ldquo;Progress&rdquo;                   List with name test_ct already exists.    NoOp
+Add list column &ldquo;_Comments&rdquo;                  List with name test_ct already exists.    NoOp
+Add list column &ldquo;TriggerFlowInfo&rdquo;            List with name test_ct already exists.    NoOp
+Add list column &ldquo;SelectFilename&rdquo;             List with name test_ct already exists.    NoOp
+Add content type &ldquo;Document&rdquo;                  List with name test_ct already exists.    NoOp
+Add content type &ldquo;Folder&rdquo;                    List with name test_ct already exists.    NoOp
+Add content type &ldquo;Legal&rdquo;                     List with name test_ct already exists.    NoOp
+Add content type &ldquo;test_210304&rdquo;               List with name test_ct already exists.    NoOp
+Add content type &ldquo;test_StatusComm&rdquo;           List with name test_ct already exists.    NoOp
+Add content type &ldquo;test_11&rdquo;                   List with name test_ct already exists.    NoOp
+Add view &ldquo;All Documents&rdquo;                     List with name test_ct already exists.    NoOp
+Add view &ldquo;All Documents sorted&rdquo;              List with name test_ct already exists.    NoOp
+Annual Reports1                                                                         <br>
+Setting versioning to major/minor to : Annual Reports1</p>
+<pre tabindex="0"><code>
+Screenshot of the libraries created from UI (TestCreatingFromUserInterface) and the others created via script (Annual Reports, Audit, Credit Risk and Purchase Orders)
+
+[![](https://reshmeeauckloo.files.wordpress.com/2021/10/image-1.png?w=1024)](https://reshmeeauckloo.files.wordpress.com/2021/10/image-1.png)
+
+The custom template for list/library can save a lot of time deploying standardised lists/document libraries without having to manually configure views, fields and content types.
+</code></pre>
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://famous-cajeta-4dad83.netlify.app/" >
+    &copy;  m365 blog 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

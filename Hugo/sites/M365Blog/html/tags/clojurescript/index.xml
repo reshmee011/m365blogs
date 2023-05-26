@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>clojurescript on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/clojurescript/</link>
+    <description>Recent content in clojurescript on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Feb 2016 07:31:29 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/clojurescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>London ClojureBridge Event as Teaching Assistant</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/london-clojurebridge-event-as-teaching-assistant/</link>
+      <pubDate>Tue, 23 Feb 2016 07:31:29 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/london-clojurebridge-event-as-teaching-assistant/</guid>
+      <description>Clojurebridge experience as teaching assistant I have been learning Clojure/ClojureScript over the last three months in my spare time. I felt lucky to be asked to volunteer to be a teaching assistant for the ClojureBridge event held at USwitch on the 19th and 20th Feb 2016. I was feeling apprehensive initially due to my limited exposure to a functional programming language and most of the teachers and teaching assistants were either working full time with Clojure or had several years of playing with Clojure and were using a Mac while I have used Windows laptop to play with Clojure.</description>
+    </item>
+    
+    <item>
+      <title>Input of type date to generate a date picker using Reagent in ClojureScript</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/input-of-type-date-to-generate-a-date-picker-using-reagent-in-clojurescript/</link>
+      <pubDate>Fri, 01 Jan 2016 13:31:48 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/input-of-type-date-to-generate-a-date-picker-using-reagent-in-clojurescript/</guid>
+      <description>I needed a date picker to use in ClojureScript application to enter date of birth. I came across the pikaday which I tried to use but the date range was limited and could not find a solution to not limit the date range. The native HTML input control of type date can be generated in Reagent as follows [:p &amp;quot;Enter Date Of Birth&amp;quot;] ;;using input control of type date to allow a date to be picked [:input {:type &amp;quot;date&amp;quot; :on-change (fn [e] (swap!</description>
+    </item>
+    
+    <item>
+      <title>ClojureScript - Power of Clojure to the web</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/clojurescript-power-of-clojure-to-the-web/</link>
+      <pubDate>Fri, 01 Jan 2016 12:10:30 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/clojurescript-power-of-clojure-to-the-web/</guid>
+      <description>ClojureScript is a compiler for Clojure that targets JavaScript. It is designed to emit JavaScript code which is compatible with the advanced compilation mode of the Google Closure optimizing compiler. Why ClojureScript?
+Allows to use functional programming. Uses Immutable data structures. (Immutable.js library is available to enable use of immutable data structures with JavaScript. Watch Christian Johansen&amp;rsquo;s talk on Immutable JavaScript) Uses Google Closure Compiler : advanced code compiling with dead code elimination core.</description>
+    </item>
+    
+  </channel>
+</rss>

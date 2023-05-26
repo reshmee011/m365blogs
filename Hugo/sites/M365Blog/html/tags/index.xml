@@ -1,0 +1,1865 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/</link>
+    <description>Recent content in Tags on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Jan 2022 19:48:29 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>reddle</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/reddle/</link>
+      <pubDate>Sat, 22 Jan 2022 19:48:29 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/reddle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Uncategorized</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/uncategorized/</link>
+      <pubDate>Thu, 04 Nov 2021 14:59:52 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/uncategorized/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PnP</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/pnp/</link>
+      <pubDate>Sun, 12 Sep 2021 09:09:39 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/pnp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-online/</link>
+      <pubDate>Sun, 12 Sep 2021 09:09:39 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-online/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ListViewThreshold</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/listviewthreshold/</link>
+      <pubDate>Fri, 07 May 2021 16:11:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/listviewthreshold/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LVT</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/lvt/</link>
+      <pubDate>Fri, 07 May 2021 16:11:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/lvt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Branding.JsLink</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/branding.jslink/</link>
+      <pubDate>Thu, 04 May 2017 16:23:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/branding.jslink/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/javascript/</link>
+      <pubDate>Thu, 04 May 2017 16:23:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JsLink</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/jslink/</link>
+      <pubDate>Thu, 04 May 2017 16:23:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/jslink/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Managed Metadata Field</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/managed-metadata-field/</link>
+      <pubDate>Thu, 04 May 2017 16:23:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/managed-metadata-field/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Taxonomy</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/taxonomy/</link>
+      <pubDate>Thu, 04 May 2017 16:23:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/taxonomy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TermSet</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/termset/</link>
+      <pubDate>Thu, 04 May 2017 16:23:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/termset/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transforming Taxonomy field into cascading drop down</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/transforming-taxonomy-field-into-cascading-drop-down/</link>
+      <pubDate>Thu, 04 May 2017 16:23:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/transforming-taxonomy-field-into-cascading-drop-down/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bulk Insert</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/bulk-insert/</link>
+      <pubDate>Sun, 30 Apr 2017 10:08:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/bulk-insert/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Migration</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/data-migration/</link>
+      <pubDate>Sun, 30 Apr 2017 10:08:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/data-migration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Migration SQL</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/data-migration-sql/</link>
+      <pubDate>Sun, 30 Apr 2017 10:08:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/data-migration-sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Import Data from CSV or DAT</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/import-data-from-csv-or-dat/</link>
+      <pubDate>Sun, 30 Apr 2017 10:08:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/import-data-from-csv-or-dat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Merge</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/merge/</link>
+      <pubDate>Sun, 30 Apr 2017 10:08:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/merge/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sql/</link>
+      <pubDate>Sun, 30 Apr 2017 10:08:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Indexes</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/indexes/</link>
+      <pubDate>Tue, 14 Mar 2017 09:55:26 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/indexes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rebuild and Reorganize indexes</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/rebuild-and-reorganize-indexes/</link>
+      <pubDate>Tue, 14 Mar 2017 09:55:26 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/rebuild-and-reorganize-indexes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/powershell/</link>
+      <pubDate>Wed, 08 Mar 2017 22:39:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL batch processing</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sql-batch-processing/</link>
+      <pubDate>Wed, 08 Mar 2017 22:39:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sql-batch-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL Server</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sql-server/</link>
+      <pubDate>Wed, 08 Mar 2017 22:39:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sql-server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLcmd</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sqlcmd/</link>
+      <pubDate>Wed, 08 Mar 2017 22:39:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sqlcmd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLcmd.exe</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sqlcmd.exe/</link>
+      <pubDate>Wed, 08 Mar 2017 22:39:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sqlcmd.exe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Azure</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/azure/</link>
+      <pubDate>Wed, 11 Jan 2017 08:28:58 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Create DevTest Lab</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/create-devtest-lab/</link>
+      <pubDate>Wed, 11 Jan 2017 08:28:58 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/create-devtest-lab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DevTest Lab</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/devtest-lab/</link>
+      <pubDate>Wed, 11 Jan 2017 08:28:58 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/devtest-lab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Provisioning DevTest Lab using PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/provisioning-devtest-lab-using-powershell/</link>
+      <pubDate>Wed, 11 Jan 2017 08:28:58 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/provisioning-devtest-lab-using-powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Policy Settings on User Profile</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/policy-settings-on-user-profile/</link>
+      <pubDate>Fri, 23 Dec 2016 13:59:03 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/policy-settings-on-user-profile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Policy settings on User Profile Property set to Disabled</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/policy-settings-on-user-profile-property-set-to-disabled/</link>
+      <pubDate>Fri, 23 Dec 2016 13:59:03 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/policy-settings-on-user-profile-property-set-to-disabled/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>REST</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/rest/</link>
+      <pubDate>Fri, 23 Dec 2016 13:59:03 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/rest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint 2013</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2013/</link>
+      <pubDate>Fri, 23 Dec 2016 13:59:03 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2013/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unable to update User Profile Property</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/unable-to-update-user-profile-property/</link>
+      <pubDate>Fri, 23 Dec 2016 13:59:03 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/unable-to-update-user-profile-property/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web Service</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/web-service/</link>
+      <pubDate>Fri, 23 Dec 2016 13:59:03 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/web-service/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Change Content Type of document</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/change-content-type-of-document/</link>
+      <pubDate>Fri, 23 Dec 2016 12:45:23 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/change-content-type-of-document/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Delete ContentTypeId</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/delete-contenttypeid/</link>
+      <pubDate>Fri, 23 Dec 2016 12:45:23 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/delete-contenttypeid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint/</link>
+      <pubDate>Fri, 23 Dec 2016 12:45:23 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Create SharePoint 2013 VM</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/create-sharepoint-2013-vm/</link>
+      <pubDate>Tue, 06 Dec 2016 11:49:22 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/create-sharepoint-2013-vm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Create SQL Server 2012 VM</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/create-sql-server-2012-vm/</link>
+      <pubDate>Tue, 06 Dec 2016 11:49:22 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/create-sql-server-2012-vm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Get-AzureRmVMImageOffer</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/get-azurermvmimageoffer/</link>
+      <pubDate>Tue, 06 Dec 2016 11:49:22 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/get-azurermvmimageoffer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Get-AzureRmVMImageSKU</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/get-azurermvmimagesku/</link>
+      <pubDate>Tue, 06 Dec 2016 11:49:22 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/get-azurermvmimagesku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Virtual Machine</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/virtual-machine/</link>
+      <pubDate>Tue, 06 Dec 2016 11:49:22 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/virtual-machine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Virtual Network</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/virtual-network/</link>
+      <pubDate>Tue, 06 Dec 2016 11:49:22 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/virtual-network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CRM Dynamics 2015</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/crm-dynamics-2015/</link>
+      <pubDate>Thu, 24 Nov 2016 17:42:09 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/crm-dynamics-2015/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data.xml</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/data.xml/</link>
+      <pubDate>Thu, 24 Nov 2016 17:42:09 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/data.xml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DataSchema.xml</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/dataschema.xml/</link>
+      <pubDate>Thu, 24 Nov 2016 17:42:09 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/dataschema.xml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Import Configuration Data</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/import-configuration-data/</link>
+      <pubDate>Thu, 24 Nov 2016 17:42:09 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/import-configuration-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microsoft.Xrm.Data.PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/microsoft.xrm.data.powershell/</link>
+      <pubDate>Thu, 24 Nov 2016 17:42:09 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/microsoft.xrm.data.powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Create Virtual Machine in Azure</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/create-virtual-machine-in-azure/</link>
+      <pubDate>Fri, 18 Nov 2016 17:25:22 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/create-virtual-machine-in-azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Long running operation failed with status Failed</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/long-running-operation-failed-with-status-failed/</link>
+      <pubDate>Fri, 18 Nov 2016 17:25:22 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/long-running-operation-failed-with-status-failed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>New-AzureRMVM</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/new-azurermvm/</link>
+      <pubDate>Fri, 18 Nov 2016 17:25:22 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/new-azurermvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint 2016</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2016/</link>
+      <pubDate>Fri, 18 Nov 2016 17:25:22 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2016/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Create Azure Virtual Network</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/create-azure-virtual-network/</link>
+      <pubDate>Fri, 18 Nov 2016 15:48:19 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/create-azure-virtual-network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Subscription is not registered with NRP</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/subscription-is-not-registered-with-nrp/</link>
+      <pubDate>Fri, 18 Nov 2016 15:48:19 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/subscription-is-not-registered-with-nrp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BIDS 2013</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/bids-2013/</link>
+      <pubDate>Thu, 17 Nov 2016 17:35:45 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/bids-2013/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BIDS 2015</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/bids-2015/</link>
+      <pubDate>Thu, 17 Nov 2016 17:35:45 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/bids-2015/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Error Uploading Report</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/error-uploading-report/</link>
+      <pubDate>Thu, 17 Nov 2016 17:35:45 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/error-uploading-report/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSRS</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/ssrs/</link>
+      <pubDate>Thu, 17 Nov 2016 17:35:45 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/ssrs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Connection</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/connection/</link>
+      <pubDate>Thu, 10 Nov 2016 18:12:33 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/connection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CRMServiceClient</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/crmserviceclient/</link>
+      <pubDate>Thu, 10 Nov 2016 18:12:33 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/crmserviceclient/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Get-CrmConnection</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/get-crmconnection/</link>
+      <pubDate>Thu, 10 Nov 2016 18:12:33 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/get-crmconnection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CSOM</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/csom/</link>
+      <pubDate>Wed, 02 Nov 2016 20:43:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/csom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Debug PnP</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/debug-pnp/</link>
+      <pubDate>Wed, 02 Nov 2016 20:43:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/debug-pnp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Enable Trace on PnP</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/enable-trace-on-pnp/</link>
+      <pubDate>Wed, 02 Nov 2016 20:43:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/enable-trace-on-pnp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Export-SPOTaxonomy</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/export-spotaxonomy/</link>
+      <pubDate>Wed, 02 Nov 2016 20:43:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/export-spotaxonomy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/git/</link>
+      <pubDate>Wed, 02 Nov 2016 20:43:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Import-SPOTaxonomy</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/import-spotaxonomy/</link>
+      <pubDate>Wed, 02 Nov 2016 20:43:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/import-spotaxonomy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Set-SPOTraceLog</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/set-spotracelog/</link>
+      <pubDate>Wed, 02 Nov 2016 20:43:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/set-spotracelog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Terms</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/terms/</link>
+      <pubDate>Wed, 02 Nov 2016 20:43:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/terms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[System.Net.CredentialCache]::DefaultNetworkCredentials</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/system.net.credentialcachedefaultnetworkcredentials/</link>
+      <pubDate>Wed, 02 Nov 2016 19:10:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/system.net.credentialcachedefaultnetworkcredentials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ClientContext</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/clientcontext/</link>
+      <pubDate>Wed, 02 Nov 2016 19:10:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/clientcontext/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Current User Credentials</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/current-user-credentials/</link>
+      <pubDate>Wed, 02 Nov 2016 19:10:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/current-user-credentials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/security/</link>
+      <pubDate>Wed, 02 Nov 2016 19:10:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint 2013 On Premises</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2013-on-premises/</link>
+      <pubDate>Wed, 02 Nov 2016 19:10:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2013-on-premises/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint 2016 On Premises</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2016-on-premises/</link>
+      <pubDate>Wed, 02 Nov 2016 19:10:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2016-on-premises/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Create Lists and Libraries</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/create-lists-and-libraries/</link>
+      <pubDate>Sat, 22 Oct 2016 09:48:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/create-lists-and-libraries/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SchemaXML</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/schemaxml/</link>
+      <pubDate>Sat, 22 Oct 2016 09:48:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/schemaxml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>XML</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/xml/</link>
+      <pubDate>Sat, 22 Oct 2016 09:48:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/xml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PnP Exporting Lists</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/pnp-exporting-lists/</link>
+      <pubDate>Sat, 22 Oct 2016 09:36:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/pnp-exporting-lists/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DataProviderJSON</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/dataproviderjson/</link>
+      <pubDate>Sat, 15 Oct 2016 08:17:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/dataproviderjson/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Query Text</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/query-text/</link>
+      <pubDate>Sat, 15 Oct 2016 08:17:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/query-text/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Results Webpart</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/results-webpart/</link>
+      <pubDate>Sat, 15 Oct 2016 08:17:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/results-webpart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Search</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/search/</link>
+      <pubDate>Sat, 15 Oct 2016 08:17:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SourceId</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sourceid/</link>
+      <pubDate>Sat, 15 Oct 2016 08:17:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sourceid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Managed Properties</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/managed-properties/</link>
+      <pubDate>Wed, 05 Oct 2016 06:06:13 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/managed-properties/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Refinement Web Part</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/refinement-web-part/</link>
+      <pubDate>Wed, 05 Oct 2016 06:06:13 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/refinement-web-part/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Refiners</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/refiners/</link>
+      <pubDate>Wed, 05 Oct 2016 06:06:13 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/refiners/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Default Groups Visitors Members and Owner</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/default-groups-visitors-members-and-owner/</link>
+      <pubDate>Mon, 03 Oct 2016 16:13:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/default-groups-visitors-members-and-owner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Add-SPONavigationNode</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/add-sponavigationnode/</link>
+      <pubDate>Fri, 30 Sep 2016 16:51:24 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/add-sponavigationnode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PnP PowerShell SharePoint Search Navigation Settings</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/pnp-powershell-sharepoint-search-navigation-settings/</link>
+      <pubDate>Fri, 30 Sep 2016 16:51:24 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/pnp-powershell-sharepoint-search-navigation-settings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Remove-SPONavigationNode</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/remove-sponavigationnode/</link>
+      <pubDate>Fri, 30 Sep 2016 16:51:24 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/remove-sponavigationnode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ExternalSharing Nintex SharePoint Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/externalsharing-nintex-sharepoint-online/</link>
+      <pubDate>Tue, 20 Sep 2016 16:53:55 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/externalsharing-nintex-sharepoint-online/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nintex</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/nintex/</link>
+      <pubDate>Tue, 20 Sep 2016 16:53:55 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/nintex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CreateAnonymousLink</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/createanonymouslink/</link>
+      <pubDate>Mon, 12 Sep 2016 17:36:15 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/createanonymouslink/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Export Metadata</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/export-metadata/</link>
+      <pubDate>Tue, 06 Sep 2016 16:28:32 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/export-metadata/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Metadata</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/metadata/</link>
+      <pubDate>Tue, 06 Sep 2016 16:28:32 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/metadata/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Set-SPOPropertyBagValue Search</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/set-spopropertybagvalue-search/</link>
+      <pubDate>Thu, 01 Sep 2016 16:14:19 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/set-spopropertybagvalue-search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint 2013 PowerShell CSOM</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2013-powershell-csom/</link>
+      <pubDate>Tue, 30 Aug 2016 16:27:50 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2013-powershell-csom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Theme</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/theme/</link>
+      <pubDate>Tue, 30 Aug 2016 16:27:50 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/theme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FilePath Extract Folder Name</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/filepath-extract-folder-name/</link>
+      <pubDate>Fri, 26 Aug 2016 21:05:05 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/filepath-extract-folder-name/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Metalogix</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/metalogix/</link>
+      <pubDate>Fri, 26 Aug 2016 21:05:05 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/metalogix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Metalogix FileShare</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/metalogix-fileshare/</link>
+      <pubDate>Fri, 26 Aug 2016 21:05:05 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/metalogix-fileshare/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CastTo MakeGenericMethod</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/castto-makegenericmethod/</link>
+      <pubDate>Wed, 13 Jul 2016 16:55:32 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/castto-makegenericmethod/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FieldChoice</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/fieldchoice/</link>
+      <pubDate>Wed, 13 Jul 2016 16:55:32 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/fieldchoice/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint add-in</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-add-in/</link>
+      <pubDate>Wed, 13 Jul 2016 16:55:32 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-add-in/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PnP Migration Site Columns Content Types SharePoint 2013 SharePoint Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/pnp-migration-site-columns-content-types-sharepoint-2013-sharepoint-online/</link>
+      <pubDate>Fri, 24 Jun 2016 11:52:05 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/pnp-migration-site-columns-content-types-sharepoint-2013-sharepoint-online/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Query Unique Permissions Site Webs and Lists CSOM PowerShell</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/query-unique-permissions-site-webs-and-lists-csom-powershell/</link>
+      <pubDate>Wed, 22 Jun 2016 20:45:10 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/query-unique-permissions-site-webs-and-lists-csom-powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Filter N-N</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/filter-n-n/</link>
+      <pubDate>Fri, 10 Jun 2016 10:28:19 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/filter-n-n/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LookupObjectsWithCallback</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/lookupobjectswithcallback/</link>
+      <pubDate>Fri, 10 Jun 2016 10:28:19 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/lookupobjectswithcallback/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>REST POST Nintex SharePoint Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/rest-post-nintex-sharepoint-online/</link>
+      <pubDate>Tue, 03 May 2016 14:53:03 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/rest-post-nintex-sharepoint-online/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DocSign</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/docsign/</link>
+      <pubDate>Sat, 30 Apr 2016 10:04:39 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/docsign/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JSON</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/json/</link>
+      <pubDate>Sat, 30 Apr 2016 10:04:39 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/json/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/html/</link>
+      <pubDate>Fri, 15 Apr 2016 21:14:04 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JSOM</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/jsom/</link>
+      <pubDate>Fri, 15 Apr 2016 21:14:04 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/jsom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JSOM Taxonomy Term Custom Shared Properties</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/jsom-taxonomy-term-custom-shared-properties/</link>
+      <pubDate>Fri, 15 Apr 2016 21:14:04 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/jsom-taxonomy-term-custom-shared-properties/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint JSOM DocumentID Settings Web Properties</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-jsom-documentid-settings-web-properties/</link>
+      <pubDate>Fri, 15 Apr 2016 05:42:48 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-jsom-documentid-settings-web-properties/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CRM</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/crm/</link>
+      <pubDate>Tue, 05 Apr 2016 16:40:37 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/crm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CRM PowerShell Publish Duplicate Rule</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/crm-powershell-publish-duplicate-rule/</link>
+      <pubDate>Tue, 05 Apr 2016 16:40:37 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/crm-powershell-publish-duplicate-rule/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PowerShell break inheritance SharePoint Library permissions Group</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/powershell-break-inheritance-sharepoint-library-permissions-group/</link>
+      <pubDate>Wed, 16 Mar 2016 08:58:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/powershell-break-inheritance-sharepoint-library-permissions-group/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Publishing Feature JavaScript ThreeLines</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/publishing-feature-javascript-threelines/</link>
+      <pubDate>Mon, 14 Mar 2016 23:41:15 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/publishing-feature-javascript-threelines/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Search DisplayTemplate js SharePoint Online SharePoint 365</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/search-displaytemplate-js-sharepoint-online-sharepoint-365/</link>
+      <pubDate>Mon, 14 Mar 2016 23:41:15 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/search-displaytemplate-js-sharepoint-online-sharepoint-365/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deployment</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/deployment/</link>
+      <pubDate>Mon, 14 Mar 2016 22:57:16 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/deployment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Import-CrmPackage</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/import-crmpackage/</link>
+      <pubDate>Mon, 14 Mar 2016 22:57:16 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/import-crmpackage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Timeout PowerShell Import Package</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/timeout-powershell-import-package/</link>
+      <pubDate>Mon, 14 Mar 2016 22:57:16 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/timeout-powershell-import-package/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SubReport Drilling</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/subreport-drilling/</link>
+      <pubDate>Tue, 23 Feb 2016 21:41:02 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/subreport-drilling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Project Server</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/project-server/</link>
+      <pubDate>Tue, 23 Feb 2016 20:59:40 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/project-server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Project Server 2013</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/project-server-2013/</link>
+      <pubDate>Tue, 23 Feb 2016 20:59:40 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/project-server-2013/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clojure</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/clojure/</link>
+      <pubDate>Tue, 23 Feb 2016 07:31:29 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/clojure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ClojureBridgeLondon</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/clojurebridgelondon/</link>
+      <pubDate>Tue, 23 Feb 2016 07:31:29 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/clojurebridgelondon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>clojurescript</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/clojurescript/</link>
+      <pubDate>Tue, 23 Feb 2016 07:31:29 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/clojurescript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Functional Programming</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/functional-programming/</link>
+      <pubDate>Tue, 23 Feb 2016 07:31:29 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/functional-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Teacher</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/teacher/</link>
+      <pubDate>Tue, 23 Feb 2016 07:31:29 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/teacher/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Teaching</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/teaching/</link>
+      <pubDate>Tue, 23 Feb 2016 07:31:29 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/teaching/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CSS</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/css/</link>
+      <pubDate>Wed, 27 Jan 2016 22:15:46 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CSS SharePoint 2013 ProjectServer 2013</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/css-sharepoint-2013-projectserver-2013/</link>
+      <pubDate>Wed, 27 Jan 2016 22:15:46 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/css-sharepoint-2013-projectserver-2013/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Project Server Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/project-server-online/</link>
+      <pubDate>Wed, 20 Jan 2016 19:14:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/project-server-online/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Project Server Online SharePoint Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/project-server-online-sharepoint-online/</link>
+      <pubDate>Wed, 20 Jan 2016 19:14:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/project-server-online-sharepoint-online/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSRS SharePoint Integrated Mode</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-sharepoint-integrated-mode/</link>
+      <pubDate>Tue, 19 Jan 2016 17:54:34 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-sharepoint-integrated-mode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSRS Project Server</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-project-server/</link>
+      <pubDate>Sun, 17 Jan 2016 19:02:05 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-project-server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Menu 1</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/menu-1/</link>
+      <pubDate>Tue, 12 Jan 2016 06:59:50 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/menu-1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSRS TimelineView Milestones Projects ProjectServer2010 ProjectServer2013 Dataset Parameters</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-timelineview-milestones-projects-projectserver2010-projectserver2013-dataset-parameters/</link>
+      <pubDate>Tue, 12 Jan 2016 00:01:31 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-timelineview-milestones-projects-projectserver2010-projectserver2013-dataset-parameters/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSRS Report Builder ProjectServer2010 ProjectServer2013</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-report-builder-projectserver2010-projectserver2013/</link>
+      <pubDate>Sun, 10 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-report-builder-projectserver2010-projectserver2013/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint CustomAction Css JavaScript XML</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-customaction-css-javascript-xml/</link>
+      <pubDate>Tue, 05 Jan 2016 23:27:38 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-customaction-css-javascript-xml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reagent</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/reagent/</link>
+      <pubDate>Fri, 01 Jan 2016 13:31:48 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/reagent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reagent ClojureScript DatePicker</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/reagent-clojurescript-datepicker/</link>
+      <pubDate>Fri, 01 Jan 2016 13:31:48 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/reagent-clojurescript-datepicker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>clojurescript react reagent</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/clojurescript-react-reagent/</link>
+      <pubDate>Fri, 01 Jan 2016 12:10:30 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/clojurescript-react-reagent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>React</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/react/</link>
+      <pubDate>Fri, 01 Jan 2016 12:10:30 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Permissions SharePoint Group JQuery</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/permissions-sharepoint-group-jquery/</link>
+      <pubDate>Thu, 24 Dec 2015 17:04:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/permissions-sharepoint-group-jquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Project Server 2013 PDP JavaScript</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/project-server-2013-pdp-javascript/</link>
+      <pubDate>Thu, 24 Dec 2015 17:04:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/project-server-2013-pdp-javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint 2013 CSOM</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2013-csom/</link>
+      <pubDate>Thu, 24 Dec 2015 17:04:35 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2013-csom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Workflow</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/workflow/</link>
+      <pubDate>Thu, 24 Dec 2015 16:34:37 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/workflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Workflow SharePoint 2013 Migration</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/workflow-sharepoint-2013-migration/</link>
+      <pubDate>Thu, 24 Dec 2015 16:34:37 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/workflow-sharepoint-2013-migration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSRS SharePoint Subscription Integrated mode</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-sharepoint-subscription-integrated-mode/</link>
+      <pubDate>Thu, 24 Dec 2015 16:12:07 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-sharepoint-subscription-integrated-mode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSRS SharePoint</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-sharepoint/</link>
+      <pubDate>Thu, 24 Dec 2015 16:01:42 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-sharepoint/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>factorial Virtal DOM</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/factorial-virtal-dom/</link>
+      <pubDate>Sun, 20 Dec 2015 21:55:50 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/factorial-virtal-dom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>React JavaScript</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/react-javascript/</link>
+      <pubDate>Sun, 20 Dec 2015 21:55:50 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/react-javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AddKeyValueQueryString</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/addkeyvaluequerystring/</link>
+      <pubDate>Thu, 17 Dec 2015 22:17:12 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/addkeyvaluequerystring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GetUrlKeyValue</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/geturlkeyvalue/</link>
+      <pubDate>Thu, 17 Dec 2015 22:17:12 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/geturlkeyvalue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IndexOfIllegalCharInUrlPath</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/indexofillegalcharinurlpath/</link>
+      <pubDate>Thu, 17 Dec 2015 22:17:12 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/indexofillegalcharinurlpath/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ReplaceUrlTokens</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/replaceurltokens/</link>
+      <pubDate>Thu, 17 Dec 2015 22:17:12 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/replaceurltokens/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SetUrlKeyValue</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/seturlkeyvalue/</link>
+      <pubDate>Thu, 17 Dec 2015 22:17:12 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/seturlkeyvalue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>URL Utilities</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/url-utilities/</link>
+      <pubDate>Thu, 17 Dec 2015 22:17:12 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/url-utilities/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>clojure loop</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/clojure-loop/</link>
+      <pubDate>Thu, 17 Dec 2015 19:59:30 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/clojure-loop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint2013 List View Operations</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint2013-list-view-operations/</link>
+      <pubDate>Thu, 17 Dec 2015 18:57:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint2013-list-view-operations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clojure If</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/clojure-if/</link>
+      <pubDate>Sun, 13 Dec 2015 21:33:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/clojure-if/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cond case condp</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/cond-case-condp/</link>
+      <pubDate>Sun, 13 Dec 2015 21:33:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/cond-case-condp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSRS Currency Thousands K</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-currency-thousands-k/</link>
+      <pubDate>Thu, 10 Dec 2015 17:39:08 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-currency-thousands-k/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clojure Sequences</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/clojure-sequences/</link>
+      <pubDate>Thu, 10 Dec 2015 09:32:23 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/clojure-sequences/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coljure Sequences</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/coljure-sequences/</link>
+      <pubDate>Thu, 10 Dec 2015 09:32:23 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/coljure-sequences/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint CSOM</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-csom/</link>
+      <pubDate>Wed, 09 Dec 2015 11:08:46 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-csom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clojure Destructuring</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/clojure-destructuring/</link>
+      <pubDate>Wed, 09 Dec 2015 09:55:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/clojure-destructuring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Types Immutability</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/data-types-immutability/</link>
+      <pubDate>Sun, 06 Dec 2015 16:02:01 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/data-types-immutability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint 2013 WebProxy</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2013-webproxy/</link>
+      <pubDate>Fri, 04 Dec 2015 00:01:11 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2013-webproxy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Apply</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/apply/</link>
+      <pubDate>Wed, 02 Dec 2015 19:06:08 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/apply/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clojure Arity Immutable</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/clojure-arity-immutable/</link>
+      <pubDate>Wed, 02 Dec 2015 19:06:08 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/clojure-arity-immutable/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Let Clojure Sugar</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/let-clojure-sugar/</link>
+      <pubDate>Wed, 02 Dec 2015 19:06:08 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/let-clojure-sugar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL SSRS</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sql-ssrs/</link>
+      <pubDate>Wed, 02 Dec 2015 17:59:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sql-ssrs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clojure Functional Programming</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/clojure-functional-programming/</link>
+      <pubDate>Sat, 28 Nov 2015 23:48:16 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/clojure-functional-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Factorial</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/factorial/</link>
+      <pubDate>Sat, 28 Nov 2015 23:48:16 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/factorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nintex Workflow</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/nintex-workflow/</link>
+      <pubDate>Sat, 28 Nov 2015 22:36:21 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/nintex-workflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>.net</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/.net/</link>
+      <pubDate>Thu, 26 Nov 2015 18:41:14 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/.net/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C#</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/c#/</link>
+      <pubDate>Thu, 26 Nov 2015 18:41:14 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/c#/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C# .net</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/c#-.net/</link>
+      <pubDate>Thu, 26 Nov 2015 18:41:14 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/c#-.net/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSRS SharePoint SubReport</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-sharepoint-subreport/</link>
+      <pubDate>Thu, 26 Nov 2015 18:25:27 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-sharepoint-subreport/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C# InfoPath SharePoint</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/c#-infopath-sharepoint/</link>
+      <pubDate>Thu, 26 Nov 2015 00:14:13 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/c#-infopath-sharepoint/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>InfoPath</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/infopath/</link>
+      <pubDate>Thu, 26 Nov 2015 00:14:13 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/infopath/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Result source</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/result-source/</link>
+      <pubDate>Tue, 24 Nov 2015 00:17:48 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/result-source/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint Search Display Template ResultsPage</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-search-display-template-resultspage/</link>
+      <pubDate>Tue, 24 Nov 2015 00:17:48 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-search-display-template-resultspage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>KQL</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/kql/</link>
+      <pubDate>Mon, 23 Nov 2015 22:49:14 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/kql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL Apply</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sql-apply/</link>
+      <pubDate>Fri, 20 Nov 2015 14:57:19 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sql-apply/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL With</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sql-with/</link>
+      <pubDate>Fri, 20 Nov 2015 14:55:44 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sql-with/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Content Search Web Part</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/content-search-web-part/</link>
+      <pubDate>Thu, 19 Nov 2015 23:15:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/content-search-web-part/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FQL</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/fql/</link>
+      <pubDate>Thu, 19 Nov 2015 23:15:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/fql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Project Online</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/project-online/</link>
+      <pubDate>Wed, 18 Nov 2015 18:05:30 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/project-online/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL Project Server</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sql-project-server/</link>
+      <pubDate>Wed, 18 Nov 2015 14:40:28 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sql-project-server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jQuery</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/jquery/</link>
+      <pubDate>Mon, 16 Nov 2015 09:41:59 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/jquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SharePoint 2010</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2010/</link>
+      <pubDate>Mon, 09 Nov 2015 10:13:41 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-2010/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSRS VB</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-vb/</link>
+      <pubDate>Tue, 27 Oct 2015 09:05:02 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/ssrs-vb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VB</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/vb/</link>
+      <pubDate>Tue, 27 Oct 2015 09:05:02 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/vb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Office 365</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/office-365/</link>
+      <pubDate>Fri, 19 Sep 2014 15:26:21 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/office-365/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web Components</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/web-components/</link>
+      <pubDate>Fri, 19 Sep 2014 15:26:21 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/web-components/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>_vti_bin/userprofileservice.asmx</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/_vti_bin/userprofileservice.asmx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/_vti_bin/userprofileservice.asmx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Create Dev/Test SharePoint 2013 environment in Azure</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/create-dev/test-sharepoint-2013-environment-in-azure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/create-dev/test-sharepoint-2013-environment-in-azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lists/Libraries</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/tags/lists/libraries/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/tags/lists/libraries/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

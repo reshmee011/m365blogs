@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Create Virtual Machine(VM) in Azure throws &#34;Long running operation failed with status &#39;Failed&#39;.&#34; through PowerShell | m365 blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I was following the article SharePoint Server 2016 dev/test environment in Azure to create a SharePoint Server 2016 environment in Azure. I reached the step to create the Virtual Machine that will be used as the domain controller using the cmdlet below``` New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+After waiting for several minutes I decided to cancel the operation. When I retried the same cmdlet, I got the following error.">
+    <meta name="generator" content="Hugo 0.111.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/create-virtual-machinevm-in-azure-throws-long-running-operation-failed-with-status-failed-through-powershell/index.xml" rel="alternate" type="application/rss+xml" title="m365 blog" />
+      <link href="/create-virtual-machinevm-in-azure-throws-long-running-operation-failed-with-status-failed-through-powershell/index.xml" rel="feed" type="application/rss+xml" title="m365 blog" />
+      
+    
+    
+    <meta property="og:title" content="Create Virtual Machine(VM) in Azure throws &#34;Long running operation failed with status &#39;Failed&#39;.&#34; through PowerShell" />
+<meta property="og:description" content="I was following the article SharePoint Server 2016 dev/test environment in Azure to create a SharePoint Server 2016 environment in Azure. I reached the step to create the Virtual Machine that will be used as the domain controller using the cmdlet below``` New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+After waiting for several minutes I decided to cancel the operation. When I retried the same cmdlet, I got the following error." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://famous-cajeta-4dad83.netlify.app/create-virtual-machinevm-in-azure-throws-long-running-operation-failed-with-status-failed-through-powershell/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2016-11-18T17:25:22+00:00" />
+<meta property="article:modified_time" content="2016-11-18T17:25:22+00:00" />
+<meta itemprop="name" content="Create Virtual Machine(VM) in Azure throws &#34;Long running operation failed with status &#39;Failed&#39;.&#34; through PowerShell">
+<meta itemprop="description" content="I was following the article SharePoint Server 2016 dev/test environment in Azure to create a SharePoint Server 2016 environment in Azure. I reached the step to create the Virtual Machine that will be used as the domain controller using the cmdlet below``` New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+After waiting for several minutes I decided to cancel the operation. When I retried the same cmdlet, I got the following error."><meta itemprop="datePublished" content="2016-11-18T17:25:22+00:00" />
+<meta itemprop="dateModified" content="2016-11-18T17:25:22+00:00" />
+<meta itemprop="wordCount" content="160">
+<meta itemprop="keywords" content="Azure,Create Virtual Machine in Azure,Long running operation failed with status Failed,New-AzureRMVM,PowerShell,SharePoint 2016,Virtual Machine," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Create Virtual Machine(VM) in Azure throws &#34;Long running operation failed with status &#39;Failed&#39;.&#34; through PowerShell"/>
+<meta name="twitter:description" content="I was following the article SharePoint Server 2016 dev/test environment in Azure to create a SharePoint Server 2016 environment in Azure. I reached the step to create the Virtual Machine that will be used as the domain controller using the cmdlet below``` New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+After waiting for several minutes I decided to cancel the operation. When I retried the same cmdlet, I got the following error."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        m365 blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Create Virtual Machine(VM) in Azure throws &#34;Long running operation failed with status &#39;Failed&#39;.&#34; through PowerShell
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>I was following the article <a href="https://technet.microsoft.com/library/mt723354.aspx">SharePoint Server 2016 dev/test environment in Azure</a> to create a SharePoint Server 2016 environment in Azure. I reached the step to create the Virtual Machine that will be used as the domain controller using the cmdlet below```
+New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm</p>
+<p><code>After waiting for several minutes I decided to cancel the operation. When I retried the same cmdlet, I got the following error.</code>
+New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm -Verbose
+VERBOSE: Performing the operation &ldquo;New&rdquo; on target &ldquo;adVM&rdquo;.
+New-AzureRMVM : Long running operation failed with status &lsquo;Failed&rsquo;.
+ErrorCode: VMAgentStatusCommunicationError
+ErrorMessage: VM &lsquo;adVM&rsquo; has not reported status for VM agent or extensions.
+Please verify the VM has a running VM agent, and can establish
+outbound connections to Azure storage.
+StartTime: 18/11/2016 15:42:46
+EndTime: 18/11/2016 15:42:46
+OperationID: f1ecb302-9da9-4a76-9b0c-463b5e89c41c
+Status: Failed
+At line:1 char:1
++ New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm -Verbose
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+<ul>
+<li>CategoryInfo : CloseError: (:) [New-AzureRmVM], ComputeCloudException</li>
+<li>FullyQualifiedErrorId : Microsoft.Azure.Commands.Compute.NewAzureVMCommand</li>
+</ul>
+<pre tabindex="0"><code class="language-I" data-lang="I"></code></pre>
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://famous-cajeta-4dad83.netlify.app/" >
+    &copy;  m365 blog 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

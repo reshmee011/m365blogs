@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>SharePoint Online | m365 blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.111.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/sharepoint-online/index.xml" rel="alternate" type="application/rss+xml" title="m365 blog" />
+      <link href="/tags/sharepoint-online/index.xml" rel="feed" type="application/rss+xml" title="m365 blog" />
+      
+    
+    
+    <meta property="og:title" content="SharePoint Online" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://famous-cajeta-4dad83.netlify.app/tags/sharepoint-online/" />
+<meta itemprop="name" content="SharePoint Online">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SharePoint Online"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        m365 blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          SharePoint Online
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “SharePoint Online”</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/pnp-batch-add-delete-300k-items-from-a-sharepoint-online-list/" class="link black dim">
+        PnP Batch Add /Delete 300k items from a SharePoint Online list
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      I was tasked to delete more 300k items from a SharePoint list generated as part of testing. I tried the script https://vladilen.com/office-365/spo/fastest-way-to-delete-all-items-in-a-large-list/
+Get-PnPListItem -List $list -Fields &#34;ID&#34; -PageSize 100 -ScriptBlock { Param($items) $items | Sort-Object -Property Id -Descending | ForEach-Object{ $\_.DeleteObject() } } However the script kept failing at irregular intervals with exception messages like &ldquo;A task was cancelled&rdquo;, &ldquo;The collection has not been initialised&rdquo; and &ldquo;operation time out&rdquo;. It was a long processing task which I need to keep monitoring and resumed the script manually to continue the deletion many times to my dismay.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/list-view-threshold-5k-in-sharepoint-online/" class="link black dim">
+        List View Threshold 5k in SharePoint Online
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The list view threshold is 5000 in SharePoint Online and still can not be changed despite it has been raised in the User Voice for improvements.
+I have created more than 5000 files in a library with the use of Power Automate to test what works and does not work.
+I was surprised by navigating to the list or library I did not get any errors and everything seems to be working.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/unable-to-update-user-profile-property-due-to-policy-settings-set-to-disabled/" class="link black dim">
+        Unable to update User Profile Property due to Policy Settings set to Disabled
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The web service userprofileservice /_vti_bin/userprofileservice.asmx has to be used to update user profile properties for other users in SharePoint 2013 and SharePoint Online. Even though the HTTP status code response returned was 200 which means successful, the user profile property was blank when the user properties was queried using the REST api method sp.userprofiles.peoplemanager/getpropertiesfor. /_api/sp.userprofiles.peoplemanager/getpropertiesfor(@v)?@v=&lsquo;i%3A0%23.f%7Cmembership%7CfirstName.LastName%40arteliauk.onmicrosoft.com&rsquo; The user profile property updated was PictureUrl , however it was showing as null&lt;d:PictureUrl m:null=&quot;true&quot; /&gt;After spending a couple of hours trying to figure out why the use profile property was not showing, I decided to review the user profiles properties for Picture property and how it is different from the other user profile properties, e.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/using-pnp-powershell-to-export-and-import-taxonomy/" class="link black dim">
+        Using PnP PowerShell to export and import Taxonomy
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      PnP provides export taxonomy cmdlet which allows to export all term groups, term sets, terms and child terms to a file with one line of codeConnect-SPOnline -Url &lt;siteurl&gt; -CurrentCredentials Export-SPOTaxonomy -IncludeID -Path &quot;C:\\temp\\Metadata\\terms.txt&quot;PnP also provides an equivalent import taxonomy cmdlet to import all term groups, term sets, terms and child terms from a file with one line of codeConnect-SPOnline -Url &lt;siteurl&gt; -CurrentCredentials Import-SPOTaxonomy -Path &quot;C:\\temp\\Metadata\\terms.txt&quot;However if IncludeId switch parameter is used with the export, the import would fail if the October 2016 PnP PowerShell release is used.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/create-lists-libraries-from-schema-as-xml-using-csom-comments/" class="link black dim">
+        Create Lists Libraries from Schema as XML using CSOM
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Export Lists Schema to XML using CSOM and PnP | reshmeeauckloo - Oct 6, 2016
+[…] To create lists/libraries using the XML config file, refer to post Create Lists Libraries from Schema as XML using CSOM […]
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/create-lists-libraries-from-schema-as-xml-using-csom/" class="link black dim">
+        Create Lists Libraries from Schema as XML using CSOM
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Following on my article Export List Schema XML to a configuration file, I went on to create lists and libraries with same metadata on a new SharePoint environment. Although CSOM allows to create a list by update the property SchemaXML using CSOM iterating through the list schema in the config file. However I kept getting &ldquo;Invalid list template&rdquo;. The exported list&rsquo;s Schema XML needs to be modified to remove unnecessary tags so as it can be used to update property SchemaXML as per article &ldquo;How to create List and libraries with CustomSchemaXml property using SchemaXml with CSOM in SharePoint online2010?
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/export-lists-schema-to-xml-using-csom-and-pnp-comments/" class="link black dim">
+        Export Lists Schema to XML using CSOM and PnP
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Create Lists Libraries from Schema as XML using CSOM | reshmeeauckloo - Oct 6, 2016
+[…] ← Export Lists Schema to XML using CSOM and PnP […]
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/export-lists-schema-to-xml-using-csom-and-pnp/" class="link black dim">
+        Export Lists Schema to XML using CSOM and PnP
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      I had to automate deployment of lists and libraries into different environments, e.g. on premises and online. There are different elements to consider when deploying lists or libraries namely - List Properties - List Content Types - Views - Fields I could have written a configuration file in xml manually to specify the details above. Instead I have decided to configure lists and libraries from a SharePoint 2013 On Premises Dev environment and export the list schemaXML property to a XML file.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/update-search-result-web-part-query-text-and-result-source/" class="link black dim">
+        Update Search Result Web Part: Query Text and Result Source
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      I had to automate update of result source and query of a search result web part in a search page as part of deployment script to move changes from DEV to TEST, UAT and PROD. The XML definition of a search result web part is Cannot import this Web Part. 4 True advanced.aspx True False True True True null False True [&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Group_Default.js&quot;,&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Default.js&quot;,&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Site.js&quot;,&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Word.js&quot;,&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_PowerPoint.js&quot;,&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Person_CompactHorizontal.js&quot;,&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_BestBet.js&quot;,&quot;~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_WebPage.js&quot;] 10 True True False True True Modeless Search Results True 1 True False ~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_CommonItem_Body.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/add-refiner-to-refinement-web-part-comments/" class="link black dim">
+        Add Refiner to Refinement Web Part using CSOM and PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Update Search Result Web Part: Query Text and Result Source | reshmeeauckloo - Oct 6, 2016
+[…] ← Add Refiner to Refinement Web Part using CSOM and PowerShell […]
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/add-refiner-to-refinement-web-part/" class="link black dim">
+        Add Refiner to Refinement Web Part using CSOM and PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The refinement web part present by default on a search results page help to narrow down search results. The inter connected web parts present in a search result page are
+Search Box Web Part Search Navigation Search Results Refinement Web Part The refinement web part used refiners which are managed properties bound to crawled properties created by search crawl. The managed properties must be enabled as refiners to be able to use on the web part.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/create-default-groups-using-csom-and-powershell-after-creating-site-collections-via-script/" class="link black dim">
+        Create default groups using CSOM and PowerShell after creating site collections via script
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Whenever a site collection is created using PowerShell, the default security groups (visitors, owners and members) are not provisioned. When site collection is created via browser an additional method call is made to create the security groups which is not called while using PowerShell.
+The following scripts will help create the default groups.
+https://gist.github.com/reshmee011/7c4ac90cb3038d16fa1448f4c5678896 Call method CreateWebDefaultGroup passing the parameters context(clientcontext) and UniquePermissions(bool) CreateWebDefaultGroup -Context $ctx -UniquePermissions $false
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/provision-search-navigation-settings-pnp-powershell/" class="link black dim">
+        Provision Search Navigation Settings PnP PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      I was investigating ways how to provision a search centre site with all the configurations automatically. I tried to package all configurations from an already configured Search Centre using &ldquo;Save site as template&rdquo;, however it did not work as Publishing Features are activated in a Search Centre. There are different configuration elements in a search centre site
+Search Navigation Settings Custom Search Display Templates Custom Search Results Pages which can be created using the function Add-PublishingPage Configure web parts in the search results page Refinement WebPart Search Results WebPart This blog post focuses on updating the Search Navigation Settings.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/external-sharing-of-documents-with-nintex-in-sharepoint-online-comments/" class="link black dim">
+        External Sharing of Documents with Nintex in SharePoint Online
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Fernando Hunth - Apr 2, 2017
+Please , enhance the quality of images. I cannot read the configuration you are telling.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/external-sharing-of-documents-with-nintex-in-sharepoint-online/" class="link black dim">
+        External Sharing of Documents with Nintex in SharePoint Online
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The &ldquo;Office 365 update item permissions&rdquo; step available in Nintex Workflow updates item permissions. However if external users are given permissions using this step, it fails with message &ldquo;failed to resolve user &ldquo;. The issue with Office 365 update item permissions is that it does not allow updating permissions for external users.
+With the SharePoint 2016 Remote API Sharing with external users can be achieved using method UpdateDocumentSharingInfo from class SPDocumentSharingManager which fortunately can be called using REST.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/create-anonymous-link-sharepoint-online-rest-comments/" class="link black dim">
+        Rest Api Generate Guest Link SharePoint Online
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      vamsim - Jun 3, 2017
+Hi this is very helpful, but can you help with the steps to execute this. Also a clear explanation of all the parameters used will really help a lot of people.
+what is the adequate permission one needs on the resource to create its anonymous link, I have logged in as read only user and i am getting access denied error while executing above script, can you explain this
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/create-anonymous-link-sharepoint-online-rest/" class="link black dim">
+        Rest Api Generate Guest Link SharePoint Online
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The CreateAnonymousLink method creates an anonymous link with option either to read or edit. It is quite useful to share documents with external users. The drawback is that anyone with the link can view/edit the document shared without sign-in. The method &ldquo;CreateAnonymousLink &quot; accomplishes the same as &ldquo;View Link - no sign-in required&rdquo; and &ldquo;Edit Link -no sign-in required&rdquo; from the UI. https://gist.github.com/reshmee011/1f08ae19491e5c094986dfdb55f29731 Once the link is generated, it can be sent by email to the relevant individuals.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/export-term-set-from-term-store-as-sample-import-file-csv/" class="link black dim">
+        Export Term Set from Term Store as Sample Import file CSV
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The Managed Metadata service provides the &ldquo;Import Term Set&rdquo; Out of the Box. Unfortunately it does not provide the same &ldquo;Export Term Set&rdquo; capability. I had a requirement to export a term set to be reviewed by the business before importing the term set to another SharePoint farm. The Sample Import File has the columns &ldquo;Term Set Name&rdquo;,&ldquo;Term Set Description&rdquo;,&ldquo;LCID&rdquo;,&ldquo;Available for Tagging&rdquo;,&ldquo;Term Description&rdquo;,&ldquo;Level 1 Term&rdquo;,&ldquo;Level 2 Term&rdquo;,&ldquo;Level 3 Term&rdquo;,&ldquo;Level 4 Term&rdquo;,&ldquo;Level 5 Term&rdquo;,&ldquo;Level 6 Term&rdquo; and &ldquo;Level 7 Term&rdquo;.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/set-a-propertybag-property-as-indexed-queryable-via-search-using-pnp-and-powershell/" class="link black dim">
+        Create Indexed(Queryable via Search) Web PropertyBag using PnP and PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      PropertyBag set against SharePoint web object can be indexed which means a corresponding crawled property is created by Search. If search managed properties are created against the crawled property (property bag values), custom search display templates can be created to provide a site directory solution. The post by Phil Harding Set a PropertyBag Property as Indexed (Queryable via Search) using CSOM + Powershell describes how to create an indexed property on premises using the collection &ldquo;IndexedPropertyKeys&rdquo;.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/apply-theme-and-create-composed-look-csom-and-powershell/" class="link black dim">
+        Apply Theme and Create Composed Look CSOM and PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      There are several ways a theme can be applied to a SharePoint site. I tried the PnP command SetSPOTheme as follows on SharePoint 2013 On Premises instance. Set-SPOTheme -ColorPaletteUrl $PathThemeColor -FontSchemeUrl $PathThemeFont Unfortunately I was getting message &lsquo;Field or property &ldquo;AlternateCssUrl&rdquo; does not exist.&rsquo; The error is due not having latest patch installed. Unfortunately the latest SharePoint CU can&rsquo;t be installed as we have heavily customised legacy applications migrated from SharePoint 2007 and SharePoint 2010 running in compatibility mode.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/update-choice-field-values-using-csom-in-powershell-comments/" class="link black dim">
+        Update Choice Field values using CSOM in PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Chris O&rsquo;Connor - Oct 5, 2017
+Thanks !! This was an awesome tip - and works in SharePoint Online. I have an &ldquo;Events&rdquo; list to clear out - and just add PUBLIC + PRIVATE. This technique worked great - thanks again. :-)
+http://veerainduvasi.blogspot.co.uk/2017/01/update-exisiting-choice-column-options.html
+Awesome! AND timely! Two questions: Will this work against a Sharepoint Online doc library with more than 5000 items? Can this alter an existing choice value as well as adding a new one?
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/update-choice-field-values-using-csom-in-powershell/" class="link black dim">
+        Update Choice Field values using CSOM in PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      I wanted a CSOM script in PowerShell to add a new value to a choice field in SharePoint. Most of the examples I found were in CSOM Managed Code (C#) but could not find anything in PowerShell. I came up with the embedded code. The client assemblies are referenced
+SharePoint Assemblies\Microsoft.SharePoint.Client.dll SharePoint Assemblies\Microsoft.SharePoint.Client.Runtime.dll I have created the function Add-ChoiceValueToField to contain the logic to add a value to a choice field.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/importexport-columns-and-content-types-sharepointpnp2016powershell-powershell-comments/" class="link black dim">
+        Import/Export Columns and Content Types using PnP PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      reshmee011 - Oct 4, 2017
+I will update the scripts at some point. Thanks for the comment.
+The Imported TaxonomyFields seems not working, because of missing the second Taxonomy-Note-Field. I always get &ldquo;The SPListItem being updated was not retrieved with all taxonomy fields&rdquo; in Edit-Form of the imported Managed Metadata Columns. I have observed this. http://blog.bugrapostaci.com/2015/07/03/the-splistitem-being-updated-was-not-retrieved-with-all-taxonomy-fields/
+Actually you must use the new PnP-PowerShell-Namespace in the PowerShell-Commands. Example: Connect-PnPOnline instead of Connect-SPOnline and so on&hellip;
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/importexport-columns-and-content-types-sharepointpnp2016powershell-powershell/" class="link black dim">
+        Import/Export Columns and Content Types using PnP PowerShell
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      It is useful to migrate Site Columns and Content Types from one Site Collection to another under the following scenarios maintaining the original GUIDS.
+SharePoint On Premise environment to SharePoint Online Within SharePoint Online, migrate to another tenant If Content Hub Feature is not used, migrate the contents to another site collection Keep a list for governance/change tracking purpose, i.e. checking in TFS This article covers export/import of site columns and content types using SharePointPnP2016PowerShell commands which needs to be installed to be able to use the relevant commands.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/nintex-sharepoint-online-create-sharepoint-group-with-contribute-permissions-comments/" class="link black dim">
+        Nintex SharePoint Online Create SharePoint Group with Contribute permissions
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Mixons - Nov 1, 2016
+@Dub do you found the solution ?? i have the same problem
+Hello Reshmee, Great tutorial! I could confirm that the content type has to be text/xml (as described above). But when I try to create the Group. I got the following error message: &ldquo;Access denied. You do not have permission to perform this action or access this resource&rdquo;
+Hi, has anyone found a solution to this Access denied error?
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/nintex-sharepoint-online-create-sharepoint-group-with-contribute-permissions/" class="link black dim">
+        Nintex SharePoint Online Create SharePoint Group with Contribute permissions
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Nintex Workflow has actions &ldquo;Web Request&rdquo; and &ldquo;Call HTTP Web Service&rdquo; which can be used to make calls to the REST API of SharePoint Online/2013 to automate creation of SharePoint groups in a site collection. Add the following steps to the workflow
+Create a Text variable GroupName and Use &ldquo;Set Workflow Variable&rdquo; to assign it to a value. Get request digest from targeted site collection. Please note that workflow app permissions need to amended to give site collection full control access.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/nintex-docsign-multiple-recipients-comments/" class="link black dim">
+        Nintex DocSign Enable Multiple Recipients
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Nintex DocSign Enable Multiple Recipients | reshmeeauckloo - Apr 6, 2016
+[…] ← Nintex DocSign Enable Multiple Recipients […]
+[…] Nintex DocSign Enable Multiple Recipients […]
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/nintex-docsign-multiple-recipients/" class="link black dim">
+        Nintex DocSign Enable Multiple Recipients
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Doc Sign is a useful secure way of signing documents which is legally binding. Nintex provides the DocuSign send document action that integrates DocuSign service. A trial account for PROD can be created but the trial limit is 3 documents. For development or evaluation purposes, a free developer account can be created on DocuSign site. Follow the instructions from The Quick Quide to Doc Sign to configure your dev account. Part of the process is to create an integrator key which is needed to call DocuSign REST API.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/jsom-sharepoint-online-create-term-with-custom-shared-and-local-properties/" class="link black dim">
+        JSOM SharePoint Online Create Term with custom shared and local properties
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The sp.Taxonomy.js can be used to create a term in the taxonomy store. I wanted to create Shared Custom properties on the term. However the JavaScript library on MSDN mentions only the method setLocalCustomProperty which creates or updates a local custom property. The SetCustomProperty is mentioned in MSDN to use in CSOM managed code to create or update shared custom property on a term. There is a lack of documentation how to use the method in JSOM.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/sharepoint-jsom-to-update-document-id-settings/" class="link black dim">
+        SharePoint JSOM to update Document ID Settings
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The Document ID Service feature is useful to tag unique Id to documents across site collection to make it easier to retrieve. A prefix can be specified to use when the unique Id is generated. The document id settings is stored in the web property bag &ldquo;docid_settings_ui&rdquo; after the feature the activated. The web property bag can be updated using JSOM to assign a prefix with XML snippet like below. var docIdValue = &lsquo; &rsquo; + docIDPrefix + &lsquo; true&rsquo; webProperties.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/search-display-template-js-file-not-created-when-html-file-for-item_threelines-is-created/" class="link black dim">
+        Search Display Template js file not created when HTML file for Item_ThreeLines is created
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      On a SharePoint Online site collection where Publishing feature was initially turned on and subsequently turned off, js file was not automatically created/updated whenever a display template was created/edited. We wanted to have a search content web part with three lines instead of two lines. We created a new display template by following the steps below.
+Navigate to Site Settings&gt;Master Pages&gt;Display Templates&gt;Content Web Parts. Download the file Item_TwoLines.html Rename it to Item_ThreeLines.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/css-to-update-display-of-items-in-sharepoint-list-view-with-alternating-colour-comments/" class="link black dim">
+        CSS to update display of items in SharePoint List View with alternating colour
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Will - Dec 4, 2021
+How would you set the background for a specific row using the css?
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/css-to-update-display-of-items-in-sharepoint-list-view-with-alternating-colour/" class="link black dim">
+        CSS to update display of items in SharePoint List View with alternating colour
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The list view display of items in a SharePoint List can be updated to have alternating row colour and border set by using CSS. To test the snippet below, edit the page displaying the list items and add a content editor WebPart. Copy and paste the CSS snippet into the content editor WebPart. /*&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-*/ /* &mdash;&mdash;- Set Alternating Rows &mdash;&mdash;- */ /* &mdash;&mdash;- Set background for every row &mdash;&mdash;- */ .
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/project-server-2013-customise-track-your-work-webpart-tile-colour-using-css/" class="link black dim">
+        Project Server 2013/Online - Customise Track your work WebPart tile colour using CSS
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      In Project Server 2013/Online, there is Track Your Work WebPart which can be added to a page. The composed look can be updated to change the colour of the tiles. If each tile needs a different colour, custom css needs to be used. Copy and paste the css code below into a content editor WebPart. /* &mdash;- #64D9E9 &ndash;&gt; Light Blue /* &mdash;- #FFDE7B &ndash;&gt; Yellow /* &mdash;- #D467A3 &ndash;&gt; Pink /* &mdash;- #FF6685 &ndash;&gt; Red /*&mdash;- #FF0033 &ndash;&gt; Carmine red /* &mdash;- #A995C1 &ndash;&gt; Purple /* &mdash;- #97D4A3 &ndash;&gt; Green /* &mdash;- #667F97 &ndash;&gt; Dark Blue /*&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-*/ /*&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-*/ /* &mdash;&mdash;&mdash;&ndash; Change the color of the tiles &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash; Adding more colors change the 7n to 8n, etc to continue adding colors */ div.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/sharepoint-rest-get-all-items-__next/" class="link black dim">
+        SharePoint REST Get all items __next
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      When a REST query is run against a SharePoint list, not all items are returned if it contains more than 100 items. The default server paging is 100. It is a good practice to check the __next property of the JSON results to make sure all items are returned. Below is a code snippet running from a SharePoint hosted add-in. var url = appUrl + &quot;/_api/SP.AppContextSite(@target)/Web/Lists/getByTitle('Repairs')/Items?$select=Title&amp;@target='&quot; + hostUrl + &quot;'&quot;; jQuery.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/sharepoint-2013-csom-rest-web-proxy-comments/" class="link black dim">
+        SharePoint 2013/Online CSOM REST Web Proxy
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      parthrawal - Jun 5, 2016
+can you please share the code for POST method!? i have currently JS in content editor webpart and want to use the same. can i!?
+Could you please share code snippet for post data
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/sharepoint-2013-csom-rest-web-proxy/" class="link black dim">
+        SharePoint 2013/Online CSOM REST Web Proxy
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Web Proxy SP.WebProxy is used to make requests to external services by SharePoint. SharePoint Add-ins must register target site as remote endpoint in app manifest. If the URL is http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json, the endpoint is http://services.odata.org. However the response size must not exceed 200 kb. CSOM var context = SP.ClientContext.get_current(); var request = new SP.WebRequestInfo(); request.set_url(&quot;http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json&quot;); request.set_method(&quot;GET&quot;); var response = SP.WebProxy.invoke(context,request); context.executeQueryAsync(success, fail); function success(){ if(response.get_statusCode() == 200 { var data = JSON.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/nintex-workflow-sharepoint-online-create-sub-site-http-web-service-comments/" class="link black dim">
+        Nintex Workflow SharePoint Online Create Sub Site using Call HTTP Web Service Action
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Katie - Jun 4, 2017
+Hi, I followed your instructions, but when I run the workflow, I get a bad request error message. How can I resolve this?
+Hi Team, we add some new attach items nintex workflow to sharepoint online using post web service method. We are break on post web service in nintex workflow. We need some idea for set Request Headers and Request Body. and need to add new item endpoint url for web service method.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/nintex-workflow-sharepoint-online-create-sub-site-http-web-service/" class="link black dim">
+        Nintex Workflow SharePoint Online Create Sub Site using Call HTTP Web Service Action
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      In SharePoint Online, Nintex Workflow has an action named Call HTTP Web Service. The action can be used to call SharePoint REST API, i.e. /_api/web/webinfos/add endpoint to create web site. The workflow app needs to be given full control at the site collection. The app permissions for workflow can be configured by following the steps below (refer to https://msdn.microsoft.com/en-us/library/office/jj822159(v=office.15).aspx for more info)
+Allow workflow to use app permissions a. Navigate to site settings
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/ustom-layout-results-page-to-allow-sorting-and-filtering-by-property/" class="link black dim">
+        ustom Layout Results Page to allow sorting and filtering by property
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Content query webpart does not give the same flexibility as search results page to allow user to filter and sort by property. SharePoint Online provides out of the box display template which can be used in results page. However if custom property needs to be displayed or a custom display format is needed , then a new search result page can be created. Assuming news items need to be displayed in the following format with filters Country and Subject.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/date-crawled-properties-search-sharepoint-online-fql-optional-date-filter-if-date-is-null-comments/" class="link black dim">
+        Date Crawled properties Search SharePoint Online KQL Optional Date Filter if Date is null
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Date Crawled properties Search SharePoint Online FQL Optional Date Filter if Date is null | reshmeeauckloo - Nov 1, 2015
+[…] ← Date Crawled properties Search SharePoint Online FQL Optional Date Filter if Date is nul… […]
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/date-crawled-properties-search-sharepoint-online-fql-optional-date-filter-if-date-is-null/" class="link black dim">
+        Date Crawled properties Search SharePoint Online KQL Optional Date Filter if Date is null
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Crawled date fields from SharePoint Online are mapped to string properties which make it hard to apply a date filter on search results. If the filter EndDateOWSDATE is used in a Content Search Web Part, it won&rsquo;t work as the mapped property EndDateOWSDATE is of type text -EndDateOWSDATE :1900-01-01..{Today} Instead the crawled property ows_EndDate can be mapped to any out of box refinable date properties, i.e. RefinableDate00 and the filter will work.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/kql-sharepoint-online-filtering-on-user-profile-multi-values-managed-metadata-properties/" class="link black dim">
+        KQL SharePoint Online filtering on user profile multi values managed metadata properties
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Keyword Query Language (KQL) is a powerful way to query search results in SharePoint Online. It is possible to filter data based on the user profile property ,e.g. owstaxidJobTitle:{User.SPS-JobTitle} The above is a valid property restriction which will return all items having the managed metadata field JobTitle equal to the user profile property JobTitle of the logged in user. When managed metadata field is crawled, two crawled properties are created in the format of ows_taxid_ and ows_.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/convert-utc-date-returned-from-sharepoint-api-to-local-time-using-javascript-and-c/" class="link black dim">
+        Convert UTC Date returned from SharePoint API to Local time using JavaScript and C#
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      SharePoint Online stores all date fields in UTC format and convert it to appropriate time zone whenever it is retrieved by a user. However when using SharePoint API, the date returned is in UTC format and have to be converted to local time. Using the JavaScript function below the local time can be returned. self.toLocalDate = function (utc_date) { //The getTimezoneOffset() value is in minutes var offset = new Date().getTimezoneOffset(); //offset will be in minutes.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/sharepoint-get-list-items-and-effective-permissions-on-a-list-via-rest-api-from-sharepoint-add-in-comments/" class="link black dim">
+        SharePoint Get list items and Effective Permissions on a list via REST API from SharePoint Add-in
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Ofer Gal - Mar 3, 2017
+I get error: Uncaught (in promise) TypeError: SP.BasePermissions is not a constructor What else should I load?
+Sp.js needs to be loaded. Add the following to your page. /_layouts/15/sp.runtime.js /_layouts/15/sp.js
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">m365 blog</span>
+    <h1 class="f3 near-black">
+      <a href="/sharepoint-get-list-items-and-effective-permissions-on-a-list-via-rest-api-from-sharepoint-add-in/" class="link black dim">
+        SharePoint Get list items and Effective Permissions on a list via REST API from SharePoint Add-in
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The requirement was to build a SharePoint hosted Add-in to allow logged user to create/edit list item from any site from the site collection. The permissions of the user to be able to create/edit an item against the list needed to be checked. The following script gets list items with effective permissions against the list using jQuery promises from the SharePoint hosted Add-in function getListItemsAndPermissions(webUrl, listTitle) { var appWebUrl = decodeURIComponent(getQueryStringParameter(&quot;SPAppWebUrl&quot;)); var deferredPermissions = $.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://famous-cajeta-4dad83.netlify.app/" >
+    &copy;  m365 blog 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

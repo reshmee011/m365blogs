@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C# on m365 blog</title>
+    <link>https://famous-cajeta-4dad83.netlify.app/tags/c#/</link>
+    <description>Recent content in C# on m365 blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Nov 2015 18:41:14 +0000</lastBuildDate><atom:link href="https://famous-cajeta-4dad83.netlify.app/tags/c#/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C# Remove Method</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/c-remove-method/</link>
+      <pubDate>Thu, 26 Nov 2015 18:41:14 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/c-remove-method/</guid>
+      <description>The Remove method is a nice alternative to substring method For example, string strStringToTruncate = &amp;ldquo;This is a beautiful house&amp;rdquo;; string strTruncatedString = strStringToTruncate.Remove(5,10); Console.Write(strTruncatedString); strTruncatedString = strStringToTruncate.Remove(5); Console.Write(strTruncatedString); strTruncatedString = strStringToTruncate.Remove(0,5); Console.Write(strTruncatedString); The result &amp;ldquo;This iful house&amp;rdquo; &amp;ldquo;This&amp;rdquo; &amp;ldquo;is a beautiful house&amp;rdquo; More information can be found https://msdn.microsoft.com/en-us/library/d8d7z2kk(v=vs.110).aspx The method removes a number of characters based on a start index.</description>
+    </item>
+    
+    <item>
+      <title>Programmatically create InfoPath form using CSOM SharePoint 2010</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/programmatically-create-infopath-form-using-csom-sharepoint-2010-comments/</link>
+      <pubDate>Thu, 26 Nov 2015 00:14:13 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/programmatically-create-infopath-form-using-csom-sharepoint-2010-comments/</guid>
+      <description>CSOM SharePoint Update Created Field of InfoPath file in Document Library | reshmeeauckloo - Dec 3, 2015
+[…] https://reshmeeauckloo.wordpress.com/2015/11/26/programmatically-create-infopath-form-using-csom-sha… […]</description>
+    </item>
+    
+    <item>
+      <title>Programmatically create InfoPath form using CSOM SharePoint 2010</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/programmatically-create-infopath-form-using-csom-sharepoint-2010/</link>
+      <pubDate>Thu, 26 Nov 2015 00:14:13 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/programmatically-create-infopath-form-using-csom-sharepoint-2010/</guid>
+      <description>The blog posts below describe how to create InfoPath form instance using server side code and the class InfopathFormGrocker http://platinumdogs.me/2010/09/02/sharepoint-programmatically-creating-infopath-form-instance-documents-part-2-of-2/ http://platinumdogs.me/2010/07/28/sharepoint-programmatically-creating-infopath-form-instance-documents-1-of-2/ To use CSOM the application has to be modified as follows 1. Add the following assemblies Microsoft.SharePoint.Client.dll Microsoft.SharePoint.Runtime.dll 2. Get the InfoPath file from the content type var clientContext = new ClientContext(siteUrl); var list = clientContext.Web.Lists.GetByTitle(listName); //get list level content type using ContentTypeExtensions var listContentType = clientContext.Web.Lists.GetByTitle(listName).ContentTypes.GetByName(listContentTypeName); var fileInfo = Microsoft.</description>
+    </item>
+    
+    <item>
+      <title>Updating Resources Custom Field values using CSOM, Project Online, #Project Server 2013</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/updating-resources-custom-field-values-using-csom-project-online-project-server-2013-comments/</link>
+      <pubDate>Wed, 18 Nov 2015 18:05:30 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/updating-resources-custom-field-values-using-csom-project-online-project-server-2013-comments/</guid>
+      <description>anil - May 5, 2016
+You can update custom field using csom. Follow the link below http://projectservercode.com/tag/how-to-update-custom-field-using-csom/
+Hi Anil. i am getting below error, can you please suggest me if there are any other way to fix it. projContext.ExecuteQuery(); An unhandled exception of type &amp;lsquo;Microsoft.SharePoint.Client.ServerException&amp;rsquo; occurred in Microsoft.SharePoint.Client.Runtime.dll Additional information: PJClientCallableException: CustomFieldRequiredValueNotProvided Below is my code. static string UserName = &amp;ldquo;raghava@hosting.com&amp;rdquo;; static string Passwords = &amp;ldquo;password&amp;rdquo;; static void Main(string[] args) { string pwaPath = &amp;ldquo;https://epmsolutions.</description>
+    </item>
+    
+    <item>
+      <title>Updating Resources Custom Field values using CSOM, Project Online, #Project Server 2013</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/updating-resources-custom-field-values-using-csom-project-online-project-server-2013/</link>
+      <pubDate>Wed, 18 Nov 2015 18:05:30 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/updating-resources-custom-field-values-using-csom-project-online-project-server-2013/</guid>
+      <description>Project Online applications need to be written using CSOM or OData rather the PSI which will be deprecated soon. The CSOM - Client-side object model implements common server functionality. If you are not familiar with development in Project Server 2013 refer to the links below to learn about CSOM, OData, JSOM. ProjectData - Project 2013 OData service reference https://msdn.microsoft.com/en-us/library/office/jj163015(v=office.15).aspx Client-side object model (CSOM) for Project 2013 https://msdn.microsoft.com/en-us/library/office/jj163123(v=office.15).aspx What the CSOM does and does not do https://msdn.</description>
+    </item>
+    
+    <item>
+      <title>GetFieldValueAsHTML on multiline textboxes return  instead of</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/getfieldvalueashtml-on-multiline-textboxes-return-instead-of/</link>
+      <pubDate>Fri, 19 Sep 2014 16:02:31 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/getfieldvalueashtml-on-multiline-textboxes-return-instead-of/</guid>
+      <description>The gets inserted whenever shift&amp;gt;enter is pressed inside a multiline text box in SharePoint list. Above is a sample text entered in multiline column Col_ToBeDel. When the getfieldvalueashtml method is called against the column value , is returned instead of tag. If LoadXML method is called against the value returned by getfieldvalueashtml , it will complain about invalid XML. The fix can be to replace with before calling LoadXML.</description>
+    </item>
+    
+    <item>
+      <title>Exchange ActiveSync</title>
+      <link>https://famous-cajeta-4dad83.netlify.app/exchange-activesync/</link>
+      <pubDate>Fri, 19 Sep 2014 15:26:21 +0000</pubDate>
+      
+      <guid>https://famous-cajeta-4dad83.netlify.app/exchange-activesync/</guid>
+      <description>Exchange ActiveSync devices can be configures to allow users to work in remote locations with high-latency or low-bandwidth networks. It allows users to access and reply to email messages and access calendars even when they are offline. Below is a link to Exchange ActiveSync http://technet.microsoft.com/en-us/library/aa998357(v=exchg.150).aspx</description>
+    </item>
+    
+  </channel>
+</rss>
