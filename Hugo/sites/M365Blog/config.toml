@@ -1,7 +1,7 @@
 baseURL = 'https://reshmee.netlify.app/'
 languageCode = 'en-us'
 title = 'Reshmee blog'
-theme = 'hugo-ink'
+theme = 'ananke'
 
 [taxonomies]
   tag = "tag"
