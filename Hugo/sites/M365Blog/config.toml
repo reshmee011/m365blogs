@@ -1,7 +1,7 @@
-baseURL = 'https://famous-cajeta-4dad83.netlify.app/'
+baseURL = 'https://reshmee.netlify.app/'
 languageCode = 'en-us'
-title = 'm365 blog'
-theme = 'ananke'
+title = 'Reshmee blog'
+theme = 'hugo-ink'
 
 [taxonomies]
   tag = "tag"
