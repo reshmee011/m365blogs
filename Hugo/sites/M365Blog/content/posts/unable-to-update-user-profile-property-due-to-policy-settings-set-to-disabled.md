@@ -2,7 +2,7 @@
 title: 'Unable to update User Profile Property due to Policy Settings set to Disabled'
 date: Fri, 23 Dec 2016 13:59:03 +0000
 draft: false
-tags: ['Policy Settings on User Profile', 'Policy settings on User Profile Property set to Disabled', 'REST', 'SharePoint 2013', 'SharePoint Online', 'Unable to update User Profile Property', 'Web Service', '_vti_bin/userprofileservice.asmx']
+tags: ['UserProfile', 'REST', 'SharePoint2013', 'SharePointOnline', 'WebService']
 ---
 
 The web service  userprofileservice  <site url>/\_vti\_bin/userprofileservice.asmx has to be used to update user profile properties for other users in SharePoint 2013 and SharePoint Online. Even though the HTTP status code response returned was 200 which means successful, the user profile property was blank when the user properties was queried using the REST api method sp.userprofiles.peoplemanager/getpropertiesfor. <site url>/\_api/sp.userprofiles.peoplemanager/getpropertiesfor(@v)?@v='i%3A0%23.f%7Cmembership%7CfirstName.LastName%40arteliauk.onmicrosoft.com' The user profile property updated was PictureUrl , however it was showing as null```
