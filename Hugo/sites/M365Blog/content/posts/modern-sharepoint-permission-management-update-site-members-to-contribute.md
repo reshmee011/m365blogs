@@ -2,7 +2,7 @@
 title: 'Modern SharePoint Permission Management : update site members to contribute'
 date: Sat, 11 Sep 2021 02:16:33 +0000
 draft: false
-tags: ['Uncategorized']
+tags: ['SharePoint Online']
 ---
 
 In SharePoint Online when a team site is automatically created, the Site Members and Site Owners SharePoint groups are created by default with Edit and Full Control permissions. However the permissions levels of Site Members can not be edited from its default Edit value to Contribute for example.

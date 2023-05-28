@@ -2,7 +2,7 @@
 title: 'Prevent members in ''Modern'' M365 group connected team sites to delete libraries'
 date: Sat, 24 Jul 2021 23:06:38 +0000
 draft: false
-tags: ['Uncategorized']
+tags: ['SharePoint']
 ---
 
 It is not possible for M365 to change the permissions of members from Edit to Contribute to prevent deletion or uncontrolled creation of lists and libraries. The option to "Edit User Permissions" is greyed out.

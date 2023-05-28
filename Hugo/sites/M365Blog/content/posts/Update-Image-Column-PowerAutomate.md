@@ -6,7 +6,7 @@ githubname: reshmee011
 categories: ["Post"]
 images:
 - images:Update-Image-Column-PowerAutomate/images/PowerAutomate.png
-tags: ["Image, PowerAutomate"]
+tags: ["Image, PowerAutomate","SharePoint List"]
 type: "regular"
 draft: false
 ---
