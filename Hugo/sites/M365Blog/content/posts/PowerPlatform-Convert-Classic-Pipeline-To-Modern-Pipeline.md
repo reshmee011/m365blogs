@@ -32,8 +32,7 @@ The current post will focus on converting the classic pipeline into YAML separat
 
 1. Create a yaml file with extension .yml in your chosen repository 
 2. Paste the copied yaml code and commit to your repository
-    Edit the YAML
-      Replace "microsoft-IsvExpTools.PowerPlatform-BuildTools." with "". 
+    Edit the YAML to remove "microsoft-IsvExpTools.PowerPlatform-BuildTools." with "". 
   
 3. Click on Pipelines from the left navigation and click on "New Pipeline"
 ![Click on Pipeline](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_Pipelines.png)
@@ -146,20 +145,19 @@ variables: This section defines the variables used in the pipeline. Two variable
 
 steps: The steps section contains the sequence of tasks to be executed in the pipeline.
 
-    1.The first task is PowerPlatformToolInstaller@2, which installs the Power Platform tools.
+    * The first task is PowerPlatformToolInstaller@2, which installs the Power Platform tools.
 
-    2. The next task is PowerPlatformExportSolution@2, which exports an unmanaged solution from the Power Platform. It exports a solution named $(SolutionName) using the specified authenticationType which is PowerPlatformSPN, and Environment. In the above example, there are two tasks for PowerPlatformExportSolution@2 for two different solution
+    * The next task is PowerPlatformExportSolution@2, which exports an unmanaged solution from the Power Platform. It exports a solution named $(SolutionName) using the specified authenticationType which is PowerPlatformSPN, and Environment. In the above example, there are two tasks for PowerPlatformExportSolution@2 for two different solution
 
-    3. PowerPlatformUnpackSolution@2 tasks, which unpack the previously exported solutions. They extract the solution files to specific target folders based on the solution names.
+    * PowerPlatformUnpackSolution@2 tasks, which unpack the previously exported solutions. They extract the solution files to specific target folders based on the solution names.
 
-    4. There are two more PowerPlatformExportSolution@2 tasks, similar to the previous ones, but these export managed solutions instead of unmanaged solutions.
+    * There are two more PowerPlatformExportSolution@2 tasks, similar to the previous ones, but these export managed solutions instead of unmanaged solutions.
 
-    5. There are two tasks are PowerPlatformUnpackSolution@2 tasks that unpack the managed solutions to target folders with a "_Managed" suffix in their names.
+    * There are two tasks are PowerPlatformUnpackSolution@2 tasks that unpack the managed solutions to target folders with a "_Managed" suffix in their names.
     
-    6. The final task is a script task that performs a series of Git commands. It configures the user email and name, creates a new branch, pulls the latest changes, adds all the files, commits the changes with a specific message, and pushes the changes to a remote repository. The repository URL is constructed using the TEST_PAT secret variable definied as a variable. The PAT is the Azure DevOps personal access token which can be generated from your account settings.
+    * The final task is a script task that performs a series of Git commands. It configures the user email and name, creates a new branch, pulls the latest changes, adds all the files, commits the changes with a specific message, and pushes the changes to a remote repository. The repository URL is constructed using the TEST_PAT secret variable definied as a variable. The PAT is the Azure DevOps personal access token which can be generated from your account settings.
     
-
-It's important to note that the YAML trigger only describes the build pipeline configuration. To use this trigger, you would need to create or edit the build pipeline in Azure DevOps, define the necessary secret variable, and configure the required resources and connections accordingly.
+To use this YAML, you would need to create or edit the build pipeline in Azure DevOps, define the necessary secret variable, and configure the required resources and connections accordingly.
 
 ![PAT](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_PAT.png)
 
@@ -167,7 +165,7 @@ It's important to note that the YAML trigger only describes the build pipeline c
 ![PAT](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_PATVariable.png)
 
 
-1. Review Pipeline and click on Run 
+9. Review Pipeline and click on Run 
 
 ![Run Pipeline](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_Run.png)
 
@@ -183,19 +181,17 @@ In Classic pipeline, there is no option to view full YAML
 
 ![Release Classic Pipeline](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_ClassicPipeline.png)
 
-With 4 tasks
+In the example above there are 4 tasks within each stage. 
 
 ![Stage Tasks](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_ClassicPipelineTasks.png)
 
-Unfortunately the view YAML is only available on each task and not on the entire release pipeline
+Unfortunately the view YAML is only available on each task and not on the entire release pipeline. 
 
 ![Copy to Clipboard for each task](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_CopyToClipboard.png)
 
-You can copy each YAML for each task onto a new release pipeline , editing as appropriately
+You can go through each task to copy the generated YAML editing as appropriately e.g.  Edit the generated YAML to remove "microsoft-IsvExpTools.PowerPlatform-BuildTools.".
 
-e.g.  Edit the generated YAML to remove "microsoft-IsvExpTools.PowerPlatform-BuildTools.".
-
-name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+Repeat the above steps 1 - 6 to create the new release pipeline. Amend the YAML based on your scenerio.
 
 ```yml
 trigger:
@@ -307,7 +303,8 @@ stages:
             PowerPlatformSPN: 'powerplatform-p-connection'
 ```
 
-The provided YAML represents a deployment pipeline with multiple stages (deploytest, deployUAT, deployPROD) that deploy a Power Platform solution to different environments (ST Intranet, UAT Intranet, and Intranet). Let's break down the structure and flow of the YAML code:
+The provided YAML represents a deployment pipeline with multiple stages (deploytest, deployUAT, deployPROD) that deploy a Power Platform solution to different environments (ST Intranet, UAT Intranet, and Intranet). 
+Let's break down the structure and flow of the YAML code:
 
 trigger: This section defines the conditions that trigger the pipeline. In this case, the trigger is set to "none," meaning the pipeline won't be automatically triggered by source code changes. It will need to be manually triggered or scheduled.
 
@@ -315,33 +312,22 @@ pool: The pool section specifies the agent pool to use for running the pipeline.
 
 variables: This section defines the pipeline variables. The only variable defined here is SolutionName, with a value of "TEST". This variable can be referenced later in the pipeline using the syntax $(SolutionName).
 
-stages: The stages section represents the different deployment stages in the pipeline.
+stages: The stages section represents the different deployment stages in the pipeline : deploytest, deployUAT, deployPROD
+ * For each of the stage there is a single job for deploying to the respective environment, i.e *deployment* with strategy set to *runOnce* to deploy the solution only once. 
+ * The *deploy* : The deploy section specifies the steps to perform for the deployment.
+    * checkout: The checkout step checks out the source code from the repository
+    * PowerPlatformToolInstaller@2: The PowerPlatformToolInstaller@2 task installs the Power Platform tools.
+    * PowerPlatformPackSolution@2: The PowerPlatformPackSolution@2 task packs the solution files into a zip file. It specifies the source folder, output file location, and that the solution is of type "Managed".
+    * PowerPlatformImportSolution@2: The PowerPlatformImportSolution@2 task imports the solution into the "ST Intranet" environment. It uses the specified authentication type, connection details, solution input file, deployment settings file, and other settings.
+    * PowerPlatformPublishCustomizations@2: The PowerPlatformPublishCustomizations@2 task publishes the customizations of the solution in the environment.
 
-deploytest: This stage is named "Deploy to Test" and contains a single job for deploying to the "ST Intranet" environment.
+  * deployUAT: This stage is named "Deploy to UAT" and contains a single job for deploying to the "UAT Intranet" environment. The structure and tasks within this stage are similar to the previous stage, with environment-specific settings.
 
-deployment: The deployment section represents a deployment job. It is named "deploy_to_Test" and is associated with the "ST Intranet" environment.
-
-strategy: The strategy section defines the deployment strategy. In this case, it uses runOnce to deploy the solution only once.
-
-deploy: The deploy section specifies the steps to perform for the deployment.
-
-checkout: The checkout step checks out the source code from the repository.
-
-PowerPlatformToolInstaller@2: The PowerPlatformToolInstaller@2 task installs the Power Platform tools.
-
-PowerPlatformPackSolution@2: The PowerPlatformPackSolution@2 task packs the solution files into a zip file. It specifies the source folder, output file location, and that the solution is of type "Managed".
-
-PowerPlatformImportSolution@2: The PowerPlatformImportSolution@2 task imports the solution into the "ST Intranet" environment. It uses the specified authentication type, connection details, solution input file, deployment settings file, and other settings.
-
-PowerPlatformPublishCustomizations@2: The PowerPlatformPublishCustomizations@2 task publishes the customizations of the solution in the environment.
-
-deployUAT: This stage is named "Deploy to UAT" and contains a single job for deploying to the "UAT Intranet" environment. The structure and tasks within this stage are similar to the previous stage, with environment-specific settings.
-
-deployPROD: This stage is named "Deploy to PROD" and contains a single job for deploying to the "Intranet" environment. It follows the same structure as the previous stages but with environment-specific settings for the PROD environment.
+  * deployPROD: This stage is named "Deploy to PROD" and contains a single job for deploying to the "Intranet" environment. It follows the same structure as the previous stages but with environment-specific settings for the PROD environment.
 
 The pipeline follows a similar pattern for each stage, where it checks out the source code, installs the Power Platform tools, packs the solution, imports the solution into the respective environment, publishes the customizations, and performs any necessary configuration or conversion steps.
 
-Please note that this YAML code describes the pipeline's structure and tasks, but additional configurations and resources such as service connections, variable groups, and agent pool settings may be required for a fully functional deployment pipeline in Azure Pipelines.
+** Please note that this YAML code describes the pipeline's structure and tasks, but additional configurations and resources such as service connections, variable groups, and agent pool settings may be required for a fully functional deployment pipeline in Azure Pipelines.**
 
 Define environment as appropriate
 
@@ -354,7 +340,7 @@ Approvals on each environment
 Run by specifying stages or run all sequentially 
 
 
-Well done now you can commit your CI/CD for powerplatform as code into your repository. 
+Well done for tranforming your powerplatform application life cycle as code into your repository. 
 
 
 
