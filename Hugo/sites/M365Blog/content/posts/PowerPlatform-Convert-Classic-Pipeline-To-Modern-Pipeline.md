@@ -1,12 +1,12 @@
 ---
-title: "Add or Update Image Column in SharePoint with Power Automate: Download and Use Images from the Web"
+title: "Convert Classic Pipeline to Modern Pipeline using YAML for Application Lifecycle Management in Azure DevOps"
 date: 2023-06-23T07:00:03+01:00
 author: "Reshmee Auckloo"
 githubname: reshmee011
 categories: ["Post"]
 images:
-- images:Update-Image-Column-PowerAutomate/images/PowerAutomate.png
-tags: ["Image, PowerAutomate","SharePoint List"]
+- images:../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_ViewYAML.png
+tags: ["Pipeline, Azure DevOps","YAML"]
 type: "regular"
 draft: false
 ---
@@ -14,21 +14,24 @@ draft: false
 
 # Convert Classic Pipeline to Modern Pipeline using YAML for Application Lifecycle Management in Azure DevOps
 
-There are loads of posts explaining Application Lifecycle Management for the Power Platform using Azure DevOps all using the graphical classical pipeline.
+There are loads of posts explaining Application Lifecycle Management for the Power Platform using Azure DevOps most using the graphical classical pipeline.
 The latest post I read on this is [Application Lifecycle Management for the Power Platform using Azure DevOps](https://www.jondoesflow.com/post/application-lifecycle-management-for-the-power-platform-using-azure-devops) which is brilliant. 
 
-An interesting article covering difference between [YAML and Classic UI](https://medium.com/@wywywywy/azure-devops-pipeline-choosing-between-yaml-and-classic-ui-b5612c3e211a) 
+Please read article covering difference between [YAML and Classic UI](https://medium.com/@wywywywy/azure-devops-pipeline-choosing-between-yaml-and-classic-ui-b5612c3e211a) to explain why you may want the modern YAML pipeline. The main reason for me is to have the CI/CD pipeline checked in the repository as code.
 
 The current post will focus on converting the classic pipeline into YAML separated into two categories : build and release pipeline
 
 ## Build pipeline
 
+You might have a graphical classic pipeline as below for the build or CI (continuous integration). There is an option to view YAML.
 
 [View YAML]
 ![View YAML](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_ViewYAML.png)
 
+You can copy the generated YAML. 
 ![CopyToClipboard](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_CopyToClipboard.png)
 
+Follow the steps below to get the build pipeline as YAML stored in your repository
 
 1. Create a yaml file with extension .yml in your chosen repository 
 2. Paste the copied yaml code and commit to your repository
@@ -191,7 +194,7 @@ Unfortunately the view YAML is only available on each task and not on the entire
 
 You can go through each task to copy the generated YAML editing as appropriately e.g.  Edit the generated YAML to remove "microsoft-IsvExpTools.PowerPlatform-BuildTools.".
 
-Repeat the above steps 1 - 6 to create the new release pipeline. Amend the YAML based on your scenerio.
+Repeat the above steps 1 - 6 from the Build Pipeline section to create the new release pipeline. Amend the YAML based on your scenerio.
 
 ```yml
 trigger:
