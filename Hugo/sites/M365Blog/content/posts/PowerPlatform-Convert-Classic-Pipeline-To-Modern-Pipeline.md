@@ -26,7 +26,7 @@ The current post will focus on converting the classic pipeline into YAML separat
 You might have a graphical classic pipeline as below for the build or CI (continuous integration). There is an option to view YAML.
 
 [View YAML]
-![View YAML](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_ViewYAML.png)
+![View YAML](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_ViewYAML.png)
 
 You can copy the generated YAML. 
 ![CopyToClipboard](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_CopyToClipboard.png)
