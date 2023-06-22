@@ -1,12 +1,12 @@
 ---
-title: "Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform"
-date: 2023-06-23T07:00:03+01:00
+title: "Add or Update Image Column in SharePoint with Power Automate: Download and Use Images from the Web 12"
+date: 2023-05-28T06:56:03+01:00
 author: "Reshmee Auckloo"
 githubname: reshmee011
 categories: ["Post"]
 images:
-- images:./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_ViewYAML.png
-tags: ["Pipeline, Azure DevOps","YAML"]
+- images:Update-Image-Column-PowerAutomate/images/PowerAutomate.png
+tags: ["Image", "PowerAutomate","SharePoint List"]
 type: "regular"
 draft: false
 ---
