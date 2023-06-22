@@ -1,5 +1,5 @@
 ---
-title: "Convert Classic Pipeline to Modern Pipeline using YAML for Application Lifecycle Management in Azure DevOps"
+title: "Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform"
 date: 2023-06-23T07:00:03+01:00
 author: "Reshmee Auckloo"
 githubname: reshmee011
@@ -12,7 +12,7 @@ draft: false
 ---
 
 
-# Convert Classic Pipeline to Modern Pipeline using YAML for Application Lifecycle Management in Azure DevOps
+# Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform
 
 There are loads of posts explaining Application Lifecycle Management for the Power Platform using Azure DevOps most using the graphical classical pipeline.
 The latest post I read on this is [Application Lifecycle Management for the Power Platform using Azure DevOps](https://www.jondoesflow.com/post/application-lifecycle-management-for-the-power-platform-using-azure-devops) which is brilliant. 
