@@ -163,7 +163,7 @@ It's important to note that the YAML trigger only describes the build pipeline c
 
 ![PAT](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_PAT.png)
 
-8. Create a variable for PAT
+8. Create a variable for PAT with the same name referenced in the YAML script
 ![PAT](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_PATVariable.png)
 
 
@@ -179,259 +179,182 @@ If all successful
 
 ## Release Pipeline
 
-Classic pipeline, no option to view YAML
+In Classic pipeline, there is no option to view full YAML
+
+![Release Classic Pipeline](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_ClassicPipeline.png)
 
 With 4 tasks
 
-
-
- 
-
- 
+![Stage Tasks](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_ClassicPipelineTasks.png)
 
 Unfortunately the view YAML is only available on each task and not on the entire release pipeline
 
- 
-
-
-
- 
+![Copy to Clipboard for each task](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_CopyToClipboard.png)
 
 You can copy each YAML for each task onto a new release pipeline , editing as appropriately
 
- 
+e.g.  Edit the generated YAML to remove "microsoft-IsvExpTools.PowerPlatform-BuildTools.".
 
 name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
- 
-
+```yml
 trigger:
-
 - none
-
 pool:
-
   name: Azure Pipelines
-
 variables:
-
 - name: SolutionName
-
   value: TEST
-
 stages:
-
 - stage: deploytest
-
   displayName: Deploy to Test
-
   jobs:
-
   - deployment: deploy_to_Test 
-
     environment: ST Intranet
-
     strategy:
-
       runOnce:
-
         deploy:
-
           steps:
-
           - checkout: self
-
           - task: PowerPlatformToolInstaller@2
-
             inputs:
-
               DefaultVersion: true
-
           - task: PowerPlatformPackSolution@2
-
             inputs:
-
               SolutionSourceFolder: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/$(SolutionName)_Managed'
-
               SolutionOutputFile: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/$(SolutionName)_Managed.zip'
-
               SolutionType: Managed
-
           - task: PowerPlatformImportSolution@2
-
             inputs:
-
               authenticationType: PowerPlatformSPN
-
               PowerPlatformSPN: 'powerplatform-t-connection'
-
               Environment: 'https://domainname-st.crm11.dynamics.com'
-
               SolutionInputFile: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/$(SolutionName)_Managed.zip'
-
               UseDeploymentSettingsFile: true
-
               DeploymentSettingsFile: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/settings-test.json'
-
               ConvertToManaged: true
-
               PublishCustomizationChanges: true
-
               MaxAsyncWaitTime: "60"
-
           - task: PowerPlatformPublishCustomizations@2
-
             inputs:
-
               authenticationType: 'PowerPlatformSPN'
-
               PowerPlatformSPN: 'powerplatform-t-connection'
-
 - stage: deployUAT
-
   displayName: Deploy to UAT
-
   jobs:
-
    - deployment: deploy_to_Uat 
-
      environment: UAT Intranet
-
      strategy:
-
       runOnce:
-
        deploy:
-
         steps:
-
         - checkout: self
-
         - task: PowerPlatformToolInstaller@2
-
           inputs:
-
             DefaultVersion: true
-
         - task: PowerPlatformPackSolution@2
-
           inputs:
-
-            SolutionSourceFolder: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/$(SolutionName)_Managed'
-
+          SolutionSourceFolder: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/$(SolutionName)_Managed'
             SolutionOutputFile: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/$(SolutionName)_Managed.zip'
-
             SolutionType: Managed
-
-        - task: PowerPlatformImportSolution@2
-
-          inputs:
-
+       - task: PowerPlatformImportSolution@2
+         inputs:
             authenticationType: PowerPlatformSPN
-
             PowerPlatformSPN: 'powerplatform-u-connection'
-
             Environment: 'https://domainname-uat.crm11.dynamics.com'
-
             SolutionInputFile: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/$(SolutionName)_Managed.zip'
-
             UseDeploymentSettingsFile: true
-
             DeploymentSettingsFile: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/settings-uat.json'
-
             ConvertToManaged: true
-
             PublishCustomizationChanges: true
-
             MaxAsyncWaitTime: "60"
-
-        - task: PowerPlatformPublishCustomizations@2
-
+      - task: PowerPlatformPublishCustomizations@2
           inputs:
-
-            authenticationType: 'PowerPlatformSPN'
-
-            PowerPlatformSPN: 'powerplatform-u-connection'
-
+           authenticationType: 'PowerPlatformSPN'
+           PowerPlatformSPN: 'powerplatform-u-connection'
 - stage: deployPROD
-
   displayName: Deploy to PROD
-
   jobs:
-
    - deployment: deploy_to_Prod 
-
      environment: Intranet
-
      strategy:
-
       runOnce:
-
        deploy:
-
         steps:
-
         - checkout: self
-
         - task: PowerPlatformToolInstaller@2
-
           inputs:
-
             DefaultVersion: true
-
         - task: PowerPlatformPackSolution@2
-
           inputs:
-
             SolutionSourceFolder: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/$(SolutionName)_Managed'
-
             SolutionOutputFile: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/$(SolutionName)_Managed.zip'
-
             SolutionType: Managed
-
         - task: PowerPlatformImportSolution@2
-
           inputs:
-
             authenticationType: PowerPlatformSPN
-
             PowerPlatformSPN: 'powerplatform-p-connection'
-
             Environment: 'https://org7b3c6721.crm11.dynamics.com'
-
             SolutionInputFile: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/$(SolutionName)_Managed.zip'
-
             UseDeploymentSettingsFile: true
-
             DeploymentSettingsFile: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/settings-prod.json'
-
             ConvertToManaged: true
-
             PublishCustomizationChanges: true
-
             MaxAsyncWaitTime: "60"
-
         - task: PowerPlatformPublishCustomizations@2
-
           inputs:
-
             authenticationType: 'PowerPlatformSPN'
-
             PowerPlatformSPN: 'powerplatform-p-connection'
+```
 
- 
+The provided YAML represents a deployment pipeline with multiple stages (deploytest, deployUAT, deployPROD) that deploy a Power Platform solution to different environments (ST Intranet, UAT Intranet, and Intranet). Let's break down the structure and flow of the YAML code:
+
+trigger: This section defines the conditions that trigger the pipeline. In this case, the trigger is set to "none," meaning the pipeline won't be automatically triggered by source code changes. It will need to be manually triggered or scheduled.
+
+pool: The pool section specifies the agent pool to use for running the pipeline. In this case, the "Azure Pipelines" agent pool is selected.
+
+variables: This section defines the pipeline variables. The only variable defined here is SolutionName, with a value of "TEST". This variable can be referenced later in the pipeline using the syntax $(SolutionName).
+
+stages: The stages section represents the different deployment stages in the pipeline.
+
+deploytest: This stage is named "Deploy to Test" and contains a single job for deploying to the "ST Intranet" environment.
+
+deployment: The deployment section represents a deployment job. It is named "deploy_to_Test" and is associated with the "ST Intranet" environment.
+
+strategy: The strategy section defines the deployment strategy. In this case, it uses runOnce to deploy the solution only once.
+
+deploy: The deploy section specifies the steps to perform for the deployment.
+
+checkout: The checkout step checks out the source code from the repository.
+
+PowerPlatformToolInstaller@2: The PowerPlatformToolInstaller@2 task installs the Power Platform tools.
+
+PowerPlatformPackSolution@2: The PowerPlatformPackSolution@2 task packs the solution files into a zip file. It specifies the source folder, output file location, and that the solution is of type "Managed".
+
+PowerPlatformImportSolution@2: The PowerPlatformImportSolution@2 task imports the solution into the "ST Intranet" environment. It uses the specified authentication type, connection details, solution input file, deployment settings file, and other settings.
+
+PowerPlatformPublishCustomizations@2: The PowerPlatformPublishCustomizations@2 task publishes the customizations of the solution in the environment.
+
+deployUAT: This stage is named "Deploy to UAT" and contains a single job for deploying to the "UAT Intranet" environment. The structure and tasks within this stage are similar to the previous stage, with environment-specific settings.
+
+deployPROD: This stage is named "Deploy to PROD" and contains a single job for deploying to the "Intranet" environment. It follows the same structure as the previous stages but with environment-specific settings for the PROD environment.
+
+The pipeline follows a similar pattern for each stage, where it checks out the source code, installs the Power Platform tools, packs the solution, imports the solution into the respective environment, publishes the customizations, and performs any necessary configuration or conversion steps.
+
+Please note that this YAML code describes the pipeline's structure and tasks, but additional configurations and resources such as service connections, variable groups, and agent pool settings may be required for a fully functional deployment pipeline in Azure Pipelines.
 
 Define environment as appropriate
 
- 
-
-
+![Environments](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Environments.png)
 
 Approvals on each environment
-
  
+![Approvals](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Approvals.png)
 
- 
+Run by specifying stages or run all sequentially 
+
+
+Well done now you can commit your CI/CD for powerplatform as code into your repository. 
 
 
 
