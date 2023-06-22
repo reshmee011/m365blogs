@@ -25,7 +25,6 @@ The current post will focus on converting the classic pipeline into YAML separat
 
 You might have a graphical classic pipeline as below for the build or CI (continuous integration). There is an option to view YAML.
 
-[View YAML]
 ![View YAML](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_ViewYAML.png)
 
 You can copy the generated YAML. 
@@ -41,13 +40,11 @@ Follow the steps below to get the build pipeline as YAML stored in your reposito
 ![Click on Pipeline](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_Pipelines.png)
 
 4. Clik on new Pipeline and select "Azure Repos Git" from option "Where is your code?"  
-
 ![Where is your code?](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/CodeLocation.png)
 
 5. Select the repository where the YAML is
 
 6. Pick the option Existing Azure Pipelines YAML file, pick the branch and Path where the build yaml file is 
-
 ![Configure](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Configure_AzurePipelines.png)
 
 7. Modify the yaml file as appropriate adding any trigger actions ensuring right formatting and indentation is used 
@@ -161,7 +158,6 @@ steps: The steps section contains the sequence of tasks to be executed in the pi
     * The final task is a script task that performs a series of Git commands. It configures the user email and name, creates a new branch, pulls the latest changes, adds all the files, commits the changes with a specific message, and pushes the changes to a remote repository. The repository URL is constructed using the TEST_PAT secret variable definied as a variable. The PAT is the Azure DevOps personal access token which can be generated from your account settings.
     
 To use this YAML, you would need to create or edit the build pipeline in Azure DevOps, define the necessary secret variable, and configure the required resources and connections accordingly.
-
 ![PAT](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_PAT.png)
 
 8. Create a variable for PAT with the same name referenced in the YAML script
@@ -169,7 +165,6 @@ To use this YAML, you would need to create or edit the build pipeline in Azure D
 
 
 9. Review Pipeline and click on Run 
-
 ![Run Pipeline](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_Run.png)
 
 Grant permission if prompted
@@ -181,15 +176,12 @@ If all successful
 ## Release Pipeline
 
 In Classic pipeline, there is no option to view full YAML
-
 ![Release Classic Pipeline](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_ClassicPipeline.png)
 
 In the example above there are 4 tasks within each stage. 
-
 ![Stage Tasks](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_ClassicPipelineTasks.png)
 
 Unfortunately the view YAML is only available on each task and not on the entire release pipeline. 
-
 ![Copy to Clipboard for each task](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_CopyToClipboard.png)
 
 You can go through each task to copy the generated YAML editing as appropriately e.g.  Edit the generated YAML to remove "microsoft-IsvExpTools.PowerPlatform-BuildTools.".
@@ -333,12 +325,10 @@ The pipeline follows a similar pattern for each stage, where it checks out the s
 ** Please note that this YAML code describes the pipeline's structure and tasks, but additional configurations and resources such as service connections, variable groups, and agent pool settings may be required for a fully functional deployment pipeline in Azure Pipelines.**
 
 Define environment as appropriate
-
 ![Environments](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Environments.png)
 
 Approvals on each environment
- 
-![Approvals](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Approvals.png)
+ ![Approvals](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Approvals.png)
 
 Run by specifying stages or run all sequentially 
 
