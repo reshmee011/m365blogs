@@ -35,23 +35,23 @@ Follow the steps below to get the build pipeline as YAML stored in your reposito
 
 1. Create a yaml file with extension .yml in your chosen repository 
 2. Paste the copied yaml code and commit to your repository
-    Edit the YAML to remove "microsoft-IsvExpTools.PowerPlatform-BuildTools." with "". 
+    Edit the YAML to remove "microsoft-IsvExpTools.PowerPlatform-BuildTools."
   
 3. Click on Pipelines from the left navigation and click on "New Pipeline"
-4. 
+   
 ![Click on Pipeline](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_Pipelines.png)
 
-5. Clik on new Pipeline and select "Azure Repos Git" from option "Where is your code?"
-6. 
+4. Clik on new Pipeline and select "Azure Repos Git" from option "Where is your code?"
+   
 ![Where is your code?](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/CodeLocation.png)
 
-7. Select the repository where the YAML is
+5. Select the repository where the YAML is
 
-8. Pick the option Existing Azure Pipelines YAML file, pick the branch and Path where the build yaml file is
+6. Pick the option Existing Azure Pipelines YAML file, pick the branch and Path where the build yaml file is
    
 ![Configure](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Configure_AzurePipelines.png)
 
-10. Modify the yaml file as appropriate adding any trigger actions ensuring right formatting and indentation is used 
+7. Modify the yaml file as appropriate adding any trigger actions ensuring right formatting and indentation is used 
 
 ```yml
 trigger:
