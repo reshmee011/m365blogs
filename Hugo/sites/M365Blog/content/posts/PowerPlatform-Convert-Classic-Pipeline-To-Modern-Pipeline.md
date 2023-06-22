@@ -344,8 +344,14 @@ Approvals on each environment
 
  ![Approvals](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Approvals.png)
 
-Run by specifying stages or run all sequentially 
+You can just the whole release pipeline to run all stages sequentially 
+![Run All Stages](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Run.png)
 
+Run by specifying stages 
+![Run selected stages](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/RunSelectedStages.png)
+
+If all successful, there will be a green tick identifying all went fine
+![Successful release](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Success.png)
 
 Well done for tranforming your powerplatform application life cycle as code into your repository. 
 
