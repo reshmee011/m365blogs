@@ -1,21 +1,18 @@
 ---
 title: "Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform"
-date: 2023-06-23T07:00:03+01:00
+date: 2023-05-28T06:56:03+01:00
 author: "Reshmee Auckloo"
 githubname: reshmee011
 categories: ["Post"]
-images:
-- images:./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_ViewYAML.png
-tags: ["Pipeline, Azure DevOps","YAML"]
+tags: ["Pipeline", "Azure DevOps","YAML"]
 type: "regular"
 draft: false
 ---
 
-
 # Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform
 
 There are loads of posts explaining Application Lifecycle Management for the Power Platform using Azure DevOps most using the graphical classical pipeline.
-The latest post I read on this is [Application Lifecycle Management for the Power Platform using Azure DevOps](https://www.jondoesflow.com/post/application-lifecycle-management-for-the-power-platform-using-azure-devops) which is brilliant. 
+The latest post I read on this is [Application Lifecycle Management for the Power Platform using Azure DevOps](https://www.jondoesflow.com/post/application-lifecycle-management-for-the-power-platform-using-azure-devops) which is brilliant.
 
 Please read article covering difference between [YAML and Classic UI](https://medium.com/@wywywywy/azure-devops-pipeline-choosing-between-yaml-and-classic-ui-b5612c3e211a) to explain why you may want the modern YAML pipeline. The main reason for me is to have the CI/CD pipeline checked in the repository as code.
 
@@ -25,33 +22,28 @@ The current post will focus on converting the classic pipeline into YAML separat
 
 You might have a graphical classic pipeline as below for the build or CI (continuous integration). There is an option to view YAML.
 
-![View YAML](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_ViewYAML.png)
+![View YAML](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_ViewYAML.png)
 
-You can copy the generated YAML. 
+You can copy the generated YAML.
 
-![CopyToClipboard](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_CopyToClipboard.png)
+![CopyToClipboard](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_CopyToClipboard.png)
 
 Follow the steps below to get the build pipeline as YAML stored in your repository
 
-1. Create a yaml file with extension .yml in your chosen repository 
+1. Create a yaml file with extension .yml in your chosen repository
 2. Paste the copied yaml code and commit to your repository
     Edit the YAML to remove "microsoft-IsvExpTools.PowerPlatform-BuildTools."
   
 3. Click on Pipelines from the left navigation and click on "New Pipeline"
-   
-![Click on Pipeline](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_Pipelines.png)
+![Click on Pipeline](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_Pipelines.png)
 
 4. Clik on new Pipeline and select "Azure Repos Git" from option "Where is your code?"
-   
-![Where is your code?](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/CodeLocation.png)
-
+![Where is your code?](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/CodeLocation.png)
 5. Select the repository where the YAML is
-
 6. Pick the option Existing Azure Pipelines YAML file, pick the branch and Path where the build yaml file is
-   
-![Configure](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Configure_AzurePipelines.png)
+![Configure](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Configure_AzurePipelines.png)
 
-7. Modify the yaml file as appropriate adding any trigger actions ensuring right formatting and indentation is used 
+7. Modify the yaml file as appropriate adding any trigger actions ensuring right formatting and indentation is used
 
 ```yml
 trigger:
@@ -149,52 +141,51 @@ variables: This section defines the variables used in the pipeline. Two variable
 
 steps: The steps section contains the sequence of tasks to be executed in the pipeline.
 
-    * The first task is PowerPlatformToolInstaller@2, which installs the Power Platform tools.
+* The first task is PowerPlatformToolInstaller@2, which installs the Power Platform tools
 
-    * The next task is PowerPlatformExportSolution@2, which exports an unmanaged solution from the Power Platform. It exports a solution named $(SolutionName) using the specified authenticationType which is PowerPlatformSPN, and Environment. In the above example, there are two tasks for PowerPlatformExportSolution@2 for two different solution
+* The next task is PowerPlatformExportSolution@2, which exports an unmanaged solution from the Power Platform. It exports a solution named $(SolutionName) using the specified authenticationType which is PowerPlatformSPN, and Environment. In the above example, there are two tasks for PowerPlatformExportSolution@2 for two different solution
 
-    * PowerPlatformUnpackSolution@2 tasks, which unpack the previously exported solutions. They extract the solution files to specific target folders based on the solution names.
+* PowerPlatformUnpackSolution@2 tasks, which unpack the previously exported solutions. They extract the solution files to specific target folders based on the solution names.
 
-    * There are two more PowerPlatformExportSolution@2 tasks, similar to the previous ones, but these export managed solutions instead of unmanaged solutions.
+* There are two more PowerPlatformExportSolution@2 tasks, similar to the previous ones, but these export managed solutions instead of unmanaged solutions.
 
-    * There are two tasks are PowerPlatformUnpackSolution@2 tasks that unpack the managed solutions to target folders with a "_Managed" suffix in their names.
-    
-    * The final task is a script task that performs a series of Git commands. It configures the user email and name, creates a new branch, pulls the latest changes, adds all the files, commits the changes with a specific message, and pushes the changes to a remote repository. The repository URL is constructed using the TEST_PAT secret variable definied as a variable. The PAT is the Azure DevOps personal access token which can be generated from your account settings.
-    
+* There are two tasks are PowerPlatformUnpackSolution@2 tasks that unpack the managed solutions to target folders with a "_Managed" suffix in their names.
+
+* The final task is a script task that performs a series of Git commands. It configures the user email and name, creates a new branch, pulls the latest changes, adds all the files, commits the changes with a specific message, and pushes the changes to a remote repository. The repository URL is constructed using the TEST_PAT secret variable definied as a variable. The PAT is the Azure DevOps personal access token which can be generated from your account settings.
+
 To use this YAML, you would need to create or edit the build pipeline in Azure DevOps, define the necessary secret variable, and configure the required resources and connections accordingly.
 
-![PAT](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_PAT.png)
+![PAT](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_PAT.png)
 
-8. Create a variable for PAT with the same name referenced in the YAML script
-   
-![PAT Variable](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_PATVariable.png)
+8.Create a variable for PAT with the same name referenced in the YAML script
 
+![PAT Variable](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_PATVariable.png)
 
-10. Review Pipeline and click on Run
-    
-![Run Pipeline](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_Run.png)
+10.Review Pipeline and click on Run
+
+![Run Pipeline](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_Run.png)
 
 Grant permission if prompted
 
-![Grant Permission](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/GrantPermission.png)
+![Grant Permission](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/GrantPermission.png)
 
-If all successful 
+If all successful
 
-![Build Sucess](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_RunSuccess.png)
+![Build Sucess](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_RunSuccess.png)
 
 ## Release Pipeline
 
 In Classic pipeline, there is no option to view full YAML
 
-![Release Classic Pipeline](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_ClassicPipeline.png)
+![Release Classic Pipeline](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_ClassicPipeline.png)
 
-In the example above there are 4 tasks within each stage. 
+In the example above there are 4 tasks within each stage.
 
-![Stage Tasks](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_ClassicPipelineTasks.png)
+![Stage Tasks](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_ClassicPipelineTasks.png)
 
-Unfortunately the view YAML is only available on each task and not on the entire release pipeline. 
+Unfortunately the view YAML is only available on each task and not on the entire release pipeline.
 
-![Copy to Clipboard for each task](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_CopyToClipboard.png)
+![Copy to Clipboard for each task](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_CopyToClipboard.png)
 
 You can go through each task to copy the generated YAML editing as appropriately e.g.  Edit the generated YAML to remove "microsoft-IsvExpTools.PowerPlatform-BuildTools.".
 
@@ -310,7 +301,7 @@ stages:
             PowerPlatformSPN: 'powerplatform-p-connection'
 ```
 
-The provided YAML represents a deployment pipeline with multiple stages (deploytest, deployUAT, deployPROD) that deploy a Power Platform solution to different environments (ST Intranet, UAT Intranet, and Intranet). 
+The provided YAML represents a deployment pipeline with multiple stages (deploytest, deployUAT, deployPROD) that deploy a Power Platform solution to different environments (ST Intranet, UAT Intranet, and Intranet).
 Let's break down the structure and flow of the YAML code:
 
 trigger: This section defines the conditions that trigger the pipeline. In this case, the trigger is set to "none," meaning the pipeline won't be automatically triggered by source code changes. It will need to be manually triggered or scheduled.
@@ -320,46 +311,41 @@ pool: The pool section specifies the agent pool to use for running the pipeline.
 variables: This section defines the pipeline variables. The only variable defined here is SolutionName, with a value of "TEST". This variable can be referenced later in the pipeline using the syntax $(SolutionName).
 
 stages: The stages section represents the different deployment stages in the pipeline : deploytest, deployUAT, deployPROD
- * For each of the stage there is a single job for deploying to the respective environment, i.e *deployment* with strategy set to *runOnce* to deploy the solution only once. 
- * The *deploy* : The deploy section specifies the steps to perform for the deployment.
-    * checkout: The checkout step checks out the source code from the repository
-    * PowerPlatformToolInstaller@2: The PowerPlatformToolInstaller@2 task installs the Power Platform tools.
-    * PowerPlatformPackSolution@2: The PowerPlatformPackSolution@2 task packs the solution files into a zip file. It specifies the source folder, output file location, and that the solution is of type "Managed".
-    * PowerPlatformImportSolution@2: The PowerPlatformImportSolution@2 task imports the solution into the "ST Intranet" environment. It uses the specified authentication type, connection details, solution input file, deployment settings file, and other settings.
-    * PowerPlatformPublishCustomizations@2: The PowerPlatformPublishCustomizations@2 task publishes the customizations of the solution in the environment.
 
-  * deployUAT: This stage is named "Deploy to UAT" and contains a single job for deploying to the "UAT Intranet" environment. The structure and tasks within this stage are similar to the previous stage, with environment-specific settings.
+* For each of the stage there is a single job for deploying to the respective environment, i.e *deployment* with strategy set to *runOnce* to deploy the solution only once.
+* The *deploy* : The deploy section specifies the steps to perform for the deployment.
+  * checkout: The checkout step checks out the source code from the repository
+  * PowerPlatformToolInstaller@2: The PowerPlatformToolInstaller@2 task installs the Power Platform tools.
+  * PowerPlatformPackSolution@2: The PowerPlatformPackSolution@2 task packs the solution files into a zip file. It specifies the source folder, output file location, and that the solution is of type "Managed".
+  * PowerPlatformImportSolution@2: The PowerPlatformImportSolution@2 task imports the solution into the "ST Intranet" environment. It uses the specified authentication type, connection details, solution input file, deployment settings file, and other settings.
+  * PowerPlatformPublishCustomizations@2: The PowerPlatformPublishCustomizations@2 task publishes the customizations of the solution in the environment.
 
-  * deployPROD: This stage is named "Deploy to PROD" and contains a single job for deploying to the "Intranet" environment. It follows the same structure as the previous stages but with environment-specific settings for the PROD environment.
+* deployUAT: This stage is named "Deploy to UAT" and contains a single job for deploying to the "UAT Intranet" environment. The structure and tasks within this stage are similar to the previous stage, with environment-specific settings.
+
+* deployPROD: This stage is named "Deploy to PROD" and contains a single job for deploying to the "Intranet" environment. It follows the same structure as the previous stages but with environment-specific settings for the PROD environment.
 
 The pipeline follows a similar pattern for each stage, where it checks out the source code, installs the Power Platform tools, packs the solution, imports the solution into the respective environment, publishes the customizations, and performs any necessary configuration or conversion steps.
 
-** Please note that this YAML code describes the pipeline's structure and tasks, but additional configurations and resources such as service connections, variable groups, and agent pool settings may be required for a fully functional deployment pipeline in Azure Pipelines.**
+**Please note that this YAML code describes the pipeline's structure and tasks, but additional configurations and resources such as service connections, variable groups, and agent pool settings may be required for a fully functional deployment pipeline in Azure Pipelines.**
 
 Define environment as appropriate
 
-![Environments](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Environments.png)
+![Environments](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Environments.png)
 
 Approvals on each environment
 
- ![Approvals](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Approvals.png)
+ ![Approvals](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Approvals.png)
 
-You can just the whole release pipeline to run all stages sequentially 
+You can just the whole release pipeline to run all stages sequentially
 
-![Run All Stages](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Run.png)
+![Run All Stages](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Run.png)
 
-Run by specifying stages 
+Run by specifying stages
 
-![Run selected stages](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/RunSelectedStages.png)
+![Run selected stages](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/RunSelectedStages.png)
 
 If all successful, there will be a green tick identifying all went fine
 
-![Successful release](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Success.png)
+![Successful release](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Success.png)
 
-Well done for tranforming your powerplatform application life cycle as code into your repository. 
-
-
-
- 
-
- 
+Well done for tranforming your powerplatform application life cycle as code into your repository.
