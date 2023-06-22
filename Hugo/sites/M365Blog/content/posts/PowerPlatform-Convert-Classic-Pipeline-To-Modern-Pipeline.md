@@ -1,6 +1,6 @@
 ---
 title: "Add or Update Image Column in SharePoint with Power Automate: Download and Use Images from the Web"
-date: 2023-05-28T06:56:03+01:00
+date: 2023-06-23T07:00:03+01:00
 author: "Reshmee Auckloo"
 githubname: reshmee011
 categories: ["Post"]
