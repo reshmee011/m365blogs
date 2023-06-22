@@ -5,7 +5,7 @@ author: "Reshmee Auckloo"
 githubname: reshmee011
 categories: ["Post"]
 images:
-- images:../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_ViewYAML.png
+- images:./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_ViewYAML.png
 tags: ["Pipeline, Azure DevOps","YAML"]
 type: "regular"
 draft: false
@@ -29,7 +29,7 @@ You might have a graphical classic pipeline as below for the build or CI (contin
 ![View YAML](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_ViewYAML.png)
 
 You can copy the generated YAML. 
-![CopyToClipboard](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_CopyToClipboard.png)
+![CopyToClipboard](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_CopyToClipboard.png)
 
 Follow the steps below to get the build pipeline as YAML stored in your repository
 
@@ -38,17 +38,17 @@ Follow the steps below to get the build pipeline as YAML stored in your reposito
     Edit the YAML to remove "microsoft-IsvExpTools.PowerPlatform-BuildTools." with "". 
   
 3. Click on Pipelines from the left navigation and click on "New Pipeline"
-![Click on Pipeline](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_Pipelines.png)
+![Click on Pipeline](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_Pipelines.png)
 
 4. Clik on new Pipeline and select "Azure Repos Git" from option "Where is your code?"  
 
-![Where is your code?](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/CodeLocation.png)
+![Where is your code?](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/CodeLocation.png)
 
 5. Select the repository where the YAML is
 
 6. Pick the option Existing Azure Pipelines YAML file, pick the branch and Path where the build yaml file is 
 
-![Configure](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Configure_AzurePipelines.png)
+![Configure](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Configure_AzurePipelines.png)
 
 7. Modify the yaml file as appropriate adding any trigger actions ensuring right formatting and indentation is used 
 
@@ -162,35 +162,35 @@ steps: The steps section contains the sequence of tasks to be executed in the pi
     
 To use this YAML, you would need to create or edit the build pipeline in Azure DevOps, define the necessary secret variable, and configure the required resources and connections accordingly.
 
-![PAT](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_PAT.png)
+![PAT](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_PAT.png)
 
 8. Create a variable for PAT with the same name referenced in the YAML script
-![PAT](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_PATVariable.png)
+![PAT Variable](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_PATVariable.png)
 
 
 9. Review Pipeline and click on Run 
 
-![Run Pipeline](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_Run.png)
+![Run Pipeline](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_Run.png)
 
 Grant permission if prompted
-![Grant Permission](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/GrantPermission.png)
+![Grant Permission](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/GrantPermission.png)
 
 If all successful 
-![Build Sucess](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_RunSuccess.png)
+![Build Sucess](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Build_RunSuccess.png)
 
 ## Release Pipeline
 
 In Classic pipeline, there is no option to view full YAML
 
-![Release Classic Pipeline](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_ClassicPipeline.png)
+![Release Classic Pipeline](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_ClassicPipeline.png)
 
 In the example above there are 4 tasks within each stage. 
 
-![Stage Tasks](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_ClassicPipelineTasks.png)
+![Stage Tasks](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_ClassicPipelineTasks.png)
 
 Unfortunately the view YAML is only available on each task and not on the entire release pipeline. 
 
-![Copy to Clipboard for each task](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_CopyToClipboard.png)
+![Copy to Clipboard for each task](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_CopyToClipboard.png)
 
 You can go through each task to copy the generated YAML editing as appropriately e.g.  Edit the generated YAML to remove "microsoft-IsvExpTools.PowerPlatform-BuildTools.".
 
@@ -334,11 +334,11 @@ The pipeline follows a similar pattern for each stage, where it checks out the s
 
 Define environment as appropriate
 
-![Environments](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Environments.png)
+![Environments](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Environments.png)
 
 Approvals on each environment
  
-![Approvals](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Approvals.png)
+![Approvals](./images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Approvals.png)
 
 Run by specifying stages or run all sequentially 
 
