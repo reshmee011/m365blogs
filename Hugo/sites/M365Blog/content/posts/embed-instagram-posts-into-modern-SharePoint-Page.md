@@ -13,14 +13,14 @@ The generic embed code from instagram post uses the script tag which is not allo
 These are the steps to follow to get the embed code of an instagram post 
 - Navigate to the instagram post, e.g. https://www.instagram.com/p/CqN3lWpNMpI/ and click on ellipsis. 
 -  Click on embed post.
-![Embed Post](../images/Embed-Single-Instagram-Post-Into-Modern-SharePoint-Page/Embed_Post.png)
+![Embed Post](../images/Embed-Single-Instagram-Post-Into-Modern-SharePoint-Page/EmbedPost.png)
 -  Copy the embed code.
 ![Copy Embed Code](../images/Embed-Single-Instagram-Post-Into-Modern-SharePoint-Page/CopyEmbedCode.png)
 -  Paste the embed code
 
 Once pasted within the embed code , the error message that script is not supported appears.
 
-![Script Not Supported](../images/Embed-Single-Instagram-Post-Into-Modern-SharePoint-Page/ScriptNotSupported.png.png)
+![Script Not Supported](../images/Embed-Single-Instagram-Post-Into-Modern-SharePoint-Page/ScriptNotSupported.png)
 
 I found the solution from [Introducing Web Embedding Instagram Content on Websites](https://about.instagram.com/blog/announcements/introducing-web-embedding-instagram-content-on-websites). Simply to append the "/embed" to the post URL, e.g. https://www.instagram.com/p/CqN3lWpNMpI/embed to include within the Iframe tag.
 
