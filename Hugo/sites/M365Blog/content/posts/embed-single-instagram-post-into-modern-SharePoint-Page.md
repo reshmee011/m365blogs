@@ -1,11 +1,11 @@
 ---
-title: "Embed Single Instagram Post Into Modern SharePoint Page"
+title: "Add Instagram post/account to your page using the Embed web part"
 date: 2023-07-04T14:49:19+01:00
 tags: ["Embed, Instagram","SharePoint Page"]
 draft: true
 ---
 
-# Embed Single Instagram Post Into Modern SharePoint Page
+# Add Instagram post/account to your page using the Embed web part
 
 I was investigating on how to display an instagram post within a Modern SharePoint News Page.
 
