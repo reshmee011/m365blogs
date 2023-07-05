@@ -1,6 +1,6 @@
 ---
 title: "Links not Working in Embedded Power Apps"
-date: 2023-06-26T11:04:28+01:00
+date: 2023-07-04T11:04:28+01:00
 draft: true
 ---
 

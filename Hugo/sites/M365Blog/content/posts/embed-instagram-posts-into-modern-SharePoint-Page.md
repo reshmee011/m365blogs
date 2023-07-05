@@ -26,7 +26,7 @@ I found the solution from [Introducing Web Embedding Instagram Content on Websit
 
 To whitelist the instagram domain, add www.instagram.com in HTML Field Security in site settings, follow the [Allow or restrict the ability to embed content on SharePoint pages](https://support.microsoft.com/en-us/office/allow-or-restrict-the-ability-to-embed-content-on-sharepoint-pages-e7baf83f-09d0-4bd1-9058-4aa483ee137b?ui=en-us&rs=en-gb&ad=gb)
 
-![HTMLSecurity](../images/HTMLSecurity.png)
+![HTMLSecurity](../images/Embed-Single-Instagram-Post-Into-Modern-SharePoint-Page/HTMLSecurity.png)
 
 ## Embed individual instagram post 
 
