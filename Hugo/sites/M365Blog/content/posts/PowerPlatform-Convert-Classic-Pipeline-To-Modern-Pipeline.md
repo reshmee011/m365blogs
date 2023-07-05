@@ -1,6 +1,6 @@
 ---
 title: "Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform"
-date: 2023-06-23T07:00:03+01:00
+date: 2023-06-22T12:00:03+01:00
 author: "Reshmee Auckloo"
 githubname: reshmee011
 categories: ["Post"]
