@@ -9,9 +9,10 @@ draft: false
 # Troubleshooting Blocked Links to SharePoint Pages in Embedded Power Apps
 
 When embedding Power Apps using the "Microsoft Power Apps web part," you may encounter an issue where links to SharePoint pages are blocked. This issue does not affect links to Power Apps themselves.
-![Microsoft Power Apps](../images/Link-to-SP-Pages-blocked.png)
+![Microsoft Power Apps](../images/links-not-working-in-embedded-power-apps/Link-to-SP-Pages-blocked.png)
 
 The error message you might encounter is as follows:
+
 "Unsafe attempt to initiate navigation for frame with origin 'domain.sharepoint.com' from frame with URL 'https://pa-static-ms.azureegde.net/resource/webplayerdynamic/publishedapp/...'.The frame attempting navigation of the top-level window is sandboxed, but the flag of 'allow-top-navigation' or 'allow-top-navigation-by-user-activation' is not set."
 
 It's important to note that the Microsoft Power Apps web part is still in preview.
