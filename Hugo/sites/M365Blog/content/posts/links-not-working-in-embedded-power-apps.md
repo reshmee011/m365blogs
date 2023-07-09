@@ -8,7 +8,7 @@ draft: false
 
 # Troubleshooting Blocked Links to SharePoint Pages in Embedded Power Apps
 
-When embedding Power Apps using the "Microsoft Power Apps web part," you may encounter an issue where links to SharePoint pages are blocked. This issue does not affect links to Power Apps themselves.
+When embedding Power Apps using the "Microsoft Power Apps web part," you may encounter an issue where links to SharePoint pages are blocked from image or button controls. This issue does not affect links to Power Apps themselves.
 ![Microsoft Power Apps](../images/links-not-working-in-embedded-power-apps/Link-to-SP-Pages-blocked.png)
 
 The error message you might encounter is as follows:
@@ -40,3 +40,5 @@ By implementing these solutions, you can troubleshoot and overcome the issue of 
 ```html
 "<span style='cursor:pointer; color:#503291;style=font-family:verdana'><b><a href='"&  varSiteUrl & "/SitePages/Page-Discover.aspx' target='_blank'><img width=100% , height= 100% src='" & varSiteUrl & "/SiteAssets/PowerApps_Images/Dashboard/stepDiscover.png'><img></span>"
 ```
+
+[PowerApps links](../images/links-not-working-in-embedded-power-apps/LinkswithEmbeddedApps.gif)
