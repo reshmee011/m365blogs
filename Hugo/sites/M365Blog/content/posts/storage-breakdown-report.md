@@ -9,13 +9,13 @@ draft: false
 
 As the amount of data stored in SharePoint grows, it becomes important to monitor and manage storage usage. In this blog post, we will explore how to generate storage reports for SharePoint sites using PowerShell. These reports will provide insights into the storage usage of sites and individual files, including file versions and the size of the recycle bin. However the reports can only give a glimpse of at least 60-90% of storage.
 
-![Tenant level report](../images/links-not-working-in-embedded-power-apps/Preview_Site.png)
-![Site level report](../images/links-not-working-in-embedded-power-apps/Preview_File.png)
+![Tenant level report](../images/storage-breakdown-report/Preview_Site.png)
+![Site level report](../images/storage-breakdown-report/Preview_File.png)
 
 I noticed for two files where the storage usage from storage metrics was 1 MB despite the file size was ~ 20 Kb with only one version.
 
-![StorageMetricsforFile](../images/links-not-working-in-embedded-power-apps/StorageMetricsforFile.png)
-![FileVersionSize](../images/links-not-working-in-embedded-power-apps/FileVersionSize.png)
+![StorageMetricsforFile](../images/storage-breakdown-report/StorageMetricsforFile.png)
+![FileVersionSize](../images/storage-breakdown-report/FileVersionSize.png)
 
 As per post [File size different in storage metrics than original even though file has only one version. Why so ?](https://answers.microsoft.com/en-us/msoffice/forum/all/file-size-different-in-storage-metrics-than/1e1a9300-5668-4aba-bc46-7c64c98cdbaf)
 
