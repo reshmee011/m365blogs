@@ -1,11 +1,11 @@
 ---
-title: "Generating SharePoint Storage Reports with PowerShell"
+title: "Troubleshooting SharePoint Storage Reports with PowerShell"
 date: 2023-07-09T08:42:13+01:00
 tags: ["SharePoint, PowerShell","Storage"]
 draft: false
 ---
 
-# Generating SharePoint Storage Reports with PowerShell
+# Troubleshooting SharePoint Storage Reports with PowerShell
 
 As the amount of data stored in SharePoint grows, it becomes important to monitor and manage storage usage. In this blog post, we will explore how to generate storage reports for SharePoint sites using PowerShell. These reports will provide insights into the storage usage of sites and individual files, including file versions and the size of the recycle bin. However the reports can only give a glimpse of at least 60-90% of storage.
 
