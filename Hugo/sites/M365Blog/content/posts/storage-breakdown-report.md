@@ -9,33 +9,10 @@ draft: false
 
 As the amount of data stored in SharePoint grows, it becomes important to monitor and manage storage usage. In this blog post, we will explore how to generate storage reports for SharePoint sites using PowerShell. These reports will provide insights into the storage usage of sites and individual files, including file versions and the size of the recycle bin. However the reports can only give a glimpse of at least 60-90% of storage.
 
+## Sample reports output
+
 ![Tenant level report](../images/storage-breakdown-report/Preview_Site.png)
 ![Site level report](../images/storage-breakdown-report/Preview_File.png)
-
-I noticed for two files where the storage usage from storage metrics was 1 MB despite the file size was ~ 20 Kb with only one version.
-
-![StorageMetricsforFile](../images/storage-breakdown-report/StorageMetricsforFile.png)
-![FileVersionSize](../images/storage-breakdown-report/FileVersionSize.png)
-
-As per post [File size different in storage metrics than original even though file has only one version. Why so ?](https://answers.microsoft.com/en-us/msoffice/forum/all/file-size-different-in-storage-metrics-than/1e1a9300-5668-4aba-bc46-7c64c98cdbaf)
-
-"If the files have many images, then we generate a larger thumbnail in the background which makes the file even bigger.
-
-The storage metrics page shows the true storage value being used as a number of micro services run after upload to create thumbnail, previews, etc., which causes the increase in the storage used.
-
-As confirmed from test environment, the file size increases in Storage metrics page irrespective of the versions sizes not adding up to the storage reflecting in the storage metrics page. 
-Also, as observed the PowerPoint files did not have any versions, so even if versions are not there, there are other variables with the microservices running against the files.
-
-This is by design and there is no way to predict how much space will be used after a document is uploaded. We can only say that the numbers shown in Storage Metrics do reflect the space being used by those documents."
-
-Refer to the following posts for more info about storage within SharePoint.
-
-[https://ms365thinking.blogspot.com/2022/02/pay-more-for-sharepoint-storage-than.html](https://ms365thinking.blogspot.com/2022/02/pay-more-for-sharepoint-storage-than.html)
-[Deleting File Versions to reduce the SharePoint Storage Consumption](https://ms365thinking.blogspot.com/2023/05/deleting-file-versions-to-reduce.html)
-[Sample on a report showing how much SharePoint Storage you can save by trimming document versions once the site is no longer active](https://pnp.github.io/script-samples/spo-generate-sp-storage-savings-report/README.html?tabs=pnpps)
-[Total Size from Storage Metrics shows full size file version in SharePoint 2013](https://learn.microsoft.com/en-us/sharepoint/troubleshoot/administration/total-size-shows-full-size-file-version)
-[SharePoint Storage metrics page is displaying incorrect information](https://answers.microsoft.com/en-us/msoffice/forum/all/sharepoint-storage-metrics-page-is-displaying/9ba4977e-6ad8-4298-8ece-621dfa6f0ae1)
-
 
 ## Prerequisites:
 Before we begin, make sure you have the PnP PowerShell which can installed using instructions from [Installing PnP PowerShell](https://pnp.github.io/powershell/articles/installation.html)
@@ -145,6 +122,32 @@ $arrayFile | Export-Csv -Path $OutputFile -NoTypeInformation -Force
 - Creates a custom object to store the site storage information and call the ReportStorageVersions function to retrieve the file sizes and version sizes.
 - Calculates the size of the recycle bin using the Get-PnPRecycleBinItem cmdlet. The site storage information, including file sizes, version sizes, and recycle bin size, is added to the $arraySite ArrayList.
 - Exports the $arraySite and $arrayFile ArrayLists to CSV files using the Export-Csv cmdlet.
+
+## File size may be different in storage metrics than original despite with one version
+
+I noticed for two files where the storage usage from storage metrics was 1 MB despite the file size was ~ 20 Kb with only one version.
+
+![StorageMetricsforFile](../images/storage-breakdown-report/StorageMetricsforFile.png)
+![FileVersionSize](../images/storage-breakdown-report/FileVersionSize.png)
+
+As per post [File size different in storage metrics than original even though file has only one version. Why so ?](https://answers.microsoft.com/en-us/msoffice/forum/all/file-size-different-in-storage-metrics-than/1e1a9300-5668-4aba-bc46-7c64c98cdbaf)
+
+"If the files have many images, then we generate a larger thumbnail in the background which makes the file even bigger.
+
+The storage metrics page shows the true storage value being used as a number of micro services run after upload to create thumbnail, previews, etc., which causes the increase in the storage used.
+
+As confirmed from test environment, the file size increases in Storage metrics page irrespective of the versions sizes not adding up to the storage reflecting in the storage metrics page. 
+Also, as observed the PowerPoint files did not have any versions, so even if versions are not there, there are other variables with the microservices running against the files.
+
+This is by design and there is no way to predict how much space will be used after a document is uploaded. We can only say that the numbers shown in Storage Metrics do reflect the space being used by those documents."
+
+## References
+
+[https://ms365thinking.blogspot.com/2022/02/pay-more-for-sharepoint-storage-than.html](https://ms365thinking.blogspot.com/2022/02/pay-more-for-sharepoint-storage-than.html)
+[Deleting File Versions to reduce the SharePoint Storage Consumption](https://ms365thinking.blogspot.com/2023/05/deleting-file-versions-to-reduce.html)
+[Sample on a report showing how much SharePoint Storage you can save by trimming document versions once the site is no longer active](https://pnp.github.io/script-samples/spo-generate-sp-storage-savings-report/README.html?tabs=pnpps)
+[Total Size from Storage Metrics shows full size file version in SharePoint 2013](https://learn.microsoft.com/en-us/sharepoint/troubleshoot/administration/total-size-shows-full-size-file-version)
+[SharePoint Storage metrics page is displaying incorrect information](https://answers.microsoft.com/en-us/msoffice/forum/all/sharepoint-storage-metrics-page-is-displaying/9ba4977e-6ad8-4298-8ece-621dfa6f0ae1)
 
 ## Conclusion:
 
