@@ -8,7 +8,6 @@ draft: false
 Github does not provide an easy way to export all your pull requests for review or sharing with anyone. Below is a great post to show how to do it using BASH. 
 
 [GitHub: Get a CSV containing my pull requests (PRs)](https://www.markhneedham.com/blog/2023/06/12/github-list-pull-requests-csv/)
-github_retrieve_all_PRs_GitHubCli
 
 If you are using windows machine, PowerShell is your friend. 
 
@@ -33,7 +32,7 @@ gh auth login
 
 Open this URL to continue in your web browser: https://github.com/login/device. Enter the code generated from the PowerShell cmdlet above.
 
-Authorise GitHubCli
+Authorize github to trust the device to access your account.
 ![Authorise GitHubCli](../images/github_retrieve_all_PRs_GitHubCli/AuthoriseGithubCLI.png)
 
 Run the search query against github and export csv file
