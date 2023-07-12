@@ -1,5 +1,5 @@
 ---
-title: "Get a CSV of all my pull requests from Github using Github CLI"
+title: "Get a CSV of all my pull requests from Github using Github CLI and PowerShell"
 date: 2023-07-11T17:00:15+01:00
 tags: ["GitHub", "CLI","PowerShell"]
 draft: false
@@ -41,3 +41,5 @@ Run the search query against github and export csv file
 (gh search prs --author=@me --json title,repository,closedAt,url | ConvertFrom-Json) | Export-Csv -Path c:\temp\contributions.csv -NoTypeInformation -Force
 ```
 ![Sample Output](../images/github_retrieve_all_PRs_GitHubCli/SampleOutput.png)
+
+[Examples using gh search prs](https://cli.github.com/manual/gh_search_prs)
