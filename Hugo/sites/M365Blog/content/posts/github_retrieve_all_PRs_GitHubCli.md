@@ -38,8 +38,21 @@ Authorize github to trust the device to access your account.
 Run the search query against github and export csv file
 
 ```powershell
-(gh search prs --author=@me --json title,repository,closedAt,url | ConvertFrom-Json) | Export-Csv -Path c:\temp\contributions.csv -NoTypeInformation -Force
+(gh search prs --author=@me --json title,repository,closedAt,url --limit 100 | ConvertFrom-Json) | Export-Csv -Path c:\temp\contributions.csv -NoTypeInformation -Force
 ```
 ![Sample Output](../images/github_retrieve_all_PRs_GitHubCli/SampleOutput.png)
 
 [Examples using gh search prs](https://cli.github.com/manual/gh_search_prs)
+
+You can also search for all your commits if you commit directly to the main branch
+
+```powershell
+(gh search commits --author=@me --author-date=>"2022-06-01" --order desc --sort author-date --visibility public --json repository,sha,commit  --limit 100 | ConvertFrom-Json) |
+    ForEach-Object {
+        [PsCustomObject]@{
+            'commit.author.date' = $_.commit.author.date
+            'commit.message' = $_.commit.message
+            'repository.fullName' = $_.repository.fullname
+        }
+    } | Export-Csv -Path c:\temp\commits.csv -NoTypeInformation -Force 
+```
