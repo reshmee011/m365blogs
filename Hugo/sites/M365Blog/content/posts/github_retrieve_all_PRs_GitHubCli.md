@@ -40,7 +40,7 @@ Run the search query against github and export csv file
 ```powershell
 (gh search prs --author=@me --json title,repository,closedAt,url --limit 100 | ConvertFrom-Json) | Export-Csv -Path c:\temp\contributions.csv -NoTypeInformation -Force
 ```
-![Sample Output](../images/github_retrieve_all_PRs_GitHubCli/SampleOutput.png)
+![Sample Output of PRs](../images/github_retrieve_all_PRs_GitHubCli/SampleOutput.png)
 
 [Examples using gh search prs](https://cli.github.com/manual/gh_search_prs)
 
@@ -56,3 +56,5 @@ You can also search for all your commits if you commit directly to the main bran
         }
     } | Export-Csv -Path c:\temp\commits.csv -NoTypeInformation -Force 
 ```
+
+![Sample Output of commits](../images/github_retrieve_all_PRs_GitHubCli/commits_SampleOutput.png)
