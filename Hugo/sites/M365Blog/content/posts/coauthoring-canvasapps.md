@@ -1,5 +1,5 @@
 ---
-title: "Coauthoring in power apps issyes"
+title: "Coauthoring in power apps issues"
 date: 2023-07-09T07:29:39+01:00
 tags: ["Power Apps", "coauthoring","Azure DevOps"]
 draft: false
