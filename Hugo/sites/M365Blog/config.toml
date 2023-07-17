@@ -43,3 +43,9 @@ enableRobotsTXT = true
 [[params.ananke_socials]]
 name = "twitter"
 url = "https://twitter.com/reshmeeauckloo"
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+X-Robots-Tag = "index, follow"
