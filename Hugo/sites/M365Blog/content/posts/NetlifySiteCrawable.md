@@ -20,6 +20,8 @@ My site was not being crawled and nailed it down to the theme I was using. I fou
 Add netlify.toml as per blog post 
 
 # Add site map to Google
+https://developers.google.com/search
+
 https://search.google.com/search-console/about
 
 
