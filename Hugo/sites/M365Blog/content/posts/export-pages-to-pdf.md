@@ -1,10 +1,17 @@
 ---
-title: "Add List Canvas App to Solution for possible ALM"
+title: "Export SharePoint Pages to PDF"
 date: 2023-07-18T07:49:47+01:00
 draft: true
 ---
 
-Though it is not a complete solution 
+# Export SharePoint Pages to PDF
+
+There may be scenerios where you might want to take screenshots of all your pages in your SharePoint site. For instance before revamping a site, you might take screenshots of all pages to compare against updated site to show end client progress or difference the new design brings or could be simply for backing up the pages before archiving the site.
+
+## Prerequisites
+Google Chrome installed
+PnP PowerShell installed
+
 ```PowerShell
 # Variables
 $webUrl = "https://connectonline.ppfonline.co.uk"
@@ -78,3 +85,4 @@ foreach ($web in $rootWeb.Webs)
 }
 
 #>
+```
