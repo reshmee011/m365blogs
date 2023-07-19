@@ -2,6 +2,7 @@
 title: "Make Netlify site crawable by Search Engines"
 date: 2023-07-18T08:29:27+01:00
 draft: true
+tags: ["Hugo", "Netlify","Robot.txt","Search Engine"]
 ---
 
 # Make Netlify site crawable by Search Engines
@@ -67,4 +68,12 @@ To help my site and page to be picked up I decided to do the following additiona
 Waiting for at least a day to see the results
 https://app.netlify.com/teams/reshmee011/dns/reshmeeauckloo.com
 
-However https://www.google.com/webmasters/tools/robots-testing-tool
+However all pages were still not being indexed, 
+![Indexed, Though Blocked by robots.txt](../images/netlifySiteCrawable/IndexedThoughBlockedByRobotstxt.png)
+
+I ended doing more troubleshooting with blog post [Finding the Source of the 'Indexed, Though Blocked by robots.txt' Error](https://kinsta.com/knowledgebase/indexed-though-blocked-by-robots-txt/). I went to  [Google’s robots.txt tester](https://www.google.com/webmasters/tools/robots-testing-tool). and enabling the robots.txt by adding the line below into the config.tml file
+
+enableRobotsTXT = true 
+
+
+
