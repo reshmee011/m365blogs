@@ -71,9 +71,9 @@ https://app.netlify.com/teams/reshmee011/dns/reshmeeauckloo.com
 However all pages were still not being indexed, 
 ![Indexed, Though Blocked by robots.txt](../images/netlifySiteCrawable/IndexedThoughBlockedByRobotstxt.png)
 
-I ended doing more troubleshooting with blog post [Finding the Source of the 'Indexed, Though Blocked by robots.txt' Error](https://kinsta.com/knowledgebase/indexed-though-blocked-by-robots-txt/). I went to  [Google’s robots.txt tester](https://www.google.com/webmasters/tools/robots-testing-tool). and enabling the robots.txt by adding the line below into the config.tml file
+I ended doing more troubleshooting with blog post [Finding the Source of the 'Indexed, Though Blocked by robots.txt' Error](https://kinsta.com/knowledgebase/indexed-though-blocked-by-robots-txt/). I went to  [Google’s robots.txt tester](https://www.google.com/webmasters/tools/robots-testing-tool) and tested one URL and seems there are no issues. 
 
-enableRobotsTXT = true 
+![URL Allowed](../images/netlifySiteCrawable/URLAllowed.png)
 
 
 

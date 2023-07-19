@@ -2,6 +2,7 @@
 title: "Export SharePoint Pages to PDF"
 date: 2023-07-18T07:49:47+01:00
 draft: true
+tags: ["Export to PDF", "Chrome","SharePoint Page"]
 ---
 
 # Export SharePoint Pages to PDF
