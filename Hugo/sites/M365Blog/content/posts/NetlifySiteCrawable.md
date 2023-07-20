@@ -1,18 +1,50 @@
 ---
-title: "Make Netlify site crawable by Search Engines"
+title: "How to Ensure Your Netlify Site is Search Engine Crawlable"
 date: 2023-07-18T08:29:27+01:00
-draft: true
+draft: false
 tags: ["Hugo", "Netlify","Robot.txt","Search Engine"]
 ---
 
-# Make Netlify site crawable by Search Engines
+# How to Ensure Your Netlify Site is Search Engine Crawlable
 
-There are numerous posts to describe how to convert Wordpress to Hugo. I followed the instructions from blog post [How to move your blog from Wordpress to Hugo](https://www.m365princess.com/blogs/move-blog-wordpress-hugo/) to do mine. I had few issues with imported content from WordPress like special characters in the tags, e.g. C# which was preventing my netlify site from building , so worth reviewing the generated posts.
+There are numerous posts to describe how to convert Wordpress to Hugo. I followed the instructions from blog post [How to move your blog from Wordpress to Hugo](https://www.m365princess.com/blogs/move-blog-wordpress-hugo/) to start with and hosted it on Netlify, it's essential to ensure that search engines can crawl and index your site properly. Follow these steps to make sure your site is discoverable:
 
-Fast forward few months after setting my Hugo site, my husband was searching for one of the article I told him I wrote from Google and mentioned he can't find my post and realised my site is not picked up by search engines. Paul Bullock guided me towards  custom domain. I lacked creativity and ended getting a domain based on my name. I waited for a week and checked for any updates. Alas my site was not being crawled still. Again Paul Bullock kindly pointed to the SEO/Search tools e.g. https://developers.google.com/search and https://bing.com/webmasters/about to ensure my site was registered with search engines and more troubleshooting learning more about the new set up I had with Hugo.
-# Issue with Ananke theme
+## Review Content Issues
 
-My site was not being crawled due to the theme Ananke I was using. Please find more info from [How to configure robots(search engines) to follow and to index?](https://discourse.gohugo.io/t/how-to-configure-robots-search-engines-to-follow-and-to-index/28449/5) The theme uses input from robots.txt is in /themes/ananke/layouts/robots.txt which has the following code:
+After migrating your content from WordPress to Hugo, check for any potential issues with imported content. Special characters in tags, like "C#," might cause problems during the site build process. Review the generated posts and fix any such issues.
+
+## Custom Domain 
+
+[Paul Bullock](https://twitter.com/pkbullock) guided me towards custom domain. I lacked creativity and ended getting a domain based on my name. Alas my site was not being crawled after one week. 
+
+## Register with Search Engines
+
+ [Paul Bullock](https://twitter.com/pkbullock) pointed to the SEO/Search tools e.g. https://developers.google.com/search and https://bing.com/webmasters/about to ensure my site was registered with search engines.
+
+## Submit sitemap to Google
+
+A sitemap provides a list of all the pages on your site, helping search engines understand its structure and content better. With Hugo, a sitemap.xml file is generated and follow the steps below to submit to Google
+
+- Navigate to https://developers.google.com/search
+
+- Enter my domain to check
+![Add Domain](../images/netlifySiteCrawable/AddDomain.png)
+
+- Add CNAME record to domain settings within Netlify 
+![Add Domain CNAME](../images/netlifySiteCrawable/DomainCName.png)
+
+- Add sitemap.xml from site,  it can be found at /sitemap.xml
+![Add SiteMap](../images/netlifySiteCrawable/AddSiteMap.png)
+
+- Indexing Page
+![Indexing Page](../images/netlifySiteCrawable/IndexingPage.png)
+
+Waiting for at least a day to see the results
+https://app.netlify.com/teams/reshmee011/dns/reshmeeauckloo.com
+
+## Identify any configuration which is preventing your site from being crawled 
+
+My site was not being crawled due to the theme Ananke I was using. The theme uses input from robots.txt  in /themes/ananke/layouts/robots.txt which has the following code:
 
 ```tex
 User-agent: *
@@ -25,8 +57,7 @@ Disallow: /
 {{ end -}}
 ```
 
-I needed to figure how to set the environment to production to allow the robotstxt
-I found the solution from blog post (Getting started with Hugo)[https://davidrothera.me/posts/getting-started-with-hugo/] covers how to resolve it by adding a custom netlify.toml config to avoid going to the settings on netlify 
+The environment needs to be set to production during build to allow the robots.  I found the solution from blog post (Getting started with Hugo)[https://davidrothera.me/posts/getting-started-with-hugo/] and I added a custom netlify.toml config to avoid going to the settings on netlify to set the build environment to Production.
 
 ```tex
 # netlify.toml
@@ -47,33 +78,15 @@ HUGO_ENV = "production"
 [context.deploy-preview.environment]
 HUGO_VERSION = "0.109.0"
 ```
-# Add site map to Google
 
-To help my site and page to be picked up I decided to do the following additional steps.
-
-- Navigate to https://developers.google.com/search
-
-- Enter my domain to check
-![Add Domain](../images/netlifySiteCrawable/AddDomain.png)
-
-- Add CNAME record to domain settings within Netlify 
-![Add Domain CNAME](../images/netlifySiteCrawable/DomainCName.png)
-
-- Add sitemap.xml from site,  it can be found at /sitemap.xml
-![Add SiteMap](../images/netlifySiteCrawable/AddSiteMap.png)
-
-- Indexing Page
-![Indexing Page](../images/netlifySiteCrawable/IndexingPage.png)
-
-Waiting for at least a day to see the results
-https://app.netlify.com/teams/reshmee011/dns/reshmeeauckloo.com
-
-However all pages were still not being indexed, 
-![Indexed, Though Blocked by robots.txt](../images/netlifySiteCrawable/IndexedThoughBlockedByRobotstxt.png)
-
-I ended doing more troubleshooting with blog post [Finding the Source of the 'Indexed, Though Blocked by robots.txt' Error](https://kinsta.com/knowledgebase/indexed-though-blocked-by-robots-txt/). I went to  [Google’s robots.txt tester](https://www.google.com/webmasters/tools/robots-testing-tool) and tested one URL and seems there are no issues. 
+## Monitor to ensure there are no more issues
+ 
+While the process may take some time to show results, regularly monitoring your site's performance using tools like Google Search Console will help you identify and resolve any remaining issues.  I had the warning ![Indexed, Though Blocked by robots.txt](../images/netlifySiteCrawable/IndexedThoughBlockedByRobotstxt.png) from [Google Search console](https://search.google.com/search-console) the next day and did more troubleshooting with blog post [Finding the Source of the 'Indexed, Though Blocked by robots.txt' Error](https://kinsta.com/knowledgebase/indexed-though-blocked-by-robots-txt/). I went to [Google’s robots.txt tester](https://www.google.com/webmasters/tools/robots-testing-tool) and tested one URL and seems there were no issues.  
 
 ![URL Allowed](../images/netlifySiteCrawable/URLAllowed.png)
 
+Patience is key, as it may take a few days for search engines to fully crawl and index your site.
 
+## Conclusion
 
+Ensuring that your Netlify site is crawlable by search engines is vital for its visibility and discoverability on the internet. By following the steps outlined in this guide, you can overcome potential obstacles and improve your site's indexing and ranking. 

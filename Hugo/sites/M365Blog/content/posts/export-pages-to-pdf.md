@@ -13,6 +13,8 @@ There may be scenerios where you might want to take screenshots of all your page
 Google Chrome installed
 PnP PowerShell installed
 
+Full list of chrom flags https://github.com/GoogleChrome/chrome-launcher/blob/main/docs/chrome-flags-for-tools.md
+
 ```PowerShell
 # Variables
 $webUrl = "https://connectonline.ppfonline.co.uk"
