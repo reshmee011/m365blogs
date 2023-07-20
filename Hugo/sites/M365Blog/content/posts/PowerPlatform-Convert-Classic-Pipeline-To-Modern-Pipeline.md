@@ -12,7 +12,7 @@ draft: false
 # Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform
 
 There are loads of posts explaining Application Lifecycle Management for the Power Platform using Azure DevOps most using the graphical classical pipeline.
-The latest post I read on this is [Application Lifecycle Management for the Power Platform using Azure DevOps](https://www.jondoesflow.com/post/application-lifecycle-management-for-the-power-platform-using-azure-devops) which is brilliant.
+The latest post I read on this is [Application Lifecycle Management for the Power Platform using Azure DevOps](https://www.jondoesflow.com/post/application-lifecycle-management-for-the-power-platform-using-azure-devops) by [Luise Freese](@LuiseFreese) which is brilliant.
 
 Please read article covering difference between [YAML and Classic UI](https://medium.com/@wywywywy/azure-devops-pipeline-choosing-between-yaml-and-classic-ui-b5612c3e211a) to explain why you may want the modern YAML pipeline. The main reason for me is to have the CI/CD pipeline checked in the repository as code.
 
