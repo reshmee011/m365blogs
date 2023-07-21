@@ -1,14 +1,21 @@
 ---
 title: "PnP Batch updating a large list"
 date: 2023-07-20T14:49:19+01:00
-tags: ["Embed, Instagram","SharePoint Page"]
+tags: ["PnPBatch", "list","SharePoint", "Update"]
 draft: false
 ---
 
-# PnP Batch updating a large list
+# PnP Batch updating a large list of around 60 k
 
 ## Throttling
 
+If your site is being throttled , you might see the following message while navigating to a SharePoint site
+
+![Throttle](../images/PnPBatch-Update-BigList-SharePoint/Throttle_image.png)
+
+We had around 60k items to update on a test environment and still was taking more than 12 hours to update one item at a time. Using **PnP- Batch** helps to half the time with fewer requests sent , however it was prone to throttling which meant without exception handling and retry mechanism might have to start the update script manually.
+ 
+ 
 ```PowerShell
 $siteUrl = "https://contoso.sharepoint.com/teams/test"
 
@@ -20,7 +27,7 @@ $OutPutView = $directorypath + $fileName
 $fileName = "\GroupRefReport-" + $dateTime + ".csv"
 $OutPutGroup = $directorypath + $fileName
 
-$list = "Remittances"
+$list = "Receipts"
 
 Connect-PnPOnline –Url $siteUrl -interactive
 $listItems = Get-PnPListItem -List $list  -PageSize 500 | Where {$_.FieldValues.GroupingReference -ne $null } #-and $_.FieldValues.ParentId -eq $null
@@ -63,8 +70,6 @@ Write-Host "Updating $index"
   Invoke-PnPBatch $batch
 $Stoploop = $true
 
- 
-
 }
 catch {
 if ($Retrycount -gt 3){
@@ -82,15 +87,9 @@ else {
 While ($Stoploop -eq $false)
 }
 
- 
-
-
 ForEach($Group in $Groups) 
 {
-
- 
-
-    $ParenId = ($Group.Group | Select-Object -first 1).ID 
+   $ParenId = ($Group.Group | Select-Object -first 1).ID 
    $log = New-Object PSObject -Property @{
        GroupingRef  = ($Group.Group | Select-Object -first 1).GroupingRef
        CountOfRecordsUpdated  =  $Group.Count - 1 
