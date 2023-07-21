@@ -17,67 +17,54 @@ We had around 60k items to update on a test environment and still was taking mor
  
  
 ```PowerShell
-$siteUrl = "https://contoso.sharepoint.com/teams/test"
-
-$dateTime = (Get-Date).toString("dd-MM-yyyy")
-$invocation = (Get-Variable MyInvocation).Value
-$directorypath = Split-Path $invocation.MyCommand.Path
-$fileName = "\GroupRefUpdateReport-" + $dateTime + ".csv"
-$OutPutView = $directorypath + $fileName
-$fileName = "\GroupRefReport-" + $dateTime + ".csv"
-$OutPutGroup = $directorypath + $fileName
-
-$list = "Receipts"
-
+$siteUrl = "https://contoso.sharepoint.com/teams/u-app-ar"
+##azure function #Sharepoint App
 Connect-PnPOnline –Url $siteUrl -interactive
-$listItems = Get-PnPListItem -List $list  -PageSize 500 | Where {$_.FieldValues.GroupingReference -ne $null } #-and $_.FieldValues.ParentId -eq $null
-$DataCollection = @()
-$UpdateLog = @()
-
-ForEach($Item in $ListItems)
-{
-    #Collect data       
-    $Data = New-Object PSObject -Property @{
-            GroupingRef  = $Item["GroupingReference"]
-            ParentId  = $Item["ParentId"].LookupValue
-           # Fund  = $Item["MemberType"]
-            ID = $Item.Id
-        }
-    $DataCollection += $Data
-}
-$Groups = $DataCollection | Sort-Object -Property ID | Group-Object -Property GroupingRef  | Where-Object {$_.Count -gt 1} 
-#| Select-Object -ExpandProperty Group
-
-$Groups | Export-CSV $OutPutGroup -Force -NoTypeInformation
-
-$arraylist = New-Object System.Collections.ArrayList
-$index= 1;
-
-function UpdateItems($items){
-$Stoploop = $false
-
-[int]$Retrycount = "0"
+function UpdateMatchType($MatchTypeColumn,$list){
 do {
 try {
-#itemId,$parentId,$list
-#Update item
-  $batch = New-PnPBatch
-$items | foreach-object {
-Set-PnPListItem -List $_.list -Identity $_.id -Values @{ParentId = $_.parentId;} -UpdateType SystemUpdate -Batch $batch
+$batch = New-PnPBatch
+$index = 1; 
+$itemId = 0; 
+$listItems = Get-PnPListItem -List $list  -PageSize 500 | Where {$_.FieldValues.$MatchTypeColumn -ne $null }
 
-}
-Write-Host "Updating $index"
+ 
+
+$totalCount =  $listItems.Count
+
+ 
+
+$listItems| ForEach-Object {
+    $itemId = $_.Id
+   Set-PnPListItem -List $list -Identity $_.Id -Values @{$MatchTypeColumn = $null;} -UpdateType SystemUpdate -Batch $batch
+
+ 
+
+if($index % 100 -eq 0 -or $index -eq $listItems.Count){
+  write-host "Updating batch starting $index out of $totalCount on library $list"
   Invoke-PnPBatch $batch
+  $batch = New-PnPBatch
+}
+  $index+=1;
+}
+
+ 
+
+ 
+
+Write-Host "Job completed"
 $Stoploop = $true
+
+ 
 
 }
 catch {
 if ($Retrycount -gt 3){
-Write-Host "Could not send Information after 3 retrys."
+Write-Host "Could not send Information after 3 retrys.$itemId after number of item  processed $index"
 $Stoploop = $true
 }
 else {
-  Write-Host "Could not send Information retrying in 30 seconds..."
+  Write-Host "Could not send Information retrying in 30 seconds...{$itemId} after number of item  processed {$index}"
   Start-Sleep -Seconds 30
   Connect-PnPOnline –Url $siteUrl -interactive
   $Retrycount = $Retrycount + 1
@@ -85,45 +72,21 @@ else {
 }
 }
 While ($Stoploop -eq $false)
-}
 
-ForEach($Group in $Groups) 
-{
-   $ParenId = ($Group.Group | Select-Object -first 1).ID 
-   $log = New-Object PSObject -Property @{
-       GroupingRef  = ($Group.Group | Select-Object -first 1).GroupingRef
-       CountOfRecordsUpdated  =  $Group.Count - 1 
-       StartTime = (Get-Date).toString("dd-MM-yyyy HH:mm:ss")
+ 
 
-     }
-    $Group.Group | Select-Object -Skip 1 | ForEach-Object {
-    ##logic to update rest of records albeit the first on
-    #Write-Host $("Set Parent Id to " + $ParenId + " for item id " + $_.ID)
-    ##send in batches of 100 to update
-    $itemtoUpdate = "" | Select-Object id, parentId,list
-     $itemtoUpdate.id = $_.ID
-     $itemtoUpdate.parentId = $ParenId
-     $itemtoUpdate.list = $list
-    $arraylist.Add($itemtoUpdate) | Out-Null 
-
-    if($index % 100 -eq 0 ){
-     UpdateItems $arraylist
-     $arraylist = New-Object System.Collections.ArrayList
-     }
-     $index+=1
-
-    }  
-    $log | Add-Member -MemberType NoteProperty -name "EndTime" -value (Get-Date).toString("dd-MM-yyyy HH:mm:ss")
-    $UpdateLog += $log
-}
-#in case there are remaining items to update 
-if($index % 100 -ne 0){
-  UpdateItems $arraylist
+write-host $("End time " + (Get-Date) + " Updating column: " +  $MatchTypeColumn + "from list " + $listName )
 }
 
  
 
-$UpdateLog | Export-CSV $OutPutView -Force -NoTypeInformation
+ 
+
+UpdateMatchType "PaymentMatchType" "Remittances" 
+UpdateMatchType "UPMMatchType" "Remittances"
+UpdateMatchType "MatchType" "Payments"
+UpdateMatchType "MatchType" "Recoveries"
+UpdateMatchType "MatchType" "UPM"
 ```
 
 ## Embed individual instagram post 
