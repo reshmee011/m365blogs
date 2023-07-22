@@ -2,7 +2,7 @@
 title: "Teams Add-in Not Showing Within Outlook"
 date: 2023-07-20T14:49:19+01:00
 tags: ["Outlook", "Teams","Add-in"]
-draft: false
+draft: true
 ---
 
 # Teams Add-in Not Showing Within Outlook

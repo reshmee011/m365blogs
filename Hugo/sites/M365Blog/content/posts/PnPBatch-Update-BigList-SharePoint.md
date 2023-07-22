@@ -2,7 +2,7 @@
 title: "PnP Batch updating a large list"
 date: 2023-07-20T14:49:19+01:00
 tags: ["PnPBatch", "list","SharePoint", "Update"]
-draft: false
+draft: true
 ---
 
 # PnP Batch updating a large list of around 60 k

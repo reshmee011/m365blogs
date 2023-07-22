@@ -2,7 +2,7 @@
 title: "Doughnut chart in Microsoft List"
 date: 2023-07-20T14:49:19+01:00
 tags: ["Microsoft", "List","Doughnut Chart"]
-draft: false
+draft: true
 ---
 
 # Doughnut chart in Microsoft List
