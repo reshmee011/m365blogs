@@ -60,7 +60,7 @@ To extend it to 9 slices, I followed these steps
 
     This JSON object represents a div element with some conditional styling based on SharePoint column values and two children elements - a circular div element and a span element with dynamic text content. The layout is designed to be responsive with certain elements hidden or shown based on specific conditions.
    2.2 Amend the JSON to allow inline editing of the labels and values only by the author
-   
+
     ```Json
     {
       "elmType": "div",
@@ -165,38 +165,40 @@ To extend it to 9 slices, I followed these steps
     }
     ```
 
- The Json renders four child elements within a div element
-    a. Circular Color Indicator:
-    This child div represents a circular color indicator.
-    It allows inline editing for the [$COLOR8] column value.
-    The background color depends on the [$COLOR8] value and will be "LightGrey" if empty.
-    It has a cursor that changes to a pointer if the current user is the author.
-    Hovering over it displays a tooltip with the option to change the color.
+     The Json renders four child elements within a div element
 
-    b. Label Title:
+      a. Circular Color Indicator:
     
-    This child div displays a label title for the item.
-    It allows inline editing for the [$LABEL8] column value.
-    The content is dynamically generated based on the [$LABEL8] value.
-    If [$LABEL8] is empty, the content will be "Write a label title."
-    The font size, weight, and color change based on conditions.
-    The div has ellipsis for long text, and a tooltip displays the [$LABEL8] value on hover.
+      This child div represents a circular color indicator.
+      It allows inline editing for the [$COLOR8] column value.
+      The background color depends on the [$COLOR8] value and will be "LightGrey" if empty.
+      It has a cursor that changes to a pointer if the current user is the author.
+      Hovering over it displays a tooltip with the option to change the color.
     
-    c. Value Display:
+      b. Label Title:
+       
+      This child div displays a label title for the item.
+      It allows inline editing for the [$LABEL8] column value.
+      The content is dynamically generated based on the [$LABEL8] value.
+      If [$LABEL8] is empty, the content will be "Write a label title."
+      The font size, weight, and color change based on conditions.
+      The div has ellipsis for long text, and a tooltip displays the [$LABEL8] value on hover.
+      
+      c. Value Display:
+        
+      This child div displays the value of the item.
+      It allows inline editing for the [$VALUE8] column value.
+      The content is dynamically generated based on the [$VALUE8.displayValue] value.
+      The font size, weight, and color are fixed.
+      The div has ellipsis for long text, and a tooltip displays the [$VALUE8.displayValue] value on hover.
+      
+      d. Delete Action (Visible to Author):
+        
+      This child div is a delete action that only appears to the author.
+      It triggers a custom row action to set VALUE6 to "0" and clear LABEL6.
+      It has a fixed width and height and shows a cursor pointer on hover.
+      It displays an icon ("Clear") and has a tooltip indicating "Delete data."
     
-    This child div displays the value of the item.
-    It allows inline editing for the [$VALUE8] column value.
-    The content is dynamically generated based on the [$VALUE8.displayValue] value.
-    The font size, weight, and color are fixed.
-    The div has ellipsis for long text, and a tooltip displays the [$VALUE8.displayValue] value on hover.
-    
-    d. Delete Action (Visible to Author):
-    
-    This child div is a delete action that only appears to the author.
-    It triggers a custom row action to set VALUE6 to "0" and clear LABEL6.
-    It has a fixed width and height and shows a cursor pointer on hover.
-    It displays an icon ("Clear") and has a tooltip indicating "Delete data."
-
     2.3 Amend the SVG to allow for 3 more slices, it proved a bit a little bit more challenging for someone who did not understand SVG and through trial and iteration , managed to resolve.     
 
   ```json
