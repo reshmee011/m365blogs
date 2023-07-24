@@ -85,8 +85,13 @@ While the process may take some time to show results, regularly monitoring your 
 
 ![URL Allowed](../images/netlifySiteCrawable/URLAllowed.png)
 
-Patience is key, as it may take a few days for search engines to fully crawl and index your site.
+After few days of issue 'Indexed, Though Blocked by robots.txt' fixed, the pages were not indexed with "Discovered – currently not indexed" and "Page with redirect" as reasons not being indexed from https://search.google.com/search-console. 
 
+![Pages Not Indexed](../images/netlifySiteCrawable/PageRedirectNoIndexedIssues.png)
+
+I could not find any solutions to the two messages above and hoping by posting my articles on social media might force Google to index my site.
+
+Patience is key, as it may take a few days for search engines to fully crawl and index your site.
 ## Conclusion
 
 Ensuring that your Netlify site is crawlable by search engines is vital for its visibility and discoverability on the internet. By following the steps outlined in this guide, you can overcome potential obstacles and improve your site's indexing and ranking. 
