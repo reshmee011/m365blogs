@@ -389,150 +389,12 @@
                   ]
                 },
                 {
-                  "elmType": "svg",
-                  "style": {
-                    "fill": "=if([$COLOR1] =='', 'LightGrey', [$COLOR1])",
-                    "display": "=if([$VALUE1]=='', 'none', '')",
-                    "position": "absolute",
-                    "z-index": "6",
-                    "top": "0",
-                    "right": "0",
-                    "stroke": "white"
-                  },
-                  "attributes": {
-                    "viewBox": "0 0 600 600"
-                  },
-                  "children": [
-                    {
-                      "elmType": "path",
-                      "attributes": {
-                        "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if([$VALUE1]/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if([$VALUE1]/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 1 , 1 , [$VALUE1]/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9])) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if([$VALUE1]/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 1 , 1 , [$VALUE1]/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9])) * (3.14159 / 180))) + 'L300,300' + 'Z'"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "elmType": "svg",
-                  "style": {
-                    "fill": "=if([$COLOR2] =='', 'LightGrey', [$COLOR2])",
-                    "display": "=if([$VALUE2]=='', 'none', '')",
-                    "position": "absolute",
-                    "z-index": "5",
-                    "top": "0",
-                    "right": "0",
-                    "stroke": "white"
-                  },
-                  "attributes": {
-                    "viewBox": "0 0 600 600"
-                  },
-                  "children": [
-                    {
-                      "elmType": "path",
-                      "attributes": {
-                        "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7])) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "elmType": "svg",
-                  "style": {
-                    "fill": "=if([$COLOR3] =='', 'LightGrey', [$COLOR3])",
-                    "display": "=if([$VALUE3]=='', 'none', '')",
-                    "position": "absolute",
-                    "z-index": "4",
-                    "top": "0",
-                    "right": "0",
-                    "stroke": "white"
-                  },
-                  "attributes": {
-                    "viewBox": "0 0 600 600"
-                  },
-                  "children": [
-                    {
-                      "elmType": "path",
-                      "attributes": {
-                        "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "elmType": "svg",
-                  "style": {
-                    "fill": "=if([$COLOR4] =='', 'LightGrey', [$COLOR4])",
-                    "display": "=if([$VALUE4]=='', 'none', '')",
-                    "position": "absolute",
-                    "z-index": "3",
-                    "top": "0",
-                    "right": "0",
-                    "stroke": "white"
-                  },
-                  "attributes": {
-                    "viewBox": "0 0 600 600"
-                  },
-                  "children": [
-                    {
-                      "elmType": "path",
-                      "attributes": {
-                        "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VAL[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "elmType": "svg",
-                  "style": {
-                    "fill": "=if([$COLOR5] =='', 'LightGrey', [$COLOR5])",
-                    "display": "=if([$VALUE5]=='', 'none', '')",
-                    "position": "absolute",
-                    "z-index": "2",
-                    "top": "0",
-                    "right": "0",
-                    "stroke": "white"
-                  },
-                  "attributes": {
-                    "viewBox": "0 0 600 600"
-                  },
-                  "children": [
-                    {
-                      "elmType": "path",
-                      "attributes": {
-                        "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "elmType": "svg",
-                  "style": {
-                    "fill": "=if([$COLOR6] =='', 'LightGrey', [$COLOR6])",
-                    "display": "=if([$VALUE6]=='', 'none', '')",
-                    "position": "absolute",
-                    "z-index": "1",
-                    "top": "0",
-                    "right": "0",
-                    "stroke": "white"
-                  },
-                  "attributes": {
-                    "viewBox": "0 0 600 600"
-                  },
-                  "children": [
-                    {
-                      "elmType": "path",
-                      "attributes": {
-                        "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
-                      }
-                    }
-                  ]
-                },
-                {
                     "elmType": "svg",
                     "style": {
-                      "fill": "=if([$COLOR7] =='', 'LightGrey', [$COLOR7])",
-                      "display": "=if([$VALUE7]=='', 'none', '')",
+                      "fill": "=if([$COLOR3] =='', 'LightGrey', [$COLOR3])",
+                      "display": "=if([$VALUE3]=='', 'none', '')",
                       "position": "absolute",
-                      "z-index": "1",
+                      "z-index": "7",
                       "top": "0",
                       "right": "0",
                       "stroke": "white"
@@ -544,7 +406,7 @@
                       {
                         "elmType": "path",
                         "attributes": {
-                          "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
+                          "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
                         }
                       }
                     ]
@@ -552,10 +414,10 @@
                   {
                     "elmType": "svg",
                     "style": {
-                      "fill": "=if([$COLOR8] =='', 'LightGrey', [$COLOR8])",
-                      "display": "=if([$VALUE8]=='', 'none', '')",
+                      "fill": "=if([$COLOR1] =='', 'LightGrey', [$COLOR1])",
+                      "display": "=if([$VALUE1]=='', 'none', '')",
                       "position": "absolute",
-                      "z-index": "1",
+                      "z-index": "9",
                       "top": "0",
                       "right": "0",
                       "stroke": "white"
@@ -567,7 +429,7 @@
                       {
                         "elmType": "path",
                         "attributes": {
-                          "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
+                          "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
                         }
                       }
                     ]
@@ -575,10 +437,10 @@
                   {
                     "elmType": "svg",
                     "style": {
-                      "fill": "=if([$COLOR9] =='', 'LightGrey', [$COLOR9])",
-                      "display": "=if([$VALUE9]=='', 'none', '')",
+                      "fill": "=if([$COLOR2] =='', 'LightGrey', [$COLOR2])",
+                      "display": "=if([$VALUE2]=='', 'none', '')",
                       "position": "absolute",
-                      "z-index": "1",
+                      "z-index": "8",
                       "top": "0",
                       "right": "0",
                       "stroke": "white"
@@ -590,16 +452,154 @@
                       {
                         "elmType": "path",
                         "attributes": {
-                          "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE9]+[$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE9]+[$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE9]+[$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE9]+[$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE9]+[$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
+                          "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
+                        }
+                      }
+                    ]
+                },
+                  {
+                    "elmType": "svg",
+                    "style": {
+                      "fill": "=if([$COLOR4] =='', 'LightGrey', [$COLOR4])",
+                      "display": "=if([$VALUE4]=='', 'none', '')",
+                      "position": "absolute",
+                      "z-index": "6",
+                      "top": "0",
+                      "right": "0",
+                      "stroke": "white"
+                    },
+                    "attributes": {
+                      "viewBox": "0 0 600 600"
+                    },
+                    "children": [
+                      {
+                        "elmType": "path",
+                        "attributes": {
+                          "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
                         }
                       }
                     ]
                   },
+                  {
+                    "elmType": "svg",
+                    "style": {
+                      "fill": "=if([$COLOR5] =='', 'LightGrey', [$COLOR5])",
+                      "display": "=if([$VALUE5]=='', 'none', '')",
+                      "position": "absolute",
+                      "z-index": "5",
+                      "top": "0",
+                      "right": "0",
+                      "stroke": "white"
+                    },
+                    "attributes": {
+                      "viewBox": "0 0 600 600"
+                    },
+                    "children": [
+                      {
+                        "elmType": "path",
+                        "attributes": {
+                          "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "elmType": "svg",
+                    "style": {
+                      "fill": "=if([$COLOR6] =='', 'LightGrey', [$COLOR6])",
+                      "display": "=if([$VALUE6]=='', 'none', '')",
+                      "position": "absolute",
+                      "z-index": "4",
+                      "top": "0",
+                      "right": "0",
+                      "stroke": "white"
+                    },
+                    "attributes": {
+                      "viewBox": "0 0 600 600"
+                    },
+                    "children": [
+                      {
+                        "elmType": "path",
+                        "attributes": {
+                          "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                      "elmType": "svg",
+                      "style": {
+                        "fill": "=if([$COLOR7] =='', 'LightGrey', [$COLOR7])",
+                        "display": "=if([$VALUE7]=='', 'none', '')",
+                        "position": "absolute",
+                        "z-index": "3",
+                        "top": "0",
+                        "right": "0",
+                        "stroke": "white"
+                      },
+                      "attributes": {
+                        "viewBox": "0 0 600 600"
+                      },
+                      "children": [
+                        {
+                          "elmType": "path",
+                          "attributes": {
+                            "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "elmType": "svg",
+                      "style": {
+                        "fill": "=if([$COLOR8] =='', 'LightGrey', [$COLOR8])",
+                        "display": "=if([$VALUE8]=='', 'none', '')",
+                        "position": "absolute",
+                        "z-index": "2",
+                        "top": "0",
+                        "right": "0",
+                        "stroke": "white"
+                      },
+                      "attributes": {
+                        "viewBox": "0 0 600 600"
+                      },
+                      "children": [
+                        {
+                          "elmType": "path",
+                          "attributes": {
+                            "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "elmType": "svg",
+                      "style": {
+                        "fill": "=if([$COLOR9] =='', 'LightGrey', [$COLOR9])",
+                        "display": "=if([$VALUE9]=='', 'none', '')",
+                        "position": "absolute",
+                        "z-index": "1",
+                        "top": "0",
+                        "right": "0",
+                        "stroke": "white"
+                      },
+                      "attributes": {
+                        "viewBox": "0 0 600 600"
+                      },
+                      "children": [
+                        {
+                          "elmType": "path",
+                          "attributes": {
+                            "d": "= 'M300,0' + 'A300,300' + ' 0 ' + if(([$VALUE9]+[$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE7]+[$VALUE8]+[$VALUE9]) > 0.5 , '1,1 ' , '0,1 ') + (300 + 300 * sin(360 * if(([$VALUE9]+[$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE9]+[$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + ',' + (300 - 300 * cos(360 * if(([$VALUE9]+[$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) > 1 , 1 , ([$VALUE9]+[$VALUE8]+[$VALUE7]+[$VALUE6]+[$VALUE5]+[$VALUE4]+[$VALUE3]+[$VALUE2]+[$VALUE1])/([$VALUE1]+[$VALUE2]+[$VALUE3]+[$VALUE4]+[$VALUE5]+[$VALUE6]+[$VALUE9]+[$VALUE8]+[$VALUE7]) * (3.14159 / 180))) + 'L300,300' + 'Z'"
+                          }
+                        }
+                      ]
+                    },
                 {
                   "elmType": "div",
                   "style": {
                     "position": "absolute",
-                    "z-index": "7",
+                    "z-index": "10",
                     "width": "70%",
                     "height": "70%",
                     "display": "flex",
