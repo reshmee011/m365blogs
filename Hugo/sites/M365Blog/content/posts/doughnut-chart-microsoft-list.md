@@ -9,6 +9,10 @@ draft: false
 
 The doughnut chart is a powerful visualization tool that allows users to represent data in segments and track progress against targets. Frederico Sapia's [Doughnut Chart with percentage and values displayed](https://github.com/pnp/List-Formatting/blob/master/view-samples/custom-charts/Doughnut-Chart-PV.json) is a valuable custom chart for Microsoft Lists, enabling users to visualize data effectively. However, the original chart allowed for only six slices, limiting its flexibility. In this blog post, we explore how to extend the doughnut chart to support up to nine slices, and we'll also demonstrate how to display the percentage of each segment within the chart. A potential use scenerio is showing progress of how many have filled a company wide survey against what's remaining. 
 
+The final doughnut chart with 10 slices
+
+![Doughnut PV gif](../images/doughnut-chart/DoughnutChart.gif)
+
 ## Steps to extend the doughnut chart
 
 To extend it to 9 slices, I followed these steps
@@ -230,11 +234,6 @@ The path data is constructed using expressions that calculate the coordinates fo
 The A command represents an elliptical arc. The arc's parameters are calculated based on various values from different columns ($VALUE1, $VALUE2, ..., $VALUE9) to form the pie chart.
 The L command is used to draw a line from the last point back to the center of the circle at 'L300,300'.
 The Z command closes the path, connecting the last point to the starting point, completing the circle.
-
-The final doughnut chart with 10 slices
-
-![Doughnut PV gif]](../images/doughnut-chart/DoughnutChart.gif)
-
 
 The amended JSON to cater for 10 slices
 
