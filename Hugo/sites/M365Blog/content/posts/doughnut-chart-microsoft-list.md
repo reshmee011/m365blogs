@@ -1,5 +1,5 @@
 ---
-title: "Expanding Doughnut Chart in Microsoft Lists: Visualize Data in Segments and Track Progress with Customization"
+title: "Expanding Doughnut Chart in Microsoft Lists: Visualize Data in Segments and Track Progress"
 date: 2023-07-23T14:49:19+01:00
 tags: ["Microsoft", "List","Doughnut Chart"]
 draft: false
@@ -8,6 +8,8 @@ draft: false
 # Expanding Doughnut Chart in Microsoft Lists: Visualize Data in Segments and Track Progress
 
 The doughnut chart is a powerful visualization tool that allows users to represent data in segments and track progress against targets. Frederico Sapia's [Doughnut Chart with percentage and values displayed](https://github.com/pnp/List-Formatting/blob/master/view-samples/custom-charts/Doughnut-Chart-PV.json) is a valuable custom chart for Microsoft Lists, enabling users to visualize data effectively. However, the original chart allowed for only six slices, limiting its flexibility. In this blog post, we explore how to extend the doughnut chart to support up to nine slices, and we'll also demonstrate how to display the percentage of each segment within the chart. A potential use scenerio is showing progress of how many have filled a company wide survey against what's remaining. 
+
+## Steps to extend the doughnut chart
 
 To extend it to 9 slices, I followed these steps
 
@@ -50,126 +52,123 @@ To extend it to 9 slices, I followed these steps
         }
       ]
     }
-  
+    ```
+
     This JSON object represents a div element with some conditional styling based on SharePoint column values and two children elements - a circular div element and a span element with dynamic text content. The layout is designed to be responsive with certain elements hidden or shown based on specific conditions.
-    
-  ```
-  
-    2.2 Amend the JSON to allow inline editing of the labels and values only by the author
-    
+   2.2 Amend the JSON to allow inline editing of the labels and values only by the author
+   
     ```Json
-      {
-        "elmType": "div",
-        "style": {
-          "display": "=if([$VALUE8.displayValue]=='0' || [$VALUE8.displayValue]=='0,0' || [$VALUE8.displayValue]=='0,00' || [$VALUE8.displayValue]=='0,000' || [$VALUE8.displayValue]=='0,0000' || [$VALUE8.displayValue]=='0,00000', 'none', 'flex')",
-          "justify-content": "flex-start",
-          "align-items": "center",
-          "margin-bottom": "4px",
-          "max-width": "485px"
-        },
-        "children": [
-          {
-            "elmType": "div",
-            "inlineEditField": "[$COLOR8]",
-            "style": {
-              "box-sizing": "border-box",
-              "height": "20px",
-              "width": "20px",
-              "border-radius": "50%",
-              "background-color": "=if([$COLOR8] =='', 'LightGrey', [$COLOR8])",
-              "margin-right": "8px",
-              "cursor": "=if([$Author.email] == @me, 'pointer', '')"
-            },
-            "attributes": {
-              "title": "=if([$Author.email] == @me, 'Change color - HTML names or HEX allowed', '')"
-            }
+    {
+      "elmType": "div",
+      "style": {
+        "display": "=if([$VALUE8.displayValue]=='0' || [$VALUE8.displayValue]=='0,0' || [$VALUE8.displayValue]=='0,00' || [$VALUE8.displayValue]=='0,000' || [$VALUE8.displayValue]=='0,0000' || [$VALUE8.displayValue]=='0,00000', 'none', 'flex')",
+        "justify-content": "flex-start",
+        "align-items": "center",
+        "margin-bottom": "4px",
+        "max-width": "485px"
+      },
+      "children": [
+        {
+          "elmType": "div",
+          "inlineEditField": "[$COLOR8]",
+          "style": {
+            "box-sizing": "border-box",
+            "height": "20px",
+            "width": "20px",
+            "border-radius": "50%",
+            "background-color": "=if([$COLOR8] =='', 'LightGrey', [$COLOR8])",
+            "margin-right": "8px",
+            "cursor": "=if([$Author.email] == @me, 'pointer', '')"
           },
-          {
-            "elmType": "div",
-            "inlineEditField": "[$LABEL8]",
-            "style": {
-              "height": "40px",
-              "box-sizing": "border-box",
-              "display": "block",
-              "padding-top": "8px",
-              "max-width": "=if([$Author.email] == @me,'300px', '315px')",
-              "margin-right": "8px",
-              "font-size": "18px",
-              "font-weight": "600",
-              "color": "=if([$LABEL8] =='', '#bdbfbe', 'Grey')",
-              "cursor": "=if([$Author.email] == @me, 'pointer', '')",
-              "overflow": "hidden",
-              "white-space": "nowrap",
-              "text-overflow": "ellipsis"
-            },
-            "txtContent": "=if([$LABEL8] =='', 'Write a label title', [$LABEL8])",
-            "attributes": {
-              "title": "[$LABEL8]"
-            }
-          },
-          {
-            "elmType": "div",
-            "inlineEditField": "[$VALUE8]",
-            "style": {
-              "height": "40px",
-              "min-width": "20px",
-              "max-width": "=if([$Author.email] == @me, '115px', '125px')",
-              "box-sizing": "border-box",
-              "display": "block",
-              "text-align": "right",
-              "white-space": "nowrap",
-              "text-overflow": "ellipsis",
-              "overflow": "hidden",
-              "margin-right": "8px",
-              "padding-top": "9px",
-              "font-size": "17px",
-              "font-weight": "bold",
-              "color": "Black",
-              "cursor": "=if([$Author.email] == @me, 'pointer', '')"
-            },
-            "attributes": {
-              "title": "[$VALUE8.displayValue]"
-            },
-            "txtContent": "[$VALUE8.displayValue]"
-          },
-          {
-            "elmType": "div",
-            "customRowAction": {
-              "action": "setValue",
-              "actionInput": {
-                "VALUE6": "0",
-                "LABEL6": ""
-              }
-            },
-            "style": {
-              "height": "40px",
-              "width": "26px",
-              "box-sizing": "border-box",
-              "display": "=if([$Author.email] == @me, 'block', 'none')",
-              "text-align": "center",
-              "padding-top": "13px",
-              "font-size": "15px",
-              "cursor": "pointer"
-            },
-            "attributes": {
-              "class": "sp-css-color-GrayText ms-bgColor-severeWarning--hover ms-fontColor-black--hover",
-              "iconName": "Clear",
-              "title": "Delete data"
-            }
+          "attributes": {
+            "title": "=if([$Author.email] == @me, 'Change color - HTML names or HEX allowed', '')"
           }
-        ]
-      }
+        },
+        {
+          "elmType": "div",
+          "inlineEditField": "[$LABEL8]",
+          "style": {
+            "height": "40px",
+            "box-sizing": "border-box",
+            "display": "block",
+            "padding-top": "8px",
+            "max-width": "=if([$Author.email] == @me,'300px', '315px')",
+            "margin-right": "8px",
+            "font-size": "18px",
+            "font-weight": "600",
+            "color": "=if([$LABEL8] =='', '#bdbfbe', 'Grey')",
+            "cursor": "=if([$Author.email] == @me, 'pointer', '')",
+            "overflow": "hidden",
+            "white-space": "nowrap",
+            "text-overflow": "ellipsis"
+          },
+          "txtContent": "=if([$LABEL8] =='', 'Write a label title', [$LABEL8])",
+          "attributes": {
+            "title": "[$LABEL8]"
+          }
+        },
+        {
+          "elmType": "div",
+          "inlineEditField": "[$VALUE8]",
+          "style": {
+            "height": "40px",
+            "min-width": "20px",
+            "max-width": "=if([$Author.email] == @me, '115px', '125px')",
+            "box-sizing": "border-box",
+            "display": "block",
+            "text-align": "right",
+            "white-space": "nowrap",
+            "text-overflow": "ellipsis",
+            "overflow": "hidden",
+            "margin-right": "8px",
+            "padding-top": "9px",
+            "font-size": "17px",
+            "font-weight": "bold",
+            "color": "Black",
+            "cursor": "=if([$Author.email] == @me, 'pointer', '')"
+          },
+          "attributes": {
+            "title": "[$VALUE8.displayValue]"
+          },
+          "txtContent": "[$VALUE8.displayValue]"
+        },
+        {
+          "elmType": "div",
+          "customRowAction": {
+            "action": "setValue",
+            "actionInput": {
+              "VALUE6": "0",
+              "LABEL6": ""
+            }
+          },
+          "style": {
+            "height": "40px",
+            "width": "26px",
+            "box-sizing": "border-box",
+            "display": "=if([$Author.email] == @me, 'block', 'none')",
+            "text-align": "center",
+            "padding-top": "13px",
+            "font-size": "15px",
+            "cursor": "pointer"
+          },
+          "attributes": {
+            "class": "sp-css-color-GrayText ms-bgColor-severeWarning--hover ms-fontColor-black--hover",
+            "iconName": "Clear",
+            "title": "Delete data"
+          }
+        }
+      ]
+    }
     ```
 
  The Json renders four child elements within a div element
     a. Circular Color Indicator:
-    
     This child div represents a circular color indicator.
     It allows inline editing for the [$COLOR8] column value.
     The background color depends on the [$COLOR8] value and will be "LightGrey" if empty.
     It has a cursor that changes to a pointer if the current user is the author.
     Hovering over it displays a tooltip with the option to change the color.
-    
+
     b. Label Title:
     
     This child div displays a label title for the item.
@@ -196,8 +195,8 @@ To extend it to 9 slices, I followed these steps
 
     2.3 Amend the SVG to allow for 3 more slices, it proved a bit a little bit more challenging for someone who did not understand SVG and through trial and iteration , managed to resolve.     
 
-    ```JSON
-    {
+  ```json
+  {
     "elmType": "svg",
     "style": {
       "fill": "=if([$COLOR8] =='', 'LightGrey', [$COLOR8])",
