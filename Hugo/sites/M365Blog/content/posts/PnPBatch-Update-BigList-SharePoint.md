@@ -23,6 +23,7 @@ Connect-PnPOnline –Url $siteUrl -interactive
 function UpdateType($TypeColumn,$list){
 do {
 try {
+$StopLoop = $false
 $batch = New-PnPBatch
 $index = 1; 
 $itemId = 0; 
