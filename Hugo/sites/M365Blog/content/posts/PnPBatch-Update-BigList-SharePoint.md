@@ -1,11 +1,11 @@
 ---
-title: "Optimizing Large List Updates with PnP Batch: Handling Throttling and Enhancing Efficiency"
+title: "Optimising Large List Updates with PnP Batch: Handling Throttling and Enhancing Efficiency"
 date: 2023-07-25T14:49:19+01:00
 tags: ["PnPBatch", "list","SharePoint", "SystemUpdate"]
 draft: false
 ---
 
-# Optimizing Large List Updates with PnP Batch: Handling Throttling and Enhancing Efficiency
+# Optimising Large List Updates with PnP Batch: Handling Throttling and Enhancing Efficiency
 
 In this article, we explore how to efficiently update a large SharePoint list containing approximately 60,000 items using **PnP-Batch**. Updating such a substantial number of items individually can be time-consuming and prone to throttling issues. Prior to using PnP Batch , it was taking more than 12 hours to update 60k one by one. The article highlights the benefits of using PnP Batch, which significantly reduces the time taken for updates by sending fewer requests. However, it also addresses the throttling challenge and demonstrates the importance of implementing exception handling and retry mechanisms to ensure a smooth update process. The article provides insights into handling throttling and showcases the impact on performance, ultimately improving the update process for large SharePoint lists.
 
