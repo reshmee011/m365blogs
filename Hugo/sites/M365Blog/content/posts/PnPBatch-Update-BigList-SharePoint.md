@@ -1,8 +1,8 @@
 ---
 title: "Optimizing Large List Updates with PnP Batch: Handling Throttling and Enhancing Efficiency"
-date: 2023-07-20T14:49:19+01:00
+date: 2023-07-25T14:49:19+01:00
 tags: ["PnPBatch", "list","SharePoint", "SystemUpdate"]
-draft: true
+draft: false
 ---
 
 # Optimizing Large List Updates with PnP Batch: Handling Throttling and Enhancing Efficiency
@@ -76,7 +76,6 @@ The loop continues until all list items have been processed.
 
 If an error occurs during the update process, the function catches the exception, and if the $Retrycount is greater than 3 (meaning it has retried more than three times), it stops the loop. Otherwise, it writes an error message to the console, waits for 30 seconds, and then tries to connect to the SharePoint site again before incrementing the $Retrycount and trying the update process again.
 
-Once the loop is complete, the function prints a message indicating that the job is completed.
+![Script Update](../images/PnPBatch-Update-BigList-SharePoint/ScriptUpdate.png)
 
-It's worth noting that this script seems to be designed to handle errors gracefully and ensure that all items in the list are processed, even if there are temporary connection issues with SharePoint. 
-
+This script seems to be designed to handle errors gracefully and ensure that all items in the list are processed, even if there are temporary connection issues with SharePoint. 
