@@ -76,6 +76,6 @@ The loop continues until all list items have been processed.
 
 If an error occurs during the update process, the function catches the exception, and if the $Retrycount is greater than 3 (meaning it has retried more than three times), it stops the loop. Otherwise, it writes an error message to the console, waits for 30 seconds, and then tries to connect to the SharePoint site again before incrementing the $Retrycount and trying the update process again.
 
-![Script Update](../images/PnPBatch-Update-BigList-SharePoint/ScriptUpdate.png)
+![Script Update](../images/PnPBatch-Update-BigList-SharePoint/ThrottlingIssue.png)
 
-This script seems to be designed to handle errors gracefully and ensure that all items in the list are processed, even if there are temporary connection issues with SharePoint. 
+This script seems to be designed to handle errors gracefully and ensure that all items in the list are processed, even if there are temporary connection issues with SharePoint. In the above screenshot the script attempted retry at random interval 1880 to 3422 and the update rate was around 10k items per hour. T
