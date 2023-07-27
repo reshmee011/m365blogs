@@ -11,7 +11,7 @@ There are numerous posts to describe how to convert Wordpress to Hugo. I followe
 
 ## Review Content Issues
 
-After migrating your content from WordPress to Hugo, check for any potential issues with imported content. Special characters in tags, like "C#," might cause problems during the site build process. Review the generated posts and fix any such issues.
+After migrating your content from WordPress to Hugo, check for any potential issues with imported content. Special characters in tags, like "C#," might cause problems during the site build process. Refer to [Fix Invalid Filename Deployment Error in Hugo](https://www.byteinthesky.com/tutorials/how-to-fix-invalid-filename-deploy-error-in-hugo/) for more info on tags containing # or ? characters. Review the generated posts and fix any such issues.
 
 ## Custom Domain 
 
