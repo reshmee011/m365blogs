@@ -2,6 +2,7 @@
 title: "Expanding Doughnut Chart in Microsoft Lists: Visualize Data in Segments and Track Progress"
 date: 2023-07-23T14:49:19+01:00
 tags: ["Microsoft", "List","Doughnut Chart"]
+featured_image: '/images/doughnut-chart/DoughnutChart.gif'
 draft: false
 ---
 

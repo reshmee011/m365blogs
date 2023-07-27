@@ -2,6 +2,7 @@
 title: "Optimising Large List Updates with PnP Batch: Handling Throttling and Enhancing Efficiency"
 date: 2023-07-25T14:49:19+01:00
 tags: ["PnPBatch", "list","SharePoint", "SystemUpdate"]
+featured_image: '/images/pnpbatch-update-biglist-sharepoint/ThrottlingIssue.png'
 draft: false
 ---
 
