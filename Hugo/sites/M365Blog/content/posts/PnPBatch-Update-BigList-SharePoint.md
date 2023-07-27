@@ -60,10 +60,10 @@ else {
 }
 While ($Stoploop -eq $false)
 
-write-host $("End time " + (Get-Date) + " Updating column: " +  $MatchTypeColumn + "from list " + $listName )
+write-host $("End time " + (Get-Date) + " Updating column: " +  $TypeColumn + "from list " + $listName )
 }
 
-UpdateMatchType "Type" "List1" 
+UpdateType "Type" "List1" 
 ```
 
 The script defines a function called UpdateType responsible for updating the "Type" column in the specified list. It contains a do-while loop that executes the main update logic until the $Stoploop variable becomes true. This loop is used for error handling and retrying the updates if something goes wrong. Inside the loop, the function sets up a batch using New-PnPBatch cmdlet. A batch is a way of grouping multiple operations into a single request to SharePoint, which can improve performance.
