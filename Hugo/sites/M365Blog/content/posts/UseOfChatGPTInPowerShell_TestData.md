@@ -11,6 +11,8 @@ draft: false
 Utilizing ChatGPT to generate test data for various applications is a powerful capability. After stumbling upon the sample script
 [Create test users using MS Graph API from list or ask ChatGPT to generate test users](https://pnp.github.io/script-samples/graph-create-test-users-with-chat-gpt/README.html?tabs=graphps) by [Valeras Narbutas](https://github.com/ValerasNarbutas) on creating test users with MS Graph API, I decided to explore using ChatGPT to generate a list of data. This script harnesses OpenAI's ChatGPT model to effortlessly generate a list of wellneing activities. My aim was to save this data into a SharePoint list, intending to use it as a datasource in a forthcoming application.
 
+![Wellbeing activities saved into SharePoint List](../images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png)
+
 Before integrating ChatGPT into PowerShell, you'll need an OpenAI API key. You can obtain one by visiting [OpenAI's API key page](https://platform.openai.com/account/api-keys) and creating a new secret key. Keep in mind that if you're using a free account, you might encounter a quota error ("You exceeded your current quota, please check your plan and billing details").
 
 ![Exceeded current quota](../images/UseOfChatGPTInPowerShell_TestData/ExceededYourCurrentQuota.png)
@@ -129,5 +131,3 @@ Update the values of the following variables before use
 
 **openai_api_key**: Contains the OpenAI API key. You should replace "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" with your actual API key.
 
-
-![Wellbeing activities saved into SharePoint List](../images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png)
