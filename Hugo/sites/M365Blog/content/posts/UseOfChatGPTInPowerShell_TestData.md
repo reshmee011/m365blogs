@@ -9,7 +9,7 @@ draft: false
 # Leveraging ChatGPT to Generate Test Data for SharePoint Lists Using PnP PowerShell
 
 Utilizing ChatGPT to generate test data for various applications is a powerful capability. After stumbling upon the sample script
-[Create test users using MS Graph API from list or ask ChatGPT to generate test users](https://pnp.github.io/script-samples/graph-create-test-users-with-chat-gpt/README.html?tabs=graphps) by [Valeras Narbutas](https://github.com/ValerasNarbutas) on creating test users with MS Graph API, I decided to explore using ChatGPT to generate a list of data. This script harnesses OpenAI's ChatGPT model to effortlessly generate a list of wellneing activities. My aim was to save this data into a SharePoint list, intending to use it as a datasource in a forthcoming application.
+[Create test users using MS Graph API from list or ask ChatGPT to generate test users](https://pnp.github.io/script-samples/graph-create-test-users-with-chat-gpt/README.html?tabs=graphps) by [Valeras Narbutas](https://github.com/ValerasNarbutas) on creating test users with MS Graph API, I decided to explore using ChatGPT to generate a list of data. This script harnesses OpenAI's ChatGPT model to effortlessly generate a list of wellbeing activities. My aim was to save this data into a SharePoint list, intending to use it as a datasource in a forthcoming application.
 
 ![Wellbeing activities saved into SharePoint List](../images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png)
 
