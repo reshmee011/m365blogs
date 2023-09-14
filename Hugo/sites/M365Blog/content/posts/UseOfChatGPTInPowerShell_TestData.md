@@ -2,7 +2,7 @@
 title: "Leveraging ChatGPT to Generate Test Data for SharePoint Lists Using PnP PowerShell"
 date: 2023-09-14T07:03:40+01:00
 tags: ["PnPBatch", "list","SharePoint", "SystemUpdate"]
-featured_image: '/images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png'
+featured_image: '../images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png'
 draft: false
 ---
 
