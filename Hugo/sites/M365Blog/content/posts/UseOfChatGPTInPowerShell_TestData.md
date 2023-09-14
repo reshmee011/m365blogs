@@ -2,7 +2,7 @@
 title: "Leveraging ChatGPT to Generate Test Data for SharePoint Lists Using PnP PowerShell"
 date: 2023-09-14T07:03:40+01:00
 tags: ["PnPBatch", "list","SharePoint", "SystemUpdate"]
-featured_image: '/images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png'
+featured_image: '../images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png'
 draft: false
 ---
 
@@ -25,7 +25,7 @@ However, by making a slight modification to the prompt and requesting the data i
 
 "Create list of unique wellbeing activities in the CSV format with properties 'Title', 'Description','Category', 'Level' 'Duration' with delimiter '|'. Category can be multi valued, e.g.'Social, Exercise, Diet,Leisure, Mindfulness,Creativity, Personal Development'.Number or records to create: 100"
 
-![Data in CSV format](RequestDatainSCV.png)
+![Data in CSV format](../images/UseOfChatGPTInPowerShell_TestData/RequestDatainSCV.png)
 
 With a functional prompt in hand, I proceeded to create the script below using PnP PowerShell and a REST API call to ChatGPT in order to generate a list of wellbeing activities and store them in a SharePoint list.
 
@@ -127,4 +127,4 @@ Update the values of the following variables before use
 **openai_api_key**: Contains the OpenAI API key. You should replace "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" with your actual API key.
 
 
-[Wellbeing activities saved into SharePoint List](/images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png)
+[Wellbeing activities saved into SharePoint List](../images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png)
