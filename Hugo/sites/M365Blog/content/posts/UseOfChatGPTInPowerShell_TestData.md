@@ -2,7 +2,7 @@
 title: "Leveraging ChatGPT to Generate Test Data for SharePoint Lists Using PnP PowerShell"
 date: 2023-09-14T07:03:40+01:00
 tags: ["PnPBatch", "list","SharePoint", "SystemUpdate"]
-featured_image: '../images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png'
+featured_image: '/images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png'
 draft: false
 ---
 
@@ -31,6 +31,7 @@ With a functional prompt in hand, I proceeded to create the script below using P
 
 ## Prerequisites
 [PnP PowerShell](https://pnp.github.io/powershell/)
+
 [Open AI Key](https://platform.openai.com/account/api-keys)
 
 ```PowerShell
@@ -123,7 +124,9 @@ This script automates the process of generating wellbeing activities using the O
 Update the values of the following variables before use
 
 **siteUrl**: Specifies the URL of the SharePoint site where the list will be created.
+
 **numofData**: Indicates the number of unique wellbeing activities to be generated (set to 100).
+
 **openai_api_key**: Contains the OpenAI API key. You should replace "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" with your actual API key.
 
 
