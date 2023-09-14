@@ -2,7 +2,7 @@
 title: "Leveraging ChatGPT to Generate Test Data for SharePoint Lists Using PnP PowerShell"
 date: 2023-09-14T07:03:40+01:00
 tags: ["PnPBatch", "list","SharePoint", "SystemUpdate"]
-featured_image: '../images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png'
+featured_image: '/posts/images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png'
 draft: false
 ---
 
@@ -130,4 +130,4 @@ Update the values of the following variables before use
 **openai_api_key**: Contains the OpenAI API key. You should replace "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" with your actual API key.
 
 
-[Wellbeing activities saved into SharePoint List](../images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png)
+![Wellbeing activities saved into SharePoint List](../images/UseOfChatGPTInPowerShell_TestData/TestDataSuccessfullyGenerated.png)
