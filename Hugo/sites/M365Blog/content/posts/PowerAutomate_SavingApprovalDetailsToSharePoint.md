@@ -1,42 +1,36 @@
 ---
-title: "Saving approval details back to SharePoint library"
+title: "Updating Approval Details in SharePoint Library"
 date: 2023-09-14T07:17:21+01:00
 draft: true
 ---
 
-# Saving approval details back to SharePoint library 
+# Updating Approval Details in SharePoint Library
  
-There are two options that can be used to update File properties in Power Automate 
+In Power Automate, there are two methods for updating file properties:
 
-1. Send HTTP request to SharePoint
-2. Update file properties
+Send HTTP Request to SharePoint
+Update File Properties
+While the latter suffices for most cases, I opted for the "Send HTTP Request to SharePoint" in specific scenarios:
 
-The "Update file properties" might be enough in most circumtances, I have used the "Send HTTP request to SharePoint" under the following circumstances
+To avoid triggering a new file version upon update.
+When modifying system columns such as author or modified date.
+When updating an image column.
+Upon approval, I needed to update file properties with the approval outcome, comments, date, and approver without generating a new version. This necessitated the use of the "Send HTTP Request to SharePoint" action.
 
-- Not to trigger a new file version to be created upon update
-- Update some system columns e.g. author or modified date
-- Update image column
-
-I had the requirement upon approval to update file properties with the approval outcome, approval comments, approval date and approver without creating a new version and had to rely on the "Send HTTP request to SharePoint" action.
-
-After several iterations going through different options, the fields were updated
+After several iterations, the fields were successfully updated:
 
 ![Approval Step](../images/PowerAutomate_SavingApprovalDetailsToSharePoint/AllFieldsUpdatedCorrectly.png)
 
-In my scenerio, I am using the "First to respond" approval type.
+In my scenario, I employed the "First to Respond" approval type:
 
 ![Approval Step](../images/PowerAutomate_SavingApprovalDetailsToSharePoint/ApprovalStep.png)
 
-Capturing details from approval steps after the approval steps are complete
-
-
- 
-
+## Capturing Details from Completed Approval Steps
 ### Approver
 
-Initially I was using the syntax i:0#.f|membership|outputs('Get_user_profile_(V2)')?['body/mail']
+Initially, I used the syntax i:0#.f|membership|outputs('Get_user_profile_(V2)')?['body/mail'].
 
-The flow succeeded that the step did not throw any exception 
+The flow succeeded, but the step did not throw any exceptions:
 
 ![Person Field ](../images/PowerAutomate_SavingApprovalDetailsToSharePoint/WrongPersonFormat.png)
 
@@ -45,28 +39,32 @@ The flow succeeded that the step did not throw any exception
  
 ![Person Field ](../images/PowerAutomate_SavingApprovalDetailsToSharePoint/CorrectPersonFormat.png)
 
-Date
+### Date
 
+To format the date, I used the expression:
+
+```json
 formatDateTime(outputs('Start_and_wait_for_an_approval')?['body/completionDate'],'dd/MM/yyyy HH:mm')
+```
 
-Issues with Date: 
-Wrong format , for instance if the type of date column is "date only" providing 'dd/MM/yyyy HH:mm' as format will result in the following error
+However, there were issues with the date format. For instance, if the date column type is "date only," providing 'dd/MM/yyyy HH:mm' as the format will result in the following error:
 
 ![Approval Step](../images/PowerAutomate_SavingApprovalDetailsToSharePoint/WrongDateFormat_ApprovalDate.png)
- 
-After updating the column to date including time, using the date format still produced the exception despite the flow succeeded because the regional settings for the site was set to En-US instead of En-UK. After updating the regional settings of the site to en-uk going to "site settings>regional settings" : /_layouts/15/regionalsetng.aspx .
+
+ After updating the column to include time, using the date format still produced an exception. This was due to the regional settings for the site being set to En-US instead of En-UK. After rectifying this in the site settings under "Regional Settings" (/_layouts/15/regionalsetng.aspx), the issue was resolved:
 
 ![Regional Setting issue](../images/PowerAutomate_SavingApprovalDetailsToSharePoint/WrongDateFormat_ApprovalDate_Locale.png)
 
 
-Comments
+### Comments
 ![Comments Issue](../images/PowerAutomate_SavingApprovalDetailsToSharePoint/WrongDateFormat_ApprovalComments.png)
 
+I accessed the comments using the expression:
 outputs('Start_and_wait_for_an_approval')?['body/responses'][0]['comments']
 
-
+Or alternatively:
 outputs('Start_and_wait_for_an_approval')?['body/responses']?[0]?['comments']
 
-References
+### References
  (Working with the SharePoint Send HTTP Request flow action in Power Automate)[https://learn.microsoft.com/en-us/sharepoint/dev/business-apps/power-automate/guidance/working-with-send-sp-http-request]
 (SP.ListItem.validateUpdateListItem Method)[https://docs.microsoft.com/en-us/previous-versions/office/sharepoint-visio/jj246412%28v%3doffice.15%29?msclkid=4f151da6cd3e11ec9aec9a4c8ab167e0]
