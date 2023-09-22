@@ -94,6 +94,8 @@ outputs('Start_and_wait_for_an_approval')?['body/responses']?[0]?['comments']
 
 ### References
 
- (Working with the SharePoint Send HTTP Request flow action in Power Automate)[https://learn.microsoft.com/en-us/sharepoint/dev/business-apps/power-automate/guidance/working-with-send-sp-http-request]
-(SP.ListItem.validateUpdateListItem Method)[https://docs.microsoft.com/en-us/previous-versions/office/sharepoint-visio/jj246412%28v%3doffice.15%29?msclkid=4f151da6cd3e11ec9aec9a4c8ab167e0]
-(Parsing JSON in Power Apps)[https://www.youtube.com/watch?v=VRXM7UT3iwU] by the amazing (Cat Schneider)[https://twitter.com/YerAWizardCat]
+ [Working with the SharePoint Send HTTP Request flow action in Power Automate](https://learn.microsoft.com/en-us/sharepoint/dev/business-apps/power-automate/guidance/working-with-send-sp-http-request)
+
+[SP.ListItem.validateUpdateListItem Method](https://docs.microsoft.com/en-us/previous-versions/office/sharepoint-visio/jj246412%28v%3doffice.15%29?msclkid=4f151da6cd3e11ec9aec9a4c8ab167e0)
+
+[Parsing JSON in Power Apps](https://www.youtube.com/watch?v=VRXM7UT3iwU) by the amazing [Cat Schneider](https://twitter.com/YerAWizardCat)
