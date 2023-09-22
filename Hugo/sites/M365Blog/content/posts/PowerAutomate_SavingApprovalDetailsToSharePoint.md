@@ -35,14 +35,21 @@ After the approval is completed, the approval details are saved back to the Shar
 
 ### Approver
 
-Initially, I used the syntax i:0#.f|membership|outputs('Get_user_profile_(V2)')?['body/mail'].
+Initially, I used the syntax
 
-The flow succeeded, but the step did not throw any exceptions:
+```json
+i:0#.f|membership|outputs('Get_user_profile_(V2)')?['body/mail'].
+```
+
+The flow succeeded and the step did not throw any exceptions despite the approver field was not updated.
 
 ![Person Field ](../images/PowerAutomate_SavingApprovalDetailsToSharePoint/WrongPersonFormat.png)
 
-[{'Key': 'i:0#.f|membership|@{outputs('Get_user_profile_(V2)')?['body/mail']}'}]
+I found the accurate syntax for updating a person field by examining the network trace in the developer tools of the browser by simulating the update of a person field in SharePoint and capture the corresponding API call. The claims of the user need to be passed with a key property to update the person field.
 
+```json
+[{'Key': 'i:0#.f|membership|@{outputs('Get_user_profile_(V2)')?['body/mail']}'}]
+```
  
 ![Person Field ](../images/PowerAutomate_SavingApprovalDetailsToSharePoint/CorrectPersonFormat.png)
 
