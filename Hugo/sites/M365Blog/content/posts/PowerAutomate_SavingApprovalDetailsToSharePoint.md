@@ -55,7 +55,7 @@ I found the accurate syntax for updating a person field by examining the network
 
 ### Date
 
-THe date needs to be tweaked for the correct datetime string, otherwise you might encounter the following error message.
+The date needs to be tweaked for the correct datetime string, otherwise you might encounter the following error message.
 
 "You must specify a valid date within the range of 01/01/1900 and 31/12/8900."
 
