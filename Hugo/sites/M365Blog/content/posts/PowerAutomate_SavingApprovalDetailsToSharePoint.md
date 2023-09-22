@@ -1,12 +1,12 @@
 ---
-title: "Updating Approval Details in SharePoint Library"
+title: "Updating Approval Details in SharePoint Library using 'Send HTTP Request to SharePoint' in Power Automate"
 date: 2023-09-21T07:17:21+01:00
 tags: ["PowerAutomate", "Approval","SharePoint", "Send HTTP Request to SharePoint"]
 featured_image: '/posts/images/PowerAutomate_SavingApprovalDetailsToSharePoint/AllFieldsUpdatedCorrectly.png'
 draft: false
 ---
 
-# Updating Approval Details in SharePoint Library
+# Updating Approval Details in SharePoint Library using 'Send HTTP Request to SharePoint' in Power Automate
  
 In Power Automate, there are two methods for updating file properties:
 
