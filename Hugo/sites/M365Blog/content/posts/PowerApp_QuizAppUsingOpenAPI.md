@@ -26,6 +26,8 @@ Experiment with different prompts in the app to find the one that works best for
 
 ## Design the Power Apps
 
+Create a new Power Apps and follow the steps below
+
 ### Setting Up Controls
  
 1.  Add the OpenAIGPT (Independent Publisher connector). Please note that a premium license is required. 
@@ -67,6 +69,8 @@ ClearCollect(
 ```
 
 3. Add the following controls
+
+![OpenAI GPT](../images/PowerApp_QuizAppUsingOpenAPI/assets/Controls.png)
 
 - Text Inputs for prompt (txtPrompt) and topic (txtTopic)
 
