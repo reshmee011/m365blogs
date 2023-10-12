@@ -1,6 +1,6 @@
 ---
-title: "QuizAppUsingOpenAPI"
-date: 2023-09-20T06:50:11+01:00
+title: "Building a Quiz App with OpenAI GPT in PowerApps"
+date: 2023-10-12T06:50:11+01:00
 tags: ["PowerApps", "OpenAI GPT","ParseJson"]
 featured_image: '/posts/images/PowerApp_QuizAppUsingOpenAPI/Assets/QuizApp.png'
 draft: false
