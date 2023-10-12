@@ -67,8 +67,12 @@ ClearCollect(
 ```
 
 3. Add the following controls
-        - Text Inputs for prompt (txtPrompt) and topic (txtTopic) 
-        - Button to generate the quiz from OpenAI GPT (btnGenerate) 
+
+- Text Inputs for prompt (txtPrompt) and topic (txtTopic)
+
+- Button to generate the quiz from OpenAI GPT (btnGenerate)
+
+Set the OnSelect property to 
 
 ```JSON
 
@@ -110,18 +114,20 @@ ClearCollect(
 );
 ```
 
-Set visible property: If(lblSelQuestion.Text = "None" || varIndex >= 10, false, true)
+Set visible property to: If(lblSelQuestion.Text = "None" || varIndex >= 10, false, true)
 
-- Add a Label (lblSelQuestion) to display the question with 
-     Text:  Text(Index(colQuestions,varIndex).Value.question) 
+- Add a Label (lblSelQuestion) to display the question with
+     Text:  Text(Index(colQuestions,varIndex).Value.question)
      Visible property : If(lblSelQuestion.Text = "None", false, true)
 
 - Add a Gallery control with a label (galQuestionsAnswers) bound to table **colOptions** and 
-    Set Visible property of the gallery:  If(lblSelQuestion.Text = "None", false, true)
+
+ Set Visible property of the gallery to:  If(lblSelQuestion.Text = "None", false, true)
 
     ![Controls](../images/PowerApp_QuizAppUsingOpenAPI/assets/Controls.png)
 
 - Amend the properties of the label to 
+
      Text : Text(ThisItem.answer)
      OnSelect : Patch(colOptions, ThisItem, {selected: true})
      Fill : If(ThisItem.selected, If(ThisItem.correct, Color.GreenYellow, Color.PaleVioletRed), RGBA(0,0,0,0))
