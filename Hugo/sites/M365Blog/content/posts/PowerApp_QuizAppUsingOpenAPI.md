@@ -128,9 +128,7 @@ Set visible property to: If(lblSelQuestion.Text = "None" || varIndex >= 10, fals
 
  Set Visible property of the gallery to:  If(lblSelQuestion.Text = "None", false, true)
 
-    ![Controls](../images/PowerApp_QuizAppUsingOpenAPI/assets/Controls.png)
-
-- Amend the properties of the label to 
+- Amend the properties of the label within the gallery to 
 
      Text : Text(ThisItem.answer)
      OnSelect : Patch(colOptions, ThisItem, {selected: true})
