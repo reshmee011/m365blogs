@@ -28,10 +28,10 @@ Experiment with different prompts in the app to find the one that works best for
 
 ### Setting Up Controls
  
-    1.  Add the OpenAIGPT (Independent Publisher connector). Please note that a premium license is required. 
+1.  Add the OpenAIGPT (Independent Publisher connector). Please note that a premium license is required. 
     ![OpenAI GPT](../images/PowerApp_QuizAppUsingOpenAPI/assets/OpenAIGPTDataSource.png)
-    2. Add the following to the App OnStart to declare some variables that will be used in the app:
-    
+2. Add the following to the App OnStart to declare some variables that will be used in the app:
+
 ```JSON
     Set(varIndex, 1);
 Set(varPromt,"Generate a JSON dataset of 10 pub quiz questions on the topic specified below. Provide each question entry in proper JSON format with a 'question' field, an 'options' field consisting of an array of 4 possible answers. Additionally, ensure that each option includes an 'answer' field with the text of the option, a 'selected' field initialized to false indicating whether the option has been chosen, and a 'correct' field indicating whether the answer is correct."
@@ -64,11 +64,12 @@ ClearCollect(
         "correct",Value.Correct = true
     )
 );
-``` 
-    
-    3.  Add the following controls
+```
+
+3. Add the following controls
         - Text Inputs for prompt (txtPrompt) and topic (txtTopic) 
         - Button to generate the quiz from OpenAI GPT (btnGenerate) 
+
 ```JSON
 
 Set(varResponse, 'OpenAIGPT(IndependentPublisher)'.CompletionPost("text-davinci-003",{prompt:txtPrompt.Text & Char(10) & "Topic: " & txtTopic.Text,max_tokens:4000,temperature:0.7,top_p:1,n:1}).first_completion); 
@@ -92,10 +93,10 @@ ClearCollect(
 ```
 
 ParseJson function has been used to convert the JSON response into a table to bind to a gallery control. 
-    - Add a button to move to the next question (btnNext) and set its OnSelect property:
+
+- Add a button to move to the next question (btnNext) and set its OnSelect property:
 
 ```JSON
-
 Set(varIndex, varIndex + 1);
 
 ClearCollect(
@@ -111,16 +112,16 @@ ClearCollect(
 
 Set visible property: If(lblSelQuestion.Text = "None" || varIndex >= 10, false, true)
 
-    - Add a Label (lblSelQuestion) to display the question with 
+- Add a Label (lblSelQuestion) to display the question with 
      Text:  Text(Index(colQuestions,varIndex).Value.question) 
      Visible property : If(lblSelQuestion.Text = "None", false, true)
 
-    - Add a Gallery control with a label (galQuestionsAnswers) bound to table **colOptions** and 
+- Add a Gallery control with a label (galQuestionsAnswers) bound to table **colOptions** and 
     Set Visible property of the gallery:  If(lblSelQuestion.Text = "None", false, true)
 
     ![Controls](../images/PowerApp_QuizAppUsingOpenAPI/assets/Controls.png)
 
-    - Amend the properties of the label to 
+- Amend the properties of the label to 
      Text : Text(ThisItem.answer)
      OnSelect : Patch(colOptions, ThisItem, {selected: true})
      Fill : If(ThisItem.selected, If(ThisItem.correct, Color.GreenYellow, Color.PaleVioletRed), RGBA(0,0,0,0))
