@@ -238,9 +238,9 @@ Watch the app in action
 
 ## Minimal Path to Awesome
 
-* Click here to [download](../images/PowerApp_QuizAppUsingOpenAPI/solution/quizapp.msapp) the `.msapp` from the `solution` folder
-* Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
-* Select the **Data** tab
+* Click here to [download](../images/PowerApp_QuizAppUsingOpenAPI/solution/quizapp_1_0_0_3.zip) the `.msapp` from the `solution` folder
+* Within **Power Apps Studio**, use the `.zip` file using **Solution** > **Import solution** > **Browse** and select the `.zip` file you just downloaded.
+* You might have to create a new connection for the OpenAI GPT if missing in the environment
 
 ### Future Improvements
 
