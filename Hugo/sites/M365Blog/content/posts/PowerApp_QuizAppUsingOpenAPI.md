@@ -8,7 +8,7 @@ draft: false
 
 # Building a Quiz App with OpenAI GPT in PowerApps 
 
-Discover how to create your very own quiz app in Power Apps using the [OpenAI GPT (Independent Publisher)](https://learn.microsoft.com/en-us/connectors/openaigpt4ip/). This app was inspired by [Add OpenAI Capabilities to your Power Platform solutions](https://www.youtube.com/watch?v=AVK7BUmTGvs&t=1062s) [Robin Rosengrün](https://twitter.com/power_r2).
+Discover how to create your very own quiz app in Power Apps using the [OpenAI GPT (Independent Publisher)](https://learn.microsoft.com/en-us/connectors/openaigpt4ip/). This app was inspired by [Robin Rosengrün](https://twitter.com/power_r2) from his demo on [Add OpenAI Capabilities to your Power Platform solutions](https://www.youtube.com/watch?v=AVK7BUmTGvs&t=1062s) .
 
 ## Prerequisites
 
@@ -238,7 +238,7 @@ Watch the app in action
 
 ## Minimal Path to Awesome
 
-* Click here to [download](../images/PowerApp_QuizAppUsingOpenAPI/solution/quiz app.msapp) the `.msapp` from the `solution` folder
+* Click here to [download](../images/PowerApp_QuizAppUsingOpenAPI/solution/quizapp.msapp) the `.msapp` from the `solution` folder
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Select the **Data** tab
 
