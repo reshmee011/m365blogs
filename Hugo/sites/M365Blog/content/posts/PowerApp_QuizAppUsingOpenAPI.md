@@ -238,7 +238,7 @@ Watch the app in action
 
 ## Minimal Path to Awesome
 
-* ![Download](../images/PowerApp_QuizAppUsingOpenAPI/solution/quiz app.msapp) the `.msapp` from the `solution` folder
+* Click here to [download](../images/PowerApp_QuizAppUsingOpenAPI/solution/quiz app.msapp) the `.msapp` from the `solution` folder
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Select the **Data** tab
 
