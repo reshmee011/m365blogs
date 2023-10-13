@@ -30,7 +30,7 @@ Create a new Power Apps and follow the steps below
 
 ### Setting Up Controls
  
-1.  Add the OpenAIGPT (Independent Publisher connector). Please note that a premium license is required. 
+1.  Add the OpenAIGPT (Independent Publisher connector). Please note that a premium license is required. Enter the API key when prompted to create a new connection.
     ![OpenAI GPT](../images/PowerApp_QuizAppUsingOpenAPI/assets/OpenAIGPTDataSource.png)
 2. Add the following to the App OnStart to declare some variables that will be used in the app:
 
@@ -238,7 +238,7 @@ Watch the app in action
 
 ## Minimal Path to Awesome
 
-* [Download](../images/PowerApp_QuizAppUsingOpenAPI/solution/quiz app.msapp) the `.msapp` from the `solution` folder
+* ![Download](../images/PowerApp_QuizAppUsingOpenAPI/solution/quiz app.msapp) the `.msapp` from the `solution` folder
 * Within **Power Apps Studio**, use the `.msapp` file using **File** > **Open** > **Browse** and select the `.msapp` file you just downloaded.
 * Select the **Data** tab
 
