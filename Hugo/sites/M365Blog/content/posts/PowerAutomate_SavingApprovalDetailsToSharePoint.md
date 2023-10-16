@@ -18,6 +18,7 @@ While the latter suffices for most cases, I opted for the "Send HTTP Request to 
 - To avoid triggering a new file version using system update.
 - When modifying system columns such as author or modified date.
 - When updating an image column.
+- To update fields without having to fill in required fields. 
 
 Upon approval of a document, I needed to update file properties with the approval outcome, comments, date, and approver without generating a new version. This necessitated the use of the "Send HTTP Request to SharePoint" action.
 
