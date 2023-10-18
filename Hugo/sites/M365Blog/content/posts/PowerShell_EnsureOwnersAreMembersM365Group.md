@@ -1,6 +1,6 @@
 ---
-title: "PowerShell_EnsureOwnersAreMembersM365Group"
-date: 2023-10-13T09:57:15+01:00
+title: "Ensuring Owners Are Members"
+date: 2023-10-17T09:57:15+01:00
 tags: ["M365 Group","Owners","Members","PowerShell", "Permissions"]
 featured_image: '/posts/images/PowerShell_ensureownersaremembers/GroupMembership.png'
 draft: false
@@ -66,6 +66,8 @@ $m365Sites | ForEach-Object {
 # Export the result array to CSV file
 $m365GroupCollection | sort-object "Group Name" |Export-CSV $OutPutView -Force -NoTypeInformation
 ```
+
+## Adding End Users as Members Before Owners
 
 It's advisable to add end users as members before assigning them as owners, whether through interfaces or scripting.
 
