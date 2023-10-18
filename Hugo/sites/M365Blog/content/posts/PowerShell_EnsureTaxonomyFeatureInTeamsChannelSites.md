@@ -11,7 +11,7 @@ draft: false
 Taxonomy feature is not activated by default in SharePoint sites linked to a private or shared Teams Channels. 
 When attempting to add content types with managed metadata columns, you may encounter an error message stating "Taxonomy disabled".
 
-![PowerShell_EnsureTaxonomyFeatureInTeamsChannelSites](../images/PowerShell_EnsureTaxonomyFeatureInTeamsChannelSites/TaxonomyDisabled.png)
+![Taxonomy disabled](../images/PowerShell_EnsureTaxonomyFeatureInTeamsChannelSites/TaxonomyDisabled.png)
 
 To resolve this issue, you can enable the taxonomy feature with the ID **73ef14b1-13a9-416b-a9b5-ececa2b0604c** using the PowerShell cmdlet **Enable-PnPFeature** before adding the content types to the sites with the template TEAMCHANNEL#1.
 
