@@ -1,16 +1,16 @@
 ---
-title: "Ms Build AI Day Keynote"
+title: "Ms Build AI Day Keynote on the 19 Oct 2023"
 date: 2023-10-20T05:35:04+01:00
 tags: ["Copilot", "Github", "Responsible AI", "Temperature", "Safety Checks","Prompt Enginnering", "Grounding","Efficiency"]
 featured_image: '/posts/images/Event_MsBuildAIDay/CopilotStack.jpg'
 draft: false
 ---
 
-# MS Build AI Day Keynote
+# MS Build AI Day Keynote by Scott Hanselman
 
-## Keynote by Scott
+On October 19, 2023, the inaugural MS Build AI Day at Excel London in Custom House marked a pivotal moment for the world of AI. As an attendee, I had the privilege of witnessing a groundbreaking keynote session led by none other than Scott Hanselman. Titled "Navigating the AI Landscape," the keynote, introduced by Michael Wignall, the lead for MS Build, set the stage for an eventful day filled with insights, connections, and hands-on experiences.
 
-The MSBuildAI Day kicked off with a captivating keynote address delivered by none other than Scott Hanselman titled "Navigating the AI Landscape" introduced by Michael Wignall, the lead for MS Build. Packed with revelations about the latest advancements in AI, the keynote set the stage for an eventful day filled with connection hubs, breakout sessions, and hands-on workshops. The resounding message is to keep curiosity and an eagerness to learn.
+## Keynote
 
 Scott Hanselman delved into the omnipresence of AI in our lives. He addressed the common fears and apprehensions surrounding this evolving technology. Drawing on a humorous analogy from his own life, Scott painted a vivid picture of being a Language Learning Model (LLM) in a 25-year-long partnership, illustrating how they've grown so attuned they can finish each other's sandwiches.
 
@@ -24,7 +24,7 @@ The discussion then turned to the ethical use of AI. Scott characterized AI as a
 
 ### Temperature
 
-Amy Kate Boyd joined Scott to discuss temperature in AI, explaining that higher temperatures lead to more random and creative outputs, while lower temperatures favor more predictable outcome. Temperature can be set to any number from 0 to 2 in the OpenAI playground with 0 providing very specific and predictable results and 2 yielding random results.
+**Amy Kate Boyd** joined Scott to discuss temperature in AI, explaining that higher temperatures lead to more random and creative outputs, while lower temperatures favor more predictable outcome. Temperature can be set to any number from 0 to 2 in the OpenAI playground with 0 providing very specific and predictable results and 2 yielding random results.
 
 ![TemperatureSetAlmostto2](../images/Event_MsBuildAIDay/TemperatureSetAlmostto2.jpg)  
 
@@ -111,6 +111,10 @@ GitHub Copilot and Copilotism are poised to transform the coding landscape. Joly
 ## Conclusion
 
 The keynote session provided a comprehensive overview of the evolving AI landscape, offering insights into its potential, responsibilities, and applications. Attendees left the session with a deeper understanding of how AI is shaping our world.
+
+## TL;DR:
+
+The MS Build AI Day keynote on October 19, 2023, was a showcase of cutting-edge advancements in AI. **Scott Hanselman**'s engaging presentation emphasized responsible AI usage, temperature control for predictability, and the importance of prompt engineering helped by **Amy Kate Boyd**. The introduction of GitHub Copilot by Jolynn promised to revolutionize coding with features like slash commands, efficient test case generation, and secure code suggestions.
 
 ## References
 
