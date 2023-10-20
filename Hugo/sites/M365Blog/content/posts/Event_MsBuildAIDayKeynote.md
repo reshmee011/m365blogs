@@ -67,13 +67,13 @@ Scott advised against using exponentially large models when a smaller model suff
 
 Scott delved into AI orchestration, highlighting the role of semantic kernels in facilitating communication between models. He emphasized the importance of private LLM to safeguard sensitive data, ensuring Azure-hosted systems remain secure.
 
-## Keynote joined by Jolynn to go through copilot in Github
+## Joylynn kirui going through copilot in Github
 
-Jolynn took the stage at MSBuildAI Day to showcase the GitHub Copilot. This innovative platform promises to revolutionize the way developers work, making coding a smoother, more intuitive experience.
+**Joylynn Kirui** took the stage at MSBuildAI Day to showcase the GitHub Copilot. This innovative platform promises to revolutionize the way developers work, making coding a smoother, more intuitive experience.
 
 ### Copilotism: The AI pair programmer
 
-Jolynn delved into the concept of Copilotism, which is set to redefine how we approach coding tasks. GitHub Copilot boasts a range of features designed to streamline the coding process, with a particular emphasis on enhancing productivity and creativity.
+**Joylynn Kirui** delved into the concept of Copilotism, which is set to redefine how we approach coding tasks. GitHub Copilot boasts a range of features designed to streamline the coding process, with a particular emphasis on enhancing productivity and creativity.
 
 ### Slash Commands for Seamless Interaction
 
@@ -81,7 +81,7 @@ One of the standout features of GitHub Copilot is its integration of IRC-style s
 
 ### Effortless Test Case Generation
 
-Jolynn demonstrated how Copilot excels at test case generation with the simple command /tests. This functionality can significantly expedite the testing phase of development, saving time and effort for developers.
+**Joylynn Kirui** demonstrated how Copilot excels at test case generation with the simple command /tests. This functionality can significantly expedite the testing phase of development, saving time and effort for developers.
 
 ### Suggestions and Borrowing: Enhancing Efficiency
 
@@ -89,7 +89,7 @@ One of the core tenets of Copilotism is the ability to suggest code snippets and
 
 ### Empowering Developers, Not Replacing Them
 
-Jolynn emphasized that GitHub Copilot is not here to replace developers; rather, it is a tool designed to augment their capabilities. The platform is engineered to advance developers, enabling them to tackle more complex challenges with ease.
+**Joylynn Kirui** emphasized that GitHub Copilot is not here to replace developers; rather, it is a tool designed to augment their capabilities. The platform is engineered to advance developers, enabling them to tackle more complex challenges with ease.
 
 ### Focused and Secure: Repository Scope
 
@@ -101,7 +101,7 @@ Security is paramount in the world of coding, and Jolynn highlighted how GitHub 
 
 ### Reduce Toil, Not Jobs
 
-Jolynn underlined the importance of automating repetitive tasks through Copilot, emphasizing that the goal is to reduce toil, not replace human expertise. By taking on the mundane, developers can focus on the creative and intellectually stimulating aspects of their work.
+The speakers underlined the importance of automating repetitive tasks through Copilot, emphasizing that the goal is to reduce toil, not replace human expertise. By taking on the mundane, developers can focus on the creative and intellectually stimulating aspects of their work.
 
 ### Conclusion: Github Copilot 
 
