@@ -29,9 +29,9 @@ Snapshot, Not a Move: The Dev Box serves as a snapshot of a developer's ideal wo
 
 Codespaces provide a development environment directly within GitHub, allowing for quick collaboration and coding. They are cloud-based and accessible from any device.
 
-Dev Boxes: Windows with Configuration: In contrast, Dev boxes mimic a Windows environment with specific developer-focused configurations providing more dev options. 
+Dev Boxes: Windows with Configuration: In contrast, Dev boxes mimic a Windows environment with specific developer-focused configurations providing more dev options.
 
-## Use cases of Microsoft Dev Box 
+## Use cases of Microsoft Dev Box
 
 ### Copilot codebase
 
@@ -47,7 +47,7 @@ Allows developers to experiment with cutting-edge technologies without impacting
 
 Dona played a video how GM Motors are benfiting from Dev Boxes to allow developer to be productive in any onboarded project quickly emphasing the need for agility and rapid development.
 
-[GM adoption of Microsoft Dev Box](https://www.youtube.com/watch?v=1ejgI7ZXbWs) 
+[GM adoption of Microsoft Dev Box](https://www.youtube.com/watch?v=1ejgI7ZXbWs)
 
 ## Features
 
@@ -65,11 +65,11 @@ Dev Centres from Azure Portal: Dev Centres serve as centralized hubs within Azur
 
 ## Evolution of technology
 
-Dona went on a memory lane when she started her job back in 1998 installing windows using multiple disks taking hours while now it can be done with a click of a button to multiple devices. 
+Dona went on a memory lane when she started her job back in 1998 installing windows using multiple disks taking hours while now it can be done with a click of a button to multiple devices.
 
 ### AI won't take away our jobs
 
-Through evolution of technology from cloud computing, low code the number of developers have increased and have not gone down. She referred to herself still coding starting her career 25 years ago. 
+Through evolution of technology from cloud computing, low code the number of developers have increased and have not gone down. She referred to herself still coding starting her career 25 years ago.
 
 Some languages like COBOL which is behind most ATM machines are still being used. First introduced in 1959 and still being used in financial institutions. There is a scarcity of COBOL Developers as experienced COBOL developers have now retired.
 
@@ -81,12 +81,13 @@ Dona mentioned the AI scales someone might be on and gave some examples who they
 
 ![AI Levels](../images/Event_MsBuildAIDay/Dona_AI_Level.jpg)
 
-Level    Characteristics
-1        Tried out a few Al tools. Fairly sporadic and unspecific usage
-2        Adopted an Al product and use it daily or weekly for specific tasks
-3        Extended an Al product in own data through metaprompting, fine-tuning, RAG, or plug-ins
-4        Built own Al product from an existing model
-5        Built and trained a model
+| Level | Characteristics                                             |
+|-------|-------------------------------------------------------------|
+| 1     | Tried out a few AI tools. Fairly sporadic and unspecific usage |
+| 2     | Adopted an AI product and use it daily or weekly for specific tasks |
+| 3     | Extended an AI product in own data through metaprompting, fine-tuning, RAG, or plug-ins |
+| 4     | Built own AI product from an existing model |
+| 5     | Built and trained a model |
 
 Examples of solution builders
 
@@ -94,10 +95,14 @@ Examples of solution builders
 
 More job apportunities in AI will emerge as it evolves.
 
+### Responsible AI
+
+Dona covered about responsible AI and grounding in her session using an example to return UK laws related to accessibility with references and system prompt to return data in particular format
+
 ## Conclusion
 
-Dev Boxes ensure that developers have the tools and configurations needed to thrive. By prioritizing security, scalability, and compliance, Dev Boxes can become the backbone of a productive and efficient development process. As technology evolves, the role of Dev Boxes will continue to be pivotal in shaping the future of software development.
+Dev Boxes ensure that developers have the tools and configurations needed to thrive. By prioritizing security, scalability, and compliance, Dev Boxes can become the backbone of a productive and efficient development process.
 
 ## References
 
-(Quickstart: Configure Microsoft Dev Box)[https://aka.ms/DevBoxAdmin]: This resource provides comprehensive guidance on managing and administering Dev Boxes, ensuring they operate seamlessly within an organizational framework.
+[Quickstart: Configure Microsoft Dev Box](https://aka.ms/DevBoxAdmin): This resource provides comprehensive guidance on managing and administering Dev Boxes, ensuring they operate seamlessly within an organizational framework.

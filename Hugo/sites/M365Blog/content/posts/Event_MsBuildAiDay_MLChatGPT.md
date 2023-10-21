@@ -22,7 +22,7 @@ It was emphasized that while language models can be powerful tools, it's crucial
 
 ### Avoiding Hallucinations
 
-The session stressed the need to be vigilant about potential hallucinations or inaccuracies that language models might generate. Users should exercise caution and cross-verify critical information.
+The session stressed the need to be vigilant about potential hallucinations or inaccuracies that language models might generate. Users should exercise caution and cross-verify critical information using grounding techniques.
 
 ### Evaluating Language Models
 
@@ -48,9 +48,9 @@ Seth demoed how to use the Azure Machine Learning covering prompt flow, testing 
 
 Language models should be viewed as language calculators that process and generate text, rather than databases storing static information.
 
-## Promoting Groundedness and Coherence
+## Grounding data
 
-The importance of ensuring grounded and coherent responses from language models by bringing your own data. Techniques like content filtering on both input and output can help achieve this.
+The importance of ensuring grounded and coherent responses from language models by bringing your own data or asking for references. Seth showed how to prompt for references. 
 
 ## Leveraging Vector Indexing with Azure Cognitive Search
 
