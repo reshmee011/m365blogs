@@ -12,6 +12,14 @@ tags: [Azure OpenAi, Generative AI, AzureML, ChatGPT, Prompt Flow]
 I attended the session Build and maintain your company Copilot with Azure ML and GPT-4 at MS Build AI Day by **Seth Juarez** on the 19th Oct 2023.
 Seth began the session with a "Group Therapy" followed by a delve deep into the intricacies of language models, shedding light on Azure Machine Learning. He referred to [Henk's presentation](https://reshmeeauckloo.com/posts/Event_GenerativeAIinAzureOpenAIservice) and [Keynote](https://reshmeeauckloo.com/posts/event_msbuildaidaykeynote) to reinforce some **Generative AI** concepts.
 
+## Robots, AI taking over
+
+As developers we need to steer our applications adopting responsible AI and keep validating that nothing went amiss.
+
+## Myriad LLM models, how to assess them
+
+Depending on business requirements , one model might work better than another one. 
+
 ## Addressing Concerns in Group Therapy
 
 Seth encouraged attendees to voice their concerns and queries regarding language models. 
@@ -50,7 +58,7 @@ Language models should be viewed as language calculators that process and genera
 
 ## Grounding data
 
-The importance of ensuring grounded and coherent responses from language models by bringing your own data or asking for references. Seth showed how to prompt for references. 
+The importance of ensuring grounded and coherent responses from language models by bringing your own data or asking for references. Seth showed how to prompt for references with provided data from Azure Storage and augment response with data from Cosmos database. 
 
 ## Leveraging Vector Indexing with Azure Cognitive Search
 
@@ -59,6 +67,8 @@ Vector-based indexing, coupled with Azure Cognitive Search, enables efficient se
 ### Groundedness Test evaluation with ChatGPT-4
 
 Seth covered how you can ChatGPT-4 for assessing the performance of earlier models like ChatGPT 3-5. This iterative approach aids in refining language models. 
+
+The groundedness test reveals how accurate answer is dependent on context and question. Store input or output data offline to test for coherence and groundedness and create alerts when it goes off rails.
 
 ### Supervised Testing and Declarative AI Orchestration
 
