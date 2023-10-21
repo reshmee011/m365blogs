@@ -2,13 +2,13 @@
 title: "MS Build AI Day: Generative AI using Azure OpenAI Service by Henk Boelman"
 date: 2023-10-20T06:36:33+01:00
 featured_image: '/posts/images/Event_MsBuildAIDay/HowLanguageModelWorks.jpg'
-tags: [Azure OpenAi, Generative AI, Prompt, Responsible AI, Grounding, RAG]
+tags: [Azure OpenAi, Generative AI, Prompt, Responsible AI, Grounding, RAG, ChatGPT]
 draft: false
 ---
 
 # Generative AI using Azure OpenAI Service session at MS Build AI Day by Henk Boelman
 
-I attended the session Generative AI using Azure OpenAI Service session at MS Build AI Day by **Henk Boelman** on the 19th Oct 2023. He demoed how to leverage Azure Open AI Service to "add your own data" combined with ChatGPT-4 to retrieve information from your company owned data covering elements of generative AI and reinforcing some of the points highlighted in the [Keynote](https://reshmeeauckloo.com/posts/event_msbuildaidaykeynote) such as prompt engineering, grounding, jail breaking, etc..  
+I attended the session Generative AI using Azure OpenAI Service session at MS Build AI Day by **Henk Boelman** on the 19th Oct 2023. He demoed how to leverage Azure Open AI Service to "add your own data" combined with ChatGPT to retrieve information from your company owned data covering elements of generative AI and reinforcing some of the points highlighted in the [Keynote](https://reshmeeauckloo.com/posts/event_msbuildaidaykeynote) such as prompt engineering, grounding, jail breaking, etc..  
 
 Henk covered how Language Models works with user inputs (tokens) passed to model to return results based on probability in natural language.
   
@@ -30,15 +30,15 @@ Azure Open AI Service offers a dynamic interaction between system prompts and us
 
 ![System Prompt](../images/Event_MsBuildAIDay/Henk_SystemPrompt.jpg)
 
-## Response Grounding: Balancing Information and Engagement
+## Response Grounding : Contextual information
 
 User prompts, on the other hand, open the door for more organic interactions. When asked a factual question like "tell me about ms build," the emphasis shifts to providing accurate and informative responses. Grounding ensures that the information provided is both interesting and politely articulated, enhancing the user experience.
 
-## Upholding Responsible AI: Avoiding Conflict and Promoting Safety
+## Responsible AI: Avoiding Conflict and Ensuring Safety
 
 Safety rules can be defined within the system prompt to steer the Azure Open AI Service against engaging in argumentative comments. This is especially crucial in customer service contexts where maintaining a positive and constructive conversation is paramount. The platform upholds a commitment to responsible AI, ensuring interactions are both respectful and insightful.
 
-## Jailbreak: Balancing Freedom and Rules
+## Jailbreaking: Enforcing Rules
 
 Jailbreaking, a concept within Azure Open AI Service, allows for a temporary suspension of predefined rules. However, this freedom comes with a responsibility to wield it judiciously. After requesting a set of rules, it is imperative to remember to decline the offer of suspension, ensuring that interactions remain within agreed-upon boundaries.
 
@@ -56,4 +56,4 @@ Azure Open AI Service leverages vector-based retrieval, enabling the representat
 
 ## TL;DR;
 
-Henk Boelman showcased how to use Azure OpenAI Service to enhance data retrieval using ChatGPT-4 at MS Build AI Day. The session covered prompt engineering, determinism, system vs. user prompts, responsible AI practices, and the integration of external data for more comprehensive responses. Azure OpenAI Service also leverages vector-based retrieval and Azure Cognitive Search for efficient information retrieval.
+Henk Boelman showcased how to use Azure OpenAI Service to enhance data retrieval using ChatGPT at MS Build AI Day. The session covered prompt engineering, determinism, system vs. user prompts, responsible AI practices, and the integration of external data for more comprehensive responses. Azure OpenAI Service also leverages vector-based retrieval and Azure Cognitive Search for efficient information retrieval.
