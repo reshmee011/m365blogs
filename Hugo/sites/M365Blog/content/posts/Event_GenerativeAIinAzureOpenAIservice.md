@@ -1,5 +1,5 @@
 ---
-title: "Generative AI using Azure OpenAI Service by Henk Boelman session at MS Build AI Day "
+title: "MS Build AI Day: Generative AI using Azure OpenAI Service by Henk Boelman"
 date: 2023-10-20T06:36:33+01:00
 featured_image: '/posts/images/Event_MsBuildAIDay/HowLanguageModelWorks.jpg'
 tags: [Azure OpenAi, Generative AI, Prompt, Responsible AI, Grounding, RAG]

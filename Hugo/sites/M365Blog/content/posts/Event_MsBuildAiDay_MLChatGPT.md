@@ -1,16 +1,16 @@
 ---
-title: "Event_MsBuildAiDay_MLChatGPT"
+title: "MS Build AI Day: Build and maintain your company Copilot with Azure ML and GPT-4 By Seth Juarez"
 date: 2023-10-20T07:06:22+01:00
 draft: false
 Tags: [AI Concerns, Language Calculator,Azure ML]
-featured_image: '/posts/images/Event_MsBuildAIDay/HowLanguageModelWorks.jpg'
+featured_image: '/posts/images/Event_MsBuildAIDay/WordsMatchedToNumbers.jpg'
 tags: [Azure OpenAi, Generative AI, AzureML, ChatGPT]
 ---
 
 # Build and maintain your company Copilot with Azure ML and GPT-4 By Seth Juarez
 
 I attended the session Build and maintain your company Copilot with Azure ML and GPT-4 at MS Build AI Day by **Seth Juarez** on the 19th Oct 2023.
-Seth began the session with a "Group Therapy" followed by a delve deep into the intricacies of language models, shedding light on crucial aspects of their utilization. He referred a to [Henk's presentation](https://reshmeeauckloo.com/posts/Event_GenerativeAIinAzureOpenAIservice) and [Keynote](https://reshmeeauckloo.com/posts/event_msbuildaidaykeynote) to reinforce some concepts.
+Seth began the session with a "Group Therapy" followed by a delve deep into the intricacies of language models, shedding light on crucial aspects of their utilization. He referred to [Henk's presentation](https://reshmeeauckloo.com/posts/Event_GenerativeAIinAzureOpenAIservice) and [Keynote](https://reshmeeauckloo.com/posts/event_msbuildaidaykeynote) to reinforce some concepts.
 
 ## Addressing Concerns in Group Therapy
 

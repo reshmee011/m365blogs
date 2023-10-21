@@ -1,8 +1,8 @@
 ---
-title: "Event_MsBuildAiDay_MSDevBox"
+title: "MS Build AI Day: Develop in the cloud with Microsoft Dev Box by Dona Sarkar"
 date: 2023-10-20T07:05:15+01:00
 draft: false
-featured_image: '/posts/images/Event_MsBuildAIDay/MSDevBox.jpg'
+featured_image: '/posts/images/Event_MsBuildAIDay/Dona_WhyDevBox.jpg'
 tags: [MS Dev Box, AI, Copilots, COBOL]
 ---
 
