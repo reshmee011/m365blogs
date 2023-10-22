@@ -61,3 +61,5 @@ Henk Boelman showcased how to use Azure OpenAI Service to enhance data retrieval
 ## References
 
 [Request Access to Azure Open AI](https://aka.ms/oai/access)
+
+[Workshop sessions link](https://github.com/Azure-Samples/PetSpotR)

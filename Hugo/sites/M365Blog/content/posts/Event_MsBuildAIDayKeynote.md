@@ -142,3 +142,5 @@ The MS Build AI Day keynote on October 19, 2023, was a showcase of cutting-edge 
 [OpenAI playground](https://platform.openai.com/playground/)
 
 [Request Access to Azure Open AI](https://aka.ms/oai/access)
+
+[Workshop sessions link](https://github.com/Azure-Samples/PetSpotR/)
