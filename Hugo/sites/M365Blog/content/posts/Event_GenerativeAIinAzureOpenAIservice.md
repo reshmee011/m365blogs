@@ -57,3 +57,7 @@ Azure Open AI Service leverages vector-based retrieval, enabling the representat
 ## TL;DR;
 
 Henk Boelman showcased how to use Azure OpenAI Service to enhance data retrieval using ChatGPT at MS Build AI Day. The session covered prompt engineering, determinism, system vs. user prompts, responsible AI practices, and the integration of external data for more comprehensive responses. Azure OpenAI Service also leverages vector-based retrieval and Azure Cognitive Search for efficient information retrieval.
+
+## References
+
+[Request Access to Azure Open AI](https://aka.ms/oai/access)

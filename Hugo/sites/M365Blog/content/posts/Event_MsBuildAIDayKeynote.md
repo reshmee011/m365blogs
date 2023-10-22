@@ -24,11 +24,11 @@ The discussion then turned to the ethical use of AI. Scott characterized AI as a
 
 ### Temperature
 
-**Amy Kate Boyd** joined Scott to discuss temperature in AI, explaining that higher temperatures lead to more random and creative outputs, while lower temperatures favor more predictable outcome. Temperature can be set to any number from 0 to 2 in the OpenAI playground with 0 providing very specific and predictable results and 2 yielding random results.
+**Amy Kate Boyd** joined Scott to discuss temperature in AI, explaining that higher temperatures lead to more random and creative outputs, while lower temperatures favor more predictable outcome. Temperature can be set to any number from 0 to 2 in the OpenAI playground with 0 providing very specific and predictable results and 2 yielding random results. They used the [OpenAI playground](https://platform.openai.com/playground/) to show the effect of using different temperature values.
 
 ![TemperatureSetAlmostto2](../images/Event_MsBuildAIDay/TemperatureSetAlmostto2.jpg)  
 
-He shed light on tokens, which are the building blocks of AI understanding, and clarified that behind the scenes, AI processes numbers, not words.
+They shed light on tokens, which are the building blocks of AI understanding, and clarified that behind the scenes, AI processes numbers, not words.
 
 ### The Significance of Grounding and Prompt Engineering
 
@@ -49,7 +49,7 @@ The mitigation layers are:
 
 ### Jailbreaking and Responsible AI
 
-The concept of "jailbreaking" was introduced, reminding users to respect the rules set in place. 
+The concept of "jailbreaking" was introduced, reminding users to respect the rules set in place via the System Prompt
 
 ![Safety Check](../images/Event_MsBuildAIDay/ExampleOf_SafetyCHeck.jpg)
 
@@ -70,7 +70,7 @@ Scott emphasized that, like any tool, AI requires responsible usage. He stressed
 
 ![Misguided AI](../images/Event_MsBuildAIDay/ResponseIfMisguided.jpg)
 
-In the above example , the OpenAI was misguided with the system prompt yielding an impolite message
+In the above example , the OpenAI was misguided with the system prompt yielding an impolite message.
 
 ### Optimizing AI for Specific Use Cases
 
@@ -127,7 +127,7 @@ The keynote session provided a comprehensive overview of the evolving AI landsca
 
 ## TL;DR;
 
-The MS Build AI Day keynote on October 19, 2023, was a showcase of cutting-edge advancements in AI. **Scott Hanselman**'s engaging presentation emphasized responsible AI usage, temperature control for predictability, and the importance of prompt engineering helped by **Amy Kate Boyd**. The introduction of GitHub Copilot by Jolynn promised to revolutionize coding with features like slash commands, efficient test case generation, and secure code suggestions.
+The MS Build AI Day keynote on October 19, 2023, was a showcase of cutting-edge advancements in AI. **Scott Hanselman**'s engaging presentation emphasized responsible AI usage, temperature control for predictability, and the importance of prompt engineering helped by **Amy Kate Boyd**. The introduction of GitHub Copilot by **Joylynn Kirui** promised to revolutionize coding with features like slash commands, efficient test case generation, and secure code suggestions.
 
 ## References
 
@@ -138,3 +138,7 @@ The MS Build AI Day keynote on October 19, 2023, was a showcase of cutting-edge 
 [Release of the whole initial prompt of Bing Chat](https://www.reddit.com/r/bing/comments/11bd91j/release_of_the_whole_initial_prompt_of_bing_chat)
 
 [Building safe LLM applications using Azure Open AI](https://www.linkedin.com/pulse/building-safe-llm-applications-using-azure-open-ai-fabio-braga)
+
+[OpenAI playground](https://platform.openai.com/playground/)
+
+[Request Access to Azure Open AI](https://aka.ms/oai/access)

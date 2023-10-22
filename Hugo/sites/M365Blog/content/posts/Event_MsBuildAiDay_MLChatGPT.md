@@ -78,3 +78,4 @@ Supervised testing and declarative AI orchestration were highlighted as critical
 
 [Large-scale Self-supervised Pre-training Across Tasks, Languages, and Modalities](https://aka.ms/prompt)
 [What is Azure Machine Learning prompt flow](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow)
+[Request Access to Azure Open AI](https://aka.ms/oai/access)
