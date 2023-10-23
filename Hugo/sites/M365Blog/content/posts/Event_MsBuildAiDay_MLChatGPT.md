@@ -76,6 +76,8 @@ Supervised testing and declarative AI orchestration were highlighted as critical
 
 ## References
 
+[Model Monitoring for Large Language Models (LLMs)](https://www.youtube.com/watch?v=JBWYnOWmvQo)
+
 [Large-scale Self-supervised Pre-training Across Tasks, Languages, and Modalities](https://aka.ms/prompt)
 
 [What is Azure Machine Learning prompt flow](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow)
@@ -83,3 +85,5 @@ Supervised testing and declarative AI orchestration were highlighted as critical
 [Request Access to Azure Open AI](https://aka.ms/oai/access)
 
 [Workshop sessions link](https://github.com/Azure-Samples/PetSpotR)
+
+[Add your own data to an LLM using Retrieval-Augmented Generation (RAG)](https://bea.stollnitz.com/blog/rag/?utm_campaign=Global%2BAI%2BWeekly&utm_medium=email&utm_source=Global_AI_Weekly_24)
