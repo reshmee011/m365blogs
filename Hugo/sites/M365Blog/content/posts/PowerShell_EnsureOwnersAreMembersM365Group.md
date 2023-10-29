@@ -58,6 +58,7 @@ $m365Sites | ForEach-Object {
             $ExportVw | Add-Member -MemberType NoteProperty -name "Site URL" -value $siteUrl
            $ExportVw | Add-Member -MemberType NoteProperty -name "Owner Name" -value $owner.DisplayName
            $m365GroupCollection += $ExportVw
+           Add-PnPMicrosoft365GroupMember -Identity $groupId  -Users $owner.Email
            Write-host $"$owner.DisplayName has been added as member in $siteUrl";
         }
     }
