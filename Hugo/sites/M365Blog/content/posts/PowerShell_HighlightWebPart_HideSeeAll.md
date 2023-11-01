@@ -57,6 +57,8 @@ Disconnect-PnPOnline
 #"`"isTitleEnabled`"=`true"
 ```
 
+The "See All" button successfully hidden.
+
 ![ToggleOff](../images/PowerShell_HighlightWebPart_HideSeeAll/ToggleOff.png)
 
 ## Conclusion
