@@ -1,5 +1,5 @@
 ---
-title: "Update Highlighted Content webpart to hide 'See All' button"
+title: "How to Hide the 'See All' Button in the Highlighted Content Web Part using PnP PowerShell"
 date: 2023-11-01T15:14:29Z
 tags: ["Modern SharePoint Page","WebPart","PowerShell", "Set-PnPPageWebPart"]
 featured_image: '/posts/images/PowerShell_HighlightWebPart_HideSeeAll/HighlightWebpart.png'
