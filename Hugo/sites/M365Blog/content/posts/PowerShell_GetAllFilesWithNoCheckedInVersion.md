@@ -6,6 +6,43 @@ draft: true
 
 # Get All Checked Out Files including those with checked in versions
 
+There are scenerios when files uploaded won't have "checked-in version" which will make the file visible only to the creator. It can happen
+- When there are mandatory data (required fields) configured on the lists
+and use Onedrive to upload the files to SharePoint 
+![OneDrive](../images/PowerShell_GetAllFilesWithNoCheckedInVersion/SelectOneDriveLoc.png)
+
+The experience could be 
+
+Warning to check in when closing the file.
+
+![WarningtoCheckin](../images/PowerShell_GetAllFilesWithNoCheckedInVersion/WarningtoCheckin.png)
+
+Check in option for end user to select
+![CheckinOption](../images/PowerShell_GetAllFilesWithNoCheckedInVersion/CheckinOption.png)
+
+Dreaded message "File is deleted" appears.
+![file is deleted](../images/PowerShell_GetAllFilesWithNoCheckedInVersion/Messagefileisdeleted.png)
+
+- When “Require Check Out” option under versioning settings of any library is set to “Yes” 
+![file is deleted](../images/PowerShell_GetAllFilesWithNoCheckedInVersion/RequireDocsToBeCheckedOut.png)
+
+
+and the creator forgot to check in the file.
+
+
+As a site administrator, You can take ownership of files that have no checked-in version. To take control, Go to the “Manage files which have no checked-in version” link under Library Settings.
+
+![Manage Field with no checked in versions](../images/PowerShell_GetAllFilesWithNoCheckedInVersion/ManageFilesWithNoChekedinVersion.png)
+
+View list of check out files 
+![List of Checked Out Files](../images/PowerShell_GetAllFilesWithNoCheckedInVersion/listofCheckedOutFiles.png)
+
+Select the documents and click on the “Take Ownership of Selection” button and confirm the prompt. 
+Once you took ownership, the document gets removed from this page and starts appearing in the list where they are uploaded (only to You, until you check-in them!) As a site owner, you can set the metadata properties if needed, check-in and make these documents visible for all users.
+
+
+#Read more: https://www.sharepointdiary.com/2017/08/sharepoint-online-manage-files-which-have-no-checked-in-version-using-powershell.html#ixzz8IIJCstwg
+
 ```PowerShell
 [1:27 PM] Reshmee Auckloo
 #Set Parameters
@@ -79,3 +116,4 @@ $alldocs | ForEach-Object {
 $filesCollection | sort-object "File Url" |Export-CSV $OutPutView -Force -NoTypeInformation
 ```
 
+## References

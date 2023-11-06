@@ -63,16 +63,16 @@ $fieldsGroupCollection = @()
         $view  = $_
             try {
                 Write-Host "List '$($list.Title)' > 'View: '$($view.Title)'";
-                $NView= Get-PnPView -List $list.Title -Identity $view.Title -Connection $DestConn -ErrorAction Ignore | out-null
+                $NView= Get-PnPView -List $list.Title -Identity $view.Title -Connection $DestConn -ErrorAction Ignore
                 if($NView){
-                    Set-PnPView -List $list.Title -Identity $view.Title -Connection $DestConn -Values @{CustomFormatter= $view.CustomFormatter}
+                    Set-PnPView -List $list.Title -Identity $view.Title -Connection $DestConn -Values @{CustomFormatter= $view.CustomFormatter} | out-null
                     $ExportVw = New-Object PSObject
                     $ExportVw | Add-Member -MemberType NoteProperty -name "Source Site Name" -value $sWeb.Title
                     $ExportVw | Add-Member -MemberType NoteProperty -name "Desctination Site Name" -value $dWeb.Title
                     $ExportVw | Add-Member -MemberType NoteProperty -name "List Name" -value $list.Title
                     $ExportVw | Add-Member -MemberType NoteProperty -name "Type" -value "View"
                     $ExportVw | Add-Member -MemberType NoteProperty -name "Name" -value $view.Title
-                    $ExportVw | Add-Member -MemberType NoteProperty -name "Old Json" -value $dView.CustomFormatter
+                    $ExportVw | Add-Member -MemberType NoteProperty -name "Old Json" -value $NView.CustomFormatter
                     $ExportVw | Add-Member -MemberType NoteProperty -name "New Json" -value $view.CustomFormatter
                     $fieldsGroupCollection += $ExportVw
                 }            
