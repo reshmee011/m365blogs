@@ -3,7 +3,7 @@ title: "Copy Column View Formatting to different environment using PnP PowerShel
 date: 2023-11-06T11:52:05Z
 draft: false
 tags: ["PnP","Formatting","Columns","Views", "Permissions"]
-featured_image: '/posts/images/PowerShell_CopyColumnFormatting/membeOutput_ColF.PNG'
+featured_image: '/posts/images/PowerShell_CopyColumnFormatting/Output_ColF.PNG'
 ---
 
 # Copy Column and View Formatting using PnP PowerShell
@@ -98,7 +98,7 @@ This script connects to both the source and destination SharePoint sites, and th
 The script generates a CSV report containing details about the copied formatting, such as source site name, destination site name, list name, type (field or view), name of the field/view, old JSON formatting, and new JSON formatting.
 
 Here's an example of the output:
-![Members](../images/PowerShell_CopyColumnFormatting/membeOutput_ColF.PNG)
+![Output](../images/PowerShell_CopyColumnFormatting/Output_ColF.PNG)
 
 ## References
 
