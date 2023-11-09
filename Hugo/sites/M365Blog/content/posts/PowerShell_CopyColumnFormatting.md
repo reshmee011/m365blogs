@@ -1,10 +1,16 @@
 ---
-title: "PowerShell_CopyColumnFormatting"
+title: "Copy Column View Formatting to different environment using PnP PowerShell"
 date: 2023-11-06T11:52:05Z
-draft: true
+draft: false
+tags: ["PnP","Formatting","Columns","Views", "Permissions"]
+featured_image: '/posts/images/PowerShell_CopyColumnFormatting/membeOutput_ColF.PNG'
 ---
 
-# Copy Column and View Formatting
+# Copy Column and View Formatting using PnP PowerShell
+
+There is a great sample script how to [backup all column, view and content type formatting](https://github.com/pnp/script-samples/tree/main/scripts/spo-export-all-customformatting) by Dan Toft. If you need to copy column and view formatting across different environments, such as from Dev to Test, UAT, and Prod, especially when dealing with multiple lists/libraries, the script may help you.
+
+## PnP PowerShell Script
 
 ```PowerShell
 param (
@@ -62,7 +68,7 @@ $fieldsGroupCollection = @()
         $list.Views | Where-Object { $null -ne $_.CustomFormatter -and $_.CustomFormatter -ne "" }| ForEach-Object {
         $view  = $_
             try {
-                Write-Host "List '$($list.Title)' > 'View: '$($view.Title)'";
+      
                 $NView= Get-PnPView -List $list.Title -Identity $view.Title -Connection $DestConn -ErrorAction Ignore
                 if($NView){
                     Set-PnPView -List $list.Title -Identity $view.Title -Connection $DestConn -Values @{CustomFormatter= $view.CustomFormatter} | out-null
@@ -83,5 +89,17 @@ $fieldsGroupCollection = @()
      }
     }
     $fieldsGroupCollection | sort-object "List Name" |Export-CSV $OutPutView -Force -NoTypeInformation
-    
-    ```
+```
+
+This script connects to both the source and destination SharePoint sites, and then proceeds to copy the column and view formatting.
+
+## Output
+
+The script generates a CSV report containing details about the copied formatting, such as source site name, destination site name, list name, type (field or view), name of the field/view, old JSON formatting, and new JSON formatting.
+
+Here's an example of the output:
+![Members](../images/PowerShell_CopyColumnFormatting/membeOutput_ColF.PNG)
+
+## References
+
+[Export All Formatting](https://github.com/pnp/script-samples/tree/main/scripts/spo-export-all-customformatting)
