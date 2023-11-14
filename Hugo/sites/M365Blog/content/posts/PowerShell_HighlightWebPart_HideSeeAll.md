@@ -43,10 +43,7 @@ $webParts = $page.Controls | Where-Object { $_.Title -eq 'Highlighted content' }
 
 # Loop through each web part
 foreach ($webPart in $webParts) {
-        # Get the PropertiesJson
-       # $propertiesJson = $webPart.PropertiesJson 
-
-        # Update isTitleEnabled property
+        # Update isTitleEnabled property within PropertiesJson
         $jsonUp = $webpart.PropertiesJson.Replace('"isTitleEnabled":true','"isTitleEnabled":false') 
         
         Set-PnPPageWebPart -Page $pageUrl -Identity $webPart.InstanceId -PropertiesJson $jsonUp
@@ -54,7 +51,6 @@ foreach ($webPart in $webParts) {
 
 # Disconnect from the SharePoint site
 Disconnect-PnPOnline
-#"`"isTitleEnabled`"=`true"
 ```
 
 The "See All" button successfully hidden.
