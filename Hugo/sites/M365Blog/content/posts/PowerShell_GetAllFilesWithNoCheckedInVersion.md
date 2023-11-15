@@ -1,7 +1,7 @@
 ---
 title: "Uncovering All Checked Out Files including those with no checked in versions"
 date: 2023-11-15T07:08:24Z
-tags: ["OneDrive","Checked out","PowerShell", "Mandatory Metadata"]
+tags: ["OneDrive","Checked out","PowerShell", "PnP", "Mandatory Metadata"]
 featured_image: '/posts/images/PowerShell_GetAllFilesWithNoCheckedInVersion/listofCheckedOutFiles.png'
 draft: false
 ---
@@ -46,7 +46,7 @@ Files which have no checked in versions are not
 - Backup Issues: These files are not backed up, risking data loss.
 - Mass update of those files failed
 
-## Script to discover checked out files using PowerShell
+## Script to discover checked out files using PnP PowerShell
 
 The script will help find all files with no checked in versions and also files left in checked out state by end users.
 
