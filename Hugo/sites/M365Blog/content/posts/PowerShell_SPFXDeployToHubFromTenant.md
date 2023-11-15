@@ -2,7 +2,7 @@
 title: "Deploying SPFx Packages from Tenant App Catalog to Hub Site and Associated Sites"
 date: 2023-11-14T07:06:22Z
 tags: ["App Catalog","SPFx","PowerShell", "Deployment"]
-draft: true
+draft: false
 ---
 
 # Deploying SPFx Packages from Tenant App Catalog to Hub Site and Associated Sites
@@ -30,10 +30,10 @@ Connect-PnPOnline $tenantAppCatalogUrl -Interactive
 $appCatConnection  = Get-PnPConnection
 
 $ViewCollection = @()
-$HubSiteID = (Get-PnPTenantSite  https://contoso.sharepoint.com).HubSiteId
+$HubSiteID = (Get-PnPTenantSite  https://contoso.sharepoint.com -connection $adminConnection).HubSiteId
 
 #Get associated sites with hub
-$associatedSites = Get-PnPTenantSite -Detailed | Where-Object { $_.HubSiteId -eq $HubSiteID }
+$associatedSites = Get-PnPTenantSite -Detailed -connection $adminConnection | Where-Object { $_.HubSiteId -eq $HubSiteID }
 #Get all site collections associated with the hub site
 #TO Test with updated changes
 $associatedSites | select url | ForEach-Object {
@@ -49,7 +49,7 @@ $associatedSites | select url | ForEach-Object {
           Write-Host ("Installing {0}..." -f $packageName) -ForegroundColor Yellow
           $ExportVw | Add-Member -MemberType NoteProperty -name "Package Name" -value $packageName
            #deploy sppkg assuming app catalog is already configured
-           Add-pnpapp -Path ("{0}/{1}" -f $sppkgFolder , $package.PSChildName) -Scope Tenant -Overwrite -Publish
+           Add-PnPApp -Path ("{0}/{1}" -f $sppkgFolder , $package.PSChildName) -connection $adminConnection -Scope Tenant -Overwrite -Publish
            Start-Sleep -Seconds 10
 
            #Find Name of app from installed package
@@ -58,11 +58,10 @@ $associatedSites | select url | ForEach-Object {
            $appTitle = ($apps | where-object {$_.LinkFilename -eq $packageName} | select Title).Title
 
       # Get the current version of the SPFx package
-    $currentPackage = Get-PnPApp -Identity  $appTitle
+    $currentPackage = Get-PnPApp -Identity  $appTitle 
     Write-Host "Current package version on site $($site.Url): $($currentPackage.InstalledVersion)"
 
     # Get the latest version of the SPFx package
-
     Write-Host "Latest package version: $($currentPackage.AppCatalogVersion)"
 
     # Update the package to the latest version
@@ -90,4 +89,3 @@ This script snippet automates the deployment and potential upgrades of SPFx pack
 This approach offers flexibility and control over SPFx solutions, ensuring targeted deployment and version management across your SharePoint environment.
 
 Remember to adjust the specific URLs, paths, and configurations based on your SharePoint environment and requirements before executing the script.
-
