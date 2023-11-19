@@ -1,5 +1,5 @@
 ---
-title: "Uncovering All Checked Out Files including those with no checked in versions"
+title: "Uncovering All Checked Out Files including those with no checked in versions with PnP PowerShell"
 date: 2023-11-15T07:08:24Z
 tags: ["OneDrive","Checked out","PowerShell", "PnP", "Mandatory Metadata"]
 featured_image: '/posts/images/PowerShell_GetAllFilesWithNoCheckedInVersion/listofCheckedOutFiles.png'
@@ -8,9 +8,9 @@ draft: false
 
 # Uncovering All Checked Out Files including those with no checked in versions
 
-There are scenerios when files uploaded won't have "checked-in version" which will make the files visible only to their uploader. Two possible scenerios can lead to the situation:
+There are scenerios when files uploaded won't have "checked-in version" which will make the files visible only to their uploader. Two possible scenerios that can lead to the situation:
 
-1. Mandatory Metadata Requirements: When there are mandatory fields configured on the libraries and end users use Onedrive as a medium to upload the files to SharePoint via a shortcut to OneDrive. End users are not prompted to fill in mandatory fields, instead they are presented with a series of warnings and errors.
+1. **Mandatory Metadata Requirements**: When there are mandatory fields configured on the libraries and end users use Onedrive as a medium to upload the files to SharePoint via a shortcut to OneDrive. End users are not prompted to fill in mandatory fields, instead they are presented with a series of warnings and errors.
 
 ![OneDrive](../images/PowerShell_GetAllFilesWithNoCheckedInVersion/SelectOneDriveLoc.png)
 
@@ -26,7 +26,7 @@ The experience could be
 - Dreaded message "File is deleted" appears.
 ![file is deleted](../images/PowerShell_GetAllFilesWithNoCheckedInVersion/Messagefileisdeleted.png)
 
-2. Overlooked Check-Ins:  When **Require Check Out** option under versioning settings of any library is set to "Yes" and the uploader forget to check in the file.
+2. **Overlooked Check-Ins**:  When **Require Check Out** option under versioning settings of any library is set to "Yes" and the uploader forget to check in the file.
 
 ![file is deleted](../images/PowerShell_GetAllFilesWithNoCheckedInVersion/RequireDocsToBeCheckedOut.png)
 
