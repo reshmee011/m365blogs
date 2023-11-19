@@ -1,12 +1,12 @@
 ---
-title: "Uncovering All Checked Out Files including those with no checked in versions with PnP PowerShell"
+title: "Discovering All Checked Out Files including those with no checked in versions with PnP PowerShell"
 date: 2023-11-15T07:08:24Z
 tags: ["OneDrive","Checked out","PowerShell", "PnP", "Mandatory Metadata"]
 featured_image: '/posts/images/PowerShell_GetAllFilesWithNoCheckedInVersion/listofCheckedOutFiles.png'
 draft: false
 ---
 
-# Uncovering All Checked Out Files including those with no checked in versions
+# Discovering All Checked Out Files including those with no checked in versions
 
 There are scenerios when files uploaded won't have "checked-in version" which will make the files visible only to their uploader. Two possible scenerios that can lead to the situation:
 
