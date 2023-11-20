@@ -29,7 +29,7 @@ During the editing of existing flows, I encountered several messages that preven
     Flows containing triggers like "For a selected item" or "For a selected file" are currently unsupported for the designer/Copilot experience.
 
 3. **Excessive Actions:** I encountered a message regarding too many actions:
-    ![Too Many Actions Message](../images/PowerAutomate_Copilot/TooManyActions.png)
+    ![Too Many Actions Message](../images/PowerAutomate_Copilot/PowerAutomate_TooManyActions.png)
     However, it wasn't specified how many actions qualify as "too many."
 
 4. **Shared Connections:** Some flows displayed the message:
