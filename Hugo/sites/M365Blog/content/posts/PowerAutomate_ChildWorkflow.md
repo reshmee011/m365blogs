@@ -2,13 +2,13 @@
 title: "Converting an HTTP Trigger into a Child Workflow in Power Automate"
 date: 2023-11-20T06:19:33Z
 tags: ["PowerAutomate","Child Workflow", "HTTP trigger"]
-featured_image: '/posts/images/PowerShell_ChildWorkflow/RespondtoaPowerAppOrFlow.png'
+featured_image: '/posts/images/PowerShell_ChildWorkflow/RespondtoaPowerApp.png'
 draft: false
 ---
 
 # Converting an HTTP Trigger into a Child Workflow in Power Automate
 
-Using a HTTP trigger requires Premium licence and with the [Child Workflow](https://learn.microsoft.com/en-us/power-automate/create-child-flows) in a solution alleviates the need of premium license. 
+Using a HTTP trigger requires Premium licence and with the [Child Workflow](https://learn.microsoft.com/en-us/power-automate/create-child-flows) in a solution alleviates the need of premium license.
 
 Other advantages using a a solution:
 
@@ -16,18 +16,26 @@ Other advantages using a a solution:
 - **Child Workflow**: Allows for a more modular and manageable flow structure.
 - **Easier Ownership Management**: Simplifies updates to the flow owner.
 
-I recreated the child workflow within the solution selecting the **Manually trigger a flow** trigger and updated the parent flow to use the new **Manually trigger a flow** flow.
+I recreated the child workflow within the solution selecting the **Manually trigger a flow** trigger and updated the parent flow to use the flow as child workflow.
 
 # Common Issues & Solutions
 
 ### 1. Integrating "Respond to a PowerApp" Action
 
-![RespondtoaPowerApp](../images/PowerAutomate_ChildWorkflow/RespondtoaPowerAppOrFlow.png)
+If "Respond to a PowerApp or flow" action is missing from the child workflow, an error message will appear to add the action to resolve it. 
+
+![Missing Respond to App Action](../images/PowerAutomate_ChildWorkflow/Missing RespondtoAppAction.png)
+
+Adding the action **Respond to a PowerApp or flow** can resolve the error
+
+![RespondtoaPowerApp](../images/PowerAutomate_ChildWorkflow/RespondtoaPowerApp.png)
 
 ### 2. Changing Connections to Use "Run Only User"
 
+Error Message
 ![RunOnlyUser](../images/PowerAutomate_ChildWorkflow/RunOnlyUser.png)
 
+It can be fixed by changing connections to use run only user
 
 ### 3. Handling Errors Related to Old Flow Versions
 
@@ -44,7 +52,7 @@ The error was misleading as I have re-created the flow inside the solution. Thro
 The child worflow had to be called around 50-60 throughout the execution of the parent flow. It was taking between 2-10 mins to call each child workflow which meant the parent workflow was taking hours to complete. 
 ![ChildFlowError](../images/PowerAutomate_ChildWorkflow/Timings_WithRespondAtEnd.png)
 
-Through trial and error, I identified it to be bacause of the **Respond to a PowerApp or flow** being at the end of the flow. The child workflow requires the **Respond to a PowerApp or flow** and it does not matter where it is added in the flow. By moving the action at the beginning of the flow sped the calling on the child flow from minutes to seconds.
+Through trial and error, I identified it to be because of the **Respond to a PowerApp or flow** being at the end of the flow. The child workflow requires the **Respond to a PowerApp or flow** and it does not matter where it is added in the flow if it does not need to wait for an end user's input. By moving the action at the beginning of the flow sped the calling on the child flow from minutes to seconds.
 
 ![ChildFlowError](../images/PowerAutomate_ChildWorkflow/Timings_WithRespondAtBeginning.png)
 
