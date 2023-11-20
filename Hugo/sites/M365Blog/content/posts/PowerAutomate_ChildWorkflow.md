@@ -59,12 +59,6 @@ Through trial and error, I identified it to be because of the **Respond to a Pow
 
 ![ChildFlowError](../images/PowerAutomate_ChildWorkflow/Timings_WithRespondAtBeginning.png)
 
-## Troubleshooting & Recommendations
-
-- **Validation of Actions**: Test and validate each action within the child workflow.
-- **Action Reconfiguration**: If errors persist, try removing and re-adding the updated actions.
-- **Optimization**: Experiment with the position of the "Respond to a PowerApp or flow" action for optimal performance.
-
 ## Conclusion
 
 Transitioning from an HTTP trigger to a Child Workflow within a solution offers better governance, and avoids premium licensing concerns. 
