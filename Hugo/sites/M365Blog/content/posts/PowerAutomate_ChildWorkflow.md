@@ -2,7 +2,7 @@
 title: "Converting an HTTP Trigger into a Child Workflow in Power Automate"
 date: 2023-11-20T06:19:33Z
 tags: ["PowerAutomate","Child Workflow", "HTTP trigger"]
-featured_image: '/posts/images/PowerShell_ChildWorkflow/RespondtoaPowerApp.png'
+featured_image: '/posts/images/PowerShell_ChildWorkflow/Parent_childFlow.PNG'
 draft: false
 ---
 
