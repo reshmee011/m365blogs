@@ -1,16 +1,16 @@
 ---
-title: "Converting an HTTP Trigger into a Child Workflow in Power Automate"
+title: "Converting a HTTP Trigger into a Child Workflow in Power Automate"
 date: 2023-11-20T06:19:33Z
 tags: ["PowerAutomate","Child Workflow", "HTTP trigger"]
-featured_image: '/posts/images/PowerShell_ChildWorkflow/Parent_childFlow.png'
+featured_image: '/posts/images/PowerAutomate_ChildWorkflow/Parent_childFlow.png'
 draft: false
 ---
 
-# Converting an HTTP Trigger into a Child Workflow in Power Automate
+# Converting a HTTP Trigger into a Child Workflow in Power Automate
 
 Using a HTTP trigger requires Premium licence and with the [Child Workflow](https://learn.microsoft.com/en-us/power-automate/create-child-flows) in a solution alleviates the need of premium license.
 
-Other advantages using a a solution:
+Other advantages using a solution:
 
 - **Application Lifecycle Management**: Facilitates deployment.
 - **Child Workflow**: Allows for a more modular and manageable flow structure.
