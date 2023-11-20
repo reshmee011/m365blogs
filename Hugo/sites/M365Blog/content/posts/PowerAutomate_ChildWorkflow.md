@@ -24,7 +24,7 @@ I recreated the child workflow within the solution selecting the **Manually trig
 
 If "Respond to a PowerApp or flow" action is missing from the child workflow, an error message will appear to add the action to resolve it. 
 
-![Missing Respond to App Action](../images/PowerAutomate_ChildWorkflow/Missing RespondtoAppAction.png)
+![MissingRespondtoAppAction](../images/PowerAutomate_ChildWorkflow/MissingRespondtoAppAction.png)
 
 Adding the action **Respond to a PowerApp or flow** can resolve the error
 
@@ -32,10 +32,13 @@ Adding the action **Respond to a PowerApp or flow** can resolve the error
 
 ### 2. Changing Connections to Use "Run Only User"
 
-Error Message
+If connections are using the "Provided by run-only user" option, then the following error might appear.
+
 ![RunOnlyUser](../images/PowerAutomate_ChildWorkflow/RunOnlyUser.png)
 
-It can be fixed by changing connections to use run only user
+It can be fixed by changing connections to use a fixed connection.
+
+![RunOnlyUser](../images/PowerAutomate_ChildWorkflow/NotToUseRunOnlyUsers.png)
 
 ### 3. Handling Errors Related to Old Flow Versions
 
