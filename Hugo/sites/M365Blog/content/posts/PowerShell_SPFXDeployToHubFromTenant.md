@@ -27,7 +27,7 @@ $hubSiteUrl = "https://contoso.sharepoint.com"
 $dateTime = (Get-Date).toString("dd-MM-yyyy")
 $invocation = (Get-Variable MyInvocation).Value
 $directorypath = Split-Path $invocation.MyCommand.Path
-$fileName = "\ConnectOnlineUpgradeSPFx-" + $dateTime + ".csv"
+$fileName = "\Log_Tenant-" + $dateTime + ".csv"
 $OutPutView = $directorypath + $fileName
  
 $sppkgFolder = "./packages"
