@@ -1,6 +1,6 @@
 ---
 title: "Deploying SPFx Packages from Tenant App Catalog to Hub Site and Associated Sites"
-date: 2023-11-14T07:06:22Z
+date: 2023-11-4T07:06:22Z
 tags: ["App Catalog","SPFx","PowerShell", "Deployment"]
 featured_image: '/posts/images/PowerShell_SPFXUpgradeFromTenant/Update.png'
 draft: false
@@ -8,16 +8,38 @@ draft: false
 
 # Deploying SharePoint Framework (SPFx) Packages from Tenant App Catalog to Hub Site and Associated Sites
 
-There is the blog post how [Deploying and Installing SharePoint Framework (SPFx) solutions using PnP PowerShell to Hub Site and Associated Sites using site collection app catalog](https://pnp.github.io/blog/post/deploy-spfx-in-hub-site-and-associated-sites/) using site collection app catalog.  This method is particularly beneficial when SPFx packages shouldn't be globally available during deployment in the tenant level app catalog and instead need targeted deployment or upgrades on specific sites, such as those sites associated with a hub site in an intranet setup.
+There is the blog post how [Deploying and Installing SharePoint Framework (SPFx) solutions using PnP PowerShell to Hub Site and Associated Sites using site collection app catalog](https://pnp.github.io/blog/post/deploy-spfx-in-hub-site-and-associated-sites/) using site collection app catalog.  This post covers how to perform same objective but using the tenant level app catalog if the SPFx packages have not been added to all sites globally uring deployment in the tenant level app catalog and instead need targeted deployment or upgrades on specific sites. 
 
-Below is a PowerShell script snippet that demonstrates how to manage the deployment and upgrades of SPFx packages from the tenant app catalog to associated sites.
+From the UI when uploading the SPFx package , the **enable app only** is chosen.
+
+![Enable App Only](../images/PowerShell_SPFXUpgradeFromTenant/EnableAppOnly.png)
+
+Using PnP PowerShell if the option -skipfeaturedeployment is omitted the spfx packages is not added to all sites.
+
+```PowerShell
+   Add-pnpapp -Path ("{0}/{1}" -f $sppkgFolder , $package.PSChildName) -Scope Tenant -Overwrite -Publish
+```
+
+![Not Added to all sites](../images/PowerShell_SPFXUpgradeFromTenant/Enabled_NotAddedToAllSites.png)
+
+Below is a PowerShell script snippet that demonstrates how to manage the deployment and upgrades of SPFx packages from the tenant app catalog to a hub site and associated sites.
 
 ## PnP PowerShell Script
 
-Before running the script, ensure to update the following variable
+
+Before running the script, ensure to update the following variables are updated 
+
+- SharePoint admin centre Url
 $AdminCenterURL=https://contoso-admin.sharepoint.com
+
+- Tenant App Catalog site collection Url
 $tenantAppCatalogUrl = "https://contoso.sharepoint.com/sites/appcatalog"
+
+- Path where the spfx packages are stored
+
 $sppkgFolder = "./packages"
+
+### Script
 
 
 ```PowerShell
@@ -112,6 +134,9 @@ $SiteAppUpdateCollection | Export-CSV $OutPutView -Force -NoTypeInformation
  
 #Disconnect-PnPOnline
 ```
+
+![Example](../images/PowerShell_SPFXUpgradeFromTenant/Examples.png)
+
 
 ## Explanation
 
