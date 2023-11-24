@@ -8,7 +8,7 @@ draft: false
 
 # Discovering All Checked Out Files including those with no checked in versions
 
-There are scenerios when files uploaded won't have "checked-in version" which will make the files visible only to their uploader. Two possible scenerios that can lead to the situation:
+There are scenarios when files uploaded won't have "checked-in version" which will make the files visible only to their uploader. Two possible scenarios that can lead to the situation:
 
 1. **Mandatory Metadata Requirements**: When there are mandatory fields configured on the libraries and end users use Onedrive as a medium to upload the files to SharePoint via a shortcut to OneDrive. End users are not prompted to fill in mandatory fields, instead they are presented with a series of warnings and errors.
 
@@ -41,7 +41,7 @@ List of check out files
 
 ## Issues with files with no checked in versions
 
-Files which have no checked in versions are not 
+Files which have no checked in versions have the following issues
 - Invisibility: They evade search results, remaining hidden from intended audiences.
 - Backup Issues: These files are not backed up, risking data loss.
 - Mass update of those files failed
