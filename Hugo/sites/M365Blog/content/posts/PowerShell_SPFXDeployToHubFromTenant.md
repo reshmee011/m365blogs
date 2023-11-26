@@ -26,21 +26,21 @@ Below is a PowerShell script snippet that demonstrates how to manage the deploym
 
 ## PnP PowerShell Script
 
-
-Before running the script, ensure to update the following variables are updated 
-
+Before running the script, ensure to update the following variables are updated. 
 - SharePoint admin centre Url
-$AdminCenterURL=https://contoso-admin.sharepoint.com
-
+```PowerShell
+$AdminCenterURL = "https://contoso-admin.sharepoint.com"
+```
 - Tenant App Catalog site collection Url
+```PowerShell
 $tenantAppCatalogUrl = "https://contoso.sharepoint.com/sites/appcatalog"
-
+```
 - Path where the spfx packages are stored
-
+```PowerShell
 $sppkgFolder = "./packages"
+```
 
 ### Script
-
 
 ```PowerShell
 $AdminCenterURL="https://contoso-admin.sharepoint.com"
@@ -132,7 +132,7 @@ $associatedSites | select url | ForEach-Object {
 #Export the result Array to CSV file
 $SiteAppUpdateCollection | Export-CSV $OutPutView -Force -NoTypeInformation
  
-#Disconnect-PnPOnline
+Disconnect-PnPOnline
 ```
 
 ![Example](../images/PowerShell_SPFXUpgradeFromTenant/Examples.png)
