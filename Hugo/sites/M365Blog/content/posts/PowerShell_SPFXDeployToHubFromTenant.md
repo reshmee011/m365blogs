@@ -143,8 +143,9 @@ $SiteAppUpdateCollection | Export-CSV $OutPutView -Force -NoTypeInformation
 Disconnect-PnPOnline
 ```
 
-![Example](../images/PowerShell_SPFXUpgradeFromTenant/Update.png)
+### Output of run with two SPFx packages across a hub site with associated sites
 
+![Example](../images/PowerShell_SPFXUpgradeFromTenant/Update.png)
 
 ## Explanation
 
