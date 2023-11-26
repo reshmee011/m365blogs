@@ -8,7 +8,7 @@ draft: false
 
 # Deploying SharePoint Framework (SPFx) Packages from Tenant App Catalog to Hub Site and Associated Sites
 
-There is the blog post how [Deploying and Installing SharePoint Framework (SPFx) solutions using PnP PowerShell to Hub Site and Associated Sites using site collection app catalog](https://pnp.github.io/blog/post/deploy-spfx-in-hub-site-and-associated-sites/) using site collection app catalog.  This post covers how to perform same objective but using the tenant level app catalog if the SPFx packages have not been added to all sites globally uring deployment in the tenant level app catalog and instead need targeted deployment or upgrades on specific sites. 
+There is the blog post how [Deploying and Installing SharePoint Framework (SPFx) solutions using PnP PowerShell to Hub Site and Associated Sites using site collection app catalog](https://pnp.github.io/blog/post/deploy-spfx-in-hub-site-and-associated-sites/).  This post covers how to perform same objective but using the tenant level app catalog if the SPFx packages have not been added to all sites globally uring deployment in the tenant level app catalog and instead need targeted deployment or upgrades on specific sites. 
 
 From the UI when uploading the SPFx package , the **enable app only** is chosen.
 
@@ -38,6 +38,14 @@ $tenantAppCatalogUrl = "https://contoso.sharepoint.com/sites/appcatalog"
 - Path where the spfx packages are stored
 ```PowerShell
 $sppkgFolder = "./packages"
+```
+- Name and Path of the log files
+```PowerShell
+$dateTime = (Get-Date).toString("dd-MM-yyyy")
+$invocation = (Get-Variable MyInvocation).Value
+$directorypath = Split-Path $invocation.MyCommand.Path
+$fileName = "\Log_Tenant-" + $dateTime + ".csv"
+$OutPutView = $directorypath + $fileName
 ```
 
 ### Script
@@ -135,7 +143,7 @@ $SiteAppUpdateCollection | Export-CSV $OutPutView -Force -NoTypeInformation
 Disconnect-PnPOnline
 ```
 
-![Example](../images/PowerShell_SPFXUpgradeFromTenant/Examples.png)
+![Example](../images/PowerShell_SPFXUpgradeFromTenant/Update.png)
 
 
 ## Explanation
