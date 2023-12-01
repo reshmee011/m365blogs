@@ -139,3 +139,7 @@ Email picture from outlook desktop and outlook on the web
 
 
 Not very happy with my HTML hack , anyone who can get it done a better way with div, th
+
+Transformed into table 
+
+''
