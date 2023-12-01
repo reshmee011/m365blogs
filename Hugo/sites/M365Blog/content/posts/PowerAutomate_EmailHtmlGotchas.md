@@ -10,10 +10,67 @@ Want a nicely formatted post to attract recipient's attention so that it's not j
 
 You tried something like
 
-<div style="max-width: 500px; margin: auto; display: flex; justify-content: center; align-items: center; height: 100px; border: 1px solid black;">
-  <h1 style="text-align: center;">Announcement Title</h1>
-  <button style="font-size: 16px; background-color: blue; color: white;">Go to item</button>
+```html
+
+<style>
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  background-color: #4CAF50;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #3e8e41;
+}
+img
+{
+ width:200px;
+ height:100px;
+ object-fit:cover;
+}
+</style>
+</head>
+<body>
+
+<div class="center">
+  <div class="box">
+    <h1>Heading</h1>
+    <img src="https://media.akamai.odsp.cdn.office.net/ukwest1-mediap.svc.ms/transform/thumbnail?provider=url&inputFormat=jpg&docid=https%3A%2F%2Fcdn.hubblecontent.osi.office.net%2Fm365content%2Fpublish%2F005292d6-9dcc-4fc5-b50b-b2d0383a411b%2Fimage.jpg&w=400"></img>
+    <a href="https://www.google.com">Go to item</a>
+  </div>
 </div>
+
+```
+Looks fine on email opened in browser 
+
+
+but in Outlook destop all formatting is gone 
 
 which renders well when you tried on html editor
 
