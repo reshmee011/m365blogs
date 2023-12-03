@@ -8,7 +8,7 @@ draft: false
 
 # Optimizing Email HTML for Outlook using the 'Send Email' action within Power Automate 
 
-When crafting attention-grabbing emails, the HTML structure plays a pivotal role, especially in rendering consistency across various email clients. I recently encountered challenges in achieving consistent formatting across Outlook desktop and web versions using the **Send Email** action within Power Automate.
+When crafting attention-grabbing emails, the HTML structure plays a pivotal role. I recently encountered challenges in achieving consistent formatting across Outlook desktop and web versions using the **Send Email** action within Power Automate.
 
 ![Email Action](../images/PowerAutomate_EmailHtmlGotchas/EmailAction.png)
 
@@ -147,7 +147,7 @@ Email with picture within outlook on the desktop
 
 ## Addressing Image Properties
 
-Attempting to set image properties via CSS, like width and height, didn’t consistently render. 
+Attempting to set image properties via CSS, like width and height, didn't consistently render. 
 
 ### Using CSS
 
@@ -161,6 +161,8 @@ img{
 ```
 
 ### Applying properties directly to the image HTML:
+
+Using width and height properties within the img HTML tag helped to achieve more consistent rendering.
 
 ```html
 <img data-imagetype="External" src="https://cdn.hubblecontent.osi.office.net/m365content/publish/aa2dc6cd-0710-4b94-b49d-3464108dd918/905395820.jpg" border="0" id="x__x0000_i1025" width="400" height="200">
