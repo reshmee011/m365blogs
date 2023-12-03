@@ -36,6 +36,55 @@ During the editing of existing flows, I encountered several messages that preven
     ![Shared Connection Message](../images/PowerAutomate_Copilot/PowerAutomate_TooManyActionsAndOthers.png)
     This message indicated the presence of another user's shared connection, yet its cause remains unidentified.
 
+5. **Unnecessary loop** 
+    Example provided above with unnecessary for each action in the flow generated
+
+6. **Lack of HTML formatting** in **Send Email** action
+     ![HTML formatting lacking](../images/PowerAutomate_Copilot/HTMLEmailFormat_Missing.png)
+    Ability to add HTML seems missing 
+   
+## Switch to Classic Designer
+
+The AI powered editing experience might not work for some limitations and to change to classic designer
+
+### Change Parameter 'v3' from URL 
+
+Notice the parameter v3 set to true
+```dotnetcli
+https://make.powerautomate.com/environments/Default-d872ec63-6bea-4678-9429-078f4fa93560/flows/c2d7e687-b42b-4cad-8cba-5150ab9f18e7?v3survey=true&v3=true
+```
+
+Amend the v3 parameter to false
+
+```dotnetcli
+https://make.powerautomate.com/environments/Default-d872ec63-6bea-4678-9429-078f4fa93560/flows/c2d7e687-b42b-4cad-8cba-5150ab9f18e7?v3survey=true&v3=false
+```
+### Switch from UI to classic designer
+
+On the top right , click on the ellipsis to access the option to change the editing experience to classic designer
+
+![Classic Designer](../images/PowerAutomate_Copilot/SwitchToClassicDesigner.png)
+
+
+### Feedback to switch to Classic Designer
+
+A feedback for the AI powered editing experience pop up appears, please fill in with the reasons for switching to classic designer to help Microsoft to improve the product further. The improvements are around these areas
+
+- Lack of HTML formatting view
+- Invalid connection
+- Too many clicks
+- Cannot open multiple action panes
+- Slow designer
+- Slow copilot
+- No copy/paste actions
+- Data loss from flow after saving (Dynamic content, parameter)
+- Dropdown items/dynamic contentmissing
+- Copilot understanding is limited
+- Missing connector
+- Unnecessary loop
+
+![Feedback to switch to Classic Designer](../images/PowerAutomate_Copilot/ReasonsNotToSUseAIEditingExperience.png)
+
 ## Conclusion
 
 Copilot serves as a beneficial aid in creating and editing flows within the designer experience, saving time. However, it exhibits limitations and remains in its early stages, with potential for significant growth. It's crucial to validate Copilot's responses and recommendations.

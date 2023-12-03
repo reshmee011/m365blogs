@@ -1,17 +1,22 @@
 ---
-title: "PowerAutomate_EmailHtmlGotchas"
+title: "Optimizing Email HTML for Outlook"
 date: 2023-11-29T16:15:32Z
-draft: true
+tags: ["Power Automate","Email Action","HTML"]
+featured_image: '/posts/images/PowerAutomate_EmailHtmlGotchas/div_email_owa.PNG'
+draft: false
 ---
 
-# Email HTML in Outlook
+# Optimizing Email HTML for Outlook using the 'Send Email' action within Power Automate 
 
-Want a nicely formatted post to attract recipient's attention so that it's not just another email and tried to use div to render the email for responsiveness and what modern html should be formatted.
+When crafting attention-grabbing emails, the HTML structure plays a pivotal role, especially in rendering consistency across various email clients. I recently encountered challenges in achieving consistent formatting across Outlook desktop and web versions using the **Send Email** action within Power Automate.
 
-You tried something like
+![Email Action](../images/PowerAutomate_EmailHtmlGotchas/EmailAction.png)
+
+## Using div Tags for Responsiveness
+
+At first, I experimented with divs to ensure responsiveness and modern HTML formatting. The code appeared as follows:
 
 ```html
-
 <style>
 .center {
   display: flex;
@@ -67,20 +72,17 @@ img
 </div>
 
 ```
-Looks fine on email opened in browser 
+While this worked well in **Outlook on the Web**, rendering beautifully as expected:
+![div rendered in OWA](../images/PowerAutomate_EmailHtmlGotchas/div_email_owa.PNG)
 
+The same layout, unfortunately, didn’t maintain its formatting in **Outlook Desktop**:
+![div not maintained in OWA](../images/PowerAutomate_EmailHtmlGotchas/div_email_outlookdesktop.PNG)
 
-but in Outlook destop all formatting is gone 
+## Table HTML Structure for consistency 
 
-which renders well when you tried on html editor
+To ensure a consistent display, especially in Outlook Desktop, I pivoted towards utilizing a table structure with CSS:
 
-However in Outlook desktop all formatting is not rendered having just plain text 
-
-Unfortunately had to admit defeat to go back to use table structure with css to render a better way 
-
-Even for the image using width and height in the style property would not make the email render as I wanted and to use the width and height HTML property
-
-```
+```html
 <style>
 h1 {
   text-align: center;
@@ -120,26 +122,50 @@ img{
 <table>
 <tbody>
 <tr style="height:11pt;"> 
-<td> <h1>New annoucement </h1></td>
+<td> <h1>Heading </h1></td>
 
 </tr>
-<tr><td><img data-imagetype="External" src="https://cdn.hubblecontent.osi.office.net/m365content/publish/aa2dc6cd-0710-4b94-b49d-3464108dd918/905395820.jpg" border="0" id="x__x0000_i1025" width="400" height="200"></td>
+<tr><td><img data-imagetype="External" src="https://cdn.hubblecontent.osi.office.net/m365content/publish/aa2dc6cd-0710-4b94-b49d-3464108dd918/905395820.jpg" border="0" width="400" height="200"></td>
 </tr>
 <tr><td>
 <h2>@{outputs('Get_details_for_selected_item')?['body/AnnouncementTitle']}</h2></td></tr>
 <tr style="height:11pt;text-align: center;"> 
-<td style="padding:40px">  <h3> <a href="@{outputs('Get_details_for_selected_item')?['body/{Link}']}">Go to item</a></h3></td>
+<td style="padding:40px">  <h3> <a href="https://www.google.com">Go to item</a></h3></td>
 </tr>
 </tbody>
 </table>
 </body>
 ```
 
-Email picture from outlook desktop and outlook on the web
+This adjustment resulted in better consistency across both Outlook on the Web and Outlook Desktop:
 
+Email with picture within outlook on the web
+![table rendered in OWA](../images/PowerAutomate_EmailHtmlGotchas/div_email_owa.PNG)
 
-Not very happy with my HTML hack , anyone who can get it done a better way with div, th
+Email with picture within outlook on the desktop
+![table rendered in desktop](../images/PowerAutomate_EmailHtmlGotchas/table_email_outlookdesktop.PNG)
 
-Transformed into table 
+## Addressing Image Properties
 
-''
+Attempting to set image properties via CSS, like width and height, didn’t consistently render. 
+
+### Using CSS
+
+```html
+<style>
+img{
+    width:400px; 
+    height:200px;
+}
+</style>
+```
+
+### Applying properties directly to the image HTML:
+
+```html
+<img data-imagetype="External" src="https://cdn.hubblecontent.osi.office.net/m365content/publish/aa2dc6cd-0710-4b94-b49d-3464108dd918/905395820.jpg" border="0" id="x__x0000_i1025" width="400" height="200">
+```
+
+## Conclusion
+
+While tables offered a more stable layout for Outlook emails, I'm still on the lookout for more effective HTML solutions. If you’ve cracked this or have alternative suggestions, I’d love to explore further!
