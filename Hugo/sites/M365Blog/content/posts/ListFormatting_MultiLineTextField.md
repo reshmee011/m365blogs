@@ -1,8 +1,23 @@
 ---
-title: "ListFormatting_MultiLineTextField"
+title: "ListFormatting Expand Multi Line Text"
 date: 2023-10-18T13:40:12+01:00
+tags: ["List formatting","JSON","HTML","CSS", "MultiLineText"]
+featured_image: '/posts/images/PowerAutomate_EmailHtmlGotchas/div_email_owa.PNG'
 draft: true
 ---
+
+# Expand Multi Line Text using column formatting
+
+## Summary
+
+The following sample shows how you can view more of a truncated multi line text column on hover. 
+
+![Screenshot of sample](../images/ListFormatting_MultiLineTextField/MultiLineViewMore.png)
+
+## View requirements
+
+- This format can be applied to multi line text column.
+
 
 ```JSON
 {
@@ -75,3 +90,14 @@ draft: true
   ]
 }
 ```
+
+## Caveats
+
+1. In List Experience the edit/view form does not render properly with the "See More" link stop to work for multi line text fields
+2. The custom hover card does not display in the list form
+3. If user had read only access to the view, they can't see the full text and users with edit rights can see the full text in edit mode.
+4. Multi line text fields have to be plain fields, won't work on rich text 
+
+## References
+
+[PR discussion for multi line text field ](https://github.com/pnp/List-Formatting/pull/739)
