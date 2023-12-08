@@ -1,8 +1,10 @@
 ---
-title: "ListFormatting_StartFlowfromEmbedWebPart"
+title: "Execute a flow from column formatting within Embed Webpart"
 date: 2023-12-08T15:01:42Z
 draft: true
 ---
+
+## Execute a flow from column formatting within Embed Webpart
 
 I have followed the instructions Creating "https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/column-formatting#create-a-button-to-launch-a-flow" 
  to create a button in a list to run a flow on a specific list item, and this works perfectly within the list.  I have used the list view webpart to display the list on a page to allow end user to trigger the flow however it is not working. This doesn't seem to be possible as the button does nothing when clicked on the web part.  
