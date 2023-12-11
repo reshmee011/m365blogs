@@ -20,6 +20,8 @@ Seeking a solution, I discovered an alternative approach using the Embed Webpart
 <iframe width="402" height="346" frameborder="0" scrolling="no" src="https://YOURURL"></iframe>
 ```
 
+![Email Action](../images/PowerAutomate_EmailHtmlGotchas/EmailAction.png)
+
 ## References
 
 [Embed a library or list – from another site collection! – on a Site Page](https://jennyssharepointtips.wordpress.com/2022/05/02/embed-a-library-or-list-from-another-site-collection-on-a-site-page/)
