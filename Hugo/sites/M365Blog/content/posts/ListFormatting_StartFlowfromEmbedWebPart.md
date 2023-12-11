@@ -1,6 +1,8 @@
 ---
 title: "Execute a flow from column formatting within Embed Webpart"
 date: 2023-12-08T15:01:42Z
+tags: ["Power Automate","Email Action","Column Formatting","Embed WebPart"]
+featured_image: '/posts/images/PowerAutomate_EmailHtmlGotchas/div_email_owa.PNG'
 draft: true
 ---
 
@@ -15,6 +17,8 @@ The embed web part https://jennyssharepointtips.wordpress.com/2022/05/02/embed-a
 ```html
 <iframe width="402" height="346" frameborder="0" scrolling="no" src="https://YOURURL"></iframe>
 ```
+
+![Email Action](../images/PowerAutomate_EmailHtmlGotchas/EmailAction.png)
 
 ## References
 https://jennyssharepointtips.wordpress.com/2022/05/02/embed-a-library-or-list-from-another-site-collection-on-a-site-page/
