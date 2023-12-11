@@ -2,8 +2,8 @@
 title: "Executing a Flow from Column Formatting from a page using the Embed Webpart"
 date: 2023-12-08T15:01:42Z
 tags: ["List formatting","JSON","HTML","CSS", "Embed WebPart","Trigger Flow"]
-featured_image: '/posts/images/PowerAutomate_EmailHtmlGotchas/div_email_owa.PNG'
-draft: true
+featured_image: '/posts/images/ListFormatting_StartFlowFromEmbedWebPart/EmbedWebPartForFlow.PNG'
+draft: false
 ---
 
 # Executing a Flow from Column Formatting from a page using the Embed Webpart
@@ -20,7 +20,7 @@ Seeking a solution, I discovered an alternative approach using the Embed Webpart
 <iframe width="402" height="346" frameborder="0" scrolling="no" src="https://YOURURL"></iframe>
 ```
 
-![Email Action](../images/PowerAutomate_EmailHtmlGotchas/EmailAction.png)
+![Email Action](../images/ListFormatting_StartFlowFromEmbedWebPart/EmbedWebPartForFlow.PNG)
 
 ## References
 
