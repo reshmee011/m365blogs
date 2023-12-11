@@ -22,6 +22,13 @@ Seeking a solution, I discovered an alternative approach using the Embed Webpart
 
 ![Email Action](../images/ListFormatting_StartFlowFromEmbedWebPart/EmbedWebPartForFlow.PNG)
 
+
+In case error message appears that the list/library can't be embedded.
+
+## HTML Security 
+
+/_layouts/15/HtmlFieldSecurity.aspx
+
 ## References
 
 [Embed a library or list – from another site collection! – on a Site Page](https://jennyssharepointtips.wordpress.com/2022/05/02/embed-a-library-or-list-from-another-site-collection-on-a-site-page/)
