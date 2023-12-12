@@ -20,7 +20,7 @@ Seeking a solution, I discovered an alternative approach using the Embed Webpart
 <iframe width="402" height="346" frameborder="0" scrolling="no" src="https://YOURURL"></iframe>
 ```
 
-![Email Action](../images/ListFormatting_StartFlowFromEmbedWebPart/EmbedWebPartForFlow.PNG)
+![Email Action](../images/PowerAutomate_EmailHtmlGotchas/EmailAction.png)
 
 ## References
 
