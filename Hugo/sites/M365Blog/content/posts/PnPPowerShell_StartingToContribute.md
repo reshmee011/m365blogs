@@ -3,7 +3,7 @@ title: "A Guide to Contributing to PnP PowerShell"
 date: 2023-12-11T01:52:50Z
 tags: ["PnP","PowerShell","Git","Github", "Open Source","Contributions"]
 featured_image: '/posts/images/PnPPowerShell_StartingToContribute/ForkYourOwnRepository.png'
-draft: true
+draft: false
 ---
 
 # A Guide to Contributing to PnP PowerShell
