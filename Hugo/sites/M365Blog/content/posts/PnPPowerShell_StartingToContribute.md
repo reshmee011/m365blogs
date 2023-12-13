@@ -178,8 +178,5 @@ Use git reset and git clean cmdlets with caution
 Contributing to PnP PowerShell is a learning process. Remember, each contribution counts, and this guide is your roadmap to make impactful changes seamlessly. Happy coding!
 
 ## References
-
-[Rewriting history](https://www.atlassian.com/git/tutorials/rewriting-history#:~:text=To%20review%2C%20git%20commit%20%2D%2D,the%20last%20commit%20message%20log)
-[Contributing as a holiday season present](https://www.blimped.nl/contributing-as-a-holiday-season-present/)
-[Contribution guidance](https://pnp.github.io/powershell/articles/gettingstartedcontributing.html#:~:text=Open%20your%20browser%20and%20go,you%20have%20changed%20and%20why.)
-[Git Clean](https://git-scm.com/docs/git-clean)
+(Rewriting history)[https://www.atlassian.com/git/tutorials/rewriting-history#:~:text=To%20review%2C%20git%20commit%20%2D%2D,the%20last%20commit%20message%20log]
+(Contributing as a holiday season present)[https://www.blimped.nl/contributing-as-a-holiday-season-present/]
