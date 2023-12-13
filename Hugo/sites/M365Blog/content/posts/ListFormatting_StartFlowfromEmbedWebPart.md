@@ -20,13 +20,13 @@ Seeking a solution, I discovered an alternative approach using the Embed Webpart
 <iframe width="402" height="346" frameborder="0" scrolling="no" src="https://YOURURL"></iframe>
 ```
 
-![Email Action](../images/PowerAutomate_EmailHtmlGotchas/EmailAction.png)
+![Embed WebPart ](../images/ListFormatting_StartFlowFromEmbedWebPart/EmbedWebPartForFlow.PNG)
 
 ## References
 
 [Embed a library or list – from another site collection! – on a Site Page](https://jennyssharepointtips.wordpress.com/2022/05/02/embed-a-library-or-list-from-another-site-collection-on-a-site-page/)
 
-[Triggering power automate flow from a list embeded... - Power Platform Community (microsoft.com)](https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/column-formatting#create-a-button-to-launch-a-flow)
+[Triggering power automate flow from a list embedded... - Power Platform Community (microsoft.com)](https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/column-formatting#create-a-button-to-launch-a-flow)
 
 [Column formatting not showing when view shown in a List Web Part (Modern Page and List) - Page 2 - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/sharepoint-developer/column-formatting-not-showing-when-view-shown-in-a-list-web-part/m-p/161460/page/2)
 
