@@ -10,11 +10,21 @@ draft: false
 
 Contributing to PnP PowerShell is a rewarding journey. Whether you're a seasoned contributor or a beginner, this guide aims to simplify the process and keep it handy for your next contribution.
 
+## Prerequisites
+
+1. Install [Git](https://git-scm.com/downloads)
+2. Install [PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
+3. Install [Visual Code](https://code.visualstudio.com) or **Visual Studio Code**
+4. Install .NET SDK 6 (https://dotnet.microsoft.com/download/dotnet/6.0)
+
+ 
 ## Forking and cloning 
 
 First things first, make a copy of the repository to start working on your changes. While making minor changes via GitHub's web editor or Codespaces is an option, I prefer having the repository on my local machine for more flexibility.
 
 ### Fork Your Repository: This creates your copy of the repository.
+
+Navigate to [PnP PowerShell](https://github.com/pnp/powershell) and fork the repository
 
 ![Fork your own repository](../images/PnPPowerShell_StartingToContribute/ForkYourOwnRepository.png)
 
@@ -153,5 +163,7 @@ git commit --amend --no-edit
 Contributing to PnP PowerShell is a learning process. Remember, each contribution counts, and this guide is your roadmap to make impactful changes seamlessly. Happy coding!
 
 ## References
-(Rewriting history)[https://www.atlassian.com/git/tutorials/rewriting-history#:~:text=To%20review%2C%20git%20commit%20%2D%2D,the%20last%20commit%20message%20log]
-(Contributing as a holiday season present)[https://www.blimped.nl/contributing-as-a-holiday-season-present/]
+
+[Rewriting history](https://www.atlassian.com/git/tutorials/rewriting-history#:~:text=To%20review%2C%20git%20commit%20%2D%2D,the%20last%20commit%20message%20log)
+[Contributing as a holiday season present](https://www.blimped.nl/contributing-as-a-holiday-season-present/)
+[Contribution guidance](https://pnp.github.io/powershell/articles/gettingstartedcontributing.html#:~:text=Open%20your%20browser%20and%20go,you%20have%20changed%20and%20why.)
