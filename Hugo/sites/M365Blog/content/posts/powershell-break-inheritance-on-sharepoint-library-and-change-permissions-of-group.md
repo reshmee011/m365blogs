@@ -1,8 +1,0 @@
----
-title: 'PowerShell break inheritance on SharePoint Library and change permissions of Group'
-date: Wed, 16 Mar 2016 08:58:35 +0000
-draft: false
-tags: ['PowerShell', 'PowerShell break inheritance SharePoint Library permissions Group', 'Security', 'SharePoint', 'SharePoint 2013']
----
-
-I had a requirement to change group members security group which has contribute permissions at the site collection to have read permissions to one document library. The trick is to break inheritance on the document library and amend the role of the security group to Read. `$web =Get-SPWeb -Identity $webUrl $docLibrary=$web.Lists.TryGetList($LibraryName) $docLibrary.BreakRoleInheritance($False) #get role definition from web: Full Control or Contribute or Read $roleDefinitions = "Read" #get site group $siteGroup = $web.SiteGroups[$groupName] #get the role assignment for the group $roleAssignment = new-object Microsoft.SharePoint.SPRoleAssignment($siteGroup) $roleAssignment.RoleDefinitionBindings.RemoveAll(); $roleDefinition=$web.RoleDefinitions[$roleDefinitions]; $roleAssignment.RoleDefinitionBindings.Add($roleDefinition); $docLibrary.RoleAssignments.Add($roleAssignment) $docLibrary.Update();` The end result is to maintain contribute permissions at site collection ![ContributePermissionAtSiteCollection](https://reshmeeauckloo.files.wordpress.com/2016/03/contributepermissionatsitecollection.png) and read permissions at document library ![ReadPermissionAtLibrary](https://reshmeeauckloo.files.wordpress.com/2016/03/readpermissionatlibrary.png)

@@ -1,8 +1,0 @@
----
-title: 'SQL function to abbreviate a set of words'
-date: Mon, 16 Nov 2015 08:49:01 +0000
-draft: false
-tags: ['SQL']
----
-
-The SQL Function script below will abbreviate a set of words using space as delimiter between the words up to number of letters specified `CREATE FUNCTION [dbo].FN_UTILITY_GetAbbreviation ( -- Add the parameters for the function here @string NVARCHAR(max), @delimiter NVARCHAR(2) = ' ',-- default delimiter to space @intNum int = 5 --default max number characters to be returned to 5, can change it to number of words passed ) RETURNS NVARCHAR(512) AS BEGIN -- Declare the return variable here DECLARE @output NVARCHAR(512) DECLARE @abbr NVARCHAR(512)` -- Add the T-SQL statements to compute the return value here DECLARE @level INT SET @level = 0 DECLARE @lastDotPosition INT SET @lastDotPosition = 0 DECLARE @nextDotPosition INT SET @output = @string SET @abbr = '' --depends on number of string let's say up to 5 WHILE(@level 0 THEN CHARINDEX(@delimiter, @string, @lastDotPosition+1) ELSE LEN(@string)+1 END SET @output = SUBSTRING(@string, @lastDotPosition, @nextDotPosition-@lastDotPosition) --substring(@string, @lastDotPosition, charindex('.', @string)) SET @output = REPLACE(@output,@delimiter,'') SET @abbr = @abbr + LEFT(@output,1); SET @lastDotPosition = @nextDotPosition SET @level = @level + 1 END -- Return the result of the function RETURN @abbr END Example: select \[dbo\].CPS\_FN\_UTILITY\_GetAbbreviation('United States') US select \[dbo\].CPS\_FN\_UTILITY\_GetAbbreviation('Software as a service') SAAS

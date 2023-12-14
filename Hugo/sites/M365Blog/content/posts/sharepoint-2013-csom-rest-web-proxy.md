@@ -1,8 +1,0 @@
----
-title: 'SharePoint 2013/Online CSOM REST Web Proxy'
-date: Fri, 04 Dec 2015 00:01:11 +0000
-draft: false
-tags: ['CSOM', 'REST', 'SharePoint 2013', 'SharePoint 2013 WebProxy', 'SharePoint Online']
----
-
-**Web Proxy** SP.WebProxy is used to make requests to external services by SharePoint. SharePoint Add-ins must register target site as remote endpoint in app manifest. If the URL is http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json, the endpoint is http://services.odata.org. However the response size must not exceed 200 kb. CSOM `var context = SP.ClientContext.get_current(); var request = new SP.WebRequestInfo(); request.set_url("http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json"); request.set_method("GET"); var response = SP.WebProxy.invoke(context,request); context.executeQueryAsync(success, fail); function success(){ if(response.get_statusCode() == 200 { var data = JSON.parse(response.get_body()); } else { var errorMessage = response.get_body(); jQuery.each(categories.d.results, function(index,value) { console.log(value.CategoryName); }); }` REST `var call = jQUery.ajax({ url: _spPageContextInfo.webAbsoluteUrl + "/_api/SP.WebProxy.invoke", type: "POST", data: JSON.stringify( { "requestInfo": {"type":"SP.WebRequestInfo"}, "Url":"http://services.odata.org/v4/Northwind/Northwind.svc/Categories?$format=json", "Method":"GET" }), headers:{ "Accept": "application/json;odata=verbose", "Content-Type": "application/json;odata=verbose", "X-RequestDigest": $("#_REQUESTDIGEST").val() } });`

@@ -1,8 +1,0 @@
----
-title: 'SQL With statement to return list of Months with date range'
-date: Fri, 20 Nov 2015 14:55:44 +0000
-draft: false
-tags: ['SQL', 'SQL With']
----
-
-With temporary named result set, known as a common table expression (CTE). More information regarding With can be found from the link below https://msdn.microsoft.com/en-GB/library/ms175972.aspx I have a function that accept a start date and end date and return a list of months CREATE FUNCTION \[dbo\].\[FN\_Utility\_GetMonths\](@startDate DateTime, @EndDate DateTime) RETURNS @Months table (MonthYear nvarchar(25),StartDate DateTime) AS BEGIN ;With \[Months\] as ( select StartDate = @startDate where @startDate <= @endDate union all select dateadd(month, 1, StartDate) from \[Months\] M --iterate through each row to get month benefit where dateadd(Month, 1, StartDate) <= @endDate ) INSERT INTO @Months select CONVERT(VARCHAR(3),StartDate,0) + '-' + RIGHT(0+YEAR(StartDate),2) ,StartDate from \[Months\] option (maxrecursion 0) RETURN END The function can be used against a list of rows from a table to break down start date and end date into range of months splitting for example cost information evenly using Apply statement Refer to the following post for more details http://wp.me/p54RZl-3g
