@@ -159,7 +159,7 @@ Once you have made the changes to a repository, you are ready to amend your comm
 git commit --amend --no-edit
 ```
 
-To undo changes in local branch, use git reset --hard or git -clean -fd with caution
+To undo changes in local branch, use git reset --hard or git -clean -fd with caution, view the (post)[https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/] for more undo cmdlets
 
 ```powershell
 git reset --hard
