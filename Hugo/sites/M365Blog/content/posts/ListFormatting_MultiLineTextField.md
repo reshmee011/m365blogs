@@ -10,11 +10,12 @@ draft: false
 
 ## Summary
 
-The following sample shows how you can view more of a truncated multi line text column on hover. Column formatting in SharePoint is a powerful tool to customize how data is displayed. Multi-line text fields, however, present unique challenges when applying these formats. This guide explores a method to expand truncated multi-line text on hover and discusses its limitations.
+The following sample shows how you can view more of a truncated multi line text column on click. Column formatting in SharePoint is a powerful tool to customize how data is displayed. Multi-line text fields, however, present unique challenges when applying these formats. This guide explores a method to expand truncated multi-line text on click and discusses its limitations.
 
 ![Screenshot of sample](../images/ListFormatting_MultiLineTextField/MultiLineViewMore.png)
 
 ## Understanding the Concept
+
 The objective is to provide users with a preview of truncated text and enable expansion on hover. This can be achieved using JSON-based column formatting in SharePoint.
 
 ### Implementation
