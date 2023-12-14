@@ -1,7 +1,7 @@
 
 
 ```PowerShell
-$SiteURL = "https://ppfonline.sharepoint.com/teams/PROJ-IT-Transformation"
+$SiteURL = "https://contoso.sharepoint.com/teams/PROJ-IT-Transformation"
  
 # Generate a unique log file name using today's date
 $dateTime = (Get-Date).toString("dd-MM-yyyy")
