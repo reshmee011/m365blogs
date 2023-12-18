@@ -1,24 +1,32 @@
 ---
-title: "Hugo_NewPosts"
+title: "Creating New Posts with Hugo"
 date: 2023-12-18T04:10:42Z
-tags: ["Hugo","Posts","New"]
+tags: ["Hugo", "Blogging", "Tutorial"]
 featured_image: '/posts/images/Hugo_NewPosts/Update.png'
-draft: true
+draft: false
 ---
 
-Navigate to the correct path where Hugo has been configured
+# Creating New Posts with Hugo
 
-```powershell
+In this post, we will walk through the process of creating a new post in Hugo, a popular static site generator.
+
+## Step 1: Navigate to Your Hugo Site
+
+First, navigate to the directory where your Hugo site is configured. You can do this using the `cd` command in terminal:
+
+``` PowerShell
 cd .\Hugo\sites\M365Blog\
 ```
 
-Run hugo new to create a new post
+## Step 2: Create a New Post
+
+Next, use the hugo new command to create a new post:
 
 ```powershell
 hugo new posts/DocumentIntelligenceStudio_PreviousModelsAPIVersions.md
 ```
 
-By default it creates an empty file with some Hugo Metadata like title, date and draft
+This command will create an empty Markdown file with some default Hugo metadata, such as the title, date, and draft status:
 
 ```HTML
 ---
@@ -28,12 +36,12 @@ draft: true
 ---
 ```
 
-Once the post is ready to be published add additional metadata like tags, featured_image and set draft to false. The additional metedata are driven by the Hugo theme. In my instance I am using the ananke theme.
+## Step 3: Add Metadata and Content
+Once you've written your post, you can add additional metadata like tags and a featured image. You can also set the draft status to false to indicate that the post is ready to be published. The available metadata fields may vary depending on the Hugo theme you're using. In this example, we're using the Ananke theme:
 
-
-```dotnetcli
+```PowerShell
 ---
-title: "Hugo_NewPosts"
+title: "Creating Hugo Posts"
 date: 2023-12-18T04:10:42Z
 tags: ["Hugo","Posts","New"]
 featured_image: '/posts/images/Hugo_NewPosts/Update.png'
@@ -41,4 +49,17 @@ draft: false
 ---
 ```
 
-Check in the changes to your repository.
+
+In this example:
+
+* title: The title of the blog post.
+* date: The date the blog post was created.
+* tags: A list of tags associated with the blog post.
+* featured_image: The path to an image that will be displayed as the featured image for the blog post.
+* draft: A boolean value that indicates whether the blog post is a draft. If draft is true, the post will not be included in the build output unless the --buildDrafts flag is used when running Hugo.
+
+### Step 4: Commit Your Changes
+
+Finally, commit the changes to your repository to publish the post.
+
+Happy blogging with Hugo!

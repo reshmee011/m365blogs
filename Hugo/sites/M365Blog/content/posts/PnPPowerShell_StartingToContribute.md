@@ -181,3 +181,4 @@ Contributing to PnP PowerShell is a learning process. Remember, each contributio
 (Contributing as a holiday season present)[https://www.blimped.nl/contributing-as-a-holiday-season-present/]
 (Contribution guidance)[https://pnp.github.io/powershell/articles/gettingstartedcontributing.html#:~:text=Open%20your%20browser%20and%20go,you%20have%20changed%20and%20why.]
 (GitHub Universe Cloud Skills Challenge)[https://learn.microsoft.com/en-gb/collections/kkqrhmxoqn54?WT.mc_id=cloudskillschallenge_ef5f9f41-0818-4895-9217-79d19827a322]
+(Getting Started with Git-)[https://www.linkedin.com/posts/brijpandeyji_getting-started-with-git-%3F%3F%3F-%3F%3F%3F-activity-7141752823460896768-MHJe?utm_source=share&utm_medium=member_desktop]
