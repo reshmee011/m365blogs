@@ -1,6 +1,8 @@
 ---
 title: "SharePoint Audit Logs"
 date: 2023-12-14T16:16:09Z
+tags: ["SharePoint","PnP","PowerShell", "Audit Logs"]
+featured_image: '/posts/images/PowerShell_PnPUnifiedLog/Log.png'
 draft: true
 ---
 
