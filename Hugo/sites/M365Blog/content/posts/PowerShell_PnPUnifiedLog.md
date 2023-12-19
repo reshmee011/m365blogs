@@ -6,7 +6,7 @@ featured_image: '/posts/images/PowerShell_PnPUnifiedLog/Log.png'
 draft: true
 ---
 
-# Get SharePoint Audit logs for the last 7 days
+# Get Audit logs with an example to get SharePoint audit log for the last 7 days
 
 The following methods can help to retrieve audit logs.
 
@@ -20,7 +20,7 @@ This post focuses on the first option using (Office 365 Management Activity API 
 
 Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for SharePoint 
 
-* FileM*odifiedExtended
+* FileModifiedExtended
 * FileAccessed
 * ListViewed
 * PageViewed
@@ -81,10 +81,126 @@ Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for Share
 
 , , SharePoint, , DLP. 
 Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for AzureActiveDirectory
+UserLoggedIn
+UserLoginFailed
+Update user.
+Update device.
+Device no longer managed.
+Device no longer compliant.
+Update group.
+Delete device.
+Update StsRefreshTokenValidFrom Timestamp.
+Change user password.
+Add device.
+Add member to role.
+Set Company Information.
+Change user license.
+Remove member from role.
+Update agreement.
+Add owner to group.
+Update service principal.
+Add service principal credentials.
+Remove service principal credentials.
+Add member to group.
+Remove member from group.
+Add registered owner to device.
+Add registered users to device.
+Add service principal.
+Consent to application.
+Add app role assignment grant to user.
+Add delegated permission grant.
+Reset user password.
+Remove service principal.
+Add group.
 
 Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for Exchange
 
+Create
+HardDelete
+SoftDelete
+SendAs
+MoveToDeletedItems
+Update
+MipLabel
+Move
+FolderBind
+MailItemsAccessed
+SendOnBehalf
+UpdateInboxRules
+Send
+Set-MailboxPlan
+Set-OwaMailboxPolicy
+Set-Mailbox
+New-ExchangeAssistanceConfig
+Set-TransportConfig
+Set-TenantObjectVersion
+Set-RecipientEnforcementProvisioningPolicy
+Install-ResourceConfig
+Install-DataClassificationConfig
+Install-AdminAuditLogConfig
+Enable-AddressListPaging
+Set-ExchangeAssistanceConfig
+Install-DefaultSharingPolicy
+Set-AdminAuditLogConfig
+Add-MailboxPermission
+ModifyFolderPermissions
+New-Mailbox
+
 Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for DLP
+
+ListItemViewed
+FileAccessed
+ListViewed
+FileModifiedExtended
+FilePreviewed
+FileCopied
+FileAccessedExtended
+FileSyncDownloadedFull
+ManagedSyncClientAllowed
+PagePrefetched
+SearchQueryPerformed
+PageViewed
+FileModified
+FileDownloaded
+FileRecycled
+FileUploaded
+ListItemCreated
+ClientViewSignaled
+FileVersionsAllDeleted
+ListItemUpdated
+FileSensitivityLabelApplied
+FolderCreated
+SharingInvitationBlocked
+FileCheckedIn
+FileRenamed
+FileSyncUploadedFull
+FileCheckedOut
+PageViewedExtended
+CommentCreated
+FileMoved
+FolderRenamed
+FolderModified
+ListUpdated
+ListColumnCreated
+SiteColumnCreated
+SharingSet
+AddedToGroup
+GroupAdded
+CompanyLinkCreated
+SharingInheritanceBroken
+FolderRecycled
+ListColumnDeleted
+ListViewUpdated
+FileCheckOutDiscarded
+ListItemDeleted
+SecureLinkUsed
+AddedToSecureLink
+SecureLinkCreated
+SecureLinkUpdated
+CompanyLinkUsed
+SignInEvent
+ListItemRecycled
+FolderMoved
 
 Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for General
 
