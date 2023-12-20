@@ -208,15 +208,15 @@ Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for Gener
 
 
 ```PowerShell
-$SiteUrl = "https://contoso.sharepoint.com/teams/team-devtest/"
-$userId = "test@contoso.sharepoint.com"
+$SiteUrl = "https://contoso-admin.sharepoint.com"
 Connect-PnPOnline -url $SiteUrl -Interactive
-$days = 7
+$userId = "testusero@contoso.co.uk"
+$days = 3
 $endDay = 0
 $Operations = @()
  
 # Generate a unique log file name using today's date
-$dateTime = (Get-Date).toString("dd-MM-yyyy")
+$dateTime = (Get-Date).toString("dd-MM-yyyy_HHmm")
 $invocation = (Get-Variable MyInvocation).Value
 $directorypath = Split-Path $invocation.MyCommand.Path
 $fileName = "logReport-" + $dateTime + ".csv"
@@ -227,32 +227,37 @@ while($days -ge $endDay){
 if($days -eq 0)
 {
  $activities =  Get-PnPUnifiedAuditLog -ContentType SharePoint -ErrorAction Ignore
+ $activities +=  Get-PnPUnifiedAuditLog -ContentType AzureActiveDirectory -ErrorAction Ignore
+ $activities +=  Get-PnPUnifiedAuditLog -ContentType DLP -ErrorAction Ignore
+ $activities +=  Get-PnPUnifiedAuditLog -ContentType Exchange -ErrorAction Ignore
+ $activities +=  Get-PnPUnifiedAuditLog -ContentType General -ErrorAction Ignore
+ 
 }else {
-    $activities = Get-PnPUnifiedAuditLog -ContentType SharePoint -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
+    $activities = Get-PnPUnifiedAuditLog -ContentType AzureActiveDirectory -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
+    $activities += Get-PnPUnifiedAuditLog -ContentType SharePoint -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
+    $activities += Get-PnPUnifiedAuditLog -ContentType DLP -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
+    $activities += Get-PnPUnifiedAuditLog -ContentType Exchange -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
+    $activities += Get-PnPUnifiedAuditLog -ContentType General -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
  }
  
  $activities| ForEach-Object {
     $activity = $_
-if($activity.UserId -and $activity.SiteUrl){
-   if($activity.UserId.ToLower() -eq $userId  -and $activity.SiteUrl.ToLower() -eq $SiteUrl)    
- {  
     if($Operations -notcontains $activity.Operation){
-        $Operations+= $activity.Operation
-        write-host $activity.Operation
-    }
-    $ExportVw = New-Object PSObject
-    $ExportVw | Add-Member -MemberType NoteProperty -name "ObjectId" -value $activity.ObjectId
-    $ExportVw | Add-Member -MemberType NoteProperty -name "SiteUrl" -value $activity.SiteUrl
-    $ExportVw | Add-Member -MemberType NoteProperty -name "Operation" -value $activity.Operation
-    $ExportVw | Add-Member -MemberType NoteProperty -name "UserId" -value $activity.UserId
-    $ExportVw | Add-Member -MemberType NoteProperty -name "Date" -value $activity.CreationTime
-    $logCollection += $ExportVw
+      $Operations+= $activity.Operation
+      write-host $activity.Operation
+  }
+if($activity.UserId ){#-and $activity.SiteUrl
+   if($activity.UserId.ToLower() -eq $userId  )    #-and $activity.SiteUrl.ToLower() -eq $SiteUrl
+ {  
+    $logCollection += $activity
  }
+ 
+ 
 }
 }
  $days = $days - 1
 }
-$logCollection | sort-object "ObjectId" |Export-CSV $OutPutView -Force -NoTypeInformation
+$logCollection | sort-object "Operation" |Export-CSV $OutPutView -Force -NoTypeInformation
 
 ```
 
