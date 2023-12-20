@@ -143,7 +143,7 @@ Should any issues arise during the pull request process, inspect the PR checks f
 
 ![Some checks were not successful](../images/PnPPowerShell_StartingToContribute/Somecheckswerenotsuccessful.png)
 
-Drilling on the failed step by clicking on details may reveal the issue why it failed
+Drilling on the failed step by clicking on details may reveal the issue why it failed. In that instance there were no issues with the Pull Request submitted but was due to a new version being released. Reach out to any of the PnP PowerShell Maintainers : Gautam Sheth, Veronique Lengelle or Koen Zomers to understand if you may need to amend anything in your codebase to ensure a successful build.
 
 ![buildfail](../images/PnPPowerShell_StartingToContribute/BuildMayFail.png)
 
@@ -170,6 +170,9 @@ git reset --hard will not remove untracked files and might want to use git clean
 ```powershell
 git clean -fd
 ```
+
+Please check (Getting Started with Git-)[https://www.linkedin.com/posts/brijpandeyji_getting-started-with-git-%3F%3F%3F-%3F%3F%3F-activity-7141752823460896768-MHJe?utm_source=share&utm_medium=member_desktop]
+for helpful git cmdlets you may use 
 
 ## Conclusion
 
