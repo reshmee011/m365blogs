@@ -163,7 +163,10 @@ You may delete the repository after the PR is merged and recreated the fork each
 Once you have made minor changes to a repository, you are ready to amend your commit. You can do this by using the –no-edit flag:
 
 ```powershell
+git add -A
 git commit --amend --no-edit
+git pull
+git push
 ```
 
 To undo changes in local branch, use git reset --hard or git -clean -fd with caution, view the [post](https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/) for more undo cmdlets
