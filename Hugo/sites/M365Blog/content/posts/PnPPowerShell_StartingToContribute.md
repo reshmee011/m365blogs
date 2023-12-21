@@ -12,6 +12,8 @@ Contributing to PnP PowerShell is a rewarding journey. Whether you're a seasoned
 
 ## Prerequisites
 
+To set up the development to start hacking on PnP PowerShell, install the following
+
 1. Install [Git](https://git-scm.com/downloads)
 2. Install [PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
 3. Install [Visual Code](https://code.visualstudio.com) or **Visual Studio Code**
@@ -28,7 +30,10 @@ Navigate to [PnP PowerShell](https://github.com/pnp/powershell) and fork the rep
 
 ![Fork your own repository](../images/PnPPowerShell_StartingToContribute/ForkYourOwnRepository.png)
 
-### Clone the Repository: Clone the forked repository onto your local machine using the following commands:
+### Clone the Repository 
+
+Clone the forked repository onto your local machine using the following commands
+
 ```powershell
 # Navigate to the path where the repository will be cloned
 cd C:\Users\reshm\source\repos
@@ -41,6 +46,7 @@ code . # Open the directory in VS Code
 ![Clone your repo](../images/PnPPowerShell_StartingToContribute/RepoClone.png)
 
 ## Configure upstream
+
 Setting up an upstream allows you to sync changes with the source repository.
 
 ```powershell
@@ -99,7 +105,7 @@ Once your changes are ready:
 
 ![Publish branch with changed](../images/PnPPowerShell_StartingToContribute/CreateAndPublishbranch.png)
 
-## Squash Multiple Commits 
+### Squash Multiple Commits 
 
 Squash multiple commits into one for a cleaner history:
 
@@ -109,9 +115,9 @@ git rebase -i HEAD~n
 
 ## Create Pull request 
 
-
 Sync your branch with the main repository and ensure it's up to date:
-## To ensure latest before creating a PR
+
+### To ensure latest before creating a PR
 
 ```powershell
 # Sync and rebase main branch to get the latest changes
@@ -139,6 +145,7 @@ Fill in details
 ![Create PR with details](../images/PnPPowerShell_StartingToContribute/CreatePRDetails.png)
 
 ## Troubleshooting
+
 Should any issues arise during the pull request process, inspect the PR checks for detailed feedback. If needed, resolve conflicts or errors encountered.
 
 ![Some checks were not successful](../images/PnPPowerShell_StartingToContribute/Somecheckswerenotsuccessful.png)
@@ -153,7 +160,7 @@ You may delete the repository after the PR is merged and recreated the fork each
 
 ## Final Touches
 
-Once you have made the changes to a repository, you are ready to amend your commit. You can do this by using the –no-edit flag:
+Once you have made minor changes to a repository, you are ready to amend your commit. You can do this by using the –no-edit flag:
 
 ```powershell
 git commit --amend --no-edit
