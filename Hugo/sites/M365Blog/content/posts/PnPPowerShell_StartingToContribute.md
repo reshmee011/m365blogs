@@ -47,7 +47,7 @@ code . # Open the directory in VS Code
 
 ## Configure upstream
 
-Setting up an upstream allows you to sync changes with the source repository.
+Setting up an upstream allows you to sync changes with the source repository. Create a seperate branch for each feature or issue to work on as it will make easier to create a pull request for the individual feature or issue. 
 
 ```powershell
 # Configure an upstream so you can sync changes with the source repo
@@ -60,6 +60,12 @@ git checkout -b command-xyz
 ## Start hacking
 
 With your environment set up, dive into making your changes!
+
+Explore the [Folder structure](https://pnp.github.io/powershell/articles/buildingfolderstructure.html) to grasp the project's layout.
+
+If a cmdlet is created or updated the corresponding documentation needs to be created or updated to reflect the changes. 
+
+Remember, whenever a cmdlet is added or modified, it's vital to mirror those changes in the documentation. For instance, upon introducing a new cmdlet like Remove-PnPContainer for container deletion, ensure that corresponding .cs and .md files are created or updated to document its functionality.
 
 ## Debug and Test changes
 
@@ -105,38 +111,76 @@ Once your changes are ready:
 
 ![Publish branch with changed](../images/PnPPowerShell_StartingToContribute/CreateAndPublishbranch.png)
 
-### Squash Multiple Commits 
-
-Squash multiple commits into one for a cleaner history:
-
-```powershell
-git rebase -i HEAD~n
-```
-
 ## Create Pull request 
 
 Sync your branch with the main repository and ensure it's up to date:
 
 ### To ensure latest before creating a PR
 
+The code below is a set of Git commands used to synchronize your local repository with the main repository before creating a Pull Request (PR). This is an important step to ensure that your changes are based on the most recent version of the project.
+
 ```powershell
 # Sync and rebase main branch to get the latest changes
+#git fetch upstream, retrieves all the branches and their respective commits from the 'upstream' repository, which is typically the original repository you forked. However, this command doesn't merge any changes into your local branches.
 git fetch upstream
+#switch to the 'dev' branch
 git checkout dev
+#pulls the latest changes from the 'dev' branch of the upstream repository and rebases your local 'dev' branch on top of those changes. Rebasing is a way to integrate changes from one branch into another. It moves or combines a sequence of commits to a new base commit.
 git pull --rebase upstream dev
 
 # Rebase feature branch to get the latest changes
+#switch to feature branch
 git checkout command-xyz
+#git rebase dev is used to rebase your feature branch onto the 'dev' branch. This means that the changes in your feature branch are applied on top of the changes in the 'dev' branch, ensuring that your feature branch is up-to-date with the latest changes in the 'dev' branch.
 git rebase dev
+
+#push all local changes back onto the origin 
+#Modifies the most recent commit with any staged changes and/or updates the commit message. In this case, --no-edit is used to keep the existing commit message.
+git commit --amend --no-edit
+#This command updates your current branch with any new changes from the remote repository.
+git pull
+# This command pushes all local changes in your current branch to the remote repository.
+git push
 ```
 
 ![rebase](../images/PnPPowerShell_StartingToContribute/RebaseCode.png)
 
-Navigate to the branch on the browser and create a pull request referencing your feature branch and the main branch of the central repository.
+After running these commands, you can navigate to the branch on your browser and create a pull request. This pull request should reference your feature branch and the main(dev) branch of the central repository.
 
 ![branch with commits ahead](../images/PnPPowerShell_StartingToContribute/branchwithcommitahead.png)
 
+### Squash Multiple Commits 
+
+You may have more than 1 commit ahead of the upstream repository and it is a good idea to squash multiple commits into one for a cleaner history:
+
+![3commits ahead](../images/PnPPowerShell_StartingToContribute/3CommitsAhead.png)
+
+```powershell
+# -i stands for 'interactive rebase'. HEAD~n is a reference to the 'n-th' commit before the current commit (HEAD). For example, if 'n' is 3, this command will let you modify the last three commits.
+git rebase -i HEAD~n
+```
+
+Interactive rebasing allows you to modify commits as they are moved to the new base commit. This is particularly useful when you want to clean up a series of commits before merging them into a main branch.
+
+Git opens a text editor with a list of the last 'n' commits, each on a separate line, and some commands for how to handle each commit. You can change these commands to tell Git what to do with each commit. For example, you can squash commits (combine them), reorder them, modify the commit messages, or even delete them. 
+
+![Interactive rebasing](../images/PnPPowerShell_StartingToContribute/InteractiveRebasingForLast3Commits.png)
+
+After you save and close the file, Git will apply the changes you've specified. View post [Git Tools - Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History) for more details.
+
+![Rebased and Updated](../images/PnPPowerShell_StartingToContribute/RebasedandUpdates.png)
+
+This can help you create a clean, understandable commit history.
 Once ready, create the pull request via the GitHub site and fill in the details.
+
+An alternative to rebase is to use git reset soft
+
+```PowerShell
+git reset --soft HEAD~7
+```
+
+![Git Reset Soft](../images/PnPPowerShell_StartingToContribute/GitResetSoft.png)
+
 
 Create Pull Request by clicking the button **Create Pull Request**
 ![Create PR](../images/PnPPowerShell_StartingToContribute/CreatePR.png)
@@ -192,6 +236,6 @@ Contributing to PnP PowerShell is a learning process. Remember, each contributio
 
 [Rewriting history](https://www.atlassian.com/git/tutorials/rewriting-history#:~:text=To%20review%2C%20git%20commit%20%2D%2D,the%20last%20commit%20message%20log)
 [Contributing as a holiday season present](https://www.blimped.nl/contributing-as-a-holiday-season-present/)
-[Contribution guidance](https://pnp.github.io/powershell/articles/gettingstartedcontributing.html#:~:text=Open%20your%20browser%20and%20go,you%20have%20changed%20and%20why.)
+[Contribution guidance](https://pnp.github.io/powershell/articles/gettingstartedcontributing.html)
 [GitHub Universe Cloud Skills Challenge](https://learn.microsoft.com/en-gb/collections/kkqrhmxoqn54?WT.mc_id=cloudskillschallenge_ef5f9f41-0818-4895-9217-79d19827a322)
 [Getting Started with Git-](https://www.linkedin.com/posts/brijpandeyji_getting-started-with-git-%3F%3F%3F-%3F%3F%3F-activity-7141752823460896768-MHJe?utm_source=share&utm_medium=member_desktop)
