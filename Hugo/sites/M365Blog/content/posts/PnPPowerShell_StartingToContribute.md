@@ -78,7 +78,7 @@ c:\Users\reshm\source\repos\powershell\build\Build-Debug.ps1
 ![Build debug successful](../images/PnPPowerShell_StartingToContribute/BuildDebug.png)
 
 Build debug may fail if PowerShell file is already in use
-![Build debug failes](../images/PnPPowerShell_StartingToContribute/BuildFailedBecauseofFileInUse.png)
+![Build debug failed](../images/PnPPowerShell_StartingToContribute/BuildFailedBecauseofFileInUse.png)
 
 The resolution is to close any PowerShell code editor loading the PnP.PowerShell.psd1 file including the PowerShell core used to build the file.
 ![Kill the terminal](../images/PnPPowerShell_StartingToContribute/KilltheTerminal.png)
@@ -96,11 +96,11 @@ $container = get-pnpcontainer -OwningApplicationId a187e399-0c36-4b98-8f04-1edc1
 ![Attach to process](../images/PnPPowerShell_StartingToContribute/AttachToProcessor_pwshexe.png)
 
 Running code will code cause it to pause at breakpoints 
-![Attach to process](../images/PnPPowerShell_StartingToContribute/BuildDebug.png)
+![Breakpointhit](../images/PnPPowerShell_StartingToContribute/hitdebugger.png)
 
 ## Commit Changes
 
-Once your changes are ready:
+Once your changes are ready, run the following cmdlets to commit all changes changing the message to reflect the commit.
 
 ```powershell
 # Edit files, add and commit. Then push with the -u (short for --set-upstream) option
@@ -108,6 +108,8 @@ Once your changes are ready:
  git commit -m "new cmdlet for remove-pnpcontainer"
  git push --set-upstream origin command-xyz 
 ``` 
+
+Once above cmdlets are run , you may be prompted to create pull request from the branch created.
 
 ![Publish branch with changed](../images/PnPPowerShell_StartingToContribute/CreateAndPublishbranch.png)
 
@@ -153,6 +155,8 @@ After running these commands, you can navigate to the branch on your browser and
 
 You may have more than 1 commit ahead of the upstream repository and it is a good idea to squash multiple commits into one for a cleaner history:
 
+### Git rebase
+
 ![3commits ahead](../images/PnPPowerShell_StartingToContribute/3CommitsAhead.png)
 
 ```powershell
@@ -166,21 +170,44 @@ Git opens a text editor with a list of the last 'n' commits, each on a separate 
 
 ![Interactive rebasing](../images/PnPPowerShell_StartingToContribute/InteractiveRebasingForLast3Commits.png)
 
-After you save and close the file, Git will apply the changes you've specified. View post [Git Tools - Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History) for more details.
+After you save and close the file. Please note the command to save and close depends on the tool the text editor was opened. In my scenerio using git via the terminal from visual studio code opened the editor in vim. 
 
-![Rebased and Updated](../images/PnPPowerShell_StartingToContribute/RebasedandUpdates.png)
+*** How to Exit Vim ***
+
+1. Press ESC once (sometimes twice)
+2. Type :q and press Enter/return if no changes
+3. Type :wq and press Enter/return to keep changes
+4. Type :q! and press Enter/return to discard any changes made.
+
+ Git will apply the changes you've specified. View post [Git Tools - Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History) for more details.
+
+![Rebased and Updated](../images/PnPPowerShell_StartingToContribute/RebasedandUpdated.png)
 
 This can help you create a clean, understandable commit history.
 Once ready, create the pull request via the GitHub site and fill in the details.
 
-An alternative to rebase is to use git reset soft
+### Git reset
+
+An alternative to rebase is to use git reset soft, view [difference between git reset hard and git reset soft](https://stackoverflow.com/questions/24568936/what-is-difference-between-git-reset-hard-head1-and-git-reset-soft-head) for more details.
 
 ```PowerShell
 git reset --soft HEAD~7
+git add -A
+git commit -m "new message"
+git pull
+git push
 ```
 
+Outcome of above command
 ![Git Reset Soft](../images/PnPPowerShell_StartingToContribute/GitResetSoft.png)
 
+After the rebase or reset, push the changes to the remote repository with the git push command.
+
+```powershell
+ git push –force-with-lease 
+```
+
+The –force-with-lease flag confirms whether the remote branch matches the version of the one you are merging. It ensures that any new commits pushed in the interim are acknowledged and rejects the push if the remote branch has been modified in between.
 
 Create Pull Request by clicking the button **Create Pull Request**
 ![Create PR](../images/PnPPowerShell_StartingToContribute/CreatePR.png)
@@ -213,20 +240,8 @@ git pull
 git push
 ```
 
-To undo changes in local branch, use git reset --hard or git -clean -fd with caution, view the [post](https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/) for more undo cmdlets
-
-```powershell
-git reset --hard
-```
-
-git reset --hard will not remove untracked files and might want to use git clean to remove any files from the tracked root directory that are not under Git tracking.
-
-```powershell
-git clean -fd
-```
-
 Please check [Getting Started with Git-]([https://www.linkedin.com/posts/brijpandeyji_getting-started-with-git-%3F%3F%3F-%3F%3F%3F-activity-7141752823460896768-MHJe?utm_source=share&utm_medium=member_desktop)
-for helpful git cmdlets you may use 
+for helpful git cmdlets you may use.
 
 ## Conclusion
 
@@ -239,3 +254,4 @@ Contributing to PnP PowerShell is a learning process. Remember, each contributio
 [Contribution guidance](https://pnp.github.io/powershell/articles/gettingstartedcontributing.html)
 [GitHub Universe Cloud Skills Challenge](https://learn.microsoft.com/en-gb/collections/kkqrhmxoqn54?WT.mc_id=cloudskillschallenge_ef5f9f41-0818-4895-9217-79d19827a322)
 [Getting Started with Git-](https://www.linkedin.com/posts/brijpandeyji_getting-started-with-git-%3F%3F%3F-%3F%3F%3F-activity-7141752823460896768-MHJe?utm_source=share&utm_medium=member_desktop)
+[What Are Squash Commits in Git: A How-To Guide for 2024](https://www.redswitches.com/blog/squash-commits/)
