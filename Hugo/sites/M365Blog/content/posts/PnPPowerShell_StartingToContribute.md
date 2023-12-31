@@ -240,7 +240,7 @@ git pull
 git push
 ```
 
-Please check [Getting Started with Git-]([https://www.linkedin.com/posts/brijpandeyji_getting-started-with-git-%3F%3F%3F-%3F%3F%3F-activity-7141752823460896768-MHJe?utm_source=share&utm_medium=member_desktop)
+Please check [Getting Started with Git](https://www.linkedin.com/posts/brijpandeyji_getting-started-with-git-%3F%3F%3F-%3F%3F%3F-activity-7141752823460896768-MHJe?utm_source=share&utm_medium=member_desktop)
 for helpful git cmdlets you may use.
 
 ## Conclusion
@@ -250,8 +250,13 @@ Contributing to PnP PowerShell is a learning process. Remember, each contributio
 ## References
 
 [Rewriting history](https://www.atlassian.com/git/tutorials/rewriting-history#:~:text=To%20review%2C%20git%20commit%20%2D%2D,the%20last%20commit%20message%20log)
+
 [Contributing as a holiday season present](https://www.blimped.nl/contributing-as-a-holiday-season-present/)
+
 [Contribution guidance](https://pnp.github.io/powershell/articles/gettingstartedcontributing.html)
+
 [GitHub Universe Cloud Skills Challenge](https://learn.microsoft.com/en-gb/collections/kkqrhmxoqn54?WT.mc_id=cloudskillschallenge_ef5f9f41-0818-4895-9217-79d19827a322)
+
 [Getting Started with Git-](https://www.linkedin.com/posts/brijpandeyji_getting-started-with-git-%3F%3F%3F-%3F%3F%3F-activity-7141752823460896768-MHJe?utm_source=share&utm_medium=member_desktop)
+
 [What Are Squash Commits in Git: A How-To Guide for 2024](https://www.redswitches.com/blog/squash-commits/)
