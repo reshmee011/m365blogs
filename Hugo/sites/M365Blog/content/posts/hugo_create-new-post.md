@@ -2,7 +2,7 @@
 title: "Creating New Posts with Hugo"
 date: 2023-12-18T04:10:42Z
 tags: ["Hugo", "Blogging", "Tutorial"]
-featured_image: '/posts/images/Hugo_NewPosts/Update.png'
+featured_image: '/posts/images/Hugo_NewPosts/Post.png'
 draft: false
 ---
 
@@ -23,14 +23,14 @@ cd .\Hugo\sites\M365Blog\
 Next, use the hugo new command to create a new post:
 
 ```powershell
-hugo new posts/DocumentIntelligenceStudio_PreviousModelsAPIVersions.md
+hugo new posts/Hugo_create-new-post.md
 ```
 
 This command will create an empty Markdown file with some default Hugo metadata, such as the title, date, and draft status:
 
 ```HTML
 ---
-title: "Hugo_NewPosts"
+title: "Hugo_create-new-post"
 date: 2023-12-18T04:10:42Z
 draft: true
 ---

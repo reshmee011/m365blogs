@@ -1,8 +1,8 @@
 ---
-title: "Export SharePoint Pages to PDF"
-date: 2023-07-18T07:49:47+01:00
-draft: true
-tags: ["Export to PDF", "Chrome","SharePoint Page"]
+title: "Export SharePoint Pages to PDF for SharePoint OnPremises"
+date: 2023-12-02T07:49:47+01:00
+draft: false
+tags: ["Export to PDF", "Chrome","SharePoint Pages", "OnPremises"]
 ---
 
 # Export SharePoint Pages to PDF
@@ -10,15 +10,17 @@ tags: ["Export to PDF", "Chrome","SharePoint Page"]
 There may be scenerios where you might want to take screenshots of all your pages in your SharePoint site. For instance before revamping a site, you might take screenshots of all pages to compare against updated site to show end client progress or difference the new design brings or could be simply for backing up the pages before archiving the site.
 
 ## Prerequisites
-Google Chrome installed
-PnP PowerShell installed
 
-Full list of chrom flags https://github.com/GoogleChrome/chrome-launcher/blob/main/docs/chrome-flags-for-tools.md
+Google Chrome installed
+SharePoint PowerShell
+
+
+Full list of chrome flags https://github.com/GoogleChrome/chrome-launcher/blob/main/docs/chrome-flags-for-tools.md
 
 ```PowerShell
 # Variables
-$webUrl = "https://connectonline.ppfonline.co.uk"
-$rootUrl = "https://connectonline.ppfonline.co.uk"
+$webUrl = "https://test.contoso.co.uk"
+$rootUrl = "https://test.contoso.co.uk"
 $libraryName = "Pages"
 $outputFolder = "E:\PDFs"
 $chromePath = "C:\Program Files\Google\Chrome\Application\chrome.exe";
@@ -66,7 +68,7 @@ $web.Dispose()
 # Get the root web
 $rootWeb = Get-SPWeb $webUrl
    exportToPDF $rootWeb
-<# Loop through each sub-web
+# Loop through each sub-web
 foreach ($web in $rootWeb.Webs)
 {
    exportToPDF $web
@@ -86,6 +88,6 @@ foreach ($web in $rootWeb.Webs)
        }
     }
 }
-
-#>
 ```
+
+The above code has been tested against SharePoint 2013 primarily. I could not get it to work on SharePoint Online with empty PDF pages being produced. 
