@@ -91,6 +91,7 @@ connect-pnpOnline -Url https://reshmeeauckloo-admin.sharepoint.com -Interactive
 
 $container = get-pnpcontainer -OwningApplicationId a187e399-0c36-4b98-8f04-1edc167a0996
 ```
+
 3. **Add Breakpoints and Debug**: Use breakpoints and attach a debugger to pwsh.exe to pause and debug your code.
 
 ![Attach to process](../images/PnPPowerShell_StartingToContribute/AttachToProcessor_pwshexe.png)
