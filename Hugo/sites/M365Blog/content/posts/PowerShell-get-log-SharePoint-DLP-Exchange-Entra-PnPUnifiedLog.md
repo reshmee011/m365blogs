@@ -1,6 +1,6 @@
 ---
 title: "Unveiling Audit Logs with PnP PowerShell"
-date: 2023-01-12T16:16:09Z
+date: 2024-01-12T16:16:09Z
 tags: ["SharePoint","PnP","PowerShell", "Audit Logs","DLP", "Exchange", "AzureDirectory"]
 featured_image: '/posts/images/PowerShell_PnPUnifiedLog/Sample.png'
 draft: false
