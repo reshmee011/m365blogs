@@ -1,6 +1,6 @@
 ---
 title: "Unveiling Audit Logs with PnP PowerShell"
-date: 2023-12-14T16:16:09Z
+date: 2023-01-12T16:16:09Z
 tags: ["SharePoint","PnP","PowerShell", "Audit Logs","DLP", "Exchange", "AzureDirectory"]
 featured_image: '/posts/images/PowerShell_PnPUnifiedLog/Sample.png'
 draft: false
@@ -14,11 +14,11 @@ Understanding and tracking activities within your M365 environment is crucial fo
 
 There are various methods to retrieve SharePoint Audit Logs:
 
-* The (Office 365 Management Activity API reference)[https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-reference]
-* The (audit log search tool)[https://learn.microsoft.com/en-us/purview/audit-new-search] in the Microsoft Purview compliance portal, provides another avenue for extracting audit logs.
-* The (Search-UnifiedAuditLog cmdlet)[https://learn.microsoft.com/en-us/powershell/module/exchange/search-unifiedauditlog] in Exchange Online PowerShell provides another option. 
+* The [Office 365 Management Activity API reference](https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-reference)
+* The [audit log search tool](https://learn.microsoft.com/en-us/purview/audit-new-search) in the Microsoft Purview compliance portal, provides another avenue for extracting audit logs.
+* The [Search-UnifiedAuditLog cmdlet](https://learn.microsoft.com/en-us/powershell/module/exchange/search-unifiedauditlog) in Exchange Online PowerShell provides another option. 
 
-This post focuses on utilizing the (Office 365 Management Activity API reference)[https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-reference] reference with the Get-PnPUnifiedAuditLog PnP PowerShell cmdlet. Regularly retrieving audit logs is essential for large organizations, ensuring scalability and performance in handling millions of audit records continuously. For alternative methods, refer to the post (Use a PowerShell script to search the audit log)[https://learn.microsoft.com/en-us/purview/audit-log-search-script] for more details.
+This post focuses on utilizing the [Office 365 Management Activity API reference](https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-reference) reference with the Get-PnPUnifiedAuditLog PnP PowerShell cmdlet. Regularly retrieving audit logs is essential for large organizations, ensuring scalability and performance in handling millions of audit records continuously. For alternative methods, refer to the post [Use a PowerShell script to search the audit log](https://learn.microsoft.com/en-us/purview/audit-log-search-script) for more details.
 
 ## SharePoint Audit Actions
 
@@ -263,7 +263,7 @@ $logCollection | sort-object "Operation" |Export-CSV $OutPutView -Force -NoTypeI
 
 ```
 
-The selected PowerShell script uses the Get-PnPUnifiedAuditLog cmdlet from the PnP (Patterns and Practices) PowerShell library. This cmdlet is used to retrieve audit log entries from the Office 365 Unified Audit Log for the past 7 days for the different content types: SharePoint, DLP, Exchange, AzureActiveDirectory and General.
+The selected PowerShell script uses the [Get-PnPUnifiedAuditLog](https://pnp.github.io/powershell/cmdlets/Get-PnPUnifiedAuditLog.html) . This cmdlet is used to retrieve audit log entries from the Office 365 Unified Audit Log for the past 7 days for the different content types: SharePoint, DLP, Exchange, AzureActiveDirectory and General.
 
 The logs are filtered based on a specific user ID and sorted by operation type. The script also generates a unique log file name using the current date and time. 
 
@@ -271,17 +271,17 @@ I have not been able to retrieve audit data older than 7 days from the tenant us
 
 ## Conclusion
 
-This blog post will provide a comprehensive guide to using PnP PowerShell for retrieving and working with SharePoint Audit Logs, making it a valuable resource for SharePoint administrators and developers. Other altenatives is to the **Search-UnifiedAuditLog** as described hin (How to Search the Microsoft 365 Audit Log for Events)[https://office365itpros.com/2020/10/08/search-microsoft-365-audit-log/].
+This blog post will provide a comprehensive guide to using PnP PowerShell for retrieving and working with SharePoint Audit Logs, making it a valuable resource for SharePoint administrators and developers. Other altenatives is to the **Search-UnifiedAuditLog** as described hin [How to Search the Microsoft 365 Audit Log for Events](https://office365itpros.com/2020/10/08/search-microsoft-365-audit-log/).
 
 
 ## References
 
-(Report of SharePoint Files Incidents - PowerShell Script)[https://michalkornet.com/2023/09/19/Report-of-SharePoint-Files-Incidents.html]
+[Report of SharePoint Files Incidents - PowerShell Script](https://michalkornet.com/2023/09/19/Report-of-SharePoint-Files-Incidents.html)
 
-(Enumerate activities (preview))[https://learn.microsoft.com/en-us/onedrive/developer/rest-api/api/activities_list?view=odsp-graph-online]
+[Enumerate activities (preview)](https://learn.microsoft.com/en-us/onedrive/developer/rest-api/api/activities_list?view=odsp-graph-online)
 
-(ItemActivity resource type)[https://learn.microsoft.com/en-us/onedrive/developer/rest-api/resources/itemactivity?view=odsp-graph-online]
+[ItemActivity resource type](https://learn.microsoft.com/en-us/onedrive/developer/rest-api/resources/itemactivity?view=odsp-graph-online)
 
-(Get-PnPUnifiedAuditLog)[https://pnp.github.io/powershell/cmdlets/Get-PnPUnifiedAuditLog]
+[Get-PnPUnifiedAuditLog](https://pnp.github.io/powershell/cmdlets/Get-PnPUnifiedAuditLog)
 
-(Use a PowerShell script to search the audit log)[https://learn.microsoft.com/en-us/purview/audit-log-search-script]
+[Use a PowerShell script to search the audit log](https://learn.microsoft.com/en-us/purview/audit-log-search-script)
