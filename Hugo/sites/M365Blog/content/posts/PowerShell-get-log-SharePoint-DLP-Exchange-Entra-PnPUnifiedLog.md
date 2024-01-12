@@ -9,6 +9,7 @@ draft: false
 # Unveiling Audit Logs with PnP PowerShell for the last 7 days 
 
 Understanding and tracking activities within your M365 environment is crucial for maintaining security and compliance. Audit Logs offer a wealth of information, and in this post, we'll delve into the methods to retrieve and analyze them. Specifically, we'll focus on leveraging the Office 365 Management Activity API reference through the Get-PnPUnifiedAuditLog PnP PowerShell cmdlet. It is a great alternative if you are only a SharePoint Administrator with no global admin or Purview Audit logs access.
+The scenerio I had to use it was to trace a non existent file the end user definitely thought have saved somewhere in M365, hence the filter of activities by user id. Unfortunately the file could not be found at all even rename or move of file.
 
 ## Retrieving Audit Logs
 
@@ -208,6 +209,52 @@ Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for DLP:
 * SharingSet
 * SignInEvent
 * SiteColumnCreated
+
+## General 
+
+Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for General:
+
+* SensitivityLabelApplied      
+* SensitivityLabeledFileOpened 
+* SensitivityLabeledFileRenamed
+* CrmDefaultActivity
+* Search
+* ReactedToMessage
+* MessageCreatedHasLink        
+* MessageReadReceiptReceived   
+* ThreadViewed
+* ViewReport
+* ViewResponses
+* ViewRuntimeForm
+* MDCAssessments
+* TeamsSessionStarted
+* CreateResponse
+* LaunchPowerApp
+* MemberAdded
+* SensitivityLabelUpdated
+* MessageUpdated
+* TIMailData
+* ViewDashboard
+* AddTile
+* CreateDashboard
+* GetSnapshots
+* DeleteDashboard
+* GenerateCustomVisualAADAccessToken
+* AnalyzedByExternalApplication
+* ViewedApprovalRequest
+* ApprovedRequest
+* TeamsUserSignedOut
+* ExportReport
+* MessageSent
+* PlanListRead
+* MessageCreation
+* RespondedWithCustomResponse
+* MarkedMessageChanged
+* Import
+* MDCRegulatoryComplianceAssessments
+* RefreshDataset
+* EditDataset
+* Validate
 
 ## PnP PowerShell Script 
 
