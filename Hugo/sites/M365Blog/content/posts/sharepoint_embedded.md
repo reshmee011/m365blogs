@@ -13,7 +13,7 @@ Refer to [Understand the structure of SharePoint Embedded](https://learn.microso
 
 References
 
-[Hands on Lab - Enable SharePoint Embedded in your Microsoft 365 SharePoint Online tenant](https://learn.microsoft.com/en-us/sharepoint/dev/embedded/mslearn/m01-03-hol)
+[SharePoint Embedded - building applications](https://learn.microsoft.com/en-us/training/modules/sharepoint-embedded-create-app/)
 
 [Understand the structure of SharePoint Embedded](https://learn.microsoft.com/en-us/sharepoint/dev/embedded/mslearn/m01-04-unit)
 
