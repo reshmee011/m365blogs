@@ -7,4 +7,27 @@ https://ppfonline.sharepoint.com/teams/d-dev-testdeletedSPOwners/_layouts/15/gro
 
 https://ppfonline.sharepoint.com/teams/d-dev-testdeletedSPOwners/_layouts/15/permsetup.aspx
 
+_layouts/15/people.aspx?MembershipGroupId=0
+
 Permissions have to be granted to individual libraires, e.g. Documents
+
+Article [https://learn.microsoft.com/en-us/sharepoint/dev/transform/modernize-connect-to-office365-group-permissions](https://learn.microsoft.com/en-us/sharepoint/dev/transform/modernize-connect-to-office365-group-permissions) has great insights how the M365 Group are linked to the SharePoint groups
+
+```PowerShell
+$SiteUrl = "https://contoso.sharepoint.com/teams/d-dev-testdeletedSPOwners"
+ 
+Connect-PnPOnline -url $SiteUrl -Interactive
+ 
+$siteAdmin = Get-PnPSiteCollectionAdmin
+
+#Owners group
+Add-PnPGroupMember -Group "Dev Test Deleted SP Owners" -LoginName $siteAdmin.LoginName | Out-Null
+
+```
+
+
+# References
+
+[Add O365 Group Owner to Site Collection Administration List](https://techcommunity.microsoft.com/t5/sharepoint/add-o365-group-owner-to-site-collection-administration-list/m-p/401027)
+
+[https://learn.microsoft.com/en-us/sharepoint/dev/transform/modernize-connect-to-office365-group-permissions]https://learn.microsoft.com/en-us/sharepoint/dev/transform/modernize-connect-to-office365-group-permissions
