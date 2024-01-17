@@ -8,7 +8,7 @@ draft: false
 
 # SharePoint Column Formatting for Document libraries: Leveraging Name and Folder properties
 
-While referencing [$Title] in lists is straightforward, document libraries demand a nuanced approach. Instead of [$Name] or [$Title], delve into the intricacies of internal names like $FileLeafRef and $FileRef when working with column formatting.
+While referencing [$Title] in lists is straightforward, document libraries demand a nuanced approach. Instead of [$Name], had to delve into the intricacies of internal names like $FileLeafRef and $FileRef when working with column formatting.
 
 **$FileLeafRef**: Denotes the name of the file.
 **$FileRef**: Represents the server-relative URL of the file.
@@ -49,12 +49,14 @@ However, a more reliable approach involves using the $ContentTypeId property. Va
   ]
 }
 ```
-T
-"txtContent": Specifies the text content for the span element. The text is generated using a conditional statement (if), which checks if the FileLeafRef column starts with '['. If true, it extracts the text between '[' and ']' using substring and indexOf. Otherwise, it sets the text to an empty string.
 
-"style": Specifies the CSS styles for the a element. The display property is set based on a complex conditional statement. It checks if the FileRef column contains 'Folder_10', the ContentTypeId column does not start with '0x0120', and the FileLeafRef column starts with '['. If all conditions are met, it sets the display property to 'display-inline', otherwise, it sets it to 'none'.
+The above JSON extracts an ID from the Name property between '[' and ']' using functions substring and indexOf to [$FileLeafRef] with a View icon link to the SharePoint file within the library. 
 
-"href": Specifies the URL for the link. It concatenates the current web URL, a fixed path, and dynamic parameters based on the FileLeafRef column.
+"txtContent" specifies the text content to be displayed. The text is generated using a conditional statement (if), which checks if the FileLeafRef column starts with '['. If true, it extracts the text between '[' and ']' using substring and indexOf. Otherwise, it sets the text to an empty string.
+
+"style" specifies the CSS styles for the a element. The display property is set based on a complex conditional statement. It checks if the FileRef column contains 'Folder_10', the ContentTypeId column does not start with '0x0120', and the FileLeafRef column starts with '['. If all conditions are met, it sets the display property to 'display-inline', otherwise, it sets it to 'none'.
+
+"href": Specifies the URL for the link. It concatenates the current web URL, a fixed path, and dynamic parameters based on the ID extracted from the FileLeafRef column.
 
 ![ColumnFormattingInAction](../images/ListFormatting-libraries-use-title-and-folder/Sample.gif)
 
