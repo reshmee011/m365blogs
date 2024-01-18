@@ -50,7 +50,10 @@ M365 Owner Claims
 
 The owners claims is the same as Members claims finishing with _o
 
-By default the M365 group owners is added as site admins and just confirm it is in the group, else
+By default the M365 group owners is added as site admins and just confirm it is in the group, if not 
+
+[Add Owners to SiteAdmin](../images/SharePoint-Restoring-Owners-Groups/AddOwnersToAdmin.png) 
+
 
 ```PowerShell
 $SiteUrl = "https://contoso.sharepoint.com/teams/d-dev-testdeletedSPOwners"
