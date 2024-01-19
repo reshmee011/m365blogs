@@ -11,9 +11,10 @@ draft: false
 While referencing [$Title] in lists is straightforward, document libraries demand a nuanced approach. Instead of [$Name], had to delve into the intricacies of internal names like $FileLeafRef and $FileRef when working with column formatting.
 
 **$FileLeafRef**: Denotes the name of the file.
+
 **$FileRef**: Represents the server-relative URL of the file.
 
-Initial attempts to incorporate $FileSystemObjectType for folder identification might seem challenging. 
+Initial attempts to incorporate $FileSystemObjectType for folder identification was challenging, indicating that not all document library internal column names are supported.
 
 ```json
   "display":"=if(indexOf([$FileRef],'Payment Processing')>0 && [$FileSystemObjectType]!='Folder','display-inline','none')"
