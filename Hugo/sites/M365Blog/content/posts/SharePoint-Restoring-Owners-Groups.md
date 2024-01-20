@@ -19,36 +19,34 @@ End users can unwittingly delete standard SharePoint groups, leading to a groupl
 Users can delete OOB groups from Site Permissions with a few clicks, leaving no trace behind. The problem arises when these groups are crucial for site management, and their absence wreaks havoc.
 
 End users are not able to delete OOB groups from Site Permissions link **{siteUrl}/_layouts/15/user.aspx**.
-[User aspx](../images/SharePoint-Restoring-Owners-Groups/DeleteGroup_User_aspx.png)  
+![User aspx](../images/SharePoint-Restoring-Owners-Groups/DeleteGroup_User_aspx.png)  
 
 However end users are able to delete Out of the Box SharePoint groups : owners, members and visitors from **{siteUrl}/_layouts/15/groups.aspx**
-[Group aspx](../images/SharePoint-Restoring-Owners-Groups/DeleteGroup_Group_aspx.png) 
+![Group aspx](../images/SharePoint-Restoring-Owners-Groups/DeleteGroup_Group_aspx.png) 
 
 Clicking on the Edit icon and delete will delete the group
-[Delete Group aspx](../images/SharePoint-Restoring-Owners-Groups/DeleteOwnerGroup.png) 
+![Delete Group aspx](../images/SharePoint-Restoring-Owners-Groups/DeleteOwnerGroup.png) 
 
 Once deleted, the group is gone and there is no way to restore it. 
 
-[Deleted Group](../images/SharePoint-Restoring-Owners-Groups/DeletedOwnerGroup.png) 
+![Deleted Group](../images/SharePoint-Restoring-Owners-Groups/DeletedOwnerGroup.png) 
 
 ## The Restoration Process
 
 Recreating SharePoint owners, members, and visitors groups is essential for restoring normalcy. Utilize the {siteUrl}_layouts/15/permsetup.aspx link and follow this post for more details. [Restoring Deleted Permission](https://learn.microsoft.com/en-us/answers/questions/526452/sharepoint-online-restoring-deleted-permission-gro)
 
-[Recreate Group](../images/SharePoint-Restoring-Owners-Groups/RecreatetheOwnersGroup.png) 
+![Recreate Group](../images/SharePoint-Restoring-Owners-Groups/RecreatetheOwnersGroup.png) 
 
 The recreated owners group is not linked to the M365 group owners.If an user is added as owners using the modern permission interface, the user is not granted any permissions to the site by default
-[Check Permission](../images/SharePoint-Restoring-Owners-Groups/CheckPermissions.png) 
-
+![Check Permission](../images/SharePoint-Restoring-Owners-Groups/CheckPermissions.png) 
 
 ## Reestablishing the Connection
 
 However, the process doesn't end there. Reconnecting M365 Group Owners to SharePoint Owners is necessary. When a M365 connected Team site is created, the M365 group owners is added as a hidden principal to the SharePoint owners group. 
 
-[Groupify Permissions](https://learn.microsoft.com/en-us/sharepoint/dev/transform/media/modernize/groupifypermissions_1.png)
+![Groupify Permissions](https://learn.microsoft.com/en-us/sharepoint/dev/transform/media/modernize/groupifypermissions_1.png)
 
 Refer to the article for more details [https://learn.microsoft.com/en-us/sharepoint/dev/transform/modernize-connect-to-office365-group-permissions](https://learn.microsoft.com/en-us/sharepoint/dev/transform/modernize-connect-to-office365-group-permissions) how the M365 Group are linked to the SharePoint groups.
-
 
 I have been unable to add the M365 Group Owners principal back into the SharePoint Owners group using the User Interface from SharePoint Admin Centre or SharePoint site . 
 
@@ -57,16 +55,16 @@ I have been unable to add the M365 Group Owners principal back into the SharePoi
 The claims of the M365 group uses the prefix c:0o.c|federateddirectoryclaimprovider
 
 - c:0o.c|federateddirectoryclaimprovider|<M365Guid>: this claim represents the Microsoft 365 group members 
-[Group Members](../images/SharePoint-Restoring-Owners-Groups/GroupMembersAccount.png) 
+![Group Members](../images/SharePoint-Restoring-Owners-Groups/GroupMembersAccount.png) 
 
 - c:0o.c|federateddirectoryclaimprovider|<M365Guid>_o: this claim represents the Microsoft 365 group owners
-[Group Owners](../images/SharePoint-Restoring-Owners-Groups/GroupOwnersAccount.png) 
+![Group Owners](../images/SharePoint-Restoring-Owners-Groups/GroupOwnersAccount.png) 
 
 While the M365 members can easily be added back using the User Interface, it is a challenge to add back the M365 Owners group.
 
 By default the M365 group owners is added as site admins , a.k.a site collection administrators and just confirm it is in the group from the SharePoint Admin Centre, if not add owners to the site admins.
 
-[Add Owners to SiteAdmin](../images/SharePoint-Restoring-Owners-Groups/AddOwnersToAdmin.png) 
+![Add Owners to SiteAdmin](../images/SharePoint-Restoring-Owners-Groups/AddOwnersToAdmin.png) 
 
 ```PowerShell
 $SiteUrl = "https://contoso.sharepoint.com/teams/d-dev-testdeletedSPOwners"
@@ -93,11 +91,11 @@ UserInfoHiddenset-pnplistitem -list
 
 After running the script, the M365 group owners are linked to the SharePoint Owners group albeit visible
 
-[LinkedM365GroupOwners.png](../images/SharePoint-Restoring-Owners-Groups/LinkedM365GroupOwners.png)
+![LinkedM365GroupOwners.png](../images/SharePoint-Restoring-Owners-Groups/LinkedM365GroupOwners.png)
 
 You can check an owner's permission whether access has been restored.
 
-[Check Owner Permission](../images/SharePoint-Restoring-Owners-Groups/CheckOwnerPermission.png) 
+![Check Owner Permission](../images/SharePoint-Restoring-Owners-Groups/CheckOwnerPermission.png) 
 
 The journey may present challenges, such as the UserInfoHidden property for the owners group which I have been unable to set as hidden.
 
