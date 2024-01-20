@@ -1,6 +1,6 @@
 ---
 title: "A Guide to Contributing to PnP PowerShell"
-date: 2023-12-11T01:52:50Z
+date: 2024-01-20T01:52:50Z
 tags: ["PnP","PowerShell","Git","Github", "Open Source","Contributions"]
 featured_image: '/posts/images/PnPPowerShell_StartingToContribute/ForkYourOwnRepository.png'
 draft: false
@@ -215,6 +215,17 @@ Create Pull Request by clicking the button **Create Pull Request**
 
 Fill in details
 ![Create PR with details](../images/PnPPowerShell_StartingToContribute/CreatePRDetails.png)
+
+## Remove a file from a Git Pull Request
+
+In case the Pull Request has unnecessary changes to unintented files, e.g. pnpframework_hash.txt or version.txt, use **git checkout** to get exact file from the remote repository. 
+
+```dotnetcli
+git checkout origin/dev pnpframework_hash.txt
+git checkout origin/dev version.txt 
+git commit --amend --no-edit
+git push -f
+```
 
 ## Troubleshooting
 
