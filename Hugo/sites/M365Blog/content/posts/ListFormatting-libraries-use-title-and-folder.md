@@ -1,6 +1,6 @@
 ---
 title: "Internal References in SharePoint Column Formatting for Document libraries: leveraging Name and Folder properties"
-date: 2024-01-15T16:49:18Z
+date: 2024-01-20T16:49:18Z
 tags: ["libraries", "List Formatting", "Name", "Folder"]
 featured_image: '/posts/images/ListFormatting-libraries-use-title-and-folder/Screenshot.png'
 draft: false
