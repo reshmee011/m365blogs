@@ -1,18 +1,18 @@
 ---
 title: "Recreating Deleted Owners Group for M365-Connected SharePoint Sites"
-date: 2023-11-20T06:19:42Z
-tags: ["Power Automate","Copilot"]
+date: 2024-01-20T06:19:42Z
+tags: ["SharePoint","Owners","M365 Owners" ,"M365", "Team site", "PowerShell","Security", "Governance"]
 featured_image: '/posts/images/PowerAutomate_Copilot/NewFlowExperience_withPrompting.png'
-draft: true
+draft: False
 ---
 
 # Recreating Deleted Owners Group for M365-Connected SharePoint Sites
 
-f you've accidentally deleted essential out-of-the-box (OOB) groups such as owners, members, or visitors from your SharePoint site, this comprehensive guide is designed to assist you in recovering those vanished groups and restoring order to your M365-connected SharePoint environment.
+If out-of-the-box (OOB) groups such as owners, members, or visitors have been deleted accidentally from your SharePoint site, this article may assist you in recovering those vanished groups specifically for M365 linked Team site. I recently encountered a distress call from an end user facing data access issues on a SharePoint Team site. To my dismay, I discovered that the SharePoint Owners group had been accidentally deleted, prompting me to seek and implement a solution to restore access. This article outlines the steps to revive essential groups and regain control over your SharePoint Team site.
 
 ## The Deletion Dilemma
 
-End users can unwittingly delete standard SharePoint groups, leading to a groupless void. 
+End users can unwittingly delete standard SharePoint groups, leading to a groupless void.
 
 ### The Deletion Process
 
@@ -72,7 +72,6 @@ By default the M365 group owners is added as site admins , a.k.a site collection
 $SiteUrl = "https://contoso.sharepoint.com/teams/d-dev-testdeletedSPOwners"
 $m365GroupName = "Dev Test Deleted SP Owners";
 $m365GroupOwnersName = $m365GroupName + " Owners"
-#$SiteUrl = "https://ppfonline.sharepoint.com/teams/proj-ppfremit"
 Connect-PnPOnline -url $SiteUrl -Interactive
  
 $siteAdmin = Get-PnPSiteCollectionAdmin | select-object {$_.Title -eq $m365GroupOwnersName}
