@@ -85,14 +85,12 @@ Add-PnPGroupMember -Group $owner.Title -LoginName $m365GroupOwnerClaims | Out-Nu
 
 $list = get-pnplist "User Information List"
  
-$owner = get-pnplistitem  -List $list | where-object {$_.FieldValues.Name -eq $m365GroupOwnerClaims -and $_.FieldValues.EMail}
-$owner.FieldValues.UserInfoHidden
+$ownerN = get-pnplistitem  -List $list | where-object {$_.FieldValues.Name -eq $m365GroupOwnerClaims -and $_.FieldValues.EMail}
+$ownerN.FieldValues.UserInfoHidden
 
-set-pnplistitem -List $list -Identity $owner.Id -Values @{UserInfoHidden = $true;}
-$owner = get-pnplistitem  -List $list | where-object {$_.FieldValues.Title -eq $m365GroupOwnerClaims -and $_.FieldValues.EMail}
- 
-$owner.FieldValues.UserInfoHidden
-UserInfoHiddenset-pnplistitem -list
+set-pnplistitem -List $list -Identity $ownerN.Id -Values @{UserInfoHidden = $true;} -U
+ $ownerN = get-pnplistitem  -List $list | where-object {$_.FieldValues.Name -eq $m365GroupOwnerClaims -and $_.FieldValues.EMail}
+ $ownerN.FieldValues.UserInfoHidden
 #>
 ```
 
