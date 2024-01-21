@@ -67,23 +67,29 @@ By default the M365 group owners is added as site admins , a.k.a site collection
 ![Add Owners to SiteAdmin](../images/SharePoint-Restoring-Owners-Groups/AddOwnersToAdmin.png) 
 
 ```PowerShell
-$SiteUrl = "https://contoso.sharepoint.com/teams/d-dev-testdeletedSPOwners"
-$m365GroupName = "Dev Test Deleted SP Owners";
-$m365GroupOwnersName = $m365GroupName + " Owners"
-Connect-PnPOnline -url $SiteUrl -Interactive
- 
-$siteAdmin = Get-PnPSiteCollectionAdmin | select-object {$_.Title -eq $m365GroupOwnersName}
-#LoginName in the format c:0o.c|federateddirectoryclaimprovider|{M365Guid}_o
-Add-PnPGroupMember -Group "Dev Test Deleted SP Owners Owners" -LoginName $siteAdmin.LoginName | Out-Null
- 
+
+connect-pnpOnline -Url https://reshmeeauckloo.sharepoint.com/sites/testclone2 -interactive
+
+$m365GroupId = (get-pnpsite -Includes RelatedGroupId).RelatedGroupId
+
+$m365GroupOwnerClaims = "c:0o.c|federateddirectoryclaimprovider|{0}_o" -f $m365GroupId.Guid.ToString()
+
+Add-PnPSiteCollectionAdmin -Owners $m365GroupOwnerClaims
+
+$owner = Get-PnPGroup -AssociatedOwnerGroup | select Title
+
+Add-PnPGroupMember -Group $owner.Title -LoginName $m365GroupOwnerClaims | Out-Null
+
+<## 
+ The commented code to attempt to set the owners group as hidden did not work hence left as hidden
+
 $list = get-pnplist "User Information List"
  
-$owner = get-pnplistitem  -List $list | where-object {$_.FieldValues.Title -eq $m365GroupOwnersName -and $_.FieldValues.EMail}
+$owner = get-pnplistitem  -List $list | where-object {$_.FieldValues.Name -eq $m365GroupOwnerClaims -and $_.FieldValues.EMail}
 $owner.FieldValues.UserInfoHidden
 
-<## The commented code to attempt to set the owners group as hidden did not work hence left as hidden
 set-pnplistitem -List $list -Identity $owner.Id -Values @{UserInfoHidden = $true;}
-$owner = get-pnplistitem  -List $list | where-object {$_.FieldValues.Title -eq $m365GroupOwnersName -and $_.FieldValues.EMail}
+$owner = get-pnplistitem  -List $list | where-object {$_.FieldValues.Title -eq $m365GroupOwnerClaims -and $_.FieldValues.EMail}
  
 $owner.FieldValues.UserInfoHidden
 UserInfoHiddenset-pnplistitem -list
