@@ -68,7 +68,7 @@ By default the M365 group owners is added as site admins , a.k.a site collection
 
 ```PowerShell
 
-connect-pnpOnline -Url https://reshmeeauckloo.sharepoint.com/sites/testclone2 -interactive
+connect-pnpOnline -Url https://contoso.sharepoint.com/sites/testclone2 -interactive
 
 $m365GroupId = (get-pnpsite -Includes RelatedGroupId).RelatedGroupId
 
