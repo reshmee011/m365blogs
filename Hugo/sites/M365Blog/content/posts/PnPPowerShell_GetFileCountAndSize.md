@@ -1,5 +1,5 @@
 #Parameters
-$SiteURL = "https://contoso.sharepoint.com/teams/ACT-Committees"
+$SiteURL = "https://contoso.sharepoint.com/teams/Committees"
 $FolderSiteRelativeURL = "Shared Documents/Committee Governance/Board/Forward Plan/HR matters"
 #Connect to PnP Online
 Connect-PnPOnline -Url $SiteURL -Interactive

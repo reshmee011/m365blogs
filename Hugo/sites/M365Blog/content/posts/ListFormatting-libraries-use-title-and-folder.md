@@ -65,8 +65,8 @@ Additional properties that can be used , e.g. @thumbnail.medium, please see an e
 
 ## References
 
-[Formatting syntax reference](https://learn.microsoft.com/en-us/sharepoint/dev/declarative-customization/formatting-syntax-reference)
+[Formatting syntax reference](https://learn.microsoft.com/en-us/sharepoint/dev/declarative-customization/formatting-syntax-reference?wt.mc_id=MVP_308367)
 
-[Open a document in View mode by default- SharePoint](https://answers.microsoft.com/en-us/msoffice/forum/all/open-a-document-in-view-mode-by-default-sharepoint/dc13abe1-97f7-4d1d-83c2-4d97e65d802e)
+[Open a document in View mode by default- SharePoint](https://answers.microsoft.com/en-us/msoffice/forum/all/open-a-document-in-view-mode-by-default-sharepoint/dc13abe1-97f7-4d1d-83c2-4d97e65d802e?wt.mc_id=MVP_308367)
 
-[File Thumbnails](https://github.com/pnp/List-Formatting/tree/master/column-samples/file-thumbnail)
+[File Thumbnails](https://github.com/pnp/List-Formatting/tree/master/column-samples/file-thumbnail?wt.mc_id=MVP_308367)
