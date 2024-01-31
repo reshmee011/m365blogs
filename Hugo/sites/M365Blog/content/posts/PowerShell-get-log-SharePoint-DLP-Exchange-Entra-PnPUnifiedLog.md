@@ -1,6 +1,6 @@
 ---
 title: "Unveiling Audit Logs with PnP and Cli for M365 PowerShell"
-date: 2024-01-11T16:16:09Z
+date: 2024-01-31T16:16:09Z
 tags: ["SharePoint","PnP","PowerShell","CLI for M365" ,"Audit Logs","DLP", "Exchange", "AzureDirectory"]
 featured_image: '/posts/images/PowerShell_PnPUnifiedLog/Sample.png'
 draft: false
