@@ -31,5 +31,10 @@ To resolve this issue, you can enable the taxonomy feature with the ID **73ef14b
     Add-PnPContentTypesFromContentTypeHub -ContentTypes $list -ErrorAction Continue
 ```
 
-References
+The MS Graph beta endpoint **https://graph.microsoft.com/beta/teams/{team-id}/channels?$filter=membershipType eq 'private'** can be used to find the SP Url of the private channel via the property **filesFolderWebUrl** made up of the SP url and folder url. Refer to [How can I obtain the Sharepoint Site URL of the private channel from the Teams Graph REST API](https://learn.microsoft.com/en-us/answers/questions/1159903/how-can-i-obtain-the-sharepoint-site-url-of-the-pr?wt.mc_id=MVP_308367). 
+
+## References
+
 Feedback [Enable taxonomy Feature by default in sharepoint sites created via Private/Shared channel](https://feedbackportal.microsoft.com/feedback/idea/86b3778c-8b6d-ee11-a81c-000d3ae46fcb?wt.mc_id=MVP_308367)
+
+[How can I obtain the Sharepoint Site URL of the private channel from the Teams Graph REST API](https://learn.microsoft.com/en-us/answers/questions/1159903/how-can-i-obtain-the-sharepoint-site-url-of-the-pr?wt.mc_id=MVP_308367)

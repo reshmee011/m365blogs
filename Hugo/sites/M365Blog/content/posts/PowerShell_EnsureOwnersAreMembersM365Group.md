@@ -79,5 +79,5 @@ It's advisable to add end users as members before assigning them as owners, whet
 
 ## References
 
-[Overview of Microsoft 365 Groups for administrators](https://learn.microsoft.com/en-us/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide)
+[Overview of Microsoft 365 Groups for administrators](https://learn.microsoft.com/en-us/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide&wt.mc_id=MVP_308367)
 
