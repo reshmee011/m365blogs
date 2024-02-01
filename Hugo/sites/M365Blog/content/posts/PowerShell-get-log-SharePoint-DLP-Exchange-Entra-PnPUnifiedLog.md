@@ -1,7 +1,7 @@
 ---
-title: "Unveiling Audit Logs with PnP PowerShell"
-date: 2024-01-11T16:16:09Z
-tags: ["SharePoint","PnP","PowerShell", "Audit Logs","DLP", "Exchange", "AzureDirectory"]
+title: "Unveiling Audit Logs with PnP and Cli for M365 PowerShell"
+date: 2024-01-31T16:16:09Z
+tags: ["SharePoint","PnP","PowerShell","CLI for M365" ,"Audit Logs","DLP", "Exchange", "AzureDirectory"]
 featured_image: '/posts/images/PowerShell_PnPUnifiedLog/Sample.png'
 draft: false
 ---
@@ -21,248 +21,13 @@ There are various methods to retrieve SharePoint Audit Logs:
 
 This post focuses on utilizing the [Office 365 Management Activity API reference](https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-reference?wt.mc_id=MVP_308367) reference with the Get-PnPUnifiedAuditLog PnP PowerShell cmdlet. Regularly retrieving audit logs is essential for large organizations, ensuring scalability and performance in handling millions of audit records continuously. For alternative methods, refer to the post [Use a PowerShell script to search the audit log](https://learn.microsoft.com/en-us/purview/audit-log-search-script?wt.mc_id=MVP_308367) for more details.
 
-## SharePoint Audit Actions
-
-The Get-PnPUnifiedAuditLog cmdlet provides detailed insights into various SharePoint activities, including but not limited to:
-
-* AddedToGroup
-* AddedToSecureLink
-* AppCatalogCreateSiteCollectionAppCatalog
-* AppCatalogSPCorporateCatalogAccessorBaseAdd
-* ClientViewSignaled
-* CompanyLinkCreated
-* CompanyLinkUsed
-* FileAccessed
-* FileAccessedExtended
-* FileCheckOutDiscarded
-* FileCheckedIn
-* FileCheckedOut
-* FileCopied
-* FileDeleted
-* FileDownloaded
-* FileModified
-* FileModifiedExtended
-* FileMoved
-* FilePreviewed
-* FileRecycled
-* FileRenamed
-* FileSensitivityLabelApplied
-* FileSensitivityLabelChanged
-* FileSyncDownloadedFull
-* FileSyncUploadedFull
-* FileUploaded
-* FileVersionsAllDeleted
-* FolderCreated
-* FolderModified
-* FolderMoved
-* FolderRenamed
-* GroupAdded
-* ListColumnCreated
-* ListCreated
-* ListItemCreated
-* ListItemRecycled
-* ListItemUpdated
-* ListItemViewed
-* ListUpdated
-* ListViewed
-* PagePrefetched
-* PageViewed
-* PageViewedExtended
-* RemovedFromGroup
-* SecureLinkCreated
-* SecureLinkUpdated
-* SecureLinkUsed
-* SharingInheritanceBroken
-* SharingInvitationBlocked
-* SharingRevoked
-* SharingSet
-* SignInEvent
-* SiteCollectionAdminRemoved
-* SiteColumnCreated
-* SiteDeleted
-* SiteLocksChanged
-* SPCorporateCatalogAppMetadataDeployWithFeatureDeployment
-* SearchQueryPerformed
-
-## Azure Active Directory Audit Actions
-
-For Azure Active Directory, potential actions include:
-
-* Add app role assignment grant to user.
-* Add device.
-* Add group.
-* Add member to group.
-* Add member to role.
-* Add owner to group.
-* Add registered owner to device.
-* Add registered users to device.
-* Add service principal.
-* Add service principal credentials.
-* Change user license.
-* Change user password.
-* Consent to application.
-* Delete device.
-* Device no longer compliant.
-* Device no longer managed.
-* Remove member from group.
-* Remove member from role.
-* Remove service principal.
-* Remove service principal credentials.
-* Reset user password.
-* Set Company Information.
-* Update agreement.
-* Update device.
-* Update group.
-* Update service principal.
-* Update StsRefreshTokenValidFrom Timestamp.
-* Update user.
-* UserLoggedIn
-* UserLoginFailed
-
-## Exchange Audit Actions
-
-Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for Exchange
-
-* Add-MailboxPermission
-* Create
-* Enable-AddressListPaging
-* FolderBind
-* HardDelete
-* Install-AdminAuditLogConfig
-* Install-DataClassificationConfig
-* Install-DefaultSharingPolicy
-* Install-ResourceConfig
-* MailItemsAccessed
-* MipLabel
-* ModifyFolderPermissions
-* Move
-* MoveToDeletedItems
-* New-ExchangeAssistanceConfig
-* New-Mailbox
-* Send
-* SendAs
-* SendOnBehalf
-* Set-AdminAuditLogConfig
-* Set-ExchangeAssistanceConfig
-* Set-Mailbox
-* Set-MailboxPlan
-* Set-OwaMailboxPolicy
-* Set-RecipientEnforcementProvisioningPolicy
-* Set-TenantObjectVersion
-* Set-TransportConfig
-* SoftDelete
-* Update
-* UpdateInboxRules
-
-## Data Loss Prevention (DLP) Audit Actions
-
-Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for DLP:
-
-* AddedToGroup
-* AddedToSecureLink
-* ClientViewSignaled
-* CompanyLinkCreated
-* CompanyLinkUsed
-* CommentCreated
-* FileAccessed
-* FileAccessedExtended
-* FileCheckOutDiscarded
-* FileCheckedIn
-* FileCheckedOut
-* FileCopied
-* FileDownloaded
-* FileModified
-* FileModifiedExtended
-* FileMoved
-* FilePreviewed
-* FileRecycled
-* FileRenamed
-* FileSensitivityLabelApplied
-* FileSyncDownloadedFull
-* FileSyncUploadedFull
-* FileUploaded
-* FileVersionsAllDeleted
-* FolderCreated
-* FolderModified
-* FolderMoved
-* FolderRecycled
-* GroupAdded
-* ListColumnCreated
-* ListColumnDeleted
-* ListItemCreated
-* ListItemDeleted
-* ListItemRecycled
-* ListItemUpdated
-* ListItemViewed
-* ListViewUpdated
-* ListViewed
-* ManagedSyncClientAllowed
-* PagePrefetched
-* PageViewed
-* PageViewedExtended
-* SearchQueryPerformed
-* SecureLinkCreated
-* SecureLinkUpdated
-* SecureLinkUsed
-* SharingInheritanceBroken
-* SharingInvitationBlocked
-* SharingSet
-* SignInEvent
-* SiteColumnCreated
-
-## General 
-
-Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for General:
-
-* SensitivityLabelApplied      
-* SensitivityLabeledFileOpened 
-* SensitivityLabeledFileRenamed
-* CrmDefaultActivity
-* Search
-* ReactedToMessage
-* MessageCreatedHasLink        
-* MessageReadReceiptReceived   
-* ThreadViewed
-* ViewReport
-* ViewResponses
-* ViewRuntimeForm
-* MDCAssessments
-* TeamsSessionStarted
-* CreateResponse
-* LaunchPowerApp
-* MemberAdded
-* SensitivityLabelUpdated
-* MessageUpdated
-* TIMailData
-* ViewDashboard
-* AddTile
-* CreateDashboard
-* GetSnapshots
-* DeleteDashboard
-* GenerateCustomVisualAADAccessToken
-* AnalyzedByExternalApplication
-* ViewedApprovalRequest
-* ApprovedRequest
-* TeamsUserSignedOut
-* ExportReport
-* MessageSent
-* PlanListRead
-* MessageCreation
-* RespondedWithCustomResponse
-* MarkedMessageChanged
-* Import
-* MDCRegulatoryComplianceAssessments
-* RefreshDataset
-* EditDataset
-* Validate
-
 ## PnP PowerShell Script 
 
 ```PowerShell
 $SiteUrl = "https://contoso-admin.sharepoint.com"
 Connect-PnPOnline -url $SiteUrl -Interactive
 $userId = "testusero@contoso.co.uk"
-$days = 3
+$days = 7
 $endDay = 0
 $Operations = @()
  
@@ -277,14 +42,14 @@ $logCollection = @()
 while($days -ge $endDay){
 if($days -eq 0)
 {
- $activities =  Get-PnPUnifiedAuditLog -ContentType SharePoint -ErrorAction Ignore
+ $activities +=  Get-PnPUnifiedAuditLog -ContentType SharePoint -ErrorAction Ignore
  $activities +=  Get-PnPUnifiedAuditLog -ContentType AzureActiveDirectory -ErrorAction Ignore
  $activities +=  Get-PnPUnifiedAuditLog -ContentType DLP -ErrorAction Ignore
  $activities +=  Get-PnPUnifiedAuditLog -ContentType Exchange -ErrorAction Ignore
  $activities +=  Get-PnPUnifiedAuditLog -ContentType General -ErrorAction Ignore
  
 }else {
-    $activities = Get-PnPUnifiedAuditLog -ContentType AzureActiveDirectory -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
+    $activities += Get-PnPUnifiedAuditLog -ContentType AzureActiveDirectory -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
     $activities += Get-PnPUnifiedAuditLog -ContentType SharePoint -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
     $activities += Get-PnPUnifiedAuditLog -ContentType DLP -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
     $activities += Get-PnPUnifiedAuditLog -ContentType Exchange -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
@@ -313,13 +78,598 @@ $logCollection | sort-object "Operation" |Export-CSV $OutPutView -Force -NoTypeI
 The selected PowerShell script uses the [Get-PnPUnifiedAuditLog](https://pnp.github.io/powershell/cmdlets/Get-PnPUnifiedAuditLog.html) . This cmdlet is used to retrieve audit log entries from the Office 365 Unified Audit Log for the past 7 days for the different content types: SharePoint, DLP, Exchange, AzureActiveDirectory and General.
 
 The logs are filtered based on a specific user ID and sorted by operation type. The script also generates a unique log file name using the current date and time. 
+The next section is the same script using CLI for M365 
 
-I have not been able to retrieve audit data older than 7 days from the tenant using the script and I have not found any documentation on this. 
+## CLI for M365 PowerShell Script 
+
+```PowerShell
+$SiteUrl = "https://contoso.sharepoint.com/sites/test"
+$userId = "testusero@contoso.co.uk" 
+Write-Host "Ensure logged in"
+$m365Status = m365 status --output text
+if ($m365Status -eq "Logged Out") {
+  Write-Host "Logging in the User!"
+  m365 login --authType browser
+}
+$days = 7
+$endDay = 0
+$Operations = @()
+ 
+# Generate a unique log file name using today's date
+$dateTime = (Get-Date).toString("dd-MM-yyyy_HHmm")
+$invocation = (Get-Variable MyInvocation).Value
+$directorypath = Split-Path $invocation.MyCommand.Path
+$fileName = "logReport-" + $dateTime + ".csv"
+$OutPutView = $directorypath + "\Logs\"+ $fileName
+ 
+$logCollection = @()
+while($days -ge $endDay){
+if($days -eq 0)
+{
+    $activities +=  m365 purview auditlog list --contentType SharePoint --output 'json' | ConvertFrom-Json
+    $activities +=  m365 purview auditlog list --contentType AzureActiveDirectory --output 'json' | ConvertFrom-Json #-ErrorAction Ignore
+    $activities +=  m365 purview auditlog list --contentType DLP --output 'json' | ConvertFrom-Json
+    $activities +=  m365 purview auditlog list --contentType Exchange --output 'json' | ConvertFrom-Json
+    $activities +=  m365 purview auditlog list --contentType General --output 'json' | ConvertFrom-Json
+ 
+}else {
+   $activities += m365 purview auditlog list --contentType SharePoint --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
+   $activities += m365 purview auditlog list --contentType AzureActiveDirectory --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json'| ConvertFrom-Json
+   $activities += m365 purview auditlog list --contentType DLP -ErrorAction Ignore --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
+   $activities += m365 purview auditlog list --contentType Exchange -ErrorAction Ignore --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
+   $activities += m365 purview auditlog list --contentType General -ErrorAction Ignore  --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
+ }
+ 
+if($activity.SiteUrl ){#-and $activity.SiteUrl
+   if($activity.SiteUrl.ToLower() -eq $SiteUrl)    #-$activity.UserId.ToLower() -eq $userId
+ {  
+    $logCollection += $activity
+ }
+```
+Caution
+
+Due to the amount of data retrieved, I faced memory limit reached issue
+
+```PowerShell
+[17820:000002897A066730]   125051 ms: Mark-sweep 3795.4 (4143.6) -> 3793.7 (4142.9) MB, 2069.6 / 0.0 ms  (average mu = 0.627, current mu = 0.035) allocation failure; scavenge might not succeed
+[17820:000002897A066730]   126951 ms: Mark-sweep 3809.4 (4142.9) -> 3807.8 (4174.9) MB, 1870.6 / 0.0 ms  (average mu = 0.424, current mu = 0.015) allocation failure; scavenge might not succeed
+ 
+ 
+<--- JS stacktrace --->
+ 
+FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory
+1: 00007FF61A2E806F node_api_throw_syntax_error+175583
+2: 00007FF61A26A976 v8::internal::wasm::WasmCode::safepoint_table_offset+59766
+3: 00007FF61A26C660 v8::internal::wasm::WasmCode::safepoint_table_offset+67168
+4: 00007FF61AD173A4 v8::Isolate::ReportExternalAllocationLimitReached+116
+5: 00007FF61AD02732 v8::Isolate::Exit+674
+```
+
+Also has issues retrieving some activities due to lack of permission
+
+```PowerShell
+ThreadAccessFailure
+Error: The permission set (ActivityFeed.Read ServiceHealth.Read) sent in the request does not include the expected permission.
+```
 
 ## Conclusion
 
-This blog post will provide a comprehensive guide to using PnP PowerShell for retrieving and working with SharePoint Audit Logs, making it a valuable resource for SharePoint administrators and developers. Other altenatives is to the **Search-UnifiedAuditLog** as described hin [How to Search the Microsoft 365 Audit Log for Events](https://office365itpros.com/2020/10/08/search-microsoft-365-audit-log/).
+I have not been able to retrieve audit data older than 7 days from the tenant using the script and I have not found any documentation on this. 
 
+This blog post will provide a comprehensive guide to using PnP PowerShell for retrieving and working with SharePoint Audit Logs, making it a valuable resource for SharePoint administrators and developers. Other altenatives is to the **Search-UnifiedAuditLog** as described hin [How to Search the Microsoft 365 Audit Log for Events](https://office365itpros.com/2020/10/08/search-microsoft-365-audit-log?wt.mc_id=MVP_308367).
+
+
+## SharePoint Audit Actions
+
+The Get-PnPUnifiedAuditLog cmdlet provides detailed insights into various SharePoint activities, including but not limited to:
+
+* AccessRequestCreated
+* AddedToGroup
+* AddedToSecureLink
+* AppCatalogCreateSiteCollectionAppCatalog
+* AppCatalogSPCorporateCatalogAccessorBaseAdd
+* AppStoreStorefrontTaskGetApps
+* AutoSensitivityLabelRuleMatch
+* ClientViewSignaled
+* CommentCreated
+* CommentsDisabled
+* CompanyLinkCreated
+* CompanyLinkUsed
+* DisableSharingForNonOwners
+* FileAccessed
+* FileAccessedExtended
+* FileCheckedIn
+* FileCheckedOut
+* FileCheckOutDiscarded
+* FileCopied
+* FileDeleted
+* FileDownloaded
+* FileModified
+* FileModifiedExtended
+* FileMoved
+* FilePreviewed
+* FileRecycled
+* FileRenamed
+* FileSensitivityLabelApplied
+* FileSensitivityLabelChanged
+* FileSyncDownloadedFull
+* FileSyncUploadedFull
+* FileUploaded
+* FileVersionsAllDeleted
+* FolderCopied
+* FolderCreated
+* FolderModified
+* FolderMoved
+* FolderRecycled
+* FolderRenamed
+* GroupAdded
+* GroupUpdated
+* ListColumnCreated
+* ListColumnUpdated
+* ListCreated
+* ListItemCreated
+* ListItemDeleted
+* ListItemRecycled
+* ListItemUpdated
+* ListItemViewed
+* ListUpdated
+* ListViewed
+* ListViewUpdated
+* ManagedSyncClientAllowed
+* MipAutoLabelSimulationCompletion
+* MipAutoLabelSimulationProgress
+* MipAutoLabelSimulationStatistics
+* PagePrefetched
+* PageViewed
+* PageViewedExtended
+* PIMRoleAssigned
+* RemovedFromGroup
+* SearchQueryPerformed
+* SecureLinkCreated
+* SecureLinkUpdated
+* SecureLinkUsed
+* SharingInheritanceBroken
+* SharingInvitationBlocked
+* SharingLinkCreated
+* SharingPolicyChanged
+* SharingRevoked
+* SharingSet
+* ShortcutAdded
+* SignInEvent
+* SiteCollectionAdminAdded
+* SiteCollectionAdminRemoved
+* SiteCollectionCreated
+* SiteCollectionQuotaModified
+* SiteColumnCreated
+* SiteDeleted
+* SiteDesignScheduled
+* SiteIBModeSet
+* SiteLocksChanged
+* SPCorporateCatalogAppMetadataDeployWithFeatureDeployment
+* WebMembersCanShareModified
+* WebRequestAccessModified
+
+## Azure Active Directory Audit Actions
+
+For Azure Active Directory, potential actions include:
+
+* Add a partner to cross-tenant access setting.
+* Add app role assignment grant to user.
+* Add app role assignment to service principal.
+* Add delegated permission grant.
+* Add device.
+* Add group.
+* Add member to group.
+* Add member to role.
+* Add owner to group.
+* Add owner to service principal.
+* Add registered owner to device.
+* Add registered users to device.
+* Add service principal credentials.
+* Add service principal.
+* Add user.
+* Change user license.
+* Change user password.
+* Consent to application.
+* Delete device.
+* Delete group.
+* Delete user.       
+* Device no longer compliant.
+* Device no longer managed.
+* Disable account.
+* Enable account.
+* Remove delegated permission grant.
+* Remove member from group.
+* Remove member from role.
+* Remove owner from group.
+* Remove registered owner from device.
+* Remove registered users from device.
+* Remove service principal credentials.
+* Remove service principal.
+* Reset user password.
+* Set Company Information.
+* Update a partner cross-tenant access setting.
+* Update agreement.
+* Update application – Certificates and secrets management 
+* Update application.
+* Update device.
+* Update group.
+* Update policy.
+* Update service principal.
+* Update StsRefreshTokenValidFrom Timestamp.
+* Update user.
+* UserLoggedIn
+* UserLoginFailed
+
+## Exchange Audit Actions
+
+Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for Exchange
+* Add-DistributionGroupMember
+* AddFolderPermissions
+* Add-MailboxLocation
+* Add-MailboxPermission
+* Add-RecipientPermission   
+* Create
+* Enable-AddressListPaging
+* FolderBind  
+* HardDelete
+* Install-AdminAuditLogConfig
+* Install-DataClassificationConfig
+* Install-DefaultSharingPolicy
+* Install-ResourceConfig
+* MailItemsAccessed 
+* MipLabel
+* ModifyFolderPermissions
+* Move        
+* MoveToDeletedItems
+* New-DistributionGroup
+* New-DynamicDistributionGroup
+* New-ExchangeAssistanceConfig
+* New-FolderMoveRequest
+* New-Mailbox
+* Remove-DistributionGroup
+* Remove-DistributionGroupMember
+* Remove-DynamicDistributionGroup
+* RemoveFolderPermissions
+* Remove-InboxRule
+* Remove-Mailbox
+* Remove-MailboxPermission
+* Remove-RecipientPermission
+* Remove-StoreMailbox
+* Remove-UnifiedGroup
+* Send
+* SendAs
+* SendOnBehalf
+* Set-AdminAuditLogConfig
+* Set-ConditionalAccessPolicy
+* Set-DynamicDistributionGroup
+* Set-ExchangeAssistanceConfig
+* Set-Mailbox
+* Set-MailboxPlan
+* Set-OwaMailboxPolicy
+* Set-RecipientEnforcementProvisioningPolicy
+* Set-TenantObjectVersion
+* Set-TransportConfig
+* SoftDelete        
+* Update
+* UpdateInboxRules
+
+
+## Data Loss Prevention (DLP) Audit Actions
+
+Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for DLP:
+* AccessRequestCreated
+* Add a partner to cross-tenant access setting.
+* Add app role assignment grant to user.
+* Add app role assignment to service principal.
+* Add delegated permission grant.
+* Add device.
+* Add group.
+* Add member to group.
+* Add member to role.
+* Add owner to group.
+* Add owner to service principal.
+* Add registered owner to device.
+* Add registered users to device.
+* Add service principal credentials.
+* Add service principal.
+* Add user.
+* Add-DistributionGroupMember
+* AddedToGroup
+* AddedToSecureLink
+* AddFolderPermissions
+* AddFormCoauthor
+* Add-MailboxLocation
+* Add-MailboxPermission
+* Add-RecipientPermission
+* AlertStatusChanged
+* AnalyzedByExternalApplication
+* AppCatalogSPCorporateCatalogAccessorBaseAdd
+* AppDlpEvaluationResultChange
+* Authorize
+* BindMonikersToDatasources
+* Change user license.
+* Change user password.
+* ClientViewSignaled
+* CommentCreated
+* CommentsDisabled
+* CompanyLinkCreated
+* CompanyLinkUsed
+* Consent to application.
+* Create
+* CreateDataset
+* CreateFlow
+* CreateGatewayClusterDatasource
+* CreatePowerApp
+* CreateReport
+* CreateResponse
+* CrmDefaultActivity
+* Delete device.
+* Delete group.
+* Delete user.
+* Device no longer compliant.
+* Device no longer managed.
+* Disable account.
+* DownloadReport
+* EditFlow
+* EditForm
+* Enable account.
+* Enable-AddressListPaging
+* EnableSpecificCollaboaration
+* EnableWorkOrSchoolCollaboration
+* ExportForm
+* FileAccessed
+* FileAccessedExtended
+* FileCheckedIn
+* FileCheckedOut
+* FileCheckOutDiscarded
+* FileCopied
+* FileDeleted
+* FileDownloaded
+* FileModified
+* FileModifiedExtended    
+* FileMoved
+* FilePreviewed
+* FileRecycled
+* FileRenamed
+* FileRestored
+* FileSensitivityLabelApplied
+* FileSyncDownloadedFull  
+* FileSyncUploadedFull
+* FileUploaded  
+* FileVersionsAllDeleted
+* FolderBind
+* FolderCopied
+* FolderCreated
+* FolderModified
+* FolderMoved
+* FolderRecycled
+* FolderRenamed
+* GenerateCustomVisualAADAccessToken
+* GenerateScreenshot
+* GetAllGatewayClusterDatasources
+* GetGatewayClusters
+* GetGatewayClusterSupportedDatasources
+* GetGatewayRegions
+* GetSnapshots
+* GroupAdded
+* GroupUpdated
+* HardDelete
+* HubSiteJoined
+* HubSiteRegistered
+* InitiateGatewayClusterOAuthLogin
+* Install-AdminAuditLogConfig
+* Install-DataClassificationConfig
+* Install-DefaultSharingPolicy
+* Install-ResourceConfig
+* LaunchPowerApp
+* ListColumnCreated
+* ListColumnUpdated
+* ListContentTypeUpdated
+* ListCreated
+* ListForms
+* ListIndexCreated
+* ListItemCreated
+* ListItemDeleted
+* ListItemRecycled
+* ListItemUpdated     
+* ListItemViewed
+* ListUpdated
+* ListViewCreated
+* ListViewed
+* ListViewUpdated
+* MailItemsAccessed
+* ManagedSyncClientAllowed
+* MarkedMessageChanged
+* MDCAssessments
+* MDCRegulatoryComplianceAssessments
+* MeetingDetail
+* MeetingParticipantDetail
+* MemberAdded
+* MemberRemoved
+* MemberRoleChanged
+* MessageCreatedHasLink
+* MessageCreation
+* MessageEditedHasLink
+* MessageReadReceiptReceived
+* MessageUpdated
+* MipLabel
+* ModifyFolderPermissions
+* Move
+* MoveToDeletedItems
+* New-DistributionGroup
+* New-DynamicDistributionGroup
+* New-ExchangeAssistanceConfig
+* New-FolderMoveRequest
+* New-Mailbox
+* PagePrefetched
+* PageViewed
+* PageViewedExtended
+* PermissionLevelAdded
+* PIMRoleAssigned
+* PlanListRead
+* PlanModified
+* PlanRead
+* PortalLoginAuthorization
+* PutConnection
+* ReactedToMessage
+* RefreshDataset
+* Remove delegated permission grant.
+* Remove member from group.
+* Remove member from role.
+* Remove owner from group.
+* Remove registered owner from device.
+* Remove registered users from device.
+* Remove service principal credentials.
+* Remove service principal.
+* RemovedFromGroup
+* Remove-DistributionGroup
+* Remove-DistributionGroupMember
+* Remove-DynamicDistributionGroup
+* RemoveFolderPermissions
+* Remove-InboxRule
+* Remove-Mailbox
+* Remove-MailboxLocation
+* Remove-MailboxPermission
+* Remove-RecipientPermission
+* Remove-StoreMailbox
+* Remove-UnifiedGroup
+* Reset user password.
+* RespondedWithCustomResponse
+* RunEmailSubscription
+* Search
+* SearchQueryPerformed    
+* SecureLinkCreated
+* SecureLinkUpdated
+* SecureLinkUsed
+* Send
+* SendAs
+* SendOnBehalf
+* SensitivityLabelApplied
+* SensitivityLabeledFileOpened
+* SensitivityLabeledFileRenamed
+* SensitivityLabelUpdated
+* Set Company Information.
+* Set-AdminAuditLogConfig
+* Set-ConditionalAccessPolicy
+* Set-DynamicDistributionGroup
+* Set-ExchangeAssistanceConfig
+* Set-Mailbox
+* Set-MailboxPlan
+* Set-OwaMailboxPolicy
+* Set-RecipientEnforcementProvisioningPolicy
+* SetScheduledRefresh
+* Set-TenantObjectVersion
+* Set-TransportConfig
+* SharingInheritanceBroken
+* SharingInvitationBlocked
+* SharingLinkCreated
+* SharingLinkUsed
+* SharingPolicyChanged
+* SharingRevoked
+* SharingSet
+* ShortcutAdded
+* SiteCollectionAdminAdded
+* SiteCollectionAdminRemoved
+* SiteCollectionCreated
+* SiteCollectionQuotaModified
+* SiteColumnCreated
+* SiteContentTypeCreated
+* SiteDeleted
+* SiteDesignScheduled
+* SiteIBModeChanged
+* SiteIBModeSet
+* SiteLocksChanged
+* SoftDelete
+* SPCorporateCatalogAppMetadataDeployWithFeatureDeployment
+* TabAdded
+* TakeOverDataset
+* TaskListRead
+* TeamCreated
+* TeamsSessionStarted
+* TeamsUserSignedOut
+* ThreadAccessFailure
+* ThreadViewed
+* Update
+* Update a partner cross-tenant access setting.
+* Update agreement.
+* Update application – Certificates and secrets management
+* Update application.
+* Update device.
+* Update group.
+* Update policy.
+* Update service principal.
+* Update StsRefreshTokenValidFrom Timestamp.
+* Update user.
+* UpdateDatasourceCredentials
+* UpdateFeaturedTables
+* UpdateInboxRules
+* UpdatePowerApp
+* UserLoggedIn
+* UserLoginFailed
+* Validate
+* ViewedApprovalRequest
+* ViewForm
+* ViewReport
+* ViewResponses
+* ViewRuntimeForm
+* WebMembersCanShareModified
+* WebRequestAccessModified
+
+## General 
+
+Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for General:
+
+* AppCleanedUpAfterExpiration
+* AppDlpEvaluationResultChange
+* BindMonikersToDatasources
+* CreateGatewayClusterDatasource
+* CreatePowerApp
+* CreateResponse
+* CrmDefaultActivity
+* DownloadReport
+* ExportForm
+* GenerateCustomVisualAADAccessToken
+* GenerateScreenshot  
+* GetAllGatewayClusterDatasources
+* GetGatewayRegions
+* GetSnapshots
+* LaunchPowerApp
+* ListForms     
+* MarkedMessageChanged
+* MDCAssessments
+* MDCRegulatoryComplianceAssessments
+* MeetingDetail
+* MeetingParticipantDetail
+* MemberAdded
+* MemberRemoved
+* MemberRoleChanged
+* MessageCreatedHasLink
+* MessageCreation
+* MessageEditedHasLink
+* MessageReadReceiptReceived        
+* MessageUpdated
+* PortalLoginAuthorization
+* ReactedToMessage
+* RunEmailSubscription
+* Search
+* SensitivityLabelApplied
+* SensitivityLabeledFileOpened      
+* SensitivityLabeledFileRenamed     
+* SensitivityLabelRemoved
+* SensitivityLabelUpdated
+* TakeOverDataset
+* TeamsSessionStarted
+* TeamsUserSignedOut
+* ThreadViewed
+* TIMailData
+* UpdateDatasourceCredentials       
+* UpdatePowerApp
+* Validate      
+* ViewForm      
+* ViewReport
+* ViewResponses
+* ViewRuntimeForm
 
 ## References
 
