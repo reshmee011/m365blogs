@@ -1,0 +1,15 @@
+
+```PowerShell
+$url = "https://contoso.sharepoint.com/sites/test"
+Connect-PnPOnline -url $url -interactive
+$m365GroupId = (get-pnpsite -include RelatedGroupId).RelatedGroupId.Guid
+ 
+#https://graph.microsoft.com/
+$RestMethodUrl = "beta/teams/$m365GroupId/channels"
+ 
+$channels = (Invoke-PnPGraphMethod -Url $RestMethodUrl -Method Get -ConsistencyLevelEventual).value
+ 
+$channels | ForEach-Object {
+  write-host  ($_.filesfolderweburl).split("Shared Documents")[0]
+}
+```
