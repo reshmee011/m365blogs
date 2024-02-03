@@ -1,7 +1,7 @@
 ---
 title: 'Invoke-PnPListDesign to create instances of lists libraires'
 date: 2024-02-03T01:52:50Z
-draft: false
+draft: true
 tags: ['SPO', 'List Design', 'Document library','PnP', 'PowerShell' ]
 ---
 
@@ -157,4 +157,4 @@ The custom template for list/library can save a lot of time deploying standardis
 
 [For admins: Add-SPOListDesign (Microsoft.Online.SharePoint.PowerShell) | Microsoft Learn](https://learn.microsoft.com/powershell/module/sharepoint-online/add-spolistdesign?view=sharepoint-ps?wt.mc_id=MVP_308367)
 
-[For end users: Custom list templates - SharePoint in Microsoft 365 | Microsoft Learn][https://learn.microsoft.com/sharepoint/lists-custom-template?wt.mc_id=MVP_308367]
+[For end users: Custom list templates - SharePoint in Microsoft 365 | Microsoft Learn](https://learn.microsoft.com/sharepoint/lists-custom-template?wt.mc_id=MVP_308367)
