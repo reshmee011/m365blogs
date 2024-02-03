@@ -1,163 +1,28 @@
 ---
-title: 'Invoke-SPOListDesign to create instances of lists/libraires'
-date: Wed, 27 Oct 2021 00:50:04 +0000
+title: 'Invoke-PnPListDesign to create instances of lists libraires'
+date: 2024-02-03T01:52:50Z
 draft: false
-tags: ['Uncategorized']
+tags: ['SPO', 'List Design', 'Document library','PnP', 'PowerShell' ]
 ---
 
- [Creating custom list templates](https://docs.microsoft.com/en-us/sharepoint/lists-custom-template) is now possible to create both custom document libraries and lists although official microsoft documentation has not specified anything about supporting custom document library templates.
+# Custom document library template using PnP PowerShell
+ 
+[Creating custom list templates](https://docs.microsoft.com/en-us/sharepoint/lists-custom-template?wt.mc_id=MVP_308367) is now possible to create both custom document libraries and lists although official microsoft documentation has not specified anything about supporting custom document library templates.
 
-This article explores the option how to use a combination of list design and PowerShell script to provision multiple instances of document libraries using a CSV file and how to create a document library from a custom list template from UI. Although cmdlet Invoke-SPOList Design is not in the official documentation yet. I tried to submit a [pull request](https://github.com/MicrosoftDocs/OfficeDocs-SharePoint-PowerShell/pull/49) to include it in their documentation but was eventually closed because they can accept submissions from Microsoft Employees. Below is a snippet of the cmdlet definition.
-
-```
-# Invoke-SPOListDesign
-
-## SYNOPSIS
-
-Applies a published list design to a specified site collection. The supported list templates you can apply a list design to include: "modern" team site with M365 group, "modern" team site without an M365 group, communication site, classic team site, and classic publishing site.
-
-## SYNTAX
-
-```powershell
-Invoke-SPOListDesign
-  [-Identity] <SPOListDesignPipeBind>
-  -WebUrl <string>
-  [<CommonParameters>]
-
-```
-## DESCRIPTION
-
-Applies a published list design to a specified site collection.
-
-## EXAMPLES
-
-### Example 1
-
-This example applies a list design whose script creates one list with content types, views and fields.
-
-```powershell
-Invoke-SPOListDesign -Identity 5b38e500-0fab-4da7-b011-ad7113228920 -WebUrl "https://contoso.sharepoint.com/sites/testgo"
-
-```
-### OUTPUT
-```yaml
-Title                                        OutcomeText Outcome
------                                        ----------- -------
-Create site column WorkAddress through XML               Success
-Create site column _Status through XML                   Success
-Create site column digits through XML                    Success
-Create site column remarks through XML                   Success
-Create site column workinghours through XML              Success
-Create site column Progress through XML                  Success
-Create content type Legal                                   NoOp
-Add site column WorkAddress to content type                 NoOp
-Add site column _Status to content type                     NoOp
-Create content type test_210304                             NoOp
-Add site column digits to content type                      NoOp
-Add site column remarks to content type                     NoOp
-Add site column workinghours to content type                NoOp
-Add site column Progress to content type                    NoOp
-Add site column _Status to content type                     NoOp
-Create content type test_StatusComm                         NoOp
-Add site column _Status to content type                     NoOp
-Create content type test_11                                 NoOp
-Add site column _Status to content type                     NoOp
-Create or update library "test_ct"                       Success
-Add list column "ActualWork"                             Success
-Add list column "Initials"                               Success
-Add list column "_Status"                                Success
-Add list column "digits"                                 Success
-Add list column "remarks"                                Success
-Add list column "workinghours"                           Success
-Add list column "Progress"                               Success
-Add list column "_Comments"                              Success
-Add list column "TriggerFlowInfo"                        Success
-Add list column "SelectFilename"                         Success
-Add content type "Document"                                 NoOp
-Add content type "Folder"                                   NoOp
-Add content type "Legal"                                 Success
-Add content type "test_210304"                           Success
-Add content type "test_StatusComm"                       Success
-Add content type "test_11"                               Success
-Add view "All Documents"                                 Success
-Add view "All Documents sorted"                          Success
-
-```
-
-## PARAMETERS
-
-### -Identity
-
-The ID of the list design to apply.
-
-```yaml
-Type: SPOListDesignPipeBind
-Parameter Sets: (All)
-Aliases:
-Applicable: SharePoint Online
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-
-```
-
-### -WebUrl
-
-The URL of the site collection where the list design will be applied.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-Applicable: SharePoint Online
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
-
-
-## INPUTS
-
-### Microsoft.Online.SharePoint.PowerShell.SPOListDesignPipeBind
-
-## OUTPUTS
-
-### System.Object
-
-## NOTES
-
-## RELATED LINKS
-
-Getting started with [SharePoint Online Management Shell](/powershell/sharepoint/sharepoint-online/connect-sharepoint-online?view=sharepoint-ps). 
-```
+This article explores the option how to use a combination of list design and PowerShell script to provision multiple instances of document libraries using a CSV file and how to create a document library from a custom list template from UI.
 
 First we can create a list design for our library based on an existing configured document library with custom content types, fields and views.
 
-Create a List design for the document library using **Get-SPOSiteScriptFromList** and **Add-SPOListDesign**
+Create a List design for the document library using **Get-PnPSiteScriptFromList** and **Add-PnPListDesign**
 
-```
-Import-Module Microsoft.Online.SharePoint.PowerShell
-$adminSiteUrl = "https://contoso-admin.sharepoint.com"
-$listUrl = "https://contoso.sharepoint.com/sites/investment/test_ct"
+```PowerShell
+$siteUrl = "https://contoso.sharepoint.com/sites/Company311"
+$doc = "testtemplate"
 
-Connect-SPOService $adminSiteUrl
-#$relativeListUrls
-$extracted = Get-SPOSiteScriptFromList  -ListUrl $listUrl
+Connect-pnponline $adminSiteUrl -Interactive
+Get-PnPList -Identity "testtemplate" | Get-PnPSiteScriptFromList | Add-PnPSiteScript -Title "testtemplate doc lib" | Add-PnPListDesign -Title "testtemplate doc lib" -Description "Deploy testtemplate doc lib" -ListColor Pink -ListIcon BullseyeTarget
 
-Add-SPOSiteScript -Title "Test Document Library" -Description "This creates a custom document library" -Content $extracted 
-$siteScripts = Get-SPOSiteScript
-
-$siteScriptObj = $siteScripts | Where-Object {$_.Title -eq "Test Document Library"} 
-
-Add-SPOListDesign -Title "Test Document Library" -Description "Deploy document library with content types and views" -SiteScripts $siteScriptObj.Id-ListColor Pink -ListIcon BullseyeTarget 
+get-pnplistdesign
 ```
 
 From the UI , the list design for the custom library is available when clicking on New >List and selecting the tab "From your organization" under "Templates"
@@ -170,7 +35,7 @@ Once "Create" is clicked the library is created with the relevant views , conten
 
 That's great that we can create a document library using the custom list/library template, however there are some settings like versionings , indexed columns, permissions, etc.. which are not included in the list design template. 
 
-I have used a PowerShell script with the cmdlet Invoke-SPOListDesign to apply the site design recursively to create multiple instances of the document library updating the internal name and display name based on the csv file and update the settings like creating indexed columns and setting versioning.
+I have used a PowerShell script with the cmdlet Invoke-PnPListDesign to apply the site design recursively to create multiple instances of the document library updating the internal name and display name based on the csv file and update the settings like creating indexed columns and setting versioning.
 
 Sample CSV file format saved as libraries.csv
 
@@ -182,7 +47,7 @@ Audit,Audit
 PO,Purchase Orders
 ```
 
-Execute the **Invoke-SPOListDesign **cmdlet
+Execute the **Invoke-PnPListDesign **cmdlet
 
 ```
 [CmdletBinding()] 
@@ -205,10 +70,10 @@ function Create-Index ($list, $targetFieldName)
   $targetField.Update();
   $list.Context.ExecuteQuery();
 }
-Connect-SPOService $adminSiteUrl 
+
 Connect-PnPOnline -Url $siteUrl -Interactive
 Import-Csv $librariesCSV | ForEach-Object {
-Invoke-SPOListDesign -Identity $listDesignId -WebUrl $siteUrl
+Invoke-PnPListDesign -Identity $listDesignId -WebUrl $siteUrl
 #Get library just created and update Internal name and display name
 $lib = Get-PnPList -Identity "test_ct" -Includes RootFolder
 while(!$lib)
@@ -287,3 +152,9 @@ Screenshot of the libraries created from UI (TestCreatingFromUserInterface) and 
 [![](https://reshmeeauckloo.files.wordpress.com/2021/10/image-1.png?w=1024)](https://reshmeeauckloo.files.wordpress.com/2021/10/image-1.png)
 
 The custom template for list/library can save a lot of time deploying standardised lists/document libraries without having to manually configure views, fields and content types.
+
+## References
+
+[For admins: Add-SPOListDesign (Microsoft.Online.SharePoint.PowerShell) | Microsoft Learn](https://learn.microsoft.com/powershell/module/sharepoint-online/add-spolistdesign?view=sharepoint-ps?wt.mc_id=MVP_308367)
+
+[For end users: Custom list templates - SharePoint in Microsoft 365 | Microsoft Learn][https://learn.microsoft.com/sharepoint/lists-custom-template?wt.mc_id=MVP_308367]

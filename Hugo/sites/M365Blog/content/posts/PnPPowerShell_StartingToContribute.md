@@ -263,7 +263,7 @@ Contributing to PnP PowerShell is a learning process. Remember, each contributio
 
 [Rewriting history](https://www.atlassian.com/git/tutorials/rewriting-history#:~:text=To%20review%2C%20git%20commit%20%2D%2D,the%20last%20commit%20message%20log)
 
-[Contributing as a holiday season present](https://www.blimped.nl/contributing-as-a-holiday-season-present??wt.mc_id=MVP_308367)
+[Contributing as a holiday season present](https://www.blimped.nl/contributing-as-a-holiday-season-present?wt.mc_id=MVP_308367)
 
 [Contribution guidance](https://pnp.github.io/powershell/articles/gettingstartedcontributing.html?wt.mc_id=MVP_308367)
 
