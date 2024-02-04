@@ -1,12 +1,12 @@
 ---
-title: "Internal References in SharePoint Column Formatting for Document libraries: leveraging Name and Folder properties"
+title: "Internal References in SharePoint Column Formatting for Document libraries: leveraging Name, Folder and Path properties"
 date: 2024-01-20T16:49:18Z
-tags: ["libraries", "List Formatting", "Name", "Folder"]
+tags: ["libraries", "List Formatting", "Name", "Folder", "Path"]
 featured_image: '/posts/images/ListFormatting-libraries-use-title-and-folder/Screenshot.png'
 draft: false
 ---
 
-# SharePoint Column Formatting for Document libraries: Leveraging Name and Folder properties
+# SharePoint Column Formatting for Document libraries: Leveraging Name, Folder and Path properties
 
 While referencing [$Title] in lists is straightforward, document libraries demand a nuanced approach. Instead of [$Name], had to delve into the intricacies of internal names like $FileLeafRef and $FileRef when working with column formatting.
 

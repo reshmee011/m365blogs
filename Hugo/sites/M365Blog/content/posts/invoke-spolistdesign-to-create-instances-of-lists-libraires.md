@@ -1,7 +1,7 @@
 ---
-title: 'Invoke-PnPListDesign to create instances of lists libraires'
-date: 2024-02-03T01:52:50Z
-draft: true
+title: 'Custom document library template using PnP PowerShell'
+date: 2024-01-01T01:52:50Z
+draft: false
 tags: ['SPO', 'List Design', 'Document library','PnP', 'PowerShell' ]
 ---
 
