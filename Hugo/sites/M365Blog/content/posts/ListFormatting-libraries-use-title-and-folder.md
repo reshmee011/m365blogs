@@ -1,7 +1,7 @@
 ---
 title: "Internal References in SharePoint Column Formatting for Document libraries: leveraging Name, Folder and Path properties"
 date: 2024-01-20T16:49:18Z
-tags: ["libraries", "List Formatting", "Name", "Folder", "Path"]
+tags: ["libraries", "List Formatting", "Name", "fileleafref", "fileref", "file type"]
 featured_image: '/posts/images/ListFormatting-libraries-use-title-and-folder/Screenshot.png'
 draft: false
 ---
@@ -17,7 +17,13 @@ While referencing [$Title] in lists is straightforward, document libraries deman
 Initial attempts to incorporate $FileSystemObjectType for folder identification was challenging, indicating that not all document library internal column names are supported.
 
 ```json
-  "display":"=if(indexOf([$FileRef],'Payment Processing')>0 && [$FileSystemObjectType]!='Folder','display-inline','none')"
+  "display":"=if(indexOf([$FileRef],'Processing')>0 && [$FileSystemObjectType]!='Folder','display-inline','none')"
+```
+
+Another option would be to use **$File_x0020_Type** property which is the file type (Word Doc, Excel Sheet, etc.) in case you might want to apply any logic based on it.
+
+```json
+  "display":"=if([$File_x0020_Type] != '' && indexOf([$FileRef],'Processing') >0 ,'display-inline','none')"
 ```
 
 However, a more reliable approach involves using the $ContentTypeId property. Validate whether it commences with '0x0120' to effectively discern folders in conditional checks.
