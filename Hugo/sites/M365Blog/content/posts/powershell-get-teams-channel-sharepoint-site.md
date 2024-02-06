@@ -16,6 +16,7 @@ Parent site url followed by the channel relative ul
 For shared channel 
 Parent site m365 group name followed by the channel relative url 
 
+Sometimes it is necessary to access the underlying SharePoint object that represents the Channel folder in SharePoint to perform specific SharePoint operations. You can get the SharePoint url of the Team by accessing the Graph API at
 
 ```PowerShell
 $url = "https://contoso.sharepoint.com/sites/test"
@@ -47,7 +48,13 @@ get-channelsiteurl  $m365GroupId "Ash-Test"
  
 ```
 
-##References
+The webUrl property stores the url of the folder in SharePoint. This is also very useful for navigating to Private channels in SharePoint which are hosted in their own dedicated site collection just for hosting the private channel folder.
+
+This nows gives us API access to Teams Channels and SharePoint folders using the Graph API so now regardless of whether the channel has been renamed or is a Private channel, you can always get the Url to the folder in SharePoint. [channel resource type](https://learn.microsoft.com/en-us/graph/api/resources/channel?view=graph-rest-beta?wt.mc_id=MVP_308367)
+
+## References
 
 [Get channel](https://learn.microsoft.com/en-us/graph/api/channel-get?wt.mc_id=MVP_308367)
-[List channels](https://learn.microsoft.com/en-us/graph/api/channel-list?view=graph-rest-beta&tabs=http)
+[List channels](https://learn.microsoft.com/en-us/graph/api/channel-list?view=graph-rest-beta&tabs=http&wt.mc_id=MVP_308367)
+[channel resource type](https://learn.microsoft.com/en-us/graph/api/resources/channel?view=graph-rest-beta?wt.mc_id=MVP_308367)
+[Get a Teams channel SharePoint Url using Graph API](https://colinjwood.wordpress.com/2020/02/18/get-a-teams-channel-sharepoint-url-using-graph-api/)
