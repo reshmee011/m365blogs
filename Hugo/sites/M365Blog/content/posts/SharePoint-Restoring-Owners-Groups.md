@@ -120,7 +120,7 @@ Please comment if you ever faced similar scenerio and had other solutions.
 
 ## References
 
-[Add O365 Group Owner to Site Collection Administration List](https://techcommunity.microsoft.com/t5/sharepoint/add-o365-group-owner-to-site-collection-administration-list/m-p/401027)
+[Add O365 Group Owner to Site Collection Administration List](https://techcommunity.microsoft.com/t5/sharepoint/add-o365-group-owner-to-site-collection-administration-list/m-p/401027?wt.mc_id=MVP_308367)
 
-[https://learn.microsoft.com/en-us/sharepoint/dev/transform/modernize-connect-to-office365-group-permissions](https://learn.microsoft.com/en-us/sharepoint/dev/transform/modernize-connect-to-office365-group-permissions)
+[https://learn.microsoft.com/en-us/sharepoint/dev/transform/modernize-connect-to-office365-group-permissions](https://learn.microsoft.com/en-us/sharepoint/dev/transform/modernize-connect-to-office365-group-permissions?wt.mc_id=MVP_308367)
 
