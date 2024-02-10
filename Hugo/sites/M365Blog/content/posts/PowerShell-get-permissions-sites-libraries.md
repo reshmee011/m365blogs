@@ -111,6 +111,10 @@ Write-host -f Green "Permission Report Generated Successfully!"
 $RestMethodUrl = $RestMethodUrl = 'v1.0/users/reshmee.auckloo@ppf.co.uk/transitiveMemberof/microsoft.graph.group?$count=true&$orderby=displayName&$search="displayName:AAD_DLG_U_SP_IntranetOwners"&$select=displayName,id'
 $groups = (Invoke-PnPGraphMethod -Url $RestMethodUrl -Method Get -ConsistencyLevelEventual).value
 
+<#get-pnpentraidgroupmember -identity "AAD_DLG_AzDevOps_D365_Marvin_Team"
+$RestMethodUrl = $RestMethodUrl = 'v1.0/groups/e6b11663-3a4a-408b-beaa-c6061be04cdb/transitiveMembers/microsoft.graph.user?$count=true&$orderby=displayName&$search="displayName:kevin"&$select=displayName,id'
+$groups = (Invoke-PnPGraphMethod -Url $RestMethodUrl -Method Get -ConsistencyLevelEventual).value
+
 ## references
 https://learn.microsoft.com/en-us/graph/api/group-list-transitivemembers?view=graph-rest-1.0&tabs=http
 https://powerusers.microsoft.com/t5/Building-Flows/List-users-together-with-nested-groups-from-Azure-Active/td-p/2263771
