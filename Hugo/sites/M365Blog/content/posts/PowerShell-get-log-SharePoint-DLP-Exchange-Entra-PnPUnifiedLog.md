@@ -1,6 +1,6 @@
 ---
 title: "Unveiling Audit Logs with PnP and Cli for M365 PowerShell"
-date: 2024-01-31T16:16:09Z
+date: 2024-02-09T16:16:09Z
 tags: ["SharePoint","PnP","PowerShell","CLI for M365" ,"Audit Logs","DLP", "Exchange", "AzureDirectory"]
 featured_image: '/posts/images/PowerShell_PnPUnifiedLog/Sample.png'
 draft: false
@@ -53,7 +53,6 @@ if($days -eq 0)
     $activities += Get-PnPUnifiedAuditLog -ContentType SharePoint -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
     $activities += Get-PnPUnifiedAuditLog -ContentType DLP -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
     $activities += Get-PnPUnifiedAuditLog -ContentType Exchange -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
-    $activities += Get-PnPUnifiedAuditLog -ContentType General -ErrorAction Ignore  -StartTime (Get-date).adddays(-$days) -EndTime (Get-date).adddays(-($days-1))
  }
  
  $activities| ForEach-Object {
@@ -91,7 +90,7 @@ if ($m365Status -eq "Logged Out") {
   Write-Host "Logging in the User!"
   m365 login --authType browser
 }
-$days = 7
+$days = 3
 $endDay = 0
 $Operations = @()
  
@@ -108,16 +107,16 @@ if($days -eq 0)
 {
     $activities +=  m365 purview auditlog list --contentType SharePoint --output 'json' | ConvertFrom-Json
     $activities +=  m365 purview auditlog list --contentType AzureActiveDirectory --output 'json' | ConvertFrom-Json #-ErrorAction Ignore
-    $activities +=  m365 purview auditlog list --contentType DLP --output 'json' | ConvertFrom-Json
+   $activities +=  m365 purview auditlog list --contentType DLP --output 'json' | ConvertFrom-Json
     $activities +=  m365 purview auditlog list --contentType Exchange --output 'json' | ConvertFrom-Json
     $activities +=  m365 purview auditlog list --contentType General --output 'json' | ConvertFrom-Json
  
 }else {
    $activities += m365 purview auditlog list --contentType SharePoint --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
    $activities += m365 purview auditlog list --contentType AzureActiveDirectory --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json'| ConvertFrom-Json
-   $activities += m365 purview auditlog list --contentType DLP -ErrorAction Ignore --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
-   $activities += m365 purview auditlog list --contentType Exchange -ErrorAction Ignore --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
-   $activities += m365 purview auditlog list --contentType General -ErrorAction Ignore  --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
+   $activities += m365 purview auditlog list --contentType DLP  --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
+   $activities += m365 purview auditlog list --contentType Exchange --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
+   $activities += m365 purview auditlog list --contentType General --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
  }
  
 if($activity.SiteUrl ){#-and $activity.SiteUrl
@@ -125,8 +124,14 @@ if($activity.SiteUrl ){#-and $activity.SiteUrl
  {  
     $logCollection += $activity
  }
+}
+$days = $days - 1
+}
+$activities | sort-object "Operation" |Export-CSV $OutPutView -Force -NoTypeInformation
 ```
-Caution
+
+> [!Note]
+> You may encounter error Error: The permission set (ActivityFeed.Read ServiceHealth.Read) sent in the request does not include the expected permission with contentType DLP and be mindful of the amount of data returned from a large tenant which may cause memory issues or lack of disk space to save the log file.
 
 Due to the amount of data retrieved, I faced memory limit reached issue
 
@@ -145,11 +150,55 @@ FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memor
 5: 00007FF61AD02732 v8::Isolate::Exit+674
 ```
 
-Also has issues retrieving some activities due to lack of permission
+Also has issues retrieving some activities related to DLP due lack of permissions which I have been unable to identity.
 
 ```PowerShell
 ThreadAccessFailure
 Error: The permission set (ActivityFeed.Read ServiceHealth.Read) sent in the request does not include the expected permission.
+```
+
+ I ran Register-PnPManagementShellAccess [PnP Authentication](https://pnp.github.io/powershell/articles/authentication.html) to ensure all "PnP PowerShell" has the required permissions but it did not resolve the issue. 
+
+I created another app registration.
+
+I amended the app registration for the app used to connect to include the following in the app manifest as it is missing from the PnP PowerShell app registration to resolve the authentication error. These two permissions "ActivityReports.Read" and "ThreatIntelligence.Read" can't be added from the UI yet hence adding it via manifest file. I could not add those using the cmdlet Register-PnPAzureADApp which accepts only parameters [-GraphApplicationPermissions <Permission[]>],[-GraphDelegatePermissions <Permission[]>],[-SharePointApplicationPermissions <Permission[]>] and  [-SharePointDelegatePermissions <Permission[]>] but no **Office 365 Management APIs**. From the UI only the "ActivityFeed.Read", "ActivityFeed.ReadDlp","ServiceHealth.Read" 
+
+![Office 365 Management APIs Permissions](../images/PowerShell_PnPUnifiedLog/Office365ManagementAPIs.png)
+
+```json
+{
+            "adminConsentDescription": "Allows the application to read service health information for your organization.",
+            "adminConsentDisplayName": "Read activity reports for your organization",
+            "id": "b3b78c39-cb1d-4d17-820a-25d9196a800e",
+            "isEnabled": true,
+            "isAdmin": true,
+            "consentDescription": "Allows the application to read service health information for your organization.",
+            "consentDisplayName": "Read service health information for your organization",
+            "value": "ActivityReports.Read"
+        },
+        {
+            "adminConsentDescription": "Allows the application to read threat intelligence data for your organization",
+            "adminConsentDisplayName": "Read threat intelligence data for your organization",
+            "id": "17f1c501-83cd-414c-9064-cd10f7aef836",
+            "isEnabled": true,
+            "isAdmin": true,
+            "consentDescription": "Allows the application to read threat intelligence data for your organization",
+            "consentDisplayName": "Read threat intelligence data for your organization",
+            "value": "ThreatIntelligence.Read"
+        }
+```
+
+![Permissions](../images/PowerShell_PnPUnifiedLog/PermissionsRequired_Activityreports_ThreatIntelligence.png)
+
+
+```powershell
+$app = Register-PnPAzureADApp -ApplicationName "YourApplicationName" -Tenant reshmeeauckloo.onmicrosoft.com -Interactive
+#amend permissions to include Office 365 Management APIs (8):ActivityFeed.Read,ActivityFeed.ReadDlp,ActivityReports.Read,ServiceHealth.Read and ThreatIntelligence.Read
+#note down the Base64Encoded and client id to connect 
+$ClientId = "xxxxxxx"
+$base64Encoded = "dddd"
+Connect-PnPOnline reshmeeauckloo.sharepoint.com -ClientId $ClientId -Tenant reshmeeauckloo.onmicrosoft.com -CertificateBase64Encoded $base64Encoded
+##run above code using pnp powershell version
 ```
 
 ## Conclusion
