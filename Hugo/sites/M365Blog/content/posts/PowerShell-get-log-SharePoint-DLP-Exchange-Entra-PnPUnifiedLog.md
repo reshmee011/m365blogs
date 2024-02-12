@@ -731,3 +731,5 @@ Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for Gener
 [Get-PnPUnifiedAuditLog](https://pnp.github.io/powershell/cmdlets/Get-PnPUnifiedAuditLog?wt.mc_id=MVP_308367)
 
 [Use a PowerShell script to search the audit log](https://learn.microsoft.com/en-us/purview/audit-log-search-script?wt.mc_id=MVP_308367)
+
+[Microsoft Office 365 Audit](https://hstechdocs.helpsystems.com/manuals/corects/eventmanager/current/gtthelp/content/resources/microsoft_office_365_audit.htm)
