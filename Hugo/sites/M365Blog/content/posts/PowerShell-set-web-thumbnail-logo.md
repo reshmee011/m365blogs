@@ -17,10 +17,8 @@ This article covers how to help with updating site logo and thumbnail in a scala
 
 ```powershell
 # Set thumbnail logo and site logo for a SharePoint site using PnP PowerShell
-
 # Connect to the SharePoint site
 Connect-PnPOnline -Url "https://yoursharepointsiteurl.com" -Interactive
-
 # Set the Site Thumbnail URL
 Set-PnPWebHeader -SiteThumbnailUrl "/sites/11/SiteAssets/thumbnail.jpg" -SiteLogoUrl "/sites/311/SiteAssets/logo.jpg"
 ```
@@ -29,7 +27,6 @@ Set-PnPWebHeader -SiteThumbnailUrl "/sites/11/SiteAssets/thumbnail.jpg" -SiteLog
 
 ```powershell
 $SiteUrl = "https://yoursharepointsiteurl/"
-#$userId = "test@contoso.co.uk" 
 Write-Host "Ensure logged in"
 $m365Status = m365 status --output text
 if ($m365Status -eq "Logged Out") {
@@ -47,10 +44,8 @@ m365 spo site set --url $SiteUrl --siteThumbnailUrl "/sites/11/SiteAssets/thumbn
 
 ```powershell
 # Set thumbnail logo and site logo for a SharePoint site using PnP PowerShell
-
 # Connect to the SharePoint site
 Connect-PnPOnline -Url "https://yoursharepointsiteurl.com" -Interactive
-
 # Set the Site Thumbnail URL
 Set-PnPWebHeader -SiteThumbnailUrl "" -SiteLogoUrl ""
 ```
@@ -58,7 +53,6 @@ Set-PnPWebHeader -SiteThumbnailUrl "" -SiteLogoUrl ""
 
 ```powershell
 $SiteUrl = "https://yoursharepointsiteurl/"
-#$userId = "test@contoso.co.uk" 
 Write-Host "Ensure logged in"
 $m365Status = m365 status --output text
 if ($m365Status -eq "Logged Out") {
