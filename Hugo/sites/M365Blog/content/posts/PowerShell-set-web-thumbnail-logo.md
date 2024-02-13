@@ -96,4 +96,12 @@ The logo
 ## References
 
 [How to change a logo on a SharePoint Site](https://sharepointmaven.com/how-to-change-a-logo-on-a-sharepoint-site/)
+
 [Change a site's title, description, logo, and site information settings](https://support.microsoft.com/en-gb/office/change-a-site-s-title-description-logo-and-site-information-settings-8376034d-d0c7-446e-9178-6ab51c58df42?wt.mc_id=MVP_308367)
+
+[spo site set](https://pnp.github.io/cli-microsoft365/cmd/spo/site/site-set?wt.mc_id=MVP_308367)
+
+[Set-PnPWebHeader](https://pnp.github.io/powershell/cmdlets/Set-PnPWebHeader.html?wt.mc_id=MVP_308367)
+
+
+
