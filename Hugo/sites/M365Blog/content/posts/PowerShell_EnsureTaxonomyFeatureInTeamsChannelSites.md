@@ -17,7 +17,7 @@ To resolve this issue, you can enable the taxonomy feature with the ID **73ef14b
 
 
 ```powershell
-    $dsiteUrl = <Teams Channel SharePoint Url>
+    $siteUrl = <Teams Channel SharePoint Url>
     $FeatureTaxonomy = "73ef14b1-13a9-416b-a9b5-ececa2b0604c" #enabled taxonomy
 
     Connect-PnPOnline -Url $siteUrl -Interactive

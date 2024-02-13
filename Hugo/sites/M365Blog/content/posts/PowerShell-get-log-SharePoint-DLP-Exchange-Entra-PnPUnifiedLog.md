@@ -131,6 +131,9 @@ $activities | sort-object "Operation" |Export-CSV $OutPutView -Force -NoTypeInfo
 ```
 
 > [!Note]
+Due to the amount of data retrieved, I faced memory limit reached issue, ideally global admin rights would help to avoid permission issues. 
+
+> [!Note]
 > You may encounter error Error: The permission set (ActivityFeed.Read ServiceHealth.Read) sent in the request does not include the expected permission with contentType DLP and be mindful of the amount of data returned from a large tenant which may cause memory issues or lack of disk space to save the log file.
 
 Due to the amount of data retrieved, I faced memory limit reached issue
