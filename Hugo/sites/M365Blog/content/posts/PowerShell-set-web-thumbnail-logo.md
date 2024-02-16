@@ -87,6 +87,9 @@ The logo
   }
 ```
 
+
+![Thumbnail Logo](../images/PowerShell-set-web-thumbnail-logo/thumbnail_logo.png)
+
 ## References
 
 [How to change a logo on a SharePoint Site](https://sharepointmaven.com/how-to-change-a-logo-on-a-sharepoint-site/)
