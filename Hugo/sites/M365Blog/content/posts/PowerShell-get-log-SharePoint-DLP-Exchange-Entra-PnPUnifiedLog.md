@@ -90,10 +90,9 @@ if ($m365Status -eq "Logged Out") {
   Write-Host "Logging in the User!"
   m365 login --authType browser
 }
-$days = 3
-$endDay = 0
-$Operations = @()
- 
+$startDayInthePast = 7 ## 7 or less with 1 hour margin
+$endDay = 0 ##less than startDayInthePast
+
 # Generate a unique log file name using today's date
 $dateTime = (Get-Date).toString("dd-MM-yyyy_HHmm")
 $invocation = (Get-Variable MyInvocation).Value
@@ -102,22 +101,11 @@ $fileName = "logReport-" + $dateTime + ".csv"
 $OutPutView = $directorypath + "\Logs\"+ $fileName
  
 $logCollection = @()
-while($days -ge $endDay){
-if($days -eq 0)
-{
-    $activities +=  m365 purview auditlog list --contentType SharePoint --output 'json' | ConvertFrom-Json
-    $activities +=  m365 purview auditlog list --contentType AzureActiveDirectory --output 'json' | ConvertFrom-Json #-ErrorAction Ignore
-   $activities +=  m365 purview auditlog list --contentType DLP --output 'json' | ConvertFrom-Json
-    $activities +=  m365 purview auditlog list --contentType Exchange --output 'json' | ConvertFrom-Json
-    $activities +=  m365 purview auditlog list --contentType General --output 'json' | ConvertFrom-Json
- 
-}else {
-   $activities += m365 purview auditlog list --contentType SharePoint --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
-   $activities += m365 purview auditlog list --contentType AzureActiveDirectory --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json'| ConvertFrom-Json
-   $activities += m365 purview auditlog list --contentType DLP  --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
-   $activities += m365 purview auditlog list --contentType Exchange --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
-   $activities += m365 purview auditlog list --contentType General --startTime ((Get-date).adddays(-$days) | Get-Date -uFormat '%Y-%m-%d') --endTime ((Get-date).adddays(-($days-1)) | Get-Date -uFormat '%Y-%m-%d') --output 'json' | ConvertFrom-Json
- }
+   $activities += m365 purview auditlog list --contentType SharePoint --startTime ((Get-date).adddays(-$startDayInthePast) | Get-Date -uFormat '%Y-%m-%dT%H:%M:%SZ') --endTime ((Get-date).adddays(-($endDay)) | Get-Date -uFormat '%Y-%m-%dT%H:%M:%SZ') --output 'json' | ConvertFrom-Json
+   $activities += m365 purview auditlog list --contentType AzureActiveDirectory --startTime ((Get-date).adddays(-$startDayInthePast) | Get-Date -uFormat '%Y-%m-%dT%H:%M:%SZ') --endTime ((Get-date).adddays(-($endDay)) | Get-Date -uFormat '%Y-%m-%dT%H:%M:%SZ') --output 'json'| ConvertFrom-Json
+   $activities += m365 purview auditlog list --contentType DLP  --startTime ((Get-date).adddays(-$startDayInthePast) | Get-Date -uFormat '%Y-%m-%dT%H:%M:%SZ') --endTime ((Get-date).adddays(-($endDay)) | Get-Date -uFormat '%Y-%m-%dT%H:%M:%SZ') --output 'json' | ConvertFrom-Json
+   $activities += m365 purview auditlog list --contentType Exchange --startTime ((Get-date).adddays(-$startDayInthePast) | Get-Date -uFormat '%Y-%m-%dT%H:%M:%SZ') --endTime ((Get-date).adddays(-($endDay)) | Get-Date -uFormat '%Y-%m-%dT%H:%M:%SZ') --output 'json' | ConvertFrom-Json
+   $activities += m365 purview auditlog list --contentType General --startTime ((Get-date).adddays(-$startDayInthePast) | Get-Date -uFormat '%Y-%m-%dT%H:%M:%SZ') --endTime ((Get-date).adddays(-($endDay)) | Get-Date -uFormat '%Y-%m-%dT%H:%M:%SZ') --output 'json' | ConvertFrom-Json
  
 if($activity.SiteUrl ){#-and $activity.SiteUrl
    if($activity.SiteUrl.ToLower() -eq $SiteUrl)    #-$activity.UserId.ToLower() -eq $userId
@@ -125,8 +113,7 @@ if($activity.SiteUrl ){#-and $activity.SiteUrl
     $logCollection += $activity
  }
 }
-$days = $days - 1
-}
+
 $activities | sort-object "Operation" |Export-CSV $OutPutView -Force -NoTypeInformation
 ```
 
@@ -152,6 +139,10 @@ FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memor
 4: 00007FF61AD173A4 v8::Isolate::ReportExternalAllocationLimitReached+116
 5: 00007FF61AD02732 v8::Isolate::Exit+674
 ```
+
+## General Notes
+
+### Permissions
 
 Also has issues retrieving some activities related to DLP due lack of permissions which I have been unable to identity.
 
@@ -202,6 +193,14 @@ $ClientId = "xxxxxxx"
 $base64Encoded = "dddd"
 Connect-PnPOnline reshmeeauckloo.sharepoint.com -ClientId $ClientId -Tenant reshmeeauckloo.onmicrosoft.com -CertificateBase64Encoded $base64Encoded
 ##run above code using pnp powershell version
+```
+
+### Date parameters
+
+The date parameters need to be in ISO 8601 string (2021-12-16T18:28:48.6964197Z). Start time cannot be more than 7 days in the past. Default value is 24h ago, otherwise you might receive the following message.
+
+```dotnetcli
+Get-PnPUnifiedAuditLog: Call to Microsoft Graph URL https://manage.office.com/api/v1.0/d872ec63-6bea-4678-9429-078f4fa93560/activity/feed/subscriptions/content?contentType=Audit.SharePoint&PublisherIdentifier=$d872ec63-6bea-4678-9429-078f4fa93560&startTime=2024-02-09T11:03:27&endTime=2024-02-16T11:03:27 failed with status code BadRequest: Start time and end time must both be specified (or both omitted) and must be less than or equal to 24 hours apart, with the start time prior to  end time and start time no more than 7 days in the past. StartTime:2024-02-09T11:03:27, EndTime:2024-02-16T11:03:27
 ```
 
 ## Conclusion
@@ -402,7 +401,7 @@ Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for Excha
 * Set-RecipientEnforcementProvisioningPolicy
 * Set-TenantObjectVersion
 * Set-TransportConfig
-* SoftDelete        
+* SoftDelete
 * Update
 * UpdateInboxRules
 
@@ -479,7 +478,7 @@ Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for DLP:
 * FileDeleted
 * FileDownloaded
 * FileModified
-* FileModifiedExtended    
+* FileModifiedExtended
 * FileMoved
 * FilePreviewed
 * FileRecycled
@@ -524,7 +523,7 @@ Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for DLP:
 * ListItemCreated
 * ListItemDeleted
 * ListItemRecycled
-* ListItemUpdated     
+* ListItemUpdated
 * ListItemViewed
 * ListUpdated
 * ListViewCreated
@@ -590,7 +589,7 @@ Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for DLP:
 * RespondedWithCustomResponse
 * RunEmailSubscription
 * Search
-* SearchQueryPerformed    
+* SearchQueryPerformed
 * SecureLinkCreated
 * SecureLinkUpdated
 * SecureLinkUsed
@@ -687,7 +686,7 @@ Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for Gener
 * GetGatewayRegions
 * GetSnapshots
 * LaunchPowerApp
-* ListForms     
+* ListForms
 * MarkedMessageChanged
 * MDCAssessments
 * MDCRegulatoryComplianceAssessments
@@ -699,15 +698,15 @@ Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for Gener
 * MessageCreatedHasLink
 * MessageCreation
 * MessageEditedHasLink
-* MessageReadReceiptReceived        
+* MessageReadReceiptReceived
 * MessageUpdated
 * PortalLoginAuthorization
 * ReactedToMessage
 * RunEmailSubscription
 * Search
 * SensitivityLabelApplied
-* SensitivityLabeledFileOpened      
-* SensitivityLabeledFileRenamed     
+* SensitivityLabeledFileOpened
+* SensitivityLabeledFileRenamed
 * SensitivityLabelRemoved
 * SensitivityLabelUpdated
 * TakeOverDataset
@@ -715,10 +714,10 @@ Possible activities retrieved by the cmdlet **Get-PnPUnifiedAuditLog** for Gener
 * TeamsUserSignedOut
 * ThreadViewed
 * TIMailData
-* UpdateDatasourceCredentials       
+* UpdateDatasourceCredentials
 * UpdatePowerApp
-* Validate      
-* ViewForm      
+* Validate
+* ViewForm
 * ViewReport
 * ViewResponses
 * ViewRuntimeForm
