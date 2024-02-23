@@ -34,6 +34,11 @@ Outcome: Resolved
 ## References
 
 [Unregister-SPOHubSite (Microsoft.Online.SharePoint.PowerShell)](https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/unregister-spohubsite?view=sharepoint-ps)
+
 [Manage site redirects - SharePoint in Microsoft 365](https://learn.microsoft.com/en-us/sharepoint/manage-site-redirects)
+
 [Manage Lock Status](https://learn.microsoft.com/en-us/sharepoint/manage-lock-status) 
+
 [set-spouser]https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/set-spouser?view=sharepoint-ps
+
+[Lock and Unlock SharePoint Sites in Microsoft 365 Using PowerShell](https://o365reports.com/2023/10/20/lock-and-unlock-sharepoint-sites-in-microsoft-365-using-powershell/)

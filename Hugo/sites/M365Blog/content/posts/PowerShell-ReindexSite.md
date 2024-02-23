@@ -1,21 +1,23 @@
 ---
-title: "Pnp Powershell Reindex all sites"
-date: 2024-02-16T16:16:55Z
-tags: ["SharePoint","PnP","PowerShell","CLI for M365" ,"Audit Logs","DLP", "Exchange", "AzureDirectory"]
-featured_image: '/posts/images/PowerShell_PnPUnifiedLog/Sample.png'
-draft: true
+title: "Automating Site Reindexing with PowerShell"
+date: 2024-02-19T16:16:55Z
+tags: ["SharePoint","PnP","PowerShell","Reindex","Sites"]
+featured_image: '/posts/images/powerShell-reindexSites/ReindexSiteWarning.png'
+draft: false
 ---
 
-After applying auto sensitivity labelling policies to all SPO sites, all sites needed to be reindex to indentify which documents had a particular property so that policies are aware of the policies. 
- 
+## Automating Site Reindexing with PowerShell
+
+## Introduction
+
+Keeping your SharePoint environment up-to-date is crucial, especially after making schema changes. One important aspect of maintaining accurate and relevant search results is to regularly reindex sites, libraries, or lists. In this blog post, we will explore a streamlined approach using PnP PowerShell to automate the reindexing process. By leveraging this script, you can ensure that your search results reflect the latest changes in your SharePoint environment.
 
 ```PowerShell
 #Set Parameters
 $AdminCenterURL="https://contoso-admin.sharepoint.com"
-#$SiteURL = "https://contoso.sharepoint.com/teams/d-team-site"
 Connect-PnPOnline -Url $AdminCenterURL -Interactive
 
-$m365Sites = Get-PnPTenantSite -Detailed | Where-Object {($_.Url -like '*/teams-*' -or $_.Template -eq 'TEAMCHANNEL#1') -and $_.Template -ne 'RedirectSite#0' } 
+$m365Sites = Get-PnPTenantSite -Detailed | Where-Object {($_.Url -like '*/teams-*' -or $_.Template -eq 'TEAMCHANNEL#1') -and $_.Template -ne 'RedirectSite#0' } #filter to exclude redirect sites and to include team channel sites in the list
 $m365Sites | ForEach-Object {
     Connect-PnPOnline -Url $siteUrl -Interactive
     #Get the Web
@@ -24,8 +26,25 @@ $m365Sites | ForEach-Object {
     Request-PnPReIndexWeb
     Write-host $Web.Url
 }
-# Export the result array to CSV file
-$filesCollection | sort-object "File Url" |Export-CSV $OutPutView -Force -NoTypeInformation
 ```
 
-Run simulation against auto-labelling policies. 
+## Remarks
+
+From the UI when Reindex is clicked from **Site Settings >Search and Offline Availability** the following warning pops up
+
+![LinkedM365GroupOwners.png](../images/powerShell-reindexSites/ReindexSiteWarning.png)
+
+> [!Note]
+> 'Site reindexing may add stress to the search system and take an extended amount of time to
+complete. Recrawls of sites with more than one million items can potentially take weeks to process.
+Subsequent index updates could be delayed until the reindexing is complete, leading to out-of-date
+search results. Make sure to only initiate a site reindex after making changes that require all items to
+be reindexed.`
+
+I ran the script over a weekend to minimise impact hence use the script judiciously.
+
+## References 
+
+[Manually request crawling and reindexing of a site, a library or a list](https://learn.microsoft.com/en-us/sharepoint/crawl-site-content?wt.mc_id=MVP_308367)
+
+[Enable content on a site to be searchable](https://learn.microsoft.com/en-us/sharepoint/make-site-content-searchable?wt.mc_id=MVP_308367)
