@@ -94,6 +94,12 @@ $container = get-pnpcontainer -OwningApplicationId a187e399-0c36-4b98-8f04-1edc1
 
 3. **Add Breakpoints and Debug**: Use breakpoints and attach a debugger to pwsh.exe to pause and debug your code.
 
+Run the cmdlet to find out the process id it is running under.
+
+```powerShell
+$PID
+```
+
 ![Attach to process](../images/PnPPowerShell_StartingToContribute/AttachToProcessor_pwshexe.png)
 
 Running code will code cause it to pause at breakpoints 
