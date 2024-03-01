@@ -47,10 +47,12 @@ sample output
 1.	Page diagnostics tool
 2.	Network tool
 
+
+## References
+https://martinliu.cn/2010/12/22/fiddler-timers/
 https://connectivity.office.com/report/e8f2281a-df8e-4f05-93b2-949ba9b5958d
 
 https://learn.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-ip-web-service?view=o365-worldwide
+https://learn.microsoft.com/en-us/microsoft-365/enterprise/use-microsoft-365-cdn-with-spo?view=o365-worldwide
 
 Enable the Microsoft 365 CDN | Microsoft Learn
-
-## References
