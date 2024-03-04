@@ -46,6 +46,18 @@ sample output
 ```
 1.	Page diagnostics tool
 2.	Network tool
+3. win mtr  tool
+
+
+Step 1: Start the traces -Open the command prompt (as admin) and run the below command.
+Netsh trace start scenario=NetConnection,wfp-ipsec capture=yes report=yes filemode=circular overwrite=yes maxsize=1024 persistent=yes tracefile=c:\%computername%_nettrace.etl
+ 
+Step 2: Reproduce the issue
+ 
+Step 3: Stop the traces -From command prompt
+Netsh trace stop
+ 
+Step 4:  Upload the traces :
 
 
 ## References
