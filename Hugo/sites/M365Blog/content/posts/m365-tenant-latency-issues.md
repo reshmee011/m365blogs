@@ -59,11 +59,34 @@ Netsh trace stop
  
 Step 4:  Upload the traces :
 
+We did see delays in in this scenario and we could see it starting from the VPN and it could be an intermittent hop which is causing the delay.
+
+
+We also checked tracert to res-1.cdn.office.com and we could see the delay on intermediate node as well which was ISP in this case.
+
+SPO CDN investigation results:
+
+Looking at attached logs it looks like there are delays for request that are going to https://shell.cdn.office.net and https://res-1.cdn.office.net . https://shell.cdn.office.net is not part of 1CD so this issue shouldn't be exclusive for 1CDN. 
+
+Here is one example for  https://res-1.cdn.office.net  request:
+
+ 
+
+Server Timing is 40ms and the rest is client network. 70% if a delay are Queueing and Stalled. 
+
+According to Network features reference - Microsoft Edge Developer documentation | Microsoft Learn
+•	Queueing. The browser queues requests when any of the following are true
+o	There are higher priority requests.
+o	There are already six TCP connections open for this origin, which is the limit. Applies to HTTP/1.0 and HTTP/1.1 only.
+o	The browser is briefly allocating space in the disk cache.
+•	Stalled. The request could be stalled for any of the reasons described in Queueing.
+
 
 ## References
 https://martinliu.cn/2010/12/22/fiddler-timers/
 https://connectivity.office.com/report/e8f2281a-df8e-4f05-93b2-949ba9b5958d
-
+https://learn.microsoft.com/en-us/microsoft-365/enterprise/use-microsoft-365-cdn-with-spo?view=o365-worldwide
+https://learn.microsoft.com/en-gb/microsoft-edge/devtools-guide-chromium/network/reference
 https://learn.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-ip-web-service?view=o365-worldwide
 https://learn.microsoft.com/en-us/microsoft-365/enterprise/use-microsoft-365-cdn-with-spo?view=o365-worldwide
 
