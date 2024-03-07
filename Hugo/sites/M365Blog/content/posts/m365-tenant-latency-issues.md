@@ -24,6 +24,9 @@ SITES/CONNECTDESIGNASSETS/APPROVEDPHOTOS
 */STYLE LIBRARY       
 */CLIENTSIDEASSETS  
 
+
+https://publiccdn.sharepointonline.com/{tenantname}/sites/appcatalog/ClientSideAssets/81faa992-a943-4109-8fa0-c4d89d3a2319/PromoteNewsCommandSetStrings_en-gb_0ce05a97be92588f79473ea846c204cb.js
+
 Examples of complete URL
 
 https://tenant.sharepoint.com/SITES/CONNECTDESIGNASSETS/APPROVEDPHOTOS
