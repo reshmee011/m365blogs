@@ -33,7 +33,7 @@ $AdminCenterURL = "https://contoso-admin.sharepoint.com"
 ```
 - Tenant App Catalog site collection Url
 ```PowerShell
-$tenantAppCatalogUrl = "https://contoso.sharepoint.com/sites/appcatalog"
+$tenantAppCatalogUrl = "https://contoso.sharepoint.com/sites/apps"
 ```
 - Path where the spfx packages are stored
 ```PowerShell
@@ -52,7 +52,7 @@ $OutPutView = $directorypath + $fileName
 
 ```PowerShell
 $AdminCenterURL="https://contoso-admin.sharepoint.com"
-$tenantAppCatalogUrl = "https://contoso.sharepoint.com/sites/appcatalog"
+$tenantAppCatalogUrl = "https://contoso.sharepoint.com/sites/apps"
 $hubSiteUrl = "https://contoso.sharepoint.com"
 $dateTime = (Get-Date).toString("dd-MM-yyyy")
 $invocation = (Get-Variable MyInvocation).Value
