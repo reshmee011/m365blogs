@@ -139,6 +139,23 @@ $associatedSites | select url | ForEach-Object {
  
 #Export the result Array to CSV file
 $SiteAppUpdateCollection | Export-CSV $OutPutView -Force -NoTypeInformation
+
+foreach($package in $packageFiles)
+{
+  $packageName = $package.PSChildName
+   Write-Host ("Approving {0}..." -f $packageName) -ForegroundColor Yellow
+   $RestMethodUrl = '/_api/web/lists/getbytitle(''Apps%20for%20SharePoint'')/items?$select=Title,LinkFilename'
+   $apps = (Invoke-PnPSPRestMethod -Url $RestMethodUrl -Method Get -Connection $appCatConnection).Value
+   $appTitle = ($apps | where-object {$_.LinkFilename -eq $packageName} | select Title).Title
+
+    #deploy sppkg assuming app catalog is already configured
+    $permRequests =  Get-PnPTenantServicePrincipalPermissionRequests | where-object {$_.PackageName -eq $appTitle}
+
+    $permRequests | ForEach-Object {
+        Write-Host "Approving permission request for $($_.Resource) and package $appTitle..."
+        Approve-PnPTenantServicePrincipalPermissionRequest -RequestId  $_.Id.Guid -Force 
+    }
+}
  
 Disconnect-PnPOnline
 ```
