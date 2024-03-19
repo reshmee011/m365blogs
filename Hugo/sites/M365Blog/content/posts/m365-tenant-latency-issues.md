@@ -84,6 +84,13 @@ o	There are already six TCP connections open for this origin, which is the limit
 o	The browser is briefly allocating space in the disk cache.
 •	Stalled. The request could be stalled for any of the reasons described in Queueing.
 
+The TCP and the TLS handshake is completing b/w the client and the server. 
+After the TLS handshake I could see multiple dup-acks and retransmits being communicated b/w the client and the server. 
+Dup-acks are coming from our client and the fast retransmission is from the server. 
+At last, the server has sent a TCP reset aborting the connection. 
+Team, as per the traces, I would say that the delay is caused due to the dup acks and the retransmits. It can be due to the 
+network congestion, packet loss, or errors on the intermediate devices involved in the communication. 
+
 
 ## References
 https://martinliu.cn/2010/12/22/fiddler-timers/
