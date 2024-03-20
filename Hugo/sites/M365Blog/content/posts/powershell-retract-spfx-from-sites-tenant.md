@@ -3,15 +3,14 @@ title: "Retracting SPFx Solutions from Tenant Sites using PnP PowerShell"
 date: 2024-03-19T08:25:29Z
 tags: ["App Catalog","SPFx","PowerShell", "Uninstall"]
 featured_image: '/posts/images/powershell-retract-spfx-from-sites-tenant/retract.png'
-draft: true
+draft: false
 ---
 
+# Retracting SPFx Solutions from Hub Site and associated sites using PnP PowerShell
 
-# Retracting SPFx Solutions from Tenant Sites using PnP PowerShell
+SharePoint Framework (SPFx) solutions are a powerful tool for extending and customizing SharePoint sites. However, managing these solutions across multiple sites in a SharePoint tenant can be a daunting task. Fortunately, PnP PowerShell provides automation capabilities that can streamline these operations and ensure consistency across the tenant.
 
-SharePoint Framework (SPFx) solutions are a powerful tool for extending and customizing SharePoint sites. However, managing these solutions across multiple sites in a SharePoint tenant can be a daunting task. Fortunately, PowerShell provides automation capabilities that can streamline these operations and ensure consistency across the tenant.
-
-In this blog post, we'll explore a PowerShell script designed to retract SPFx solutions from sites within a SharePoint tenant. We'll discuss each section of the script, its purpose, and how it contributes to the overall goal of solution management.
+The blog post [Deploying SharePoint Framework (SPFx) Packages from Tenant App Catalog to Hub Site and Associated Sites](https://reshmeeauckloo.com/posts/powershell_spfxdeploytohubfromtenant/) covers how to deploy SPFx solutions across a hub site and associated sites. This current post covers how to retract SPFx solutions from a hub site and associated sites within a tenant. 
 
 ## Script
 
@@ -85,30 +84,45 @@ $SiteAppUpdateCollection | Export-CSV $OutPutView -Force -NoTypeInformation
 Disconnect-PnPOnline
 ```
 
-Understanding the Script:
 Let's break down the PowerShell script provided into its key components:
 
-Variables Initialization: The script begins by initializing variables such as the admin center URL, tenant app catalog URL, hub site URL, and others. These variables hold essential information needed throughout the script execution.
+### Variables
 
-Connecting to SharePoint Online: Using the Connect-PnPOnline cmdlet, the script establishes connections to both the tenant app catalog and the SharePoint admin center. These connections are necessary for accessing and managing sites and solutions within the SharePoint environment.
+Before running the script, ensure to update the following variables
 
-Retrieving Associated Sites: The script retrieves all sites associated with a hub site. This step ensures that solutions are retracted from all relevant sites within the tenant, including the hub site itself and its associated sites.
+- SharePoint admin centre Url
 
-Iterating Through Sites: For each associated site, the script performs the following tasks:
+```PowerShell
+$AdminCenterURL = "https://contoso-admin.sharepoint.com"
+```
 
-Connects to the site using Connect-PnPOnline.
-Retrieves a list of SPFx solution packages from a specified folder.
-Checks if each package is installed on the site.
-Uninstalls the package if it's installed.
-Exporting Results: As the script iterates through sites and solutions, it collects information about the retraction process, such as the site URL and the names of removed packages. This information is then exported to a CSV file for record-keeping and analysis.
+- Tenant App Catalog site collection Url
 
-Cleanup and Disconnection: Finally, the script disconnects from the SharePoint Online sessions using Disconnect-PnPOnline, ensuring clean termination of connections.
+```PowerShell
+$tenantAppCatalogUrl = "https://contoso.sharepoint.com/sites/apps"
+```
+
+- Path where the spfx packages are stored
+
+```PowerShell
+$sppkgFolder = "./packages"
+```
+
+- Name and Path of the log files
+
+```PowerShell
+$dateTime = (Get-Date).toString("dd-MM-yyyy")
+$invocation = (Get-Variable MyInvocation).Value
+$directorypath = Split-Path $invocation.MyCommand.Path
+$fileName = "\Log_Tenant_Removing_Solution" + $dateTime + ".csv"
+$OutPutView = $directorypath + $fileName
+```
+
+The script retrieves all sites associated with a hub site. It navigates through each associated site, checks for existing packages, uninstalls them before removing the package from tenant app catalog.
 
 ## Conclusion:
-Automating the management of SPFx solutions in a SharePoint tenant is essential for maintaining consistency, security, and efficiency. PowerShell provides a robust platform for implementing such automation, allowing administrators to streamline repetitive tasks and focus on higher-value activities.
 
 The script discussed in this blog post demonstrates how PowerShell can be used to retract SPFx solutions from multiple sites within a SharePoint tenant. By understanding and adapting this script to specific organizational needs, administrators can effectively manage their SharePoint environments and ensure optimal performance and security.
 
-As with any automation script, it's essential to test thoroughly in a non-production environment before deploying it in a production environment. Additionally, staying informed about updates and best practices in SharePoint development and administration will help maximize the effectiveness of PowerShell automation.
+ PnP PowerShell or alternative CLI for M365 provide a robust platform for implementing such automation, allowing administrators to streamline repetitive tasks and focus on higher-value activities.
 
-In future posts, we'll explore additional PowerShell scripts and techniques for managing SharePoint environments, further empowering administrators to unleash the full potential of their SharePoint deployments. Stay tuned for more insights and practical tips on SharePoint administration and development with PowerShell.

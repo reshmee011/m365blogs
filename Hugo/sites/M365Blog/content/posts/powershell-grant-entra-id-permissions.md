@@ -56,4 +56,4 @@ Deny-SPOTenantServicePrincipalPermissionRequest --RequestId 4dc4c043-25ee-40f2-8
 
 ## References
 
-[Beware of Declarative Permissions in SharePoint Framework Projects](https://www.voitanos.io/blog/consider-avoiding-declarative-permissions-with-azure-ad-services-in-sharepoint-framework-projects/?utm_source=convertkit&utm_medium=email&utm_campaign=%F0%9F%98%B1+Beware+of+Declarative+Permissions+in+SharePoint+Framework+Projects%21%20-%2013133930)
+[Beware of Declarative Permissions in SharePoint Framework Projects](https://www.voitanos.io/blog/consider-avoiding-declarative-permissions-with-azure-ad-services-in-sharepoint-framework-projects)

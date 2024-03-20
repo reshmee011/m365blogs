@@ -1,8 +1,0 @@
----
-title: 'KQL SharePoint Online filtering on user profile multi values managed metadata properties'
-date: Thu, 19 Nov 2015 23:15:28 +0000
-draft: false
-tags: ['Content Search Web Part', 'FQL', 'Search', 'SharePoint', 'SharePoint Online']
----
-
-Keyword Query Language (KQL) is a powerful way to query search results in SharePoint Online. It is possible to filter data based on the user profile property ,e.g. **owstaxidJobTitle:{User.SPS-JobTitle}** The above is a valid property restriction which will return all items having the managed metadata field JobTitle equal to the user profile property JobTitle of the logged in user. When managed metadata field is crawled, two crawled properties are created in the format of ows\_taxid\_ and ows\_. The ows\_taxid\_ is mapped to managed property owstaxid. The managed property owstaxidJobTitle stores the crawled property of the managed metadata field JobTitle. Let's say if user profile managed metadata property is multi valued. All items matching all the values in the user profile managed metadata property need to be returned. The KQL achieves the goal of returning all items with managed metadata field ItemTopic contain any terms tagged against the "Ask Me About" field of the logged in user assuming the "Ask Me About" has been mapped to a term set. **{?{|owstaxIdItemTopic:{User.SPS-Responsibility}}}** SPS-Responsibility is the internal name of "Ask Me About" field from user profile. The above snippets can be tested using the Content Search Web Part.

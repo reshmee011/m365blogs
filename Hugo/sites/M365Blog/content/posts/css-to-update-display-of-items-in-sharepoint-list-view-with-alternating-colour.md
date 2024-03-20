@@ -1,8 +1,0 @@
----
-title: 'CSS to update display of items in SharePoint List View with alternating colour'
-date: Wed, 27 Jan 2016 22:15:46 +0000
-draft: false
-tags: ['CSS', 'CSS SharePoint 2013 ProjectServer 2013', 'SharePoint', 'SharePoint 2013', 'SharePoint Online']
----
-
-The list view display of items in a SharePoint List can be updated to have alternating row colour and border set by using CSS. ![ListViewOfItems](https://reshmeeauckloo.files.wordpress.com/2016/01/listviewofitems.png) To test the snippet below, edit the page displaying the list items and add a content editor WebPart. Copy and paste the CSS snippet into the content editor WebPart. <style type="text/css" unselectable="on"> /\*-------------------------------------------------------------------------\*/ /\* ------- Set Alternating Rows ------- \*/ /\* ------- Set background for every row ------- \*/ .ms-listviewtable > tbody > tr { background: white; } /\* ------- Set border for every row ------- \*/ .ms-listviewtable > tbody > tr td{ border-bottom: 1px dotted black !important; /\* !important needed over override SharePoint inline style \*/ } /\* ------- Set background for every alternating row ------- \*/ .ms-listviewtable > tbody > tr.ms-alternating { background: lightgrey } </style> After saving the CSS, the list view is transformed into alternating coloured row with dotted border bottom. ![AlternatingRowBorder](https://reshmeeauckloo.files.wordpress.com/2016/01/alternatingrowborder.png)

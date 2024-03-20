@@ -1,8 +1,0 @@
----
-title: 'Challenges using SSRS SharePoint Integrated Mode in Chrome when kerberos is enabled'
-date: Mon, 22 Sep 2014 16:17:53 +0000
-draft: false
-tags: ['SharePoint', 'SSRS']
----
-
-On one client's environment SSRS reports on Dev, Test and Live SharePoint 2013 Integrated mode with kerberos used for authentication will not load if they are opened in Chrome. Only the loading wheel can be seen. If the browser's developer tool is opened, the same requests in being sent non stopping. This is happening when the SSRS report is opened either from report library or through a SSRS web part on a page. I tried several solutions as follows from either suggestions from colleagues or from blogs to no avail - Update Chrome from 3.x.x to latest 37.0.2062.120 - Update Microsoft SQL Server 2012 RS Add-in for SharePoint to SP1 CU9 - Test using different test users with different levels of permissions while still logged in to the machine as the same user - Checked whether SSRS integrated mode for SharePoint 2013 has properly been configured - Disabled Antivirus  and Firewall on the machine - Checked ULS logs, developer tools for any error while rendering the reports without any luck. Finally decided to create a new web application using NTML instead of kerberos for authentication with a site collection. The SSRS reports render well from the new site collection. It seems the authentication token was not passed correctly to the SQL reporting services when Kerberos is turned on. Though not an ideal solution, the only option I found with the help of a colleague was to change the Internet Options to "Prompt for user name and password" whenever the user opens the browser.

@@ -26,7 +26,7 @@ Below is a PowerShell script snippet that demonstrates how to manage the deploym
 
 ## PnP PowerShell Script
 
-Before running the script, ensure to update the following variables are updated. 
+Before running the script, ensure to update the following variables 
 - SharePoint admin centre Url
 ```PowerShell
 $AdminCenterURL = "https://contoso-admin.sharepoint.com"

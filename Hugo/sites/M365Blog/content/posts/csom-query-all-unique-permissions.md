@@ -1,8 +1,0 @@
----
-title: 'CSOM in PowerShell Query All Unique Permissions'
-date: Wed, 22 Jun 2016 20:45:10 +0000
-draft: false
-tags: ['CSOM', 'PowerShell', 'Query Unique Permissions Site Webs and Lists CSOM PowerShell', 'Security', 'SharePoint 2013']
----
-
-I was looking for a script to export all unique permissions/broken permissions for sites, lists or document libraries and Pages items.From a quick Google search, I stumbled upon [SharePoint 2010: Export All Unique Permissions from Site Collection using PowerShell](http://social.technet.microsoft.com/wiki/contents/articles/14242.sharepoint-2010-export-all-unique-permissions-from-site-collection-using-powershell.aspx).  The script would have worked on SharePoint 2013 given it was run directly from the SharePoint server using Server Side Code. I was site collection administrator without access to any SharePoint Servers. The only way was to use CSOM from PowerShell since I was not allowed to run any .exe/consoles files due to company policies on Live environment. The solution would work on both SharePoint 2013 On Premises and SharePoint Online. The script can be downloaded from [tech net gallery](https://gallery.technet.microsoft.com/office/CSOM-Query-All-Unique-e60f2148). https://gist.github.com/reshmee011/cbc5ff8e53a4202e0120eb0efcd5a74f I amended the PowerShell code to the following. I have used script [Load-CSOMProperties.ps1](https://gist.github.com/glapointe/cc75574a1d4a225f401b) from blog post [Loading Specific Values Using Lambda Expressions and the SharePoint CSOM API with Windows PowerShell](https://www.itunity.com/article/loading-specific-values-lambda-expressions-sharepoint-csom-api-windows-powershell-1249) to help with querying object properties like Lambda expressions in C#.

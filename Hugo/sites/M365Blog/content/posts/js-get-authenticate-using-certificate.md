@@ -1,5 +1,5 @@
 ---
-title: "Js Get Authenticate Using Certificate"
+title: "JW Get Authenticate Using Certificate"
 date: 2024-03-07T09:02:50Z
 draft: true
 ---

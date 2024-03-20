@@ -1,8 +1,0 @@
----
-title: 'Get week number based on start date of financial year - April'
-date: Tue, 27 Oct 2015 12:37:43 +0000
-draft: false
-tags: ['SQL', 'SQL SSRS', 'SSRS']
----
-
-Most organisations start their financial year in April in UK. The requirement is to set first week in April to 1. I have found the script from blog which creates a function which fulfills the objective above. See more at: http://www.sqlteam.com/article/returning-a-week-number-for-any-given-date-and-starting-fiscal-month#sthash.vegLomU6.dpuf `CREATE FUNCTION GetFiscalWeek (@startMonth varchar(2), @myDate datetime) RETURNS INT AS BEGIN declare @firstWeek datetime declare @weekNum int declare @year int set @year = datepart(year, @myDate)+1 --Get 4th day of month of next year, this will always be in week 1 set @firstWeek = convert(datetime, str(@year)+@startMonth+'04', 102) --Retreat to beginning of week set @firstWeek = dateadd(day, (1-datepart(dw, @firstWeek)), @firstWeek) WHILE @myDate < @firstWeek --Repeat the above steps but for previous year BEGIN set @year = @year - 1 set @firstWeek = convert(datetime, str(@year)+@startMonth+'04', 102) set @firstWeek = dateadd(day, (1-datepart(dw, @firstWeek)), @firstWeek) END SET @weekNum = (@year*100)+((datediff(day, @firstweek, @myDate)/7)+1) RETURN @weekNum END` Examples of using the function Use SET DATEFIRST 1 to set the first day of the week to be Monday SET DATEFIRST 1 Select \[dbo\].GetFiscalWeek('04', '2015-04-01') - returns 201501 SET DATEFIRST 1 Select \[dbo\].GetFiscalWeek('04', '2015-06-01') - returns 201510 SET DATEFIRST 1 Select \[dbo\].GetFiscalWeek('04', '2015-03-31') -returns 201501 SET DATEFIRST 1 Select \[dbo\].GetFiscalWeek('04', '2015-03-29') -returns 201452

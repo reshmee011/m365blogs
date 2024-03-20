@@ -1,8 +1,0 @@
----
-title: 'Migrate data from one SQL table to another database table'
-date: Sun, 30 Apr 2017 10:08:27 +0000
-draft: false
-tags: ['Bulk Insert', 'Data Migration', 'Data Migration SQL', 'Import Data from CSV or DAT', 'Merge', 'SQL', 'Uncategorized']
----
-
-Sometimes you may have to migrate data from one SQL database to another SQL database on another environment, e.g. Live to test and dev environment and vice versa. You may argue the easiest solution is a migration of the backup of database. Unfortunately it does not work well in environments where data in Live is classified as sensitive and are not allowed to be copied across into a dev / test machine where the security is not as strict as a live machine. There are some data from live which are not classified as sensitive or restricted and might have to be migrated to Test and DEV for testing or development purposes, for example list of values. A copy of the data can be exported as a csv or dat file from the SQL Table using "select \* from table\_value" statement from source database. The data can be bulk imported into a temp table and MERGE statement can be used to insert missing records and update records. The sample script which you can use is below. The script can be downloaded from [TechNet.](https://gallery.technet.microsoft.com/Migrate-data-from-one-SQL-d8267210) https://gist.github.com/reshmee011/9dcb7d7bd939a26de6b18b6fa378e72b

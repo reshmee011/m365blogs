@@ -1,8 +1,0 @@
----
-title: 'Export Term Set from Term Store as Sample Import file CSV'
-date: Tue, 06 Sep 2016 16:28:32 +0000
-draft: false
-tags: ['CSOM', 'Export Metadata', 'Metadata', 'PowerShell', 'SharePoint', 'SharePoint 2013', 'SharePoint Online', 'TermSet']
----
-
-The Managed Metadata service provides the "Import Term Set" Out of the Box. ![ImportTermSet](https://reshmeeauckloo.files.wordpress.com/2016/09/importtermset.png) Unfortunately it does not provide the same "Export Term Set" capability. I had a requirement to export a term set to be reviewed by the business before importing the term set to another SharePoint farm. The Sample Import File  has the columns "Term Set Name","Term Set Description","LCID","Available for Tagging","Term Description","Level 1 Term","Level 2 Term","Level 3 Term","Level 4 Term","Level 5 Term","Level 6 Term" and "Level 7 Term". ![SampleImportFile](https://reshmeeauckloo.files.wordpress.com/2016/09/sampleimportfile.png) I have written the PowerShell script below using CSOM to export a termset into a csv file with the same columns as in the sample import file. In the script, update the variables $User and $Site. When the script is run you will be prompted to enter the term store group and term set. https://gist.github.com/reshmee011/d723329ce41ca3bf21d74909c08838fe After running the script for the term set "Document Classification" in group "Intranet", the output csv file is produced similar to the sample import file. ![CSVFormatSameAsSample](https://reshmeeauckloo.files.wordpress.com/2016/08/csvformatsameassample.png) The file can be imported using the "Import Term Set" functionality on a different environment.
