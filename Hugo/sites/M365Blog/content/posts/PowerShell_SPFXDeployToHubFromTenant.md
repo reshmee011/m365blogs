@@ -61,103 +61,98 @@ $fileName = "\Log_Tenant-" + $dateTime + ".csv"
 $OutPutView = $directorypath + $fileName
  
 $sppkgFolder = "./packages"
- 
+
 cd $PSScriptRoot
 $packageFiles = Get-ChildItem $sppkgFolder
- 
+
 Connect-PnPOnline $tenantAppCatalogUrl -Interactive
-$appCatConnection  = Get-PnPConnection
- 
+$appCatConnection = Get-PnPConnection
+
 Connect-PnPOnline $AdminCenterURL -Interactive
-$adminConnection  = Get-PnPConnection
- 
+$adminConnection = Get-PnPConnection
+
 $SiteAppUpdateCollection = @()
- 
-$HubSiteID = (Get-PnPTenantSite -Identity $hubSiteUrl -Connection $adminConnection ).HubSiteId
- 
-#Get associated sites with hub
-$associatedSites = Get-PnPTenantSite -Detailed -Connection $adminConnection| Where-Object { $_.HubSiteId -eq $HubSiteID }
- 
-foreach($package in $packageFiles)
-{
-  $packageName = $package.PSChildName
-  Write-Host ("Installing {0}..." -f $packageName) -ForegroundColor Yellow
- 
-  Start-Sleep -Seconds 10
-    #deploy sppkg assuming app catalog is already configured
-   Add-pnpapp -Path ("{0}/{1}" -f $sppkgFolder , $package.PSChildName) -Scope Tenant -Overwrite -Publish
+
+$associatedSites = Get-PnPHubSiteChild -Identity $hubSiteUrl -Connection $adminConnection
+
+foreach ($package in $packageFiles) {
+    $packageName = $package.PSChildName
+    Write-Host ("Installing {0}..." -f $packageName) -ForegroundColor Yellow
+    # deploy sppkg assuming app catalog is already configured
+    Add-pnpapp -Path ("{0}/{1}" -f $sppkgFolder, $package.PSChildName) -Scope Tenant -Overwrite -Publish
 }
- 
-#Get all site collections associated with the hub site
-#TO Test with updated changes
-$associatedSites | select url | ForEach-Object {
-    $Site = Get-PnPTenantSite $_.url -Connection $adminConnection
-     Connect-PnPOnline -Url $Site.url -Interactive
-     $siteConnection  = Get-PnPConnection
- 
-      Write-Host ("Deploying packages to {0}..." -f $Site.url) -ForegroundColor Yellow
- 
-       foreach($package in $packageFiles)
-       {
-          $ExportVw = New-Object PSObject
-          $ExportVw | Add-Member -MemberType NoteProperty -name "Site URL" -value $Site.url
-          $packageName = $package.PSChildName
-       
-          $ExportVw | Add-Member -MemberType NoteProperty -name "Package Name" -value $packageName
-           #Find Name of app from installed package
-           $RestMethodUrl = '/_api/web/lists/getbytitle(''Apps%20for%20SharePoint'')/items?$select=Title,LinkFilename'
-           $apps = (Invoke-PnPSPRestMethod -Url $RestMethodUrl -Method Get -Connection $appCatConnection).Value
-           $appTitle = ($apps | where-object {$_.LinkFilename -eq $packageName} | select Title).Title
- 
-             #Install App to the Site if not already installed
+
+$associatedSites += $hubSiteUrl # Add the hub site to the list of associated sites
+
+# Get all site collections associated with the hub site
+# To Test with updated changes
+$associatedSites | ForEach-Object {
+    $Site = Get-PnPTenantSite $_ -Connection $adminConnection
+    Connect-PnPOnline -Url $Site.url -Interactive
+    $siteConnection = Get-PnPConnection
+    foreach ($package in $packageFiles) {
+        $ExportVw = New-Object PSObject
+        $ExportVw | Add-Member -MemberType NoteProperty -name "Site URL" -value $Site.url
+        $packageName = $package.PSChildName
+
+        Write-Host "Deploying packages $packageName to $($Site.url)" -ForegroundColor Yellow
+
+        $ExportVw | Add-Member -MemberType NoteProperty -name "Package Name" -value $packageName
+        # Find Name of app from installed package
+        $RestMethodUrl = '/_api/web/lists/getbytitle(''Apps%20for%20SharePoint'')/items?$select=Title,LinkFilename'
+        $apps = (Invoke-PnPSPRestMethod -Url $RestMethodUrl -Method Get -Connection $appCatConnection).Value
+        $appTitle = ($apps | where-object { $_.LinkFilename -eq $packageName } | select Title).Title
+
+        $currentPackage = Get-PnPApp -Identity $appTitle -scope Tenant
+
+        # Install App to the Site if not already installed
         $web = Get-PnPWeb -Includes AppTiles -Connection $siteConnection
-        $app = $web.AppTiles  |  where-object {$_.Title -eq $currentPackage.Title }
-        if(!$app)
-        {
+        $app = $web.AppTiles | where-object { $_.Title -eq $currentPackage.Title }
+        if (!$app) {
             Install-PnPApp -Identity $currentPackage.Id -Connection $siteConnection
-            Start-Sleep -Seconds 5
+
+        } else {
+            # Action when all if and elseif conditions are false
+            $currentPackage = Get-PnPApp -Identity $appTitle -Connection $siteConnection
+            Write-Host "Current package version on site $($site.Url): $($currentPackage.InstalledVersion)"
+
+            Write-Host "Latest package version: $($currentPackage.AppCatalogVersion)"
+
+            # Update the package to the latest version
+            if ($currentPackage.InstalledVersion -ne $currentPackage.AppCatalogVersion) {
+                Write-Host "Upgrading package on site $($site.Url) to latest version..."
+                Update-PnPApp -Identity $currentPackage.Id
+                $currentPackage = Get-PnPApp -Identity $appTitle -Connection $siteConnection
+                $ExportVw | Add-Member -MemberType NoteProperty -name "Package Version" -value $currentPackage.AppCatalogVersion
+            } else {
+                Write-Host "Package already up-to-date on site $($site.Url)."
+            }
         }
- 
-           # Get the current version of the SPFx package
-          $currentPackage = Get-PnPApp -Identity  $appTitle -Connection $siteConnection
-          Write-Host "Current package version on site $($site.Url): $($currentPackage.InstalledVersion)"
-         
-          Write-Host "Latest package version: $($currentPackage.AppCatalogVersion)"
- 
-    # Update the package to the latest version
-    if ($currentPackage.InstalledVersion -ne $currentPackage.AppCatalogVersion) {
-        Write-Host "Upgrading package on site $($site.Url) to latest version..."
-        Update-PnPApp -Identity $currentPackage.Id
-        $currentPackage = Get-PnPApp -Identity $appTitle -Connection $siteConnection
-        $ExportVw | Add-Member -MemberType NoteProperty -name "Package Version" -value $currentPackage.AppCatalogVersion
-        $SiteAppUpdateCollection += $ExportVw
-    } else {
-        Write-Host "Package already up-to-date on site $($site.Url)."
     }
-  }
+    $SiteAppUpdateCollection += $ExportVw
 }
- 
-#Export the result Array to CSV file
+
+# Export the result Array to CSV file
 $SiteAppUpdateCollection | Export-CSV $OutPutView -Force -NoTypeInformation
 
-foreach($package in $packageFiles)
-{
-  $packageName = $package.PSChildName
-   Write-Host ("Approving {0}..." -f $packageName) -ForegroundColor Yellow
-   $RestMethodUrl = '/_api/web/lists/getbytitle(''Apps%20for%20SharePoint'')/items?$select=Title,LinkFilename'
-   $apps = (Invoke-PnPSPRestMethod -Url $RestMethodUrl -Method Get -Connection $appCatConnection).Value
-   $appTitle = ($apps | where-object {$_.LinkFilename -eq $packageName} | select Title).Title
+start-sleep -Seconds 30
+foreach ($package in $packageFiles) {
+    $packageName = $package.PSChildName
+    Write-Host ("Approving {0}..." -f $packageName) -ForegroundColor Yellow
+    $RestMethodUrl = '/_api/web/lists/getbytitle(''Apps%20for%20SharePoint'')/items?$select=Title,LinkFilename'
+    $apps = (Invoke-PnPSPRestMethod -Url $RestMethodUrl -Method Get -Connection $appCatConnection).Value
+    $appTitle = ($apps | where-object { $_.LinkFilename -eq $packageName } | select Title).Title
 
-    #deploy sppkg assuming app catalog is already configured
-    $permRequests =  Get-PnPTenantServicePrincipalPermissionRequests | where-object {$_.PackageName -eq $appTitle}
+    # deploy sppkg assuming app catalog is already configured
+    $permRequests = Get-PnPTenantServicePrincipalPermissionRequests | where-object { $_.PackageName -eq $appTitle }
 
     $permRequests | ForEach-Object {
-        Write-Host "Approving permission request for $($_.Resource) and package $appTitle..."
-        Approve-PnPTenantServicePrincipalPermissionRequest -RequestId  $_.Id.Guid -Force 
+        Write-Host "Approving permission request for $($_.Resource) at scope $($_.Scope) and package $appTitle..."
+        Approve-PnPTenantServicePrincipalPermissionRequest -RequestId $_.Id.Guid -Force -ErrorAction Ignore
     }
 }
- 
-Disconnect-PnPOnline
+
+ Disconnect-PnPOnline
 ```
 
 ### Output of run with two SPFx packages across a hub site with associated sites
@@ -167,6 +162,6 @@ Disconnect-PnPOnline
 ## Explanation
 
 This script snippet automates the deployment and potential upgrades of SPFx packages across associated sites of a hub site, leveraging the tenant-level app catalog. It navigates through each associated site, checks for existing packages, installs or upgrades them as needed, and records the deployment details for reporting purposes.
-This approach offers flexibility and control over SPFx solutions, ensuring targeted deployment and version management across your SharePoint environment.
+This approach offers flexibility and control over SPFx solutions, ensuring targeted deployment across SharePoint environment.
 
 Remember to adjust the specific URLs, paths, and configurations based on your SharePoint environment and requirements before executing the script.
