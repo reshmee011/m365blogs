@@ -10,7 +10,7 @@ draft: false
 
 SharePoint Framework (SPFx) solutions are a powerful tool for extending and customizing SharePoint sites. However, managing these solutions across multiple sites in a SharePoint tenant can be a daunting task. Fortunately, PnP PowerShell provides automation capabilities that can streamline these operations and ensure consistency across the tenant.
 
-The blog post [Deploying SharePoint Framework (SPFx) Packages from Tenant App Catalog to Hub Site and Associated Sites](https://reshmeeauckloo.com/posts/powershell_spfxdeploytohubfromtenant/) covers how to deploy SPFx solutions across a hub site and associated sites. This current post covers how to retract SPFx solutions from a hub site and associated sites within a tenant. 
+The blog post [Deploying SharePoint Framework (SPFx) Packages from Tenant App Catalog to Hub Site and Associated Sites](https://reshmeeauckloo.com/posts/powershell_spfxdeploytohubfromtenant/) covers how to deploy SPFx solutions across a hub site and associated sites. This current post covers how to retract SPFx solutions from a hub site and associated sites within a tenant.
 
 ## Script
 
@@ -46,15 +46,11 @@ $associatedSites | ForEach-Object {
      $siteConnection  = Get-PnPConnection
        foreach($package in $packageFiles)
        {
-        $ExportVw = New-Object PSObject
-          $ExportVw | Add-Member -MemberType NoteProperty -name "Site URL" -value $Site.url
-          $packageName = $package.PSChildName
-
-          Write-Host `Removing packages $packageName from $Site.url` -ForegroundColor Yellow       
+          $packageName = $package.PSChildName    
            #Find Name of app from installed package
            $RestMethodUrl = '/_api/web/lists/getbytitle(''Apps%20for%20SharePoint'')/items?$select=Title,LinkFilename'
            $apps = (Invoke-PnPSPRestMethod -Url $RestMethodUrl -Method Get -Connection $appCatConnection).Value
-           $appTitle = ($apps | where-object {$_.LinkFilename -eq $packageName} | select Title).Title
+           $appTitle = ($apps | where-object {$_.LinkFilename -eq $packageName} | Select-Object Title).Title
         
            $currentPackage = Get-PnPApp -Identity $appTitle -scope Tenant
 #check is app is installed on site
@@ -62,7 +58,10 @@ $associatedSites | ForEach-Object {
            $app = $web.AppTiles  |  where-object {$_.Title -eq $currentPackage.Title }
         if($app)
         {
-            Uninstall-PnPApp -Identity $currentPackage.Id -Connection $siteConnection
+          Write-Host "Removing packages $packageName from $($Site.url)" -ForegroundColor Yellow     
+          Uninstall-PnPApp -Identity $currentPackage.Id -Connection $siteConnection
+            $ExportVw = New-Object PSObject
+            $ExportVw | Add-Member -MemberType NoteProperty -name "Site URL" -value $Site.url  
             $ExportVw | Add-Member -MemberType NoteProperty -name "Package Name" -value $packageName
         }
         $SiteAppUpdateCollection += $ExportVw     
@@ -72,11 +71,11 @@ $associatedSites | ForEach-Object {
 foreach($package in $packageFiles)
 {
   $packageName = $package.PSChildName
-   Write-Host ("Removing {0}..." -f $packageName) -ForegroundColor Yellow
+   Write-Host "Removing $packageName from tenant" -ForegroundColor Yellow
    $RestMethodUrl = '/_api/web/lists/getbytitle(''Apps%20for%20SharePoint'')/items?$select=Title,LinkFilename'
    $apps = (Invoke-PnPSPRestMethod -Url $RestMethodUrl -Method Get -Connection $appCatConnection).Value
    $appTitle = ($apps | where-object {$_.LinkFilename -eq $packageName} | select Title).Title
- 
+   Remove-PnPApp -Identity $appTitle -Scope Tenant
 }
 #Export the result Array to CSV file
 $SiteAppUpdateCollection | Export-CSV $OutPutView -Force -NoTypeInformation
