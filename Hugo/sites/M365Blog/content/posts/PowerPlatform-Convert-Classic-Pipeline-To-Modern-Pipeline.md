@@ -1,6 +1,6 @@
 ---
 title: "Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform"
-date: 2023-06-22T12:00:03+01:00
+date: 2024-02-22T12:00:03+01:00
 author: "Reshmee Auckloo"
 githubname: reshmee011
 categories: ["Post"]
@@ -349,3 +349,21 @@ If all successful, there will be a green tick identifying all went fine
 ![Successful release](../images/PowerPlatform-Convert-Classic-Pipeline-To-Modern-Pipeline/Release_Success.png)
 
 Well done for tranforming your powerplatform application life cycle as code into your repository.
+
+## Classic UI versus YAML
+
+Classic UI
+💗 No DSL (domain specific language) to learn, which enables super fast on-boarding, especially for those that come from a SysAdmin background rather than a Developer background
+💗 Very easy to make quick changes, which encourages experimentation
+😐 Contrary to popular belief, it does have versioning, and you can revert to a previous one easily
+👎 It’s being deprecated. This will become lower and lower in Microsoft’s priority list when it comes to new features
+ 
+YAML
+💗 It is code, and managed as a source file, so it will go through a standard code review / pull request process
+💗 Because it is in the repo, when you need to revert the source to an early commit, the pipeline will be reverted together as well
+💗 Like all text files, it is easy to manipulate and change multiple values in one go. If needed it can even be generated from a script
+💗 Comparing changes is much easier compared to the Classic UI versioning, which means it’s easier to identify root cause if build breaks
+💗 Encourages collaboration — it’s much easier to code snippets through Slack or whatever than cropped screenshots
+💗 Supports Container Jobs, which is quite important to some teams
+😐 Azure DevOps does have assistant to help building a YAML file, so it’s not as daunting as it first looks for inexperienced users
+👎 Not as mature as the Classic UI — some features are still on the roadmap
