@@ -6,17 +6,6 @@ draft: true
 
 # Harness sharing capabilities within your tenant and SharePoint site
 
-This is why it is so important to use the permission models in SharePoint to ensure the right users or groups have the right access to the right content.
-
-Users in your organization make choices that result in the oversharing of SharePoint Content. I have observed over the past few months that end users do not always pay attention to the permission of the site, library or folder where they are uploading files to.
-
-Content, sometimes critical and confidential ends up in locations where other users may have access when they shouldn't. This may also include external users.
-
-What leads to the oversharing of content is when the preference of sharing content is to large groups of people in a SharePoint location rather than individuals or smaller groups because it is just "easier".
-
-A good first step in getting prepared to roll out Copilot for Microsoft 365 is to review site-level sharing controls and also to remove the "Everyone Except External Users" option in the people picker.
-
-Copilot for Microsoft 365 will only EVER surface content to which individual users have at lease view / read permissions on.
 
 
 ## Set the Everyone Except External Users Option to False
@@ -33,6 +22,7 @@ Enables the administrator to hide the "Everyone except external users" claim in 
 The valid values are: True(default) - The Everyone except external users is displayed in People Picker. False - The Everyone except external users claim is not visible in People Picker.
 ```
 
+There are other tenant wide level settings but I think it would have been great to be able to set those at the library or site level and have site power users have greater control over them 
 
 
 This is an important topic to understand.
@@ -45,3 +35,4 @@ This is an important topic to understand.
 ## References
 https://danielanderson.io/?ck_subscriber_id=2437811072
 [ShowEveryoneExceptExternalUsersClaim](https://pnp.github.io/powershell/cmdlets/Set-PnPTenant.html#-showeveryoneexceptexternalusersclaim)
+[SPOSharingSettings](https://microsoft365dsc.com/resources/sharepoint/SPOSharingSettings/)
