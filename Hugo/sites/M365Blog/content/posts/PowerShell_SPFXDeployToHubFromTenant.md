@@ -143,7 +143,6 @@ foreach ($package in $packageFiles) {
     $apps = (Invoke-PnPSPRestMethod -Url $RestMethodUrl -Method Get -Connection $appCatConnection).Value
     $appTitle = ($apps | where-object { $_.LinkFilename -eq $packageName } | select Title).Title
 
-    # deploy sppkg assuming app catalog is already configured
     $permRequests = Get-PnPTenantServicePrincipalPermissionRequests | where-object { $_.PackageName -eq $appTitle }
 
     $permRequests | ForEach-Object {

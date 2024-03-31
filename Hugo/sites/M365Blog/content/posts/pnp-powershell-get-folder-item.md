@@ -1,25 +1,37 @@
 ---
 title: "Pnp Powershell Get Folder Item"
-date: 2024-02-16T16:16:55Z
-tags: ["SharePoint","PnP","PowerShell","CLI for M365" ,"Audit Logs","DLP", "Exchange", "AzureDirectory"]
-featured_image: '/posts/images/PowerShell_PnPUnifiedLog/Sample.png'
-draft: true
+date: 2024-04-01T09:00:00Z
+tags: ["SharePoint","PnP","PowerShell", "lists","libraries"]
+featured_image: '/posts/images/Pnp-Powershell-Get-Folder-Item/sample.png'
+draft: false
 ---
 
-Get-PnPFolderItem does not work with large libraries with message 
-```powershell
+# Get Folder Item properties using PnP PowerShell : Get-PnPFolderItem versus Get-PnPListItem
+
+## Introduction
+
+In this blog post, we will explore an alternative approach to retrieving folder item properties using PnP PowerShell. We will discuss the limitations of the `Get-PnPFolderItem` cmdlet and demonstrate how to use `Get-PnPListItem` to overcome those limitations.
+
+## The Limitations of Get-PnPFolderItem
+
+The `Get-PnPFolderItem` cmdlet is not suitable for working with large libraries. When attempting to retrieve items from a large library, you may encounter the following error message:
+ 
+```PowerShell
 Get-PnPFolderItem : The attempted operation is prohibited because it exceeds the list view threshold.
 ```
- Unfortunately there is no -PageSize for the cmdlet.
- 
-Get-PnPListItem can be used to get files from a large library within a particular folder 
+
+Regrettably, this cmdlet lacks a -PageSize parameter, complicating the handling of large datasets.
+
+Leveraging Get-PnPListItem
+To circumvent the limitations of Get-PnPFolderItem, Get-PnPListItem can be used. This cmdlet enables efficient retrieval of files from large libraries, especially within specific folders, along with their associated properties.
+
 
 ```PowerShell
+
 $SiteUrl = "https://contoso.sharepoint.com/sites/test"
 Connect-PnPOnline -url $SiteUrl -Interactive
 $FolderSiteRelativeURL = "*Shared Documents/folder/subfolder-folder/subfolder-subfolder-folder*"
 $list = Get-PnPList "Shared Documents"
-# $items = Get-PnPFolderItem -FolderSiteRelativeURL $FolderSiteRelativeURL -Recursive -ItemType File
 $global:counter = 0
 $items = Get-PnPListItem -List "Shared Documents" -PageSize 500 -Fields FileLeafRef,FileRef,PPF_Comments -ScriptBlock `
       { Param($items) $global:counter += $items.Count; Write-Progress -PercentComplete `
@@ -29,16 +41,17 @@ $items = Get-PnPListItem -List "Shared Documents" -PageSize 500 -Fields FileLeaf
 $type = [System.Collections.ArrayList]@();
  
 $items | foreach-object {
-    if($_.FieldValues.PPF_Comments){
-        if($type -notcontains $_.FieldValues.PPF_Comments){
+    if($_.FieldValues.Issue_Comments){
+        if($type -notcontains $_.FieldValues.Issue_Comments){
             $type.Add([PSCustomObject]@{
-                Name = $_.FieldValues.FileLeafRef
+                Name = $_.FieldValues.Issue_Comments
             });
-            write-host $_.FieldValues.FileLeafRef;
+            write-host $_.FieldValues.Issue_Comments;
         }
    }
 }
  
-$type | Export-Csv -Path "C:\temp\paymentprocessingcategories.csv" -NoTypeInformation -Force -Delimiter "|"
+$type | Export-Csv -Path "C:\temp\categories.csv" -NoTypeInformation -Force -Delimiter "|"
 ```
 
+In the above script distinct field values from a custom column "Issue_Comments" are retrieved from the sub folder.
