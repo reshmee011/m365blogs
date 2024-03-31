@@ -9,6 +9,26 @@ Set(varManagerManager,Office365Users.Manager(varManager).Mail);
 Office365Outlook.SendEmailV2(cmbAssessee.Selected.Mail, "360 Feedback Review",HtmlText1.HtmlText);   
 ```
 
+```html
+Office3650utlook.SendEmail(
+"traveldept@wonderlaura.onmicrosoft.com",
+"expense",
+varExpenseRecord.ID,
+{
+
+Attachments: Table(
+
+Name: varExpenseRecord. ID & ".jpg",
+ContentBytes: PenInput1.Image,
+'@odata.type': ""
+
+)
+}
+)
+
+)
+```
+
 ```html$"
 <style> 
 h1 {{ 

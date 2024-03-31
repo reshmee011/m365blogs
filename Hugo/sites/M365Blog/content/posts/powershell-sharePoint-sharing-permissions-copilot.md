@@ -31,6 +31,21 @@ This is an important topic to understand.
 
 ## Restricts sharing to power users
 
+## shring links
+SHARING LINKS from power automate
+
+. Create a sharing link for a file or folder
+· Specify:
+. The Item ID
+· Link Type (View and edit, View only)
+· Link Scope (Anonymous, People in
+your org)
+· Link Expiration date (optional)
+· Link is then available in Dynamic
+Content to be able to send via email or
+Teams
+. Make sure that sharing is enabled from
+the admin level in Microsoft 365.
 
 ## References
 https://danielanderson.io/?ck_subscriber_id=2437811072

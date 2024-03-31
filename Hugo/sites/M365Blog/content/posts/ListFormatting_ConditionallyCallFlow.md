@@ -6,6 +6,43 @@ tags: ["ListFomatting","JSON","executeFlow"]
 draft: true
 ---
 
+
+×
+
+List/Library
+
+TRIGGER FROM SHAREPOINT LIST
+
+. You will need the GUID of your flow. Once your flow is created and
+saved you can get the GUID from the URL
+. Select the flow and copy the URL of the flow detail screen, specifically
+the part shown below in red. That is the GUID
+https: //us.flow.microsoft.com/manage/environments/Default-9d3ccee1-5cf8-4e08-
+887c-53b2a210967b/flows/de138f88-1e85-5d0f-a3ad-fa9b0c9e5ac5/details
+
+TRIGGER
+
+. You'll also need to add run-only
+permissions so others can run it.
+. Users and groups can be added
+. A SharePoint list or library can be added
+
+
+Manage run-only permissions
+
+Users and groups SharePoint
+
+Invite a SharePoint list or library
+Let others run this flow and see the results, but not edit in any way.
+Site
+
++
+
+Add
+
+Currently shared with
+This flow has not been shared with any SharePoint Lists. Add one and see it
+
 # Conditionally calls different flows based on conditions
 ```JSON
 {
@@ -42,3 +79,20 @@ draft: true
   ]
 }
 ```
+
+DISPLAY BUTTON COND
+
+. This button should only be visible if the
+content approval status is "Pending".
+. Use this JSON code in the Format Column
+panel
+. Update the color-coded pieces of the code
+· Red - my column's system name is
+ModerationStatus
+. Blue - the value of the status is pending
+· In the syntax, a question mark (?) operator
+is used to create a condition, like an IF
+statement.
+. In the "visibility" section of the code
+· IF ModerationStatus equals ( == ) Pending,
+then "visible", otherwise "hidden"

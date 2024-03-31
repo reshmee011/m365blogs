@@ -1,10 +1,11 @@
 ---
-title: "Powershell Grant Entra Id Permissions"
-date: 2024-02-21T06:48:06Z
+title: "Approve Service Principal Permission Requests"
+date: 2024-03-29T08:25:29Z
+tags: ["SPFx","PowerShell", "Permission", "Service Principal"]
 draft: true
 ---
 
-
+# Approve Service Principal Permission Requests 
 Using the CLI for Microsoft 365
 To get a list of all the permissions granted to your tenant, use the following command:
 
