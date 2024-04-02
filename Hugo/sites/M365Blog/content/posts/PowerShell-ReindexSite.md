@@ -12,6 +12,7 @@ draft: false
 
 Keeping your SharePoint environment up-to-date is crucial, especially after making schema changes. One important aspect of maintaining accurate and relevant search results is to regularly reindex sites, libraries, or lists. In this blog post, we will explore a streamlined approach using PnP PowerShell to automate the reindexing process. By leveraging this script, you can ensure that your search results reflect the latest changes in your SharePoint environment.
 
+### PnP PowerShell
 ```PowerShell
 #Set Parameters
 $AdminCenterURL="https://contoso-admin.sharepoint.com"
@@ -28,6 +29,27 @@ $m365Sites | ForEach-Object {
 }
 ```
 
+### CLI for M365
+```PowerShell
+#Get Credentials to connect
+$m365Status = m365 status
+if ($m365Status -match "Logged Out") {
+    m365 login
+}
+
+#Get SharePoint sites
+$m365Sites = m365 spo site list | ConvertFrom-Json | Where-Object {($_.Url -like '*/teams-*' -or $_.Template -eq 'TEAMCHANNEL#1') -and $_.Template -ne 'RedirectSite#0'} #filter to include sites with "/sites/" managed path and to exclude the redirect sites 
+
+$m365Sites | ForEach-Object {
+	Write-host "Requesting reindexing for: " $_.Url
+	
+    #Request Re-indexing of SharePoint site
+	m365 spo web reindex --url $_.Url
+}
+
+#Disconnect SharePoint online connection
+m365 logout
+```
 ## Remarks
 
 From the UI when Reindex is clicked from **Site Settings >Search and Offline Availability** the following warning pops up
