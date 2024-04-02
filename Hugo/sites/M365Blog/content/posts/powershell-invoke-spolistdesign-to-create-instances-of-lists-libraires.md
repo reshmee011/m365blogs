@@ -1,14 +1,15 @@
 ---
 title: 'Custom document library template using PnP PowerShell'
-date: 2024-01-01T01:52:50Z
+date: 2024-04-01T01:52:50Z
 draft: false
+featured_image: '/posts/images/powershell-invoke-spolistdesign-to-create-instances-of-lists-libraires/samples.png'
 tags: ['SPO', 'List Design', 'Document library','PnP', 'PowerShell' ]
 ---
 
 # Custom document library template using PnP PowerShell
  
-[Creating custom list templates](https://docs.microsoft.com/en-us/sharepoint/lists-custom-template?wt.mc_id=MVP_308367) is now possible to create both custom document libraries and lists although official microsoft documentation has not specified anything about supporting custom document library templates.
-
+[Creating custom list templates](https://docs.microsoft.com/en-us/sharepoint/lists-custom-template?wt.mc_id=MVP_308367) is now possible to create both custom document libraries and lists.
+    
 This article explores the option how to use a combination of list design and PowerShell script to provision multiple instances of document libraries using a CSV file and how to create a document library from a custom list template from UI.
 
 First we can create a list design for our library based on an existing configured document library with custom content types, fields and views.
@@ -25,9 +26,9 @@ Get-PnPList -Identity "testtemplate" | Get-PnPSiteScriptFromList | Add-PnPSiteSc
 get-pnplistdesign
 ```
 
-From the UI , the list design for the custom library is available when clicking on New >List and selecting the tab "From your organization" under "Templates"
+From the UI , the list design for the custom library is available when clicking on **New >List** or **New>Document library** and selecting the tab "From your organization" under "Templates"
 
-[![](https://reshmeeauckloo.files.wordpress.com/2021/10/image.png?w=421)](https://reshmeeauckloo.files.wordpress.com/2021/10/image.png)
+![Template from UI](../images/powershell-invoke-spolistdesign-to-create-instances-of-lists-libraires/samples.png)
 
 Click on the custom list design to select it , click on "Use Template" button and enter a name and optionally a description for the library. 
 
@@ -39,7 +40,7 @@ I have used a PowerShell script with the cmdlet Invoke-PnPListDesign to apply th
 
 Sample CSV file format saved as libraries.csv
 
-```
+```csv
 InternalName,DisplayName
 AR,Annual Reports
 CR,Credit Risk
@@ -49,7 +50,7 @@ PO,Purchase Orders
 
 Execute the **Invoke-PnPListDesign **cmdlet
 
-```
+```PowerShell
 [CmdletBinding()] 
     Param(
     [Parameter(Mandatory=$false,  Position=0)]
@@ -57,7 +58,7 @@ Execute the **Invoke-PnPListDesign **cmdlet
     [Parameter(Mandatory=$false,  Position=1)]
     [String]$siteUrl =  "https://contoso.sharepoint.com/sites/investment",
     [Parameter(Mandatory=$false,  Position=2)]
-    [String]$librariesCSV =  "C:\Scripts\DocumentLibraryTemplate\libraries_1.csv",
+    [String]$librariesCSV =  "C:\Scripts\DocumentLibraryTemplate\libraries.csv",
 
     [Parameter(Mandatory=$false,  Position=4)]
     [String]$listDesignId = "5b38e500-0fab-4da7-b011-ad7113228920" # use Get-SPOListDesign to find the Id of the list design containing the document library template
@@ -147,14 +148,23 @@ Annual Reports1
 	Setting versioning to major/minor to : Annual Reports1 
 ```
 
-Screenshot of the libraries created from UI (TestCreatingFromUserInterface) and the others created via script (Annual Reports, Audit, Credit Risk and Purchase Orders)
-
-[![](https://reshmeeauckloo.files.wordpress.com/2021/10/image-1.png?w=1024)](https://reshmeeauckloo.files.wordpress.com/2021/10/image-1.png)
+Screenshot of the libraries created from UI (Test Creating From User Interface) and the others created via script (Annual Reports, Audit, Credit Risk and Purchase Orders)
+![Results](../images/powershell-invoke-spolistdesign-to-create-instances-of-lists-libraires/runscript_results.png)
 
 The custom template for list/library can save a lot of time deploying standardised lists/document libraries without having to manually configure views, fields and content types.
+![Libraries created](../images/powershell-invoke-spolistdesign-to-create-instances-of-lists-libraires/libraries_created.png)
+
+## Thoughts
+
+It would be great if the cmdlet **Invoke-PnPListDesign** or **Invoke-SPOListDesign** had the option to specify the internal name and display name of the library to be created. This would provide more flexibility and customization options when creating libraries.
+
+Additionally, there are some missing actions or properties that would be beneficial to have, such as versioning settings. For a full list of supported actions, you can refer to the [JSON Schema](https://learn.microsoft.com/en-us/sharepoint/dev/declarative-customization/site-design-json-schema).
+
 
 ## References
 
 [For admins: Add-SPOListDesign (Microsoft.Online.SharePoint.PowerShell) | Microsoft Learn](https://learn.microsoft.com/powershell/module/sharepoint-online/add-spolistdesign?view=sharepoint-ps?wt.mc_id=MVP_308367)
 
 [For end users: Custom list templates - SharePoint in Microsoft 365 | Microsoft Learn](https://learn.microsoft.com/sharepoint/lists-custom-template?wt.mc_id=MVP_308367)
+
+[JSON View](https://learn.microsoft.com/en-us/sharepoint/dev/declarative-customization/site-design-json-schema?wt.mc_id=MVP_308367)
