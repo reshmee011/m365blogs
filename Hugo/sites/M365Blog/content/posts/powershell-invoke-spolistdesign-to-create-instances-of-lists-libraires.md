@@ -2,7 +2,7 @@
 title: 'Custom document library template using PnP PowerShell'
 date: 2024-04-01T01:52:50Z
 draft: false
-featured_image: '/posts/images/powershell-invoke-spolistdesign-to-create-instances-of-lists-libraires/samples.png'
+featured_image: '/posts/images/powershell-invoke-spolistdesign-to-create-instances-of-lists-libraires/sample.png'
 tags: ['SPO', 'List Design', 'Document library','PnP', 'PowerShell' ]
 ---
 
@@ -28,7 +28,7 @@ get-pnplistdesign
 
 From the UI , the list design for the custom library is available when clicking on **New >List** or **New>Document library** and selecting the tab "From your organization" under "Templates"
 
-![Template from UI](../images/powershell-invoke-spolistdesign-to-create-instances-of-lists-libraires/samples.png)
+![Template from UI](../images/powershell-invoke-spolistdesign-to-create-instances-of-lists-libraires/sample.png)
 
 Click on the custom list design to select it , click on "Use Template" button and enter a name and optionally a description for the library. 
 
