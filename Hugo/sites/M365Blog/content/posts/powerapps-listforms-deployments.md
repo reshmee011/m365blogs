@@ -3,9 +3,20 @@ title: "Powerapps Listforms Deployments"
 date: 2024-03-25T12:02:05Z
 draft: true
 ---
+## steps
+1. export the list form app
+2. save it to packages/dev folder relative to the script 
+3. run the first script ExtractApps to extract the files 
+Generate package for targeted environment
+4. update the json properties: siteurl, list1guid and name
+5. Run the script under "Generate targeted environment packages"
+6. Import package into power apps selected environment
+7. open app form 
+8. Publish the form
 
 ## Unpacks solution to save into source repository
 
+   
 ```
 # Create the Packages/Dev folder locally before running the script
 
