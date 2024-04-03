@@ -25,7 +25,7 @@ Azure Storage Explorer lacks wildcard support, limiting search capabilities to p
 The version used to test is 1.32.1 
 ![AzureStorageVersion.png](../images/Azure-Storage-Explorer-Search/AzureStorageVersion.png)
 
-Utilizing blob tags can aid in blob storage searches. It's advisable to set blob tags accordingly, as discussed in [Use blob index tags to manage and find data with .NET](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-tags?wt.mc_id=MVP_308367)
+Utilising blob tags can aid in blob storage searches. It's advisable to set blob tags accordingly, as discussed in [Use blob index tags to manage and find data with .NET](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-tags?wt.mc_id=MVP_308367)
 
 To overcome these limitations, consider employing Azure AI Search to enable full-text search functionality on blob data. Refer to the post [Search over Azure Blob Storage content](https://learn.microsoft.com/en-us/azure/search/search-blob-storage-integration?wt.mc_id=MVP_308367) for insights on indexing files for efficient data retrieval.
 
