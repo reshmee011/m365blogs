@@ -34,6 +34,7 @@ Set-SPOTenant SharingCapability                        = 'ExternalUserSharingOnl
             DefaultLinkPermission                      = "View"
             RequireAcceptingAccountMatchInvitedAccount = $false
 ```
+
 **PnP PowerShell**
 ```
 Set-PnPTenant ShowEveryoneClaim                          = $false
@@ -207,4 +208,7 @@ the admin level in Microsoft 365.
 ## References
 https://danielanderson.io/?ck_subscriber_id=2437811072
 [ShowEveryoneExceptExternalUsersClaim](https://pnp.github.io/powershell/cmdlets/Set-PnPTenant.html#-showeveryoneexceptexternalusersclaim)
+
 [SPOSharingSettings](https://microsoft365dsc.com/resources/sharepoint/SPOSharingSettings/)
+
+[Use information barriers with SharePoint](https://learn.microsoft.com/en-gb/purview/information-barriers-sharepoint#information-barriers-modes-and-sharepoint-sites)
