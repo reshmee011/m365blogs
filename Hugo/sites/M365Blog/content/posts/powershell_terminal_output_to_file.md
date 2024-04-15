@@ -8,27 +8,39 @@ draft: false
 
 # How to Redirect PowerShell Terminal Output to a File
 
-PowerShell console buffers have practical limitations, and displaying thousands of lines of output in the console can lead to performance issues or truncation of older output. There's a simple trick to retain all output for review: redirecting it to a file.
+The PowerShell console buffer, while useful, has its limitations. When dealing with thousands of lines of output, you may encounter performance issues or even lose older output due to truncation. However, there's a straightforward solution to ensure all output is retained for later review: redirect the output to a file.
 
-To achieve this, you can use the `>` operator followed by the desired output file name whi.
+You can accomplish this by using the `>` operator, followed by the name of the file where you want the output to be stored. 
+
+While it's possible to copy the contents directly from the console, this method may not capture all the output due to the console buffer's size limitations. Therefore, redirecting the output to a file is a more reliable way to ensure no data is lost.
+
+To capture the complete output, you can use the `>` operator followed by the name of the file where you want to store the output. While copying the contents directly from the console is possible, the console's buffer size may limit the completeness of the output.
 
 ```PowerShell
 Connect-SPOService -Url https://reshmeeauckloo-admin.sharepoint.com
 Get-SPOTenant > C:\temp\sposettings.txt
 ```
 
-Executing this command will save the output to the specified file path.
+This command will redirect the output to the specified file path.
 
 ![Output](../images/powershell_terminal_output_to_file/output.png)
 
-To view the saved output on the terminal use the cmdlet `Get-Content`
+To view the saved output in the terminal, use the `Get-Content` cmdlet:
 
 ```powershell
 Get-Content -Path C:\temp\sposettings.txt
 ```
+
 ![Output](../images/powershell_terminal_output_to_file/viewsavedoutput.png)
 
 
 ## Conclusion
 
-By redirecting the output to a file, no information is lost, making it easier to analyse results and troubleshoot any issues that may arise, especially when dealing with output exceeding the console terminal's buffer limit.
+Redirecting the output to a file ensures no information is lost, facilitating easier analysis and troubleshooting. This method is particularly useful when dealing with output that exceeds the console terminal's buffer limit.
+
+
+
+
+```PowerShell
+Connect-SPOService -Url https://reshmeeauckloo-admin.sharepoint.com
+Get-SPOTenant > C:\temp\sposettings.txt
