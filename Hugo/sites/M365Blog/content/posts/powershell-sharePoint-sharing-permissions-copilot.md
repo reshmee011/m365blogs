@@ -190,33 +190,50 @@ Refer to [External User Access Expiration in SharePoint Online and OneDrive for 
 ```PowerShell
 
 Connect-SPOService -Url https://contoso-admin.sharepoint.com
+
+Set-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest ` -DisableSharingForNonOwners
+
 Set-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
-            -SharingCapability ExistingExternalUserSharingOnly `
             -ShowPeoplePickerSuggestionsForGuestUsers $false `
-            -DisableCompanyWideSharingLinks Disabled `
-            -DefaultLinkToExistingAccess $true `
-            -DisableSharingForNonOwners $true `
+            -SharingCapability ExistingExternalUserSharingOnly `
             -ExternalUserExpirationInDays 60 `
             -SharingAllowedDomainList "contoso.com" `
             -SharingBlockedDomainList "contoso.com" `
-            -SharingDomainRestrictionMode AllowList `
-            -ExternalUserExpirationInDays 60 `
-            -OverrideTenantExternalUserExpirationPolicy $false `
-            -DefaultSharingLinkType `
-            -DefaultLinkPermission `
-            -DefaultLinkToExistingAccess `
-            -AnonymousLinkExpirationInDays 60`
+            -SharingDomainRestrictionMode AllowList -OverrideTenantExternalUserExpirationPolicy $false `
+            -DefaultSharingLinkType None `
+            -DefaultLinkPermission None `
+            -DefaultLinkToExistingAccess $true `
+            -DisableCompanyWideSharingLinks Disabled `
+            -AnonymousLinkExpirationInDays 60 
 ```
 
 **PnP PowerShell**
 
+
 ```
-connect-pnponline -url https://reshmeeauckloo.sharepoint.com/sites/SharingTest -interactive
-Set-PnPTenant 
+connect-pnponline -url https://contoso.sharepoint.com/sites/SharingTest  -interactive
+Set-PnPSite  -DisableSharingForNonOwners
+
+Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
+            -ShowPeoplePickerSuggestionsForGuestUsers $false `
+            -SharingCapability ExistingExternalUserSharingOnly `
+            -ExternalUserExpirationInDays 60 `
+            -SharingAllowedDomainList "contoso.com" `
+            -SharingBlockedDomainList "contoso.com" `
+            -SharingDomainRestrictionMode AllowList -OverrideTenantExternalUserExpirationPolicy $false `
+            -DefaultSharingLinkType None `
+            -DefaultLinkPermission None `
+            -DefaultLinkToExistingAccess $true `
+            -DisableCompanyWideSharingLinks Disabled `
+            -AnonymousLinkExpirationInDays 60 
 ```
 
 ### DisableCompanyWideSharingLinks
 Disabled , Enabled
+Disables People in your organization links. For more information, see People in your organization sharing links. Possible values
+
+Disabled
+NotDisabled
 
 ### DefaultLinkToExistingAccess 
 boolean
@@ -227,6 +244,10 @@ boolean
 ### ExternalUserExpirationInDays
 
 ### ShowPeoplePickerSuggestionsForGuestUsers
+boolean
+
+WARNING: Warning: This setting won't take effect because showPeoplePickerSuggestionsForGuestUsers is currently disabled for your organization. Run the command Set-SPOTenant -showPeoplePickerSuggestionsForGuestUsers $true to enabl
+e this setting for your organization first.
 
 ### SharingDomainRestrictionMode
 
@@ -297,4 +318,5 @@ the admin level in Microsoft 365.
 
 [Enable auto-acceleration](https://learn.microsoft.com/en-us/sharepoint/enable-auto-acceleration??wt.mc_id=MVP_308367)
 
-[Set-SPOTenant](https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)
+[Set-SPOTenant](https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps&wt.mc_id=MVP_308367)
+[Set-SPOSite](https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/set-sposite?view=sharepoint-ps&wt.mc_id=MVP_308367)
