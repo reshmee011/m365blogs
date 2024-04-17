@@ -1,14 +1,14 @@
 ---
-title: "Unlocking the Power of Sharing in Your Tenant and SharePoint Site with PowerShell"
+title: "Empowering Secure Collaboration: Configuring SharePoint Sharing Tenant and Site Settings with PowerShell"
 date: 2024-04-16T06:51:10Z
-tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell"]
+tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","Copilot"]
 featured_image: '/posts/images/powershell-sharePoint-sharing-permissions-copilot/TenantSharingOptions_filefolderdomain.png'
 draft: false
 ---
 
-# Unlocking the Power of Sharing in Your Tenant and SharePoint Site with PowerShell
+# Empowering Secure Collaboration: Configuring SharePoint Sharing Tenant and Site Settings with PowerShell
 
-Sharing is a fundamental aspect of collaboration in SharePoint, but it requires careful management to ensure data security and prevent inadvertent exposure. Let's explore how PowerShell can empower you to configure sharing settings effectively at both the tenant and site levels.
+Sharing stands as a cornerstone of collaboration within SharePoint, yet its management demands meticulous attention to uphold data security and avert inadvertent exposure, particularly concerning Copilot for M365, which can magnify vulnerabilities in data security. Let's explore how PowerShell can empower you to configure some sharing settings effectively at both the tenant and site levels.
 
 ## Tenant Level Sharing Settings
 
