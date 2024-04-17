@@ -79,6 +79,7 @@ Automatically creates a "Shared with Everyone" folder in users' OneDrive documen
 Enables auto-acceleration on sites that have external sharing enabled. 
 
 If the SignInAcceleration Domain is not set , the setting cannot be changed and you will be presented with message
+
 `Set-SPOTenant : This setting cannot be changed until you set the SignInAcceleration Domain.`
 
 Run the command to enable auto-acceleration on sites that aren't shared externally
@@ -87,6 +88,7 @@ Set-SPOTenant -SignInAccelerationDomain "contoso.com"
 ```
 
 If set to $true, you will be prompted with the message
+
 `Make sure that your federated sign-in supports guest users. If it doesn't, your guest users will no longer be able to sign in after you set EnableGuestSignlnAcceleration to $true.`
 
 [Enable auto-acceleration](https://learn.microsoft.com/en-us/sharepoint/enable-auto-acceleration??wt.mc_id=MVP_308367)
@@ -103,7 +105,7 @@ Values can be set to None, Direct, Internal or AnonymousAccess
 
 If set to AnonymousAccess you may get the following warning message to set `SharingCapability` to `ExternalUserAndGuestSharing`.
 
-**WARNING**: Anonymous access links aren’t enabled for your organization. You must first enable them by running the command "Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing" before you can set the DefaultSharingLinkType parameter to AnonymousAccess. We will not set the value in this case.
+**WARNING**: `Anonymous access links aren’t enabled for your organization. You must first enable them by running the command "Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing" before you can set the DefaultSharingLinkType parameter to AnonymousAccess. We will not set the value in this case.`
 
 
 ### PreventExternalUsersFromResharing
@@ -138,7 +140,8 @@ Valid values are
 - True - User must accept this invitation with bob@contoso.com.
 
 If external sharing using domains is enabled you may be presented with the warning message
-**WARNING**: We automatically enabled RequireAcceptingAccountMatchInvitedAccount because you selected to limit external sharing using domains.
+
+**WARNING**: `We automatically enabled RequireAcceptingAccountMatchInvitedAccount because you selected to limit external sharing using domains.`
 
 ### SharingAllowedDomainList
 
@@ -152,9 +155,12 @@ Specifies the list of blocked domains that users cannot share with.
 
 Available values are AllowList, BlockList, None
 
-**WARNING**: We automatically enabled RequireAcceptingAccountMatchInvitedAccount because you selected to limit external sharing using domains.
-**WARNING**: You must set SharingDomainRestrictionMode to AllowList in order to have the list of domains you configured for SharingAllowedDomainList to take effect.
-**WARNING**: You must set SharingDomainRestrictionMode to BlockList in order to have the list of domains you configured for SharingBlockedDomainList to take effect
+
+**WARNING**: `We automatically enabled RequireAcceptingAccountMatchInvitedAccount because you selected to limit external sharing using domains.`
+
+**WARNING**: `You must set SharingDomainRestrictionMode to AllowList in order to have the list of domains you configured for SharingAllowedDomainList to take effect.`
+
+**WARNING**: `You must set SharingDomainRestrictionMode to BlockList in order to have the list of domains you configured for SharingBlockedDomainList to take effect.`
 
 ### ExternalUserExpirationRequired
 
@@ -264,7 +270,7 @@ Enables search functionality for existing guest users at the site collection lev
 
 The following warning message may display when enabled on site level when the setting is not enabled at the tenant level.
 
-**WARNING**: Warning: This setting won't take effect because showPeoplePickerSuggestionsForGuestUsers is currently disabled for your organization. Run the command Set-SPOTenant -showPeoplePickerSuggestionsForGuestUsers $true to enable this setting for your organization first.
+**WARNING**: `Warning: This setting won't take effect because showPeoplePickerSuggestionsForGuestUsers is currently disabled for your organization. Run the command Set-SPOTenant -showPeoplePickerSuggestionsForGuestUsers $true to enable this setting for your organization first.`
 
 ### SharingDomainRestrictionMode
 
@@ -273,7 +279,9 @@ Specifies the sharing mode for external domains.
 Possible values are:
 
 None - Do not restrict sharing by domain
+
 AllowList - Sharing is allowed only with external users that have account on domains specified within -SharingAllowedDomainList
+
 BlockList - Sharing is allowed with external users in all domains except in domains specified within -SharingBlockedDomainList
 
 ### SharingAllowedDomainList
