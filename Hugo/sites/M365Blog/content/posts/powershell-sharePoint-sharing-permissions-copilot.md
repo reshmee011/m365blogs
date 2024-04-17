@@ -1,17 +1,176 @@
 ---
-title: "Harness sharing capabilities within your tenant and SharePoint site using PowerShell"
-date: 2024-03-25T06:51:10Z
-draft: true
+title: "Unlocking the Power of Sharing in Your Tenant and SharePoint Site with PowerShell"
+date: 2024-04-16T06:51:10Z
+tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell"]
+featured_image: '/posts/images/powershell-sharePoint-sharing-permissions-copilot/TenantSharingOptions_filefolderdomain.png'
+draft: false
 ---
 
-# Harness sharing capabilities within your tenant and SharePoint site
+# Unlocking the Power of Sharing in Your Tenant and SharePoint Site with PowerShell
+
+Sharing is a fundamental aspect of collaboration in SharePoint, but it requires careful management to ensure data security and prevent inadvertent exposure. Let's explore how PowerShell can empower you to configure sharing settings effectively at both the tenant and site levels.
+
+## Tenant Level Sharing Settings
+
+### SharingCapability
+
+This setting governs the sharing capability for the entire tenant, allowing you to control external user sharing and guest link sharing. 
+
+The valid values are:
+
+ExternalUserAndGuestSharing (default) - External user sharing (share by email) and guest link sharing are both enabled: Anyone - users can share files and folders using links that don't require sign-in
+
+Disabled - External user sharing (share by email) and guest link sharing are both disabled - Only people in your organization - no external sharing allowed
+
+ExternalUserSharingOnly - External user sharing (share by email) is enabled, but guest link sharing is disabled. New and existing guests - guests must sign in or provide a verification code
+
+ExistingExternalUserSharingOnly - Existing guests only - only guests already in your organization's directory
+
+![SharingCapability](../images/powershell-sharePoint-sharing-permissions-copilot/SharingCapability.png)
+
+### ShowAllUsersClaim
+
+Determines whether the "All Users" claim group is displayed in the People Picker.
+
+The valid values are: 
+True(default) - "All users" is displayed in People Picker. When users share an item with "All Users (x)" it is accessible to all organization members in the tenant that used NTLM to authentication with SharePoint.
+False - "All users" claim is not visible in People Picker.
+
+The All Users group is equivalent to the Everyone claim, and shows as Everyone. 
+
+![SharingOptions](../images/powershell-sharePoint-sharing-permissions-copilot/SharingOptions.png)
+
+### ShowEveryoneClaim
+
+Determines whether the "Everyone" claim group is displayed in the People Picker.
+
+The valid values are: 
+True(default) - The "Everyone" is displayed in People Picker. When users share an item with "Everyone", it is accessible to all authenticated users including any active external users
+False - The "Everyone" claim is not visible in People Picker. It is the default for new tenants.
+
+### ShowEveryoneExceptExternalUsersClaim
+
+Enables or disables the display of the "Everyone except external users" claim in the People Picker. When users share an item with "Everyone except external users", it is accessible to all organisation members except external users in the tenant's Azure Active Directory.
+
+The valid values are:
+True(default) - The Everyone except external users is displayed in People Picker.
+False - The Everyone except external users claim is not visible in People Picker.
+
+### MySiteSharingCapability
+
+Configures sharing capability for mysite (onedrive), offering options similar to those for the overall tenant.
+
+The valid values are:
+
+ExternalUserAndGuestSharing (default) - External user sharing (share by email) and guest link sharing are both enabled: Anyone - users can share files and folders using links that don't require sign-in
+
+Disabled - External user sharing (share by email) and guest link sharing are both disabled - Only people in your organization - no external sharing allowed
+
+ExternalUserSharingOnly - External user sharing (share by email) is enabled, but guest link sharing is disabled. New and existing guests - guests must sign in or provide a verification code
+
+ExistingExternalUserSharingOnly - Existing guests only - only guests already in your organization's directory
+
+### ProvisionSharedWithEveryoneFolder
+
+Automatically creates a "Shared with Everyone" folder in users' OneDrive document libraries, enhancing collaboration.
+
+### EnableGuestSignInAcceleration
+
+Enables auto-acceleration on sites that have external sharing enabled. 
+
+If the SignInAcceleration Domain is not set , the setting cannot be changed and you will be presented with message
+`Set-SPOTenant : This setting cannot be changed until you set the SignInAcceleration Domain.`
+
+Run the command to enable auto-acceleration on sites that aren't shared externally
+```
+Set-SPOTenant -SignInAccelerationDomain "contoso.com"
+```
+
+If set to $true, you will be prompted with the message
+`Make sure that your federated sign-in supports guest users. If it doesn't, your guest users will no longer be able to sign in after you set EnableGuestSignlnAcceleration to $true.`
+
+[Enable auto-acceleration](https://learn.microsoft.com/en-us/sharepoint/enable-auto-acceleration??wt.mc_id=MVP_308367)
+
+### RequireAnonymousLinksExpireInDays
+
+Sets the expiration period for all anonymous links, enhancing security by limiting access duration.
+
+### DefaultSharingLinkType
+
+Allows administrators to choose what type of link appears is selected in the 'Get a link' sharing dialog box in OneDrive for Business and SharePoint Online.
+
+Values can be set to None, Direct, Internal or AnonymousAccess
+
+If set to AnonymousAccess you may get the following warning message to set `SharingCapability` to `ExternalUserAndGuestSharing`.
+
+**WARNING**: Anonymous access links aren’t enabled for your organization. You must first enable them by running the command "Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing" before you can set the DefaultSharingLinkType parameter to AnonymousAccess. We will not set the value in this case.
 
 
-## Tenant Level Settings
+### PreventExternalUsersFromResharing
+
+Allows or denies external users from resharing.
+
+### ShowPeoplePickerSuggestionsForGuestUsers
+
+Show or hide the guest users claim in the People Picker when set to true or false respectively.
+
+### FileAnonymousLinkType
+
+Configures anonymous link types for files. Allowed values are `View`, `Edit` or `None`
+
+### FolderAnonymousLinkType
+
+Configures anonymous link types for folders. Allowed values are `View`, `Edit` or `None`.
+
+### NotifyOwnersWhenItemsReshared
+
+When this parameter is set to true and another user re-shares a document from a user's OneDrive for Business, the OneDrive for Business owner is notified by e-mail.
+
+### DefaultLinkPermission
+
+Specifies the link permission. Valid values are `View`, `Edit` or `None`.
+
+### RequireAcceptingAccountMatchInvitedAccount
+
+Ensures that an external user can only accept an external sharing invitation with an account matching the invited email address. 
+Valid values are 
+- False (default) - When a document is shared with an external user, bob@contoso.com, it can be accepted by any user with access to the invitation link in the original e-mail.
+- True - User must accept this invitation with bob@contoso.com.
+
+If external sharing using domains is enabled you may be presented with the warning message
+**WARNING**: We automatically enabled RequireAcceptingAccountMatchInvitedAccount because you selected to limit external sharing using domains.
+
+### SharingAllowedDomainList
+
+Specifies the list of allowed domains that users can share with.
+
+### SharingBlockedDomainList
+
+Specifies the list of blocked domains that users cannot share with.
+
+### SharingDomainRestrictionMode
+
+Available values are AllowList, BlockList, None
+
+**WARNING**: We automatically enabled RequireAcceptingAccountMatchInvitedAccount because you selected to limit external sharing using domains.
+**WARNING**: You must set SharingDomainRestrictionMode to AllowList in order to have the list of domains you configured for SharingAllowedDomainList to take effect.
+**WARNING**: You must set SharingDomainRestrictionMode to BlockList in order to have the list of domains you configured for SharingBlockedDomainList to take effect
+
+### ExternalUserExpirationRequired
+
+Enable guest access to a site or OneDrive to expire.
+
+### ExternalUserExpireInDays
+
+Specifies number of days for guest Access links to expire.
+
+Refer to [External User Access Expiration in SharePoint Online and OneDrive for Business](https://www.sharepointdiary.com/2021/08/guest-user-access-expiration-in-sharepoint-online-onedrive.html#ixzz8XVgAFD56)
+
+### Sample script to amend tenant level sharing settings 
 
 **SPO PowerShell**
 
-``` 
+```PowerShell
 connect-SPOService -Url https://contoso-admin.sharepoint.com
 
 Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
@@ -40,7 +199,7 @@ Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
 
 **PnP PowerShell**
 
-```
+```PowerShell
 connect-pnponline -url https://contoso-admin.sharepoint.com -interactive
 Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
             -ShowEveryoneClaim $false  `
@@ -66,126 +225,101 @@ Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
             -ExternalUserExpireInDays 60 
 ```
 
-### SharingCapability
+ 
+## Site Level Settings
 
-Configures sharing capability for the tenant.
-The valid values are:
+Sharing settings can be set at the site level to provide more granular control.
 
-ExternalUserAndGuestSharing (default) - External user sharing (share by email) and guest link sharing are both enabled.
-Disabled - External user sharing (share by email) and guest link sharing are both disabled.
-ExternalUserSharingOnly - External user sharing (share by email) is enabled, but guest link sharing is disabled.
-ExistingExternalUserSharingOnly - Only guests already in your organization's directory.
+### DisableCompanyWideSharingLinks
 
-### ShowAllUsersClaim
+Disables People in your organization links. For more information, see People in your organization sharing links. Possible values
 
-Enables the administrator to hide the All Users claim groups in People Picker.
+Disabled: If disabled, users sharing files in the site may need to use Specific people links, which can be shared with a maximum of 50 people.
+NotDisabled: Users can choose option `People in <tenantName>` while sharing
 
-### ShowEveryoneClaim
+![linkSettings](../images/powershell-sharePoint-sharing-permissions-copilot/linkSettings.png)
 
-Enables the administrator to hide the Everyone claim in the People Picker.
+It can help to prevent accidental sharing with everyone authenticated within the tenant by disabling it.
 
-### ShowEveryoneExceptExternalUsersClaim
+### DefaultLinkToExistingAccess 
 
-Enables the administrator to hide the "Everyone except external users" claim in the People Picker. When users share an item with "Everyone except external users", it is accessible to all organization members in the tenant's Azure Active Directory, but not to any users who have previously accepted invitations.
+When set to true, default sharing link will a People with Existing Access link (which does not modify permissions) maintaining permission integrity.
+![linkSettings](../images/powershell-sharePoint-sharing-permissions-copilot/linktoexistingaccess.png)
 
-The valid values are: True(default) - The Everyone except external users is displayed in People Picker. False - The Everyone except external users claim is not visible in People Picker.
+When set to false (the default), the default sharing link type is controlled by the DefaultSharingLinkType parameter.
 
-There are other tenant wide level settings but I think it would have been great to be able to set those at the library or site level and have site power users have greater control over them 
+### DisableSharingForNonOwners
 
+This parameter prevents non-owners from sharing to new users to the site/library/file.
 
-### MySiteSharingCapability
+![Site Sharing Settings](../images/powershell-sharePoint-sharing-permissions-copilot/sitesharingsettings.png)
 
- Configures sharing capability for mysite (onedrive)
- ExistingExternalUserSharingOnly, ExternalUserAndGuestSharing, Disabled, ExternalUserSharingOnly
+### ExternalUserExpirationInDays
 
-### ProvisionSharedWithEveryoneFolder
-
-Creates a Shared with Everyone folder in every user's new OneDrive for Business document library.
-
-### EnableGuestSignInAcceleration
-
-Enables auto-acceleration on sites that have external sharing enabled. 
-
-If the SignInAcceleration Domain is not set , the setting cannot be changed and you will be presented with message
-`Set-SPOTenant : This setting cannot be changed until you set the SignInAcceleration Domain.`
-
-Run the command to enable auto-acceleration on sites that aren't shared externally
-```
-Set-SPOTenant -SignInAccelerationDomain "contoso.com"
-```
-
-If set to $true, you will be prompted with the message
-`Make sure that your federated sign-in supports guest users. If it doesn't, your guest users will no longer be able to sign in after you set EnableGuestSignlnAcceleration to $true.`
-
-[Enable auto-acceleration](https://learn.microsoft.com/en-us/sharepoint/enable-auto-acceleration??wt.mc_id=MVP_308367)
-
-### RequireAnonymousLinksExpireInDays
-
-Specifies all anonymous links that have been created (or will be created) will expire after the set number of days.
-
-### DefaultSharingLinkType
-
-Lets administrators choose what type of link appears is selected in the 'Get a link' sharing dialog box in OneDrive for Business and SharePoint Online
-
-Default values are None, Direct, Internal, AnonymousAccess
-
-### PreventExternalUsersFromResharing
-
-Allow or deny external users re-sharing
+Specifies all external user expiration which will expire after the set number of days. Only applies if OverrideTenantExternalUserExpirationPolicy is set to true.
 
 ### ShowPeoplePickerSuggestionsForGuestUsers
 
-Enables the administrator to hide the guest users claim in the People Picker
+Enables search functionality for existing guest users at the site collection level when this parameter is set to $true.
 
-### FileAnonymousLinkType
+The following warning message may display when enabled on site level when the setting is not enabled at the tenant level.
 
-Configures anonymous link types for files. View, Edit, None
-
-### FolderAnonymousLinkType
-
-Configures anonymous link types for folders. View, Edit, None
-
-### NotifyOwnersWhenItemsReshared
-
-When this parameter is set to $true and another user re-shares a document from a userâs OneDrive for Business, the OneDrive for Business owner is notified by e-mail.
-
-### DefaultLinkPermission
-
-Specifies the link permission on the tenant level. Valid values to set are View and Edit. A value of None will be set to Edit as its the default value. None, View, Edit
-
-### RequireAcceptingAccountMatchInvitedAccount
-
-Ensures that an external user can only accept an external sharing invitation with an account matching the invited email address.Administrators who desire increased control over external collaborators should consider enabling this feature. False (default) - When a document is shared with an external user, bob@contoso.com, it can be accepted by any user with access to the invitation link in the original e-mail.True - User must accept this invitation with bob@contoso.com.
-
-WARNING: We automatically enabled RequireAcceptingAccountMatchInvitedAccount because you selected to limit external sharing using domains.
-
-### SharingAllowedDomainList
-
-Specifies the list of allowed domains that users can share with.
-
-### SharingBlockedDomainList
-
-Specifies the list of blocked domains that users cannot share with.
+**WARNING**: Warning: This setting won't take effect because showPeoplePickerSuggestionsForGuestUsers is currently disabled for your organization. Run the command Set-SPOTenant -showPeoplePickerSuggestionsForGuestUsers $true to enable this setting for your organization first.
 
 ### SharingDomainRestrictionMode
 
-Available values are AllowList, BlockList, None
+Specifies the sharing mode for external domains.
 
-WARNING: We automatically enabled RequireAcceptingAccountMatchInvitedAccount because you selected to limit external sharing using domains.
-WARNING: You must set SharingDomainRestrictionMode to AllowList in order to have the list of domains you configured for SharingAllowedDomainList to take effect.
-WARNING: You must set SharingDomainRestrictionMode to BlockList in order to have the list of domains you configured for SharingBlockedDomainList to take effect
+Possible values are:
 
-### ExternalUserExpirationRequired
+None - Do not restrict sharing by domain
+AllowList - Sharing is allowed only with external users that have account on domains specified within -SharingAllowedDomainList
+BlockList - Sharing is allowed with external users in all domains except in domains specified within -SharingBlockedDomainList
 
-Enable guest access to a site or OneDrive to expire.
+### SharingAllowedDomainList
 
-### ExternalUserExpireInDays
+Specifies a list of email domains that is allowed for sharing with the external collaborators. Use the space character as the delimiter for entering multiple values. For example, "contoso.com fabrikam.com".
 
-Specifies number of days for guest Access links to expire.
+### SharingBlockedDomainList
 
-Refer to [External User Access Expiration in SharePoint Online and OneDrive for Business](https://www.sharepointdiary.com/2021/08/guest-user-access-expiration-in-sharepoint-online-onedrive.html#ixzz8XVgAFD56)
- 
-## Site Level Settings
+Specifies a list of email domains that is blocked or prohibited for sharing with the external collaborators. Use space character as the delimiter for entering multiple values. For example, "contoso.com fabrikam.com".
+
+### DefaultSharingLinkType
+
+The default link type for the site collection
+
+Possible values are 
+
+None - Respect the organization default sharing link type
+AnonymousAccess - Sets the default sharing link for this site to an Anonymous Access or Anyone link
+Internal - Sets the default sharing link for this site to the "organization" link or company shareable link
+Direct - Sets the default sharing link for this site to the "Specific people" link
+
+### DefaultLinkPermission
+
+The default link permission for the site collection
+
+Possible values are
+
+None - Respect the organization default link permission
+View - Sets the default link permission for the site to "view" permissions
+Edit - Sets the default link permission for the site to "edit" permissions
+
+### AnonymousLinkExpirationInDays
+
+Specifies all anonymous/anyone links that have been created (or will be created) will expire after the set number of days. Only applies if OverrideTenantAnonymousLinkExpirationPolicy is set to true.
+
+### OverrideTenantExternalUserExpirationPolicy
+
+Choose whether to override the external user expiration policy on this site
+
+Possible values:
+
+None: Respect the organization-level policy for external user expiration.
+False: Respect the organization-level policy for external user expiration.
+True: Override the organization-level policy for external user expiration (can be more or less restrictive).
+
+### PowerShell script to update site sharing settings
 
 ```PowerShell
 
@@ -209,7 +343,6 @@ Set-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
 
 **PnP PowerShell**
 
-
 ```
 connect-pnponline -url https://contoso.sharepoint.com/sites/SharingTest  -interactive
 Set-PnPSite  -DisableSharingForNonOwners
@@ -228,83 +361,9 @@ Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
             -AnonymousLinkExpirationInDays 60 
 ```
 
-### DisableCompanyWideSharingLinks
-Disabled , Enabled
-Disables People in your organization links. For more information, see People in your organization sharing links. Possible values
+## Conclusion
 
-Disabled
-NotDisabled
-
-### DefaultLinkToExistingAccess 
-boolean
-
-### DisableSharingForNonOwners
-boolean
-
-### ExternalUserExpirationInDays
-
-### ShowPeoplePickerSuggestionsForGuestUsers
-boolean
-
-WARNING: Warning: This setting won't take effect because showPeoplePickerSuggestionsForGuestUsers is currently disabled for your organization. Run the command Set-SPOTenant -showPeoplePickerSuggestionsForGuestUsers $true to enabl
-e this setting for your organization first.
-
-### SharingDomainRestrictionMode
-
-### SharingAllowedDomainList
-
-### SharingBlockedDomainList
-
-### DefaultSharingLinkType
-None
-
-### DefaultLinkPermission
-None
-
-### DefaultLinkToExistingAccess
-Boolean
-
-### AnonymousLinkExpirationInDays
-
-### OverrideTenantExternalUserExpirationPolicy
-
-
-### LoopDefaultSharingLinkScope
-
-### LoopDefaultSharingLinkRole
-
-### DefaultShareLinkScope
-
-### DefaultShareLinkRole
-
-### RestrictedAccessControl
-
-### RestrictedAccessControlGroups 
-
-Set-PnPSite -DisableCompanyWideSharingLinks Disabled -DefaultLinkToExistingAccess $true -DisableSharingForNonOwners | Out-Null  
-
-
-This is an important topic to understand.
-
-## At site level, disable default sharing 
-
-## Restricts sharing to power users
-
-## sharing links
-SHARING LINKS from power automate
-
-. Create a sharing link for a file or folder
-· Specify:
-. The Item ID
-· Link Type (View and edit, View only)
-· Link Scope (Anonymous, People in
-your org)
-· Link Expiration date (optional)
-· Link is then available in Dynamic
-Content to be able to send via email or
-Teams
-. Make sure that sharing is enabled from
-the admin level in Microsoft 365.
+Effective management of sharing settings is crucial for maintaining data security and compliance in SharePoint. PowerShell offers unparalleled flexibility and control in configuring these settings, ensuring that collaboration remains both seamless and secure.
 
 ## References
 
@@ -319,4 +378,7 @@ the admin level in Microsoft 365.
 [Enable auto-acceleration](https://learn.microsoft.com/en-us/sharepoint/enable-auto-acceleration??wt.mc_id=MVP_308367)
 
 [Set-SPOTenant](https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps&wt.mc_id=MVP_308367)
+
 [Set-SPOSite](https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/set-sposite?view=sharepoint-ps&wt.mc_id=MVP_308367)
+
+[Limit Sharing](https://learn.microsoft.com/en-us/microsoft-365/solutions/microsoft-365-limit-sharing?view=o365-worldwide#people-in-your-organization-sharing-links&wt.mc_id=MVP_308367)
