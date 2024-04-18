@@ -10,9 +10,11 @@ draft: false
 
 The PowerShell console buffer, while useful, has its limitations. When dealing with thousands of lines of output, you may encounter performance issues or even lose older output due to truncation. However, there's a straightforward solution to ensure all output is retained for later review: redirect the output to a file.
 
-You can accomplish this by using the `>` operator, followed by the name of the file where you want the output to be stored. 
+You can accomplish this by using the `>` operator, followed by the name of the file where you want the output to be stored. The second option is Start-Transcript and Stop-Transcript.
 
 While it's possible to copy the contents directly from the console, this method may not capture all the output due to the console buffer's size limitations. Therefore, redirecting the output to a file is a more reliable way to ensure no data is lost.
+
+## Option 1 : `>`
 
 To capture the complete output, you can use the `>` operator followed by the name of the file where you want to store the output. While copying the contents directly from the console is possible, the console's buffer size may limit the completeness of the output.
 
@@ -27,13 +29,21 @@ This command will redirect the output to the specified file path.
 
 To view the saved output in the terminal, use the `Get-Content` cmdlet:
 
-```powershell
+```PowerShell
 Get-Content -Path C:\temp\sposettings.txt
 ```
 
 ![Output](../images/powershell_terminal_output_to_file/viewsavedoutput.png)
 
+## Option 2 : Start-Transcript and Stop-Transcript
 
+It will log all commands and output that appears on the console to a file.
+
+```PowerShell
+  Start-Transcript
+  Get-SPOTenant
+  Stop-Transcript
+```
 ## Conclusion
 
 Redirecting the output to a file ensures no information is lost, facilitating easier analysis and troubleshooting. This method is particularly useful when dealing with output that exceeds the console terminal's buffer limit.
