@@ -1,12 +1,12 @@
 ---
 title: "Working with psm1 Files in PowerShell"
-date: 2024-02-07T17:32:36Z
+date: 2024-04-21T17:32:36Z
 tags: ["psm1","PowerShell","PnP","PowerShell Script Module"]
 featured_image: '/posts/images/PowerShell-editing-psm1-reload/script.png'
-draft: true
+draft: false
 ---
 
-# Working with PowerShell Script Module Files
+# Working with PowerShell Script Module Files:psm1
 
 Have you ever utilized a psm1 file to create reusable functions across multiple ps1 files? If so, you might have encountered the frustration of edits not reflecting immediately due to module caching.
 
@@ -110,7 +110,7 @@ Confirm-Connection $Connection
 Add-SharePointListFields $Connection $newFields
 ```
 
-This approach allows you to utilize the module without installing it permanently, facilitating easier testing and experimentation.
+This approach allows you to utilize the module without installing it permanently, facilitating easier testing and experimentation. 
 
 ## References
 
