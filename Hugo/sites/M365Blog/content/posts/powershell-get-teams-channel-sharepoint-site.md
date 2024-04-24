@@ -1,9 +1,9 @@
 ---
 title: "Get SharePoint site Url for channel"
-date: 2024-01-20T06:19:42Z
-tags: ["SharePoint","Teams Site","Private Channels" ,"Shared Channels", "Microsoft Graph", "Invoke-PnPGraphMethod"]
+date: 2024-04-21T06:19:42Z
+tags: ["SharePoint","Teams Site","Graph","Private Channels" ,"Shared Channels", "Microsoft Graph", "Invoke-PnPGraphMethod"]
 featured_image: '/posts/images/powershell-get-teams-channel-sharepoint-site/ChannelSharePointUrl.png'
-draft: true
+draft: false
 ---
 
 # Get SharePoint site Url for channel 
@@ -18,6 +18,8 @@ Parent site m365 group name followed by the channel relative url
 
 Sometimes it is necessary to access the underlying SharePoint object that represents the Channel folder in SharePoint to perform specific SharePoint operations. You can get the SharePoint url of the Team by accessing the Graph API at
 
+## Retrieves all the Teams Channels SharePoint Urls
+
 ```PowerShell
 $url = "https://contoso.sharepoint.com/sites/test"
 Connect-PnPOnline -url $url -interactive
@@ -31,7 +33,7 @@ $channels | ForEach-Object {
   write-host  ($_.filesfolderweburl).split("Shared Documents")[0]
 }
 ```
-
+## 
 ```PowerShell
 function get-channelsiteurl ($m365GroupId, $channelName){
   $channel= get-pnpteamschannel -team $m365GroupId -Identity $channelName
@@ -44,8 +46,7 @@ $url = "https://contoso.sharepoint.com/teams/d-TEAM-DemoTeam"
 Connect-PnPOnline -url $url -interactive
 $m365GroupId = (get-pnpsite -include RelatedGroupId).RelatedGroupId.Guid
  
-get-channelsiteurl  $m365GroupId "Ash-Test"
- 
+get-channelsiteurl $m365GroupId "Ash-Test"
 ```
 
 The webUrl property stores the url of the folder in SharePoint. This is also very useful for navigating to Private channels in SharePoint which are hosted in their own dedicated site collection just for hosting the private channel folder.

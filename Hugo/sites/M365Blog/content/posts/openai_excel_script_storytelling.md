@@ -1,6 +1,6 @@
 ---
 title: "Use Open AI in Excel"
-date: 2024-02-04T11:15:28Z
+date: 2024-04-22T11:15:28Z
 tags: ["OpenAi","Excel","Script", "Google Spreadsheet"]
 draft: true
 ---
