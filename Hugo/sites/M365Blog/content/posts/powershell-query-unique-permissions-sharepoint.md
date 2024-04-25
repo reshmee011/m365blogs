@@ -14,7 +14,7 @@ $ExportFileDirectory = (get-location).ToString();
 $SiteCollectionUrl = Read-Host -Prompt "Enter site collection URL: ";
 $global:siteTitle= "";
 #Exclude certain libraries
-$ExcludedLibraries = @("Form Templates", "Preservation Hold Library", "Site Assets", "Site Pages", "Images", "Pages", "Settings", "Videos",
+$ExcludedLibraries = @("Form Templates", "Preservation Hold Library", "Site Assets", "Images", "Pages", "Settings", "Videos","Timesheet"
     "Site Collection Documents", "Site Collection Images", "Style Library", "AppPages", "Apps for SharePoint", "Apps for Office")
 
     $global:permissions =@();
@@ -38,23 +38,6 @@ Function PermissionObject($_object,$_type,$_relativeUrl,$_siteUrl,$_siteTitle,$_
    #return $global:permissions;
 }
 
-Function SharingLinkObject($_object,$_type,$_relativeUrl,$_siteUrl,$_siteTitle,$_listTitle,$_memberName,$_memberLoginName,$_memberEmail,$_accessType)
-{
-    $sharingLink = New-Object -TypeName PSObject -Property $properties; 
-    $sharingLink.SiteUrl =$_siteUrl; 
-    $sharingLink.SiteTitle = $_siteTitle; 
-    $sharingLink.ListTitle = $_listTitle; 
-    $sharingLink.Type = $_type; 
-    $sharingLink.RelativeUrl = $_relativeUrl; 
-    $sharingLink.MemberName = $_memberName; 
-    $sharingLink.MemberLoginName = $_memberLoginName; 
-    $sharingLink.Email = $_memberEmail; 
-    $sharingLink.Access = $accessType; 
-
-   ## Write-Host  "Site URL: " $_siteUrl  "Site Title"  $_siteTitle  "List Title" $_istTitle "Member Type" $_memberType "Relative URL" $_RelativeUrl "Member Name" $_memberName "Role Definition" $_roleDefinitionBindings -Foregroundcolor "Green";
-   $global:sharingLinks += $sharingLink;
-   #return $global:sharingLinks;
-}
 Function Extract-Guid ($inputString) {
     $splitString = $inputString -split '\|'
     return $splitString[2].TrimEnd('_o')
@@ -135,6 +118,8 @@ Function QuerySharingLinksByObject($_web,$_object,$_Type,$_RelativeUrl,$_siteUrl
       $Users = Get-PnPProperty -ClientObject ($roleAssign.Member) -Property Users -ErrorAction SilentlyContinue
       #Get Access type
       $AccessType = $roleAssign.RoleDefinitionBindings.Name
+      $MemberType = $roleAssign.Member.GetType().Name; 
+      #Sharing link is in the format SharingLinks.03012675-2057-4d1d-91e0-8e3b176edd94.OrganizationView.20d346d3-d359-453b-900c-633c1551ccaa
       If ($roleAssign.Member.Title -like "SharingLinks*")
       {
         #$Item.FieldValues["FileLeafRef"]       
@@ -142,7 +127,8 @@ Function QuerySharingLinksByObject($_web,$_object,$_Type,$_RelativeUrl,$_siteUrl
           {
               ForEach ($User in $Users)
               {
-                SharingLinkObject $_object $_Type $Item.FieldValues["FileRef"] $_siteUrl $_siteTitle $_listTitle $user.Title $User.LoginName $User.Email $AccessType;
+               # PermissionObject $_object $_Type $Item.FieldValues["FileRef"] $_siteUrl $_siteTitle $_listTitle $user.Title $User.LoginName $User.Email $AccessType;
+                PermissionObject $_object $_Type $_RelativeUrl $_siteUrl $_siteTitle $_listTitle $MemberType  "Sharing Links"  $user.Title $User.LoginName  $AccessType; 
               }
             }      
         }
@@ -181,8 +167,7 @@ Function QueryUniquePermissions($_web)
        QueryUniquePermissionsByObject $_web $list $Type $listUrl $siteUrl $siteTitle  $listTitle;
        QuerySharingLinksByObject $_web $list $Type $listUrl $siteUrl $siteTitle  $listTitle;
     }
-       if($list.BaseType -eq "DocumentLibrary")
-       { 
+      
         #todo unique persmissions on Folders
        # $folders = Get-PnPFolderInFolder -Identity $list  -Recurse
          $collListItem = Get-PnPListItem -PageSize 2000 -List $list
@@ -191,20 +176,29 @@ Function QueryUniquePermissions($_web)
             foreach($item in $collListItem) 
             {
                 Get-PnPProperty -ClientObject $item -Property File,HasUniqueRoleAssignments;
-                $fileUrl = $item.FieldValues.FileRef;  
+              
                 if($item.HasUniqueRoleAssignments -eq $True)
                 { 
-                  $Type = $item.FileSystemObjectType; 
+                  if($list.BaseType -eq "DocumentLibrary")
+                  {
+                    $Type = $item.FileSystemObjectType; 
+                    $fileUrl = $item.FieldValues.FileRef;  
+                  }
+                  else
+                  {
+                    $Type = "item"
+                    $fileUrl = "$siteurl/lists/$listTitle/AllItems.aspx?FilterField1=ID&FilterValue1=$($item.id)"
+                  }
                   #$permissions += (
                     QueryUniquePermissionsByObject $_web $item $Type $fileUrl $siteUrl $siteTitle $listTitle;
                     #);
                   #$sharingLinks += (
-                    QuerySharingLinksByObject $_web $list $Type $listUrl $siteUrl $siteTitle  $listTitle;
+                    QuerySharingLinksByObject $_web $item $Type $fileUrl $siteUrl $siteTitle  $listTitle;
+        
                     #);
                 } 
              } 
-           } 
-         } 
+           }
      }
     #return  $permissions;
 }
@@ -218,6 +212,10 @@ if(Test-Path $ExportFileDirectory){
    #root web , i.e. site collection level
    #$Permissions += 
    QueryUniquePermissions($web);
+
+
+  #QuerySharingLinksByObject $web "Site Pages" "file" "https://ppfonline.sharepoint.com/sites/Connect-News-BusinessUpdates/SitePages/A-message-from-Kate-Jones.aspx" "https://ppfonline.sharepoint.com/sites/Connect-News-BusinessUpdates" "Connect-News-BusinessUpdates"  "Site Pages";
+
    Write-Host "Permission count: $($global:permissions.Count)";
    Write-Host "Sharing Link count: $($global:sharingLinks.Count)";
 
@@ -240,5 +238,11 @@ Write-Host "Invalid directory path:" $ExportFileDirectory -ForegroundColor "Red"
 ```
 
 ## Conclusion
+Sharing files is an immanent collaboration feature. However, to which extend it is used or can be used, especially external sharing, should be up to every organization. There are different requirements, regulations and compliance aspects to keep in mind. These basic views for users and admins are something to start with but depending on more specific requirements this can be insufficient. For IT admins the reports are just a supportive (tiny) part of the compliance, regulation and monitoring puzzle they have to face, in my opinion.
+
+For data governance a holistic approach is required. This short abstract only highlights the three areas, two for users and one for admins to gain insights on shared file via OneDrive for Business and SharePoint Online. These are not the only options, of course.
+
+
+## References
 
 [How to check links shared in SharePoint Online or OneDrive for Business?](https://erik365.blog/2023/03/16/how-to-check-links-shared-in-sharepoint-online-or-onedrive-for-business/#:~:text=In%20the%20SharePoint%20Online%20report,on%20your%20Microsoft%20365%20users)
