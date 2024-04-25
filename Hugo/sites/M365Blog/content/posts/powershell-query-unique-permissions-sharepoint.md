@@ -34,7 +34,8 @@ Function PermissionObject($_object,$_type,$_relativeUrl,$_siteUrl,$_siteTitle,$_
     $permission.Roles = $_roleDefinitionBindings -join ","; 
 
    ## Write-Host  "Site URL: " $_siteUrl  "Site Title"  $_siteTitle  "List Title" $_istTitle "Member Type" $_memberType "Relative URL" $_RelativeUrl "Member Name" $_memberName "Role Definition" $_roleDefinitionBindings -Foregroundcolor "Green";
-    return $permission;
+   $global:permissions += $permission;
+   #return $global:permissions;
 }
 
 Function SharingLinkObject($_object,$_type,$_relativeUrl,$_siteUrl,$_siteTitle,$_listTitle,$_memberName,$_memberLoginName,$_memberEmail,$_accessType)
@@ -51,9 +52,13 @@ Function SharingLinkObject($_object,$_type,$_relativeUrl,$_siteUrl,$_siteTitle,$
     $sharingLink.Access = $accessType; 
 
    ## Write-Host  "Site URL: " $_siteUrl  "Site Title"  $_siteTitle  "List Title" $_istTitle "Member Type" $_memberType "Relative URL" $_RelativeUrl "Member Name" $_memberName "Role Definition" $_roleDefinitionBindings -Foregroundcolor "Green";
-    return $sharingLink;
+   $global:sharingLinks += $sharingLink;
+   #return $global:sharingLinks;
 }
-
+Function Extract-Guid ($inputString) {
+    $splitString = $inputString -split '\|'
+    return $splitString[2].TrimEnd('_o')
+}
 Function QueryUniquePermissionsByObject($_web,$_object,$_Type,$_RelativeUrl,$_siteUrl,$_siteTitle,$_listTitle)
 {
   $roleAssignments = Get-PnPProperty -ClientObject $_object -Property RoleAssignments
@@ -63,7 +68,7 @@ Function QueryUniquePermissionsByObject($_web,$_object,$_Type,$_RelativeUrl,$_si
       $PermissionLevels = $roleAssign.RoleDefinitionBindings | Select -ExpandProperty Name;
       
       $collGroups = Get-PnPSiteGroup;
-
+      $MemberType = $roleAssign.Member.GetType().Name; 
    if($MemberType -eq "Group" -or $MemberType -eq "User")
     { 
        # Get-PnPProperty -ClientObject $roleAssign.Member -Property LoginName,Title;    
@@ -78,7 +83,7 @@ Function QueryUniquePermissionsByObject($_web,$_object,$_Type,$_RelativeUrl,$_si
          $ParentGroup = $MemberName;
         }
  
-        $global:permissions += (PermissionObject $_object $_Type $_RelativeUrl $_siteUrl $_siteTitle $_listTitle $MemberType $ParentGroup $MemberName $MemberLoginName $PermissionLevels); 
+         (PermissionObject $_object $_Type $_RelativeUrl $_siteUrl $_siteTitle $_listTitle $MemberType $ParentGroup $MemberName $MemberLoginName $PermissionLevels); 
      
        if($_Type  -eq "Site" -and $MemberType -eq "Group")
        {
@@ -86,10 +91,28 @@ Function QueryUniquePermissionsByObject($_web,$_object,$_Type,$_RelativeUrl,$_si
           {
             if($group.Title -eq $MemberName)
              {
-              $groupUsers = Get-PnPGroupMember -Group $group
+              $groupUsers = Get-PnPGroupMember -Group $group.Title
+
                ##Write-Host "Number of users" $group.Users.Count;
               $groupUsers|foreach-object{ 
-                $global:permissions += (PermissionObject $_object "Site" $_RelativeUrl $_siteUrl $_siteTitle "" "GroupMember" $group.Title $_.Title $_.LoginName $PermissionLevels); 
+                if ($_.LoginName.StartsWith("c:0o.c|federateddirectoryclaimprovider|") -and $_.LoginName.EndsWith("_0")) {
+                    $guid = Extract-Guid $_.LoginName
+                   
+                    Get-PnPMicrosoft365GroupOwners -Identity $guid | ForEach-Object {
+                        $user = $_
+                        (PermissionObject $_object "Site" $_RelativeUrl $_siteUrl $_siteTitle "" "GroupMember" $group.Title $user.DisplayName $user.UserPrincipalName $PermissionLevels); 
+                    }
+                }
+                elseif ($_.LoginName.StartsWith("c:0o.c|federateddirectoryclaimprovider|")) {
+                    $guid = Extract-Guid $_.LoginName
+                   
+                    Get-PnPMicrosoft365GroupMembers -Identity $guid | ForEach-Object {
+                        $user = $_
+                        (PermissionObject $_object "Site" $_RelativeUrl $_siteUrl $_siteTitle "" "GroupMember" $group.Title $user.DisplayName $user.UserPrincipalName $PermissionLevels); 
+                    }
+                }
+
+                (PermissionObject $_object "Site" $_RelativeUrl $_siteUrl $_siteTitle "" "GroupMember" $group.Title $_.Title $_.LoginName $PermissionLevels); 
                   ##Write-Host  $permissions.Count
                  }
                }
@@ -119,7 +142,7 @@ Function QuerySharingLinksByObject($_web,$_object,$_Type,$_RelativeUrl,$_siteUrl
           {
               ForEach ($User in $Users)
               {
-                $global:sharingLinks += (SharingLinkObject $_object $_Type $Item.FieldValues["FileRef"] $_siteUrl $_siteTitle $_listTitle $user.Title $User.LoginName $User.Email $AccessType);
+                SharingLinkObject $_object $_Type $Item.FieldValues["FileRef"] $_siteUrl $_siteTitle $_listTitle $user.Title $User.LoginName $User.Email $AccessType;
               }
             }      
         }
@@ -139,6 +162,9 @@ Function QueryUniquePermissions($_web)
   $ll = Get-PnPList -Includes BaseType, Hidden, Title,HasUniqueRoleAssignments,RootFolder  -Connection $siteconn | Where-Object {$_.Hidden -eq $False -and $_.Title -notin $ExcludedLibraries } #$_.BaseType -eq "DocumentLibrary" 
   Write-Host "Number of lists $($ll.Count)";
 
+  QueryUniquePermissionsByObject $_web $_web "Site" "" $siteUrl $siteTitle  "";
+  QuerySharingLinksByObject $_web $_web "Site" "" $siteUrl $siteTitle  "";
+
   foreach($list in $ll)
   {      
     $listUrl = $list.RootFolder.ServerRelativeUrl; 
@@ -154,7 +180,7 @@ Function QueryUniquePermissions($_web)
        $Type = $list.BaseType.ToString(); 
        QueryUniquePermissionsByObject $_web $list $Type $listUrl $siteUrl $siteTitle  $listTitle;
        QuerySharingLinksByObject $_web $list $Type $listUrl $siteUrl $siteTitle  $listTitle;
- 
+    }
        if($list.BaseType -eq "DocumentLibrary")
        { 
         #todo unique persmissions on Folders
@@ -179,7 +205,6 @@ Function QueryUniquePermissions($_web)
              } 
            } 
          } 
-       }
      }
     #return  $permissions;
 }
