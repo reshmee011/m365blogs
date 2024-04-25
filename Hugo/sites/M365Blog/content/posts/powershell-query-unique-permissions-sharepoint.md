@@ -240,3 +240,5 @@ Write-Host "Invalid directory path:" $ExportFileDirectory -ForegroundColor "Red"
 ```
 
 ## Conclusion
+
+[How to check links shared in SharePoint Online or OneDrive for Business?](https://erik365.blog/2023/03/16/how-to-check-links-shared-in-sharepoint-online-or-onedrive-for-business/#:~:text=In%20the%20SharePoint%20Online%20report,on%20your%20Microsoft%20365%20users)
