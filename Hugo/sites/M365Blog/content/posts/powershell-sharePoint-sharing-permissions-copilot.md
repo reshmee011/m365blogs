@@ -372,6 +372,13 @@ Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
             -DisableCompanyWideSharingLinks Disabled `
             -AnonymousLinkExpirationInDays 60 
 ```
+## Other settings to consider 
+
+1. Sensitivity Labels
+[How to protect sensitive information in SharePoint Online using Purview Sensitivity Labels](https://www.sharepointeurope.com/how-to-protect-sensitive-information-in-sharepoint-online-using-purview-sensitivity-labels/?utm_source=collab365&utm_medium=collab365today&utm_campaign=daily_digest)
+
+2. Retention Policies
+3. Data Loss Prevention
 
 ## Conclusion
 
@@ -394,3 +401,5 @@ Effective management of sharing settings is crucial for maintaining data securit
 [Set-SPOSite](https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/set-sposite?view=sharepoint-ps&wt.mc_id=MVP_308367)
 
 [Limit Sharing](https://learn.microsoft.com/en-us/microsoft-365/solutions/microsoft-365-limit-sharing?view=o365-worldwide#people-in-your-organization-sharing-links&wt.mc_id=MVP_308367)
+
+[How to protect sensitive information in SharePoint Online using Purview Sensitivity Labels](https://www.sharepointeurope.com/how-to-protect-sensitive-information-in-sharepoint-online-using-purview-sensitivity-labels/?utm_source=collab365&utm_medium=collab365today&utm_campaign=daily_digest)
