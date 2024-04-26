@@ -1,7 +1,7 @@
 ---
 title: "PowerShell Update Site Header Sitelogo Thumbnail"
 date: 2024-02-11T06:39:48Z
-draft: true
+draft: false
 ---
 
 ```PowerShell
@@ -13,6 +13,7 @@ Connect-PnPOnline -Url $AdminCenterURL -Interactive
 $logoLocalPath = (Get-Location).Path + '\Logo\logo white 1280x1280.png'
  
 $m365Sites = Get-PnPHubSiteChild -Identity $hubSiteUrl
+
 Start-Transcript
  
 $m365Sites | ForEach-Object {
