@@ -1,5 +1,5 @@
 ---
-title: "Pnp Powershell Get Folder Item"
+title: "Get Folder Item properties using PnP PowerShell : Get-PnPFolderItem versus Get-PnPListItem"
 date: 2024-04-01T09:00:00Z
 tags: ["SharePoint","PnP","PowerShell", "lists","libraries"]
 featured_image: '/posts/images/Pnp-Powershell-Get-Folder-Item/sample.png'
@@ -22,12 +22,11 @@ Get-PnPFolderItem : The attempted operation is prohibited because it exceeds the
 
 Regrettably, this cmdlet lacks a -PageSize parameter, complicating the handling of large datasets.
 
-Leveraging Get-PnPListItem
+## Leveraging Get-PnPListItem
 To circumvent the limitations of Get-PnPFolderItem, Get-PnPListItem can be used. This cmdlet enables efficient retrieval of files from large libraries, especially within specific folders, along with their associated properties.
 
 
 ```PowerShell
-
 $SiteUrl = "https://contoso.sharepoint.com/sites/test"
 Connect-PnPOnline -url $SiteUrl -Interactive
 $FolderSiteRelativeURL = "*Shared Documents/folder/subfolder-folder/subfolder-subfolder-folder*"

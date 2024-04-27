@@ -1,6 +1,8 @@
 ---
 title: "Powershell Query Unique Permissions Sharepoint"
 date: 2024-04-24T22:31:33+01:00
+tags: ["SharePoint","SPFx","nvm","Node","Development SetUp"]
+featured_image: '/posts/images/nvm-environment-spfx-setup/npm_deprecatedFeatures.png'
 draft: true
 ---
 
@@ -236,6 +238,7 @@ Write-Host "Invalid directory path:" $directorypath -ForegroundColor "Red";
 ```
 
 ## Conclusion
+
 Sharing files is an immanent collaboration feature. However, to which extend it is used or can be used, especially external sharing, should be up to every organization. There are different requirements, regulations and compliance aspects to keep in mind. These basic views for users and admins are something to start with but depending on more specific requirements this can be insufficient. For IT admins the reports are just a supportive (tiny) part of the compliance, regulation and monitoring puzzle they have to face, in my opinion.
 
 For data governance a holistic approach is required. This short abstract only highlights the three areas, two for users and one for admins to gain insights on shared file via OneDrive for Business and SharePoint Online. These are not the only options, of course.
@@ -244,3 +247,5 @@ For data governance a holistic approach is required. This short abstract only hi
 ## References
 
 [How to check links shared in SharePoint Online or OneDrive for Business?](https://erik365.blog/2023/03/16/how-to-check-links-shared-in-sharepoint-online-or-onedrive-for-business/#:~:text=In%20the%20SharePoint%20Online%20report,on%20your%20Microsoft%20365%20users)
+
+[CSOM in PowerShell Query All Unique Permissions](https://reshmeeauckloo.wordpress.com/tag/query-unique-permissions-site-webs-and-lists-csom-powershell/)

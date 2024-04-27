@@ -110,7 +110,7 @@ Confirm-Connection $Connection
 Add-SharePointListFields $Connection $newFields
 ```
 
-This approach allows you to utilize the module without installing it permanently, facilitating easier testing and experimentation. 
+This approach allows you to utilize the module without installing it permanently, facilitating easier testing and experimentation.
 
 ## References
 
