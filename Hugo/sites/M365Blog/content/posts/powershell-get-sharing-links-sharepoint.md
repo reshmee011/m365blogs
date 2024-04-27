@@ -10,7 +10,7 @@ draft: false
 
 Effective oversight of sharing links is paramount to ensuring data security, compliance, and optimal collaboration experiences. As organizations migrate to M365 environments, they inherit powerful collaboration tools that facilitate seamless sharing of documents and resources. However, without proper governance, these capabilities can lead to unintended consequences such as data breaches, compliance violations, and loss of intellectual property.
 
-![ManageLiks](../images/powershell-sharePoint-sharing-permissions-copilot/ManageLinks.png)
+![ManageLinks](../images/powershell-get-sharing-links-sharepoint/ManageLinks.png)
 
 For Copilot for M365 implementations, ensuring there is no oversharing is a critical aspect of safeguarding sensitive information and maintaining regulatory compliance. By integrating the sharing link audit process into their deployment strategies, administrators can preemptively address security vulnerabilities and uphold the integrity of M365 environments. Continuous monitoring and optimisation allows to harness the full potential of M365 collaboration tools while safeguarding against unauthorised access and data leaks.
 
