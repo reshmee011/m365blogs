@@ -9,9 +9,13 @@ Clear-Host
 
 $properties=@{SiteUrl='';SiteTitle='';ListTitle='';Type='';RelativeUrl='';ParentGroup='';MemberType='';MemberName='';MemberLoginName='';Roles='';}; 
  
-$ExportFileDirectory = (get-location).ToString();
+$dateTime = (Get-Date).toString("dd-MM-yyyy-hh-ss")
+$invocation = (Get-Variable MyInvocation).Value
+$directorypath = Split-Path $invocation.MyCommand.Path
 
-$SiteCollectionUrl = Read-Host -Prompt "Enter site collection URL: ";
+$includeListsItems = $true;
+
+$SiteCollectionUrl = Read-Host -Prompt "Enter site collection URL ";
 $global:siteTitle= "";
 #Exclude certain libraries
 $ExcludedLibraries = @("Form Templates", "Preservation Hold Library", "Site Assets", "Images", "Pages", "Settings", "Videos","Timesheet"
@@ -42,6 +46,7 @@ Function Extract-Guid ($inputString) {
     $splitString = $inputString -split '\|'
     return $splitString[2].TrimEnd('_o')
 }
+
 Function QueryUniquePermissionsByObject($_web,$_object,$_Type,$_RelativeUrl,$_siteUrl,$_siteTitle,$_listTitle)
 {
   $roleAssignments = Get-PnPProperty -ClientObject $_object -Property RoleAssignments
@@ -49,65 +54,64 @@ Function QueryUniquePermissionsByObject($_web,$_object,$_Type,$_RelativeUrl,$_si
   foreach($roleAssign in $roleAssignments){
       Get-PnPProperty -ClientObject $roleAssign -Property RoleDefinitionBindings,Member;
       $PermissionLevels = $roleAssign.RoleDefinitionBindings | Select -ExpandProperty Name;
-      
-      $collGroups = Get-PnPSiteGroup;
-      $MemberType = $roleAssign.Member.GetType().Name; 
-   if($MemberType -eq "Group" -or $MemberType -eq "User")
-    { 
-       # Get-PnPProperty -ClientObject $roleAssign.Member -Property LoginName,Title;    
-        $MemberName = $roleAssign.Member.Title; 
-        $MemberLoginName = $roleAssign.Member.LoginName;    
-        if($MemberType -eq "User")
-        {
-         $ParentGroup = "NA";
-        }
-        else
-        {
-         $ParentGroup = $MemberName;
-        }
- 
-         (PermissionObject $_object $_Type $_RelativeUrl $_siteUrl $_siteTitle $_listTitle $MemberType $ParentGroup $MemberName $MemberLoginName $PermissionLevels); 
-     
-       if($_Type  -eq "Site" -and $MemberType -eq "Group")
-       {
-          foreach($group in $collGroups)
+      #Get all permission levels assigned (Excluding:Limited Access)  
+
+      $PermissionLevels = ($PermissionLevels | Where { $_ -ne "Limited Access"}) -join ","  
+      #Get the Principal Type: User, SP Group, AD Group  
+      $PermissionType = $roleAssign.Member.PrincipalType  
+      If($PermissionLevels.Length -gt 0) {
+        $MemberType = $roleAssign.Member.GetType().Name; 
+        if($MemberType -eq "Group" -or $MemberType -eq "User")
+          { 
+        # Get-PnPProperty -ClientObject $roleAssign.Member -Property LoginName,Title;    
+          $MemberName = $roleAssign.Member.Title; 
+          $MemberLoginName = $roleAssign.Member.LoginName;    
+          if($MemberType -eq "User")
           {
-            if($group.Title -eq $MemberName)
-             {
-              $groupUsers = Get-PnPGroupMember -Group $group.Title
-
-               ##Write-Host "Number of users" $group.Users.Count;
-              $groupUsers|foreach-object{ 
-                if ($_.LoginName.StartsWith("c:0o.c|federateddirectoryclaimprovider|") -and $_.LoginName.EndsWith("_0")) {
-                    $guid = Extract-Guid $_.LoginName
-                   
-                    Get-PnPMicrosoft365GroupOwners -Identity $guid | ForEach-Object {
-                        $user = $_
-                        (PermissionObject $_object "Site" $_RelativeUrl $_siteUrl $_siteTitle "" "GroupMember" $group.Title $user.DisplayName $user.UserPrincipalName $PermissionLevels); 
-                    }
-                }
-                elseif ($_.LoginName.StartsWith("c:0o.c|federateddirectoryclaimprovider|")) {
-                    $guid = Extract-Guid $_.LoginName
-                   
-                    Get-PnPMicrosoft365GroupMembers -Identity $guid | ForEach-Object {
-                        $user = $_
-                        (PermissionObject $_object "Site" $_RelativeUrl $_siteUrl $_siteTitle "" "GroupMember" $group.Title $user.DisplayName $user.UserPrincipalName $PermissionLevels); 
-                    }
-                }
-
-                (PermissionObject $_object "Site" $_RelativeUrl $_siteUrl $_siteTitle "" "GroupMember" $group.Title $_.Title $_.LoginName $PermissionLevels); 
-                  ##Write-Host  $permissions.Count
-                 }
-               }
+           $ParentGroup = "NA";
           }
-       } 
-     }
-      
-   }
-#  return $_permissions;
+          else
+          {
+           $ParentGroup = $MemberName;
+          }
+  
+          (PermissionObject $_object $_Type $_RelativeUrl $_siteUrl $_siteTitle $_listTitle $MemberType $ParentGroup $MemberName $MemberLoginName $PermissionLevels); 
+        }
+
+        if($_Type  -eq "Site" -and $MemberType -eq "Group")
+        {
+            If($PermissionType -eq "SharePointGroup")  {  
+                #Get Group Members  
+                $groupUsers = Get-PnPGroupMember -Identity $roleAssign.Member.LoginName                  
+                
+                ##Write-Host "Number of users" $group.Users.Count;
+                $groupUsers|foreach-object{ 
+                  if ($_.LoginName.StartsWith("c:0o.c|federateddirectoryclaimprovider|") -and $_.LoginName.EndsWith("_0")) {
+                      $guid = Extract-Guid $_.LoginName
+                    
+                      Get-PnPMicrosoft365GroupOwners -Identity $guid | ForEach-Object {
+                          $user = $_
+                          (PermissionObject $_object "Site" $_RelativeUrl $_siteUrl $_siteTitle "" "GroupMember" $roleAssign.Member.LoginName $user.DisplayName $user.UserPrincipalName $PermissionLevels); 
+                      }
+                  }
+                  elseif ($_.LoginName.StartsWith("c:0o.c|federateddirectoryclaimprovider|")) {
+                      $guid = Extract-Guid $_.LoginName
+                    
+                      Get-PnPMicrosoft365GroupMembers -Identity $guid | ForEach-Object {
+                          $user = $_
+                          (PermissionObject $_object "Site" $_RelativeUrl $_siteUrl $_siteTitle "" "GroupMember" $roleAssign.Member.LoginName $user.DisplayName $user.UserPrincipalName $PermissionLevels); 
+                      }
+                  }
+
+                  (PermissionObject $_object "Site" $_RelativeUrl $_siteUrl $_siteTitle "" "GroupMember" $roleAssign.Member.LoginName $_.Title $_.LoginName $PermissionLevels); 
+                    ##Write-Host  $permissions.Count
+                  
+                }
+            }
+        } 
+      }      
+ }
 }
-
-
 Function QuerySharingLinksByObject($_web,$_object,$_Type,$_RelativeUrl,$_siteUrl,$_siteTitle,$_listTitle)
 {
   $roleAssignments = Get-PnPProperty -ClientObject $_object -Property RoleAssignments
@@ -119,6 +123,7 @@ Function QuerySharingLinksByObject($_web,$_object,$_Type,$_RelativeUrl,$_siteUrl
       #Get Access type
       $AccessType = $roleAssign.RoleDefinitionBindings.Name
       $MemberType = $roleAssign.Member.GetType().Name; 
+      $description = $roleAssign.Member.Description;  
       #Sharing link is in the format SharingLinks.03012675-2057-4d1d-91e0-8e3b176edd94.OrganizationView.20d346d3-d359-453b-900c-633c1551ccaa
       If ($roleAssign.Member.Title -like "SharingLinks*")
       {
@@ -128,7 +133,7 @@ Function QuerySharingLinksByObject($_web,$_object,$_Type,$_RelativeUrl,$_siteUrl
               ForEach ($User in $Users)
               {
                # PermissionObject $_object $_Type $Item.FieldValues["FileRef"] $_siteUrl $_siteTitle $_listTitle $user.Title $User.LoginName $User.Email $AccessType;
-                PermissionObject $_object $_Type $_RelativeUrl $_siteUrl $_siteTitle $_listTitle $MemberType  "Sharing Links"  $user.Title $User.LoginName  $AccessType; 
+                PermissionObject $_object $_Type $_RelativeUrl $_siteUrl $_siteTitle $_listTitle "Sharing Links" $description  $user.Title $User.LoginName  $AccessType; 
               }
             }      
         }
@@ -169,8 +174,7 @@ Function QueryUniquePermissions($_web)
     }
       
         #todo unique persmissions on Folders
-       # $folders = Get-PnPFolderInFolder -Identity $list  -Recurse
-         $collListItem = Get-PnPListItem -PageSize 2000 -List $list
+       if($includeListsItems){         $collListItem = Get-PnPListItem -PageSize 2000 -List $list
          $count = $collListItem.Count
             Write-Host  "Number of items : $count within list $listTitle" 
             foreach($item in $collListItem) 
@@ -199,11 +203,12 @@ Function QueryUniquePermissions($_web)
                 } 
              } 
            }
+          }
      }
     #return  $permissions;
 }
 
-if(Test-Path $ExportFileDirectory){
+if(Test-Path $directorypath){
  
   Connect-PnPOnline -Url $SiteCollectionUrl -Interactive
   #array storing permissions
@@ -217,23 +222,16 @@ if(Test-Path $ExportFileDirectory){
   #QuerySharingLinksByObject $web "Site Pages" "file" "https://ppfonline.sharepoint.com/sites/Connect-News-BusinessUpdates/SitePages/A-message-from-Kate-Jones.aspx" "https://ppfonline.sharepoint.com/sites/Connect-News-BusinessUpdates" "Connect-News-BusinessUpdates"  "Site Pages";
 
    Write-Host "Permission count: $($global:permissions.Count)";
-   Write-Host "Sharing Link count: $($global:sharingLinks.Count)";
-
-   $todayDateTime = Get-Date -format "yyyyMMMdd_hhmmss"
-
-   $exportFilePath = Join-Path -Path $ExportFileDirectory -ChildPath $([string]::Concat($siteTitle,"-Permissions_",$todayDateTime,".csv"));
+   $exportFilePath = Join-Path -Path $directorypath -ChildPath $([string]::Concat($siteTitle,"-Permissions_",$dateTime,".csv"));
   
    Write-Host "Export File Path is:" $exportFilePath
    Write-Host "Number of lines exported is :" $global:permissions.Count
  
-   $global:permissions|Select SiteUrl,SiteTitle,Type,RelativeUrl,ListTitle,MemberType,MemberName,MemberLoginName,ParentGroup,Roles|Export-CSV -Path $exportFilePath -NoTypeInformation;
-   $exportSFilePath = Join-Path -Path $ExportFileDirectory -ChildPath $([string]::Concat($siteTitle,"-Sharing_",$todayDateTime,".csv"));
-   $global:sharingLinks|Select SiteUrl,SiteTitle,Type,RelativeUrl,ListTitle,MemberType,MemberName,MemberLoginName,ParentGroup,Roles|Export-CSV -Path $exportSFilePath -NoTypeInformation;
+   $global:permissions | Select-Object SiteUrl,SiteTitle,Type,RelativeUrl,ListTitle,MemberType,MemberName,MemberLoginName,ParentGroup,Roles|Export-CSV -Path $exportFilePath -NoTypeInformation;
+  
 }
 else{
- 
-Write-Host "Invalid directory path:" $ExportFileDirectory -ForegroundColor "Red";
- 
+Write-Host "Invalid directory path:" $directorypath -ForegroundColor "Red";
 }
 ```
 
