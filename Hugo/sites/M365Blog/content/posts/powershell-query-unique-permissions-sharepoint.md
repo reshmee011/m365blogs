@@ -1,12 +1,12 @@
 ---
 title: "PowerShell Script to Query Unique Permissions in SharePoint"
-date: 2024-04-29T22:31:33+01:00
+date: 2024-04-28T22:31:33+01:00
 tags: ["SharePoint","Unique Permissions","SharingLinks","PowerShell","Sites", "Security","Copilot for M365", "Governance","CSOM"]
 featured_image: '/posts/images/powershell-query-unique-permissions-sharepoint/report.png'
 draft: false
 ---
 
-# PowerShell Script to Query Unique Permissions in SharePoint
+# Query Unique Permissions in SharePoint using CSOM and PnP PowerShell
 
 Managing permissions in SharePoint is a critical aspect of maintaining data security and compliance within organisations. However, as SharePoint environments grow in complexity, manually auditing and managing permissions becomes increasingly challenging. To address this challenge, PowerShell scripts can be leveraged to automate the auditing process, providing administrators with valuable insights into permission structures across SharePoint sites and libraries.
 
