@@ -1,10 +1,29 @@
 ---
-title: "Powershell Query Unique Permissions Sharepoint"
-date: 2024-04-24T22:31:33+01:00
-tags: ["SharePoint","SPFx","nvm","Node","Development SetUp"]
-featured_image: '/posts/images/nvm-environment-spfx-setup/npm_deprecatedFeatures.png'
-draft: true
+title: "PowerShell Script to Query Unique Permissions in SharePoint"
+date: 2024-04-29T22:31:33+01:00
+tags: ["SharePoint","Unique Permissions","SharingLinks","PowerShell","Sites", "Security","Copilot for M365", "Governance","CSOM"]
+featured_image: '/posts/images/powershell-query-unique-permissions-sharepoint/report.png'
+draft: false
 ---
+
+# PowerShell Script to Query Unique Permissions in SharePoint
+
+Managing permissions in SharePoint is a critical aspect of maintaining data security and compliance within organisations. However, as SharePoint environments grow in complexity, manually auditing and managing permissions becomes increasingly challenging. To address this challenge, PowerShell scripts can be leveraged to automate the auditing process, providing administrators with valuable insights into permission structures across SharePoint sites and libraries.
+
+For Copilot for M365 implementations, ensuring there is no oversharing is a critical aspect of safeguarding sensitive information and maintaining regulatory compliance. By integrating the unique permissions audit process, administrators can preemptively address security vulnerabilities and uphold the integrity of M365 environments. Continuous monitoring and optimisation allows to harness the full potential of M365 collaboration tools while safeguarding against unauthorised access and data leaks.
+
+## Introduction
+
+In this blog post, we'll explore a PowerShell script designed to automate the auditing of SharePoint permissions. This script facilitates the retrieval of unique permission assignments and sharing links for sites, lists, and items within a SharePoint environment. By executing this script, administrators can generate comprehensive reports detailing permission assignments, enabling them to identify potential security risks and ensure compliance with organizational policies.
+
+![ManageLinks](../images/powershell-query-unique-permissions-sharepoint/UniquePermissions.png)
+
+I have not been able to determine why unique permissions are sometimes created without generating a sharing link. One of the scenerios I noticed is the sharing link is only created when "Copy Link" is clicked on.
+
+![CopyLinks](../images/powershell-get-sharing-links-sharepoint/linkcopied.png)
+
+## PowerShell script Overview
+
 ```powershell
 
 Clear-Host
@@ -14,8 +33,8 @@ $properties=@{SiteUrl='';SiteTitle='';ListTitle='';Type='';RelativeUrl='';Parent
 $dateTime = (Get-Date).toString("dd-MM-yyyy-hh-ss")
 $invocation = (Get-Variable MyInvocation).Value
 $directorypath = Split-Path $invocation.MyCommand.Path
-
-$includeListsItems = $true;
+$excludeLimitedAccess = $true; # update to $false to include limited access permissions
+$includeListsItems = $true; # update to $false to exclude list items/files 
 
 $SiteCollectionUrl = Read-Host -Prompt "Enter site collection URL ";
 $global:siteTitle= "";
@@ -55,12 +74,13 @@ Function QueryUniquePermissionsByObject($_web,$_object,$_Type,$_RelativeUrl,$_si
     Get-PnPProperty -ClientObject $roleAssign -Property RoleDefinitionBindings,Member;
     $PermissionLevels = $roleAssign.RoleDefinitionBindings | Select -ExpandProperty Name;
     #Get all permission levels assigned (Excluding:Limited Access)  
-   # $PermissionLevels = ($PermissionLevels | Where { $_ -ne "Limited Access"}) -join ","  
+    if($excludeLimitedAccess -eq $true){
+       $PermissionLevels = ($PermissionLevels | Where { $_ -ne "Limited Access"}) -join ","  
+    }
     $Users = Get-PnPProperty -ClientObject ($roleAssign.Member) -Property Users -ErrorAction SilentlyContinue
     #Get Access type
     $AccessType = $roleAssign.RoleDefinitionBindings.Name
     $MemberType = $roleAssign.Member.GetType().Name; 
-    $description = $roleAssign.Member.Description;  
     #Get the Principal Type: User, SP Group, AD Group  
     $PermissionType = $roleAssign.Member.PrincipalType  
     If($PermissionLevels.Length -gt 0) {
@@ -72,12 +92,11 @@ Function QueryUniquePermissionsByObject($_web,$_object,$_Type,$_RelativeUrl,$_si
             {
                 ForEach ($User in $Users)
                 {
-                PermissionObject $_object $_Type $_RelativeUrl $_siteUrl $_siteTitle $_listTitle "Sharing Links" $description  $user.Title $User.LoginName  $AccessType; 
+                PermissionObject $_object $_Type $_RelativeUrl $_siteUrl $_siteTitle $_listTitle "Sharing Links" $roleAssign.Member.LoginName  $user.Title $User.LoginName  $AccessType; 
                 }
             }      
         }
-
-      if($MemberType -eq "Group" -or $MemberType -eq "User")
+      ElseIf($MemberType -eq "Group" -or $MemberType -eq "User")
       { 
         $MemberName = $roleAssign.Member.Title; 
         $MemberLoginName = $roleAssign.Member.LoginName;    
@@ -197,13 +216,46 @@ if(Test-Path $directorypath){
 else{
   Write-Host "Invalid directory path:" $directorypath -ForegroundColor "Red";
 }
+```
 
+### Script Overview
+
+Let's break down the key components of the PowerShell script:
+
+### Parameters
+
+The script begins by defining parameters such as $tenantUrl, $dateTime, and $directorypath. These parameters allow users to specify the SharePoint site collection URL, generate unique file names for reports, and specify the directory path for exporting reports.
+
+Also two additional parameters are available  $excludeLimitedAccess and $includeListsItems to change behaviour of the script as described in the comments
+
+```powershell
+    $excludeLimitedAccess = $true; # update to $false to include limited access permissions
+    $includeListsItems = $true; # update to $false to exclude list items/files 
+```
+
+### Connection to SharePoint Online Site Collection
+
+Using the Connect-PnPOnline cmdlet, the script establishes a connection to the SharePoint Online site collection. User is prompted to enter the URL of the site collection interactively.
+
+### Retrieval of SharePoint Permissions
+
+The script contains functions (PermissionObject, Extract-Guid, QueryUniquePermissionsByObject, and QueryUniquePermissions) responsible for querying and extracting unique permission assignments for sites, lists, and items within the SharePoint environment. These functions utilise various PnP PowerShell cmdlets to retrieve role assignments, member details, and permission levels.
+
+### Exclusion of Certain Libraries
+
+To streamline the auditing process, the script excludes specified libraries, such as system libraries, using the $ExcludedLibraries array. This ensures that only relevant data is included in the permission audit.
+
+### Exporting the Report
+
+Once the permission data is collected, the script exports it to a CSV file with a timestamped filename. The exported report includes details such as site URL, site title, object type (site, list, or item), relative URL, list title, member type, member name, member login name, parent group, and assigned roles.
+
+### Conclusion
+
+By automating the auditing of SharePoint permissions with PowerShell, organisations can streamline their security and compliance efforts. This script empowers administrators to gain comprehensive insights into permission structures across SharePoint sites and libraries, enabling them to proactively address security vulnerabilities and ensure adherence to regulatory requirements. As SharePoint environments continue to evolve, automation tools like PowerShell play a crucial role in simplifying administrative tasks and enhancing overall governance.
+ 
 ## Conclusion
 
-Sharing files is an immanent collaboration feature. However, to which extend it is used or can be used, especially external sharing, should be up to every organization. There are different requirements, regulations and compliance aspects to keep in mind. These basic views for users and admins are something to start with but depending on more specific requirements this can be insufficient. For IT admins the reports are just a supportive (tiny) part of the compliance, regulation and monitoring puzzle they have to face, in my opinion.
-
-For data governance a holistic approach is required. This short abstract only highlights the three areas, two for users and one for admins to gain insights on shared file via OneDrive for Business and SharePoint Online. These are not the only options, of course.
-
+This script provides a comprehensive way to query unique permissions in SharePoint. It can be used to audit permissions, identify security risks, and ensure compliance with organizational policies.
 
 ## References
 

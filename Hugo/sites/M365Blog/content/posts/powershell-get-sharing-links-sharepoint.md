@@ -25,6 +25,11 @@ However, manually tracking down these links across multiple sites and libraries 
 In this blog post, we'll explore a PowerShell script that automates the process of retrieving sharing links in SharePoint Online and on which file or folder it was created on, empowering administrators to efficiently audit and manage permissions. The script was adapted from 
 [How to get a list of shared links in a SharePoint Online document library? Any PowerShell or other way?](https://learn.microsoft.com/en-us/answers/questions/992330/how-to-get-a-list-of-shared-links-in-a-sharepoint) using the CSOM method GetObjectSharingInformation
 
+
+I have not been able to determine why unique permissions are sometimes created without generating a sharing link. One of the scenerios I noticed is the sharing link is only created when "Copy Link" is clicked on.
+
+![CopyLinks](../images/powershell-get-sharing-links-sharepoint/linkcopied.png)
+
 ## PowerShell Script overview
 
 ```PowerShell
