@@ -24,6 +24,8 @@ I have not been able to determine why unique permissions are sometimes created w
 
 ## PowerShell script Overview
 
+{{< gist reshmee011 c23123e5f1abedd1085876279ac17b7f >}}
+
 ```powershell
 
 Clear-Host
