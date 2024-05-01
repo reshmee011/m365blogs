@@ -30,7 +30,7 @@ This code will create a script tag that links to the Gist specified by the param
 4. Save the file. You can now use your custom shortcode in your markdown files like this:
 Replace username with your GitHub username and gist_id with the ID of the Gist you want to embed.
 
-```html
+```dotnetcli
 {{< gist username gist_id >}}
 ```
 
