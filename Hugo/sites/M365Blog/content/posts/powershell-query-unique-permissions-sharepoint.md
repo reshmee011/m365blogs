@@ -12,6 +12,12 @@ Managing permissions in SharePoint is a critical aspect of maintaining data secu
 
 For Copilot for M365 implementations, ensuring there is no oversharing is a critical aspect of safeguarding sensitive information and maintaining regulatory compliance. By integrating the unique permissions audit process, administrators can preemptively address security vulnerabilities and uphold the integrity of M365 environments. Continuous monitoring and optimisation allows to harness the full potential of M365 collaboration tools while safeguarding against unauthorised access and data leaks.
 
+An extract from [Announcing SharePoint advanced management innovations for the AI and Copilot era](https://techcommunity.microsoft.com/t5/sharepoint-premium-blog/announcing-sharepoint-advanced-management-innovations-for-the-ai/ba-p/4126366?WT.mc_id=5005104&ck_subscriber_id=2673998245)
+
+```powershell
+With Copilot and AI, security has become a concern. Not because Copilot allows people to access anything more than they could previously; it just allows them to find information they have access to faster. A term used sometimes in SharePoint is "Security by obscurity"; hide stuff and hope people don't find it. That doesn't work as well anymore with Copilot. It surfaces data more broadly and quickly. 
+```
+
 ## Introduction
 
 In this blog post, we'll explore a PowerShell script designed to automate the auditing of SharePoint permissions. This script facilitates the retrieval of unique permission assignments and sharing links for sites, lists, and items within a SharePoint environment. By executing this script, administrators can generate comprehensive reports detailing permission assignments, enabling them to identify potential security risks and ensure compliance with organizational policies.
@@ -57,16 +63,19 @@ To streamline the auditing process, the script excludes specified libraries, suc
 
 Once the permission data is collected, the script exports it to a CSV file with a timestamped filename. The exported report includes details such as site URL, site title, object type (site, list, or item), relative URL, list title, member type, member name, member login name, parent group, and assigned roles.
 
+### Alternatives
+
+Check out 3rd party tools, like Rencore, Orchestry, AvePoint, ShareGate, etc.
+
+
 ### Conclusion
 
 By automating the auditing of SharePoint permissions with PowerShell, organisations can streamline their security and compliance efforts. This script empowers administrators to gain comprehensive insights into permission structures across SharePoint sites and libraries, enabling them to proactively address security vulnerabilities and ensure adherence to regulatory requirements. As SharePoint environments continue to evolve, automation tools like PowerShell play a crucial role in simplifying administrative tasks and enhancing overall governance.
- 
-## Conclusion
-
-This script provides a comprehensive way to query unique permissions in SharePoint. It can be used to audit permissions, identify security risks, and ensure compliance with organizational policies.
 
 ## References
 
 [How to check links shared in SharePoint Online or OneDrive for Business?](https://erik365.blog/2023/03/16/how-to-check-links-shared-in-sharepoint-online-or-onedrive-for-business/#:~:text=In%20the%20SharePoint%20Online%20report,on%20your%20Microsoft%20365%20users)
 
 [CSOM in PowerShell Query All Unique Permissions](https://reshmeeauckloo.wordpress.com/tag/query-unique-permissions-site-webs-and-lists-csom-powershell/)
+
+[Announcing SharePoint advanced management innovations for the AI and Copilot era](https://techcommunity.microsoft.com/t5/sharepoint-premium-blog/announcing-sharepoint-advanced-management-innovations-for-the-ai/ba-p/4126366?WT.mc_id=5005104&ck_subscriber_id=2673998245)

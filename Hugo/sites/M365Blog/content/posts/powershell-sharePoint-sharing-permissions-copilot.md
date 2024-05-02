@@ -10,6 +10,12 @@ draft: false
 
 Sharing lies at the heart of collaboration within SharePoint, facilitating seamless communication and teamwork. However, effective management of sharing settings is crucial to maintain data security and prevent unintended exposure. This is particularly important in light of tools like Copilot for M365, which help identify and mitigate instances of oversharing that can compromise data security. Let's explore how PowerShell can empower you to configure some sharing settings effectively at both the tenant and site levels.
 
+An extract from [Announcing SharePoint advanced management innovations for the AI and Copilot era](https://techcommunity.microsoft.com/t5/sharepoint-premium-blog/announcing-sharepoint-advanced-management-innovations-for-the-ai/ba-p/4126366?WT.mc_id=5005104&ck_subscriber_id=2673998245)
+
+```powershell
+With Copilot and AI, security has become a concern. Not because Copilot allows people to access anything more than they could previously; it just allows them to find information they have access to faster. A term used sometimes in SharePoint is "Security by obscurity"; hide stuff and hope people don't find it. That doesn't work as well anymore with Copilot. It surfaces data more broadly and quickly. 
+```
+
 In this article, we'll delve into how PowerShell can empower SharePoint administrators to configure sharing settings proactively at both the tenant and site levels. By leveraging PowerShell scripts, you can streamline the process of enforcing security measures to safeguard sensitive information and mitigate the risk of oversharing.
 
 Let's explore the key strategies and PowerShell commands you can implement to reinforce the security of your SharePoint environment, ensuring that collaboration remains productive while minimizing the potential for data breaches.
@@ -176,6 +182,14 @@ Specifies number of days for guest Access links to expire.
 
 Refer to [External User Access Expiration in SharePoint Online and OneDrive for Business](https://www.sharepointdiary.com/2021/08/guest-user-access-expiration-in-sharepoint-online-onedrive.html#ixzz8XVgAFD56)
 
+### -AllowEveryoneExceptExternalUsersClaimInPrivateSite
+When this parameter is true, the "Everyone except external users" claim is available in the People Picker of a private site. Set it to false to disable this feature.
+
+The valid values are:
+
+True - The "Everyone except external users" claim is available in People Picker of a private site.
+False (default) - The "Everyone except external users" claim is not available in People Picker of a private site.
+
 ### Sample script to amend tenant level sharing settings 
 
 **SPO PowerShell**
@@ -204,6 +218,7 @@ Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
             -DefaultLinkPermission "View" `
             -RequireAcceptingAccountMatchInvitedAccount $false `
             -ExternalUserExpirationRequired  $false `
+            -AllowEveryoneExceptExternalUsersClaimInPrivateSite $true `
             -ExternalUserExpireInDays 60 
 ```
 
@@ -232,9 +247,9 @@ Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
             -DefaultLinkPermission "View" `
             -RequireAcceptingAccountMatchInvitedAccount $false `
             -ExternalUserExpirationRequired  $false `
+            -AllowEveryoneExceptExternalUsersClaimInPrivateSite $true `
             -ExternalUserExpireInDays 60 
 ```
-
  
 ## Site Level Settings
 
