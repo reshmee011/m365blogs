@@ -183,8 +183,8 @@ Specifies number of days for guest Access links to expire.
 Refer to [External User Access Expiration in SharePoint Online and OneDrive for Business](https://www.sharepointdiary.com/2021/08/guest-user-access-expiration-in-sharepoint-online-onedrive.html#ixzz8XVgAFD56)
 
 ### -AllowEveryoneExceptExternalUsersClaimInPrivateSite
-When this parameter is true, the "Everyone except external users" claim is available in the People Picker of a private site. Set it to false to disable this feature.
 
+Enables or disables the "Everyone except external users" claim in the People Picker of a private site. 
 The valid values are:
 
 True - The "Everyone except external users" claim is available in People Picker of a private site.
