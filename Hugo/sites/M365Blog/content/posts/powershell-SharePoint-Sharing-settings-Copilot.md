@@ -1,6 +1,6 @@
 ---
 title: "Empowering Secure Collaboration: Configuring SharePoint Sharing Tenant and Site Settings with PowerShell to prevent oversharing"
-date: 2024-04-16T06:51:10Z
+date: 2024-05-02T06:51:10Z
 tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","Copilot for M365","Governance"]
 featured_image: '/posts/images/powershell-sharePoint-sharing-permissions-copilot/TenantSharingOptions_filefolderdomain.png'
 draft: false
@@ -38,6 +38,8 @@ ExistingExternalUserSharingOnly - Existing guests only - only guests already in 
 
 ![SharingCapability](../images/powershell-sharePoint-sharing-permissions-copilot/SharingCapability.png)
 
+Microsoft recommends configuring the default sharing links to be most restrictive (for example, from company-wide to specific people) and making sure that any access request goes to the SharePoint site owners to help against oversharing.
+
 ### ShowAllUsersClaim
 
 Determines whether the "All Users" claim group is displayed in the People Picker.
@@ -60,25 +62,28 @@ False - The "Everyone" claim is not visible in People Picker. It is the default 
 
 ### ShowEveryoneExceptExternalUsersClaim
 
-Enables or disables the display of the "Everyone except external users" claim in the People Picker. When users share an item with "Everyone except external users", it is accessible to all organisation members except external users in the tenant's Azure Active Directory.
+Enables or disables the display of the "Everyone except external users" claim in the People Picker within the tenant. When users share an item with "Everyone except external users", it is accessible to all organisation members except external users in the tenant's Azure Active Directory.
 
 The valid values are:
 True(default) - The Everyone except external users is displayed in People Picker.
 False - The Everyone except external users claim is not visible in People Picker.
 
-### MySiteSharingCapability
+Microsoft recommends to review site-level sharing controls, and remove “Everyone Except External Users” from the people picker.
+The alternative to consider is the **AllowEveryoneExceptExternalUsersClaimInPrivateSite** which applies the setting only to private sites.
 
-Configures sharing capability for mysite (onedrive), offering options similar to those for the overall tenant.
+### CoreSharingCapability 
+
+Sets the level of sharing available for SharePoint sites excluding OneDrive sites.
 
 The valid values are:
 
-ExternalUserAndGuestSharing (default) - External user sharing (share by email) and guest link sharing are both enabled: Anyone - users can share files and folders using links that don't require sign-in
+- ExternalUserAndGuestSharing (default) - External user sharing (share by email) and guest link sharing are both enabled: Anyone  - users can share files and folders using links that don't require sign-in
 
-Disabled - External user sharing (share by email) and guest link sharing are both disabled - Only people in your organization - no external sharing allowed
+- Disabled - External user sharing (share by email) and guest link sharing are both disabled - Only people in your organisation no external sharing allowed
 
-ExternalUserSharingOnly - External user sharing (share by email) is enabled, but guest link sharing is disabled. New and existing guests - guests must sign in or provide a verification code
+- ExternalUserSharingOnly - External user sharing (share by email) is enabled, but guest link sharing is disabled. New and existing guests - guests must sign in or provide a verification code
 
-ExistingExternalUserSharingOnly - Existing guests only - only guests already in your organization's directory
+- ExistingExternalUserSharingOnly - Existing guests only - only guests already in your organisation's directory
 
 ### ProvisionSharedWithEveryoneFolder
 
@@ -196,8 +201,9 @@ False (default) - The "Everyone except external users" claim is not available in
 
 ```PowerShell
 connect-SPOService -Url https://contoso-admin.sharepoint.com
-
+##SharePoint specific settings
 Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
+             -CoreSharingCapability ExternalUserAndGuestSharing `
             -ShowEveryoneClaim $false  `
             -ShowAllUsersClaim $false `
             -ShowEveryoneExceptExternalUsersClaim $true `
@@ -227,6 +233,7 @@ Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
 ```PowerShell
 connect-pnponline -url https://contoso-admin.sharepoint.com -interactive
 Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
+            -CoreSharingCapability ExternalUserAndGuestSharing ` # I have created a PR to include into PnP PowerShell, not yet released
             -ShowEveryoneClaim $false  `
             -ShowAllUsersClaim $false `
             -ShowEveryoneExceptExternalUsersClaim $true `
@@ -247,7 +254,7 @@ Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
             -DefaultLinkPermission "View" `
             -RequireAcceptingAccountMatchInvitedAccount $false `
             -ExternalUserExpirationRequired  $false `
-            -AllowEveryoneExceptExternalUsersClaimInPrivateSite $true `
+            -AllowEveryoneExceptExternalUsersClaimInPrivateSite $true ` # I have created a PR to include into PnP PowerShell, not yet released
             -ExternalUserExpireInDays 60 
 ```
  
@@ -401,6 +408,10 @@ Effective management of sharing settings is crucial for maintaining data securit
 
 ## References
 
+[Microsoft Copilot for Microsoft 365 - best practices with SharePoint](https://learn.microsoft.com/en-us/SharePoint/sharepoint-copilot-best-practices?wt.mc_id=MVP_308367)
+
+[Microsoft Purview data security and compliance protections for Microsoft Copilot](https://learn.microsoft.com/en-us/purview/ai-microsoft-purview?wt.mc_id=MVP_308367)
+
 [ShowEveryoneExceptExternalUsersClaim](https://pnp.github.io/powershell/cmdlets/Set-PnPTenant.html#-showeveryoneexceptexternalusersclaim)
 
 [SPOSharingSettings](https://microsoft365dsc.com/resources/sharepoint/SPOSharingSettings/)
@@ -409,7 +420,7 @@ Effective management of sharing settings is crucial for maintaining data securit
 
 [External User Access Expiration in SharePoint Online and OneDrive for Business](https://www.sharepointdiary.com/2021/08/guest-user-access-expiration-in-sharepoint-online-onedrive.html#ixzz8XVgAFD56)
 
-[Enable auto-acceleration](https://learn.microsoft.com/en-us/sharepoint/enable-auto-acceleration??wt.mc_id=MVP_308367)
+[Enable auto-acceleration](https://learn.microsoft.com/en-us/sharepoint/enable-auto-acceleration?wt.mc_id=MVP_308367)
 
 [Set-SPOTenant](https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps&wt.mc_id=MVP_308367)
 
