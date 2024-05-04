@@ -481,15 +481,13 @@ For more information on how sensitivity labels work across Microsoft Teams, Shar
 
 [Enable sensitivity labels for Office files in SharePoint and OneDrive](https://docs.microsoft.com/en-us/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?wt.mc_id=MVP_308367) 
 
-[Apply a sensitivity label to content automatically](https://docs.microsoft.com/en-us/microsoft-365/compliance/apply-sensitivity-label-automatically)
-(https://docs.microsoft.com/en-us/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?wt.mc_id=MVP_308367)
+[Apply a sensitivity label to content automatically](https://docs.microsoft.com/en-us/microsoft-365/compliance/apply-sensitivity-label-automatically?wt.mc_id=MVP_308367)
 
 [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 groups, and SharePoint sites](https://learn.microsoft.com/en-us/purview/sensitivity-labels-teams-groups-sites?wt.mc_id=MVP_308367)
 
 The link [Configure a team with security isolation](https://docs.microsoft.com/en-us/microsoft-365/solutions/secure-teams-security-isolation?view=o365-worldwide&wt.mc_id=MVP_308367) describes how to use sensitivity labels to create an isolated team that can be used to provide a collaboration space for sensitive projects with protection that travels with the files that are stored in the team. 
 
-The [How to enable sensitivity labels for containers and synchronize labels](https://learn.microsoft.com/en-us/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#:~:text=External%20sharing%20and-,Conditional%20Access,-settings%2C%20now%20configure&wt.mc_id=MVP_308367) 
-describes container sensitivity labels when combined with CA rules, provide context aware access to the container and the data it stores. For example the data that resides in that container can Only be accessed by your internal users connecting from a corporate (or managed) device or allow external guests connecting from a guest device (that is not one of your corporate devices joined to your tenant). 
+The [How to enable sensitivity labels for containers and synchronize labels](https://learn.microsoft.com/en-us/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#:~:text=External%20sharing%20and-,Conditional%20Access,-settings%2C%20now%20configure&wt.mc_id=MVP_308367) describes container sensitivity labels when combined with CA rules, provide context aware access to the container and the data it stores. For example the data that resides in that container can Only be accessed by your internal users connecting from a corporate (or managed) device or allow external guests connecting from a guest device (that is not one of your corporate devices joined to your tenant). 
 
 [Enable sensitivity labels for Office files in SharePoint and OneDrive ](https://compliance.microsoft.com/informationprotection?viewid=autolabeling&wt.mc_id=MVP_308367)
 
