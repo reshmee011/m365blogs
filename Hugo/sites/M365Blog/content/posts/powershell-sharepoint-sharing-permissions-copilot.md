@@ -17,6 +17,9 @@ With Copilot and AI, security has become a concern. Not because Copilot allows p
 ```
 
 In this article, we'll delve into how PowerShell can empower SharePoint administrators to configure sharing and other governance settings proactively at both the tenant and site levels to protect data.
+
+![SharingSettings](../images/powershell-sharePoint-sharing-permissions-copilot/TenantSharingOptions_filefolderdomain.png)
+
 There are links to additional resources related to Sensitivity Labels , Data Loss Prevention and Retention Policies which also help protecting your data.
 
 ## Tenant Level Sharing Settings
