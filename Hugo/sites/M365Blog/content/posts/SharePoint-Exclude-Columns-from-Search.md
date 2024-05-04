@@ -55,3 +55,5 @@ It would have ideal to have the functionality to exclude a column from search re
 ## References
 
 [Enable content on a site to be searchable](https://learn.microsoft.com/en-us/sharepoint/make-site-content-searchable)
+
+[Sharing files, folders, and list items](https://support.microsoft.com/en-gb/office/sharing-files-folders-and-list-items-74cab0bf-39c6-4112-a63f-88ee121722d0)

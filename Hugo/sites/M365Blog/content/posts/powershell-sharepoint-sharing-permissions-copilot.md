@@ -1,7 +1,7 @@
 ---
-title: "Empowering Secure Collaboration: Configuring SharePoint Sharing Tenant and Site Settings with PowerShell to prevent oversharing"
+title: "Empowering Secure Collaboration: Configuring SharePoint Tenant and Site Settings with PowerShell to prevent oversharing"
 date: 2024-05-03T06:51:10Z
-tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","Copilot for M365","Governance","sensitivity label", "data loss prevention","retention policies"]
+tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","Copilot for M365","Governance","Sensitivity Label", "Data Loss Prevention","Retention Policies","RSS", "DLP", "Restricted SharePoint Search"]
 featured_image: '/posts/images/powershell-sharePoint-sharing-permissions-copilot/TenantSharingOptions_filefolderdomain.png'
 draft: false
 ---
@@ -147,7 +147,7 @@ Specifies the link permission. Valid values are `View`, `Edit` or `None`.
 
 For example if set to `Edit`, the default behaviour in the sharing dialogue is set to Edit with option to the user to choose to apply “view only” and “block download” controls if they wish.
 
-Refer to [Sharing files, folders, and list items](https://support.microsoft.com/en-gb/office/sharing-files-folders-and-list-items-74cab0bf-39c6-4112-a63f-88ee121722d0)
+Check [Sharing files, folders, and list items](https://support.microsoft.com/en-gb/office/sharing-files-folders-and-list-items-74cab0bf-39c6-4112-a63f-88ee121722d0)
 
 ### RequireAcceptingAccountMatchInvitedAccount
 
@@ -474,11 +474,45 @@ Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
 
 ## Other settings to consider 
 
+### Remove certain SharePoint sites from search
+
+Excluding certain SharePoint sites from search would mean the contents from the excluded sites won't be available to M365 search and Copilot and should be used as a last resort. 
+
+Until the right controls are in place, sensitive sites may be excluded using [PowerShell Scripts for Restricted SharePoint Search](https://learn.microsoft.com/en-us/sharepoint/restricted-sharepoint-search-admin-scripts?wt.mc_id=MVP_308367).
+
+1. Enable Restricted Search Mode
+
+```PowerShell
+Set-SPOTenantRestrictedSearchMode -Mode Enabled 
+```
+
+2. Add the sites to the allowed list via csv file or in string
+
+```Powershell
+Add-SPOTenantRestrictedSearchAllowedList  -SitesListFileUrl C:\Users\admin\Downloads\UrlList.csv
+```
+
+3. Retrieves existing list of URLs in the allowed list
+
+```powershell
+ Get-SPOTenantRestrictedSearchAllowedList
+```
+
+4. Removes sites from the allow list
+
+```powershell
+Remove-SPOTenantRestrictedSearchAllowedList -SitesList <List[string]> [<CommonParameters>]
+```
+ 
 ### Sensitivity Labels
+
+Sensitivity labels are a great way to protect your data. Make sure the correct label is used for your data so that sensitive data get the correct restrictions , e.g. to prevent it from being shared externally via email or be shared with people outside a certain team.
+
+Refer to [Use PowerShell for sensitivity labels and their policies](https://learn.microsoft.com/en-us/purview/create-sensitivity-labels?view=o365-worldwide#use-powershell-for-sensitivity-labels-and-their-policies&wt.mc_id=MVP_308367) to manage sensitivity labels.
 
 [How to protect sensitive information in SharePoint Online using Purview Sensitivity Labels](https://www.sharepointeurope.com/how-to-protect-sensitive-information-in-sharepoint-online-using-purview-sensitivity-labels/?utm_source=collab365&utm_medium=collab365today&utm_campaign=daily_digest&wt.mc_id=MVP_308367)
  
-Sensitivity labels provide a visual representation of the Privacy level, Public or Private, and whether external guest users are allowed to be members of the Team or SharePoint site, Internal or External if named properly.  Refer to Sensitivity labels for [Microsoft Teams for further information](https://docs.microsoft.com/en-us/microsoftteams/sensitivity-labels?wt.mc_id=MVP_308367). 
+[Sensitivity labels for Microsoft Teams for further information](https://docs.microsoft.com/en-us/microsoftteams/sensitivity-labels?wt.mc_id=MVP_308367). 
 
 For more information on how sensitivity labels work across Microsoft Teams, SharePoint, and OneDrive, visit these links: 
 
@@ -498,12 +532,16 @@ The [How to enable sensitivity labels for containers and synchronize labels](htt
 
 ### Retention Policies
 
-Retention policies can help with stale old data.
+Retention policies can help with stale old data as well as to preserve documents from deletion. Retention policies can be configured to automatically remove data from a site or library or based on metadata/content type after a certain amount of time. These policies can help to ensure data is not deleted based on some metadata or where they are stored.
+
+Refer to [Managing and applying Purview retention labels using code](https://www.blimped.nl/managing-and-applying-purview-retention-labels-using-code/) how to manage and apply purview rerention lebels using code
 
 ### Data Loss Prevention (DLP)
 
 One example of DLP is to reducing sharing of Documents marked as Internal Only 
 [Preventing and educating users from sharing sensitive documents externally](https://microsoft.github.io/ComplianceCxE/notes/mip-dlp/DLP-policy-externalshare?wt.mc_id=MVP_308367)
+
+Refer to [How to Create and Manage DLP policies using PowerShell](https://www.jorgebernhardt.com/create-manage-dlp-policies/) for PowerShell scripts to manage DLP.
 
 ## Conclusion
 
