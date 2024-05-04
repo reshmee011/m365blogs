@@ -28,3 +28,5 @@ Clicking **Send Email to Outlook** will open Outlook in OWA, allowing users to s
 
 [sharing-is-limited-on-this-item](https://techcommunity.microsoft.com/t5/sharepoint/sharing-is-limited-on-this-item/m-p/4084439)
 
+[Sharing files, folders, and list items](https://support.microsoft.com/en-gb/office/sharing-files-folders-and-list-items-74cab0bf-39c6-4112-a63f-88ee121722d0?wt.mc_id=MVP_308367)
+

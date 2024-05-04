@@ -25,56 +25,10 @@ Let's explore the key strategies and PowerShell commands you can implement to re
 
 Refer to the post which covers some of the SharePoint level settings which applies for OneDrive too
 [Empowering Secure Collaboration: Configuring SharePoint Sharing Tenant and Site Settings with PowerShell to prevent oversharing]()
-### SharingCapability
 
-This setting governs the sharing capability for the entire tenant, allowing you to control external user sharing and guest link sharing. 
+The SharePoint settings that apply to OneDrive are: SharingCapability, ShowAllUsersClaim, ShowEveryoneClaim, ShowEveryoneExceptExternalUsersClaim,RequireAnonymousLinksExpireInDays, NotifyOwnersWhenItemsReshared, DefaultSharingLinkType, PreventExternalUsersFromResharing, ShowPeoplePickerSuggestionsForGuestUsers, FileAnonymousLinkType, FolderAnonymousLinkType, DefaultLinkPermission, RequireAcceptingAccountMatchInvitedAccount, SharingAllowedDomainList, SharingBlockedDomainList, SharingDomainRestrictionMode, ExternalUserExpirationRequired, ExternalUserExpireInDays
 
-The valid values are:
-
-ExternalUserAndGuestSharing (default) - External user sharing (share by email) and guest link sharing are both enabled: Anyone - users can share files and folders using links that don't require sign-in
-
-Disabled - External user sharing (share by email) and guest link sharing are both disabled - Only people in your organization - no external sharing allowed
-
-ExternalUserSharingOnly - External user sharing (share by email) is enabled, but guest link sharing is disabled. New and existing guests - guests must sign in or provide a verification code
-
-ExistingExternalUserSharingOnly - Existing guests only - only guests already in your organization's directory
-
-![SharingCapability](../images/powershell-sharePoint-sharing-permissions-copilot/SharingCapability.png)
-
-Microsoft recommends configuring the default sharing links to be most restrictive (for example, from company-wide to specific people) and making sure that any access request goes to the SharePoint site owners to help against oversharing.
-
-### ShowAllUsersClaim
-
-Determines whether the "All Users" claim group is displayed in the People Picker.
-
-The valid values are: 
-True(default) - "All users" is displayed in People Picker. When users share an item with "All Users (x)" it is accessible to all organization members in the tenant that used NTLM to authentication with SharePoint.
-False - "All users" claim is not visible in People Picker.
-
-The All Users group is equivalent to the Everyone claim, and shows as Everyone. 
-
-![SharingOptions](../images/powershell-sharePoint-sharing-permissions-copilot/SharingOptions.png)
-
-### ShowEveryoneClaim
-
-Determines whether the "Everyone" claim group is displayed in the People Picker.
-
-The valid values are: 
-True(default) - The "Everyone" is displayed in People Picker. When users share an item with "Everyone", it is accessible to all authenticated users including any active external users
-False - The "Everyone" claim is not visible in People Picker. It is the default for new tenants.
-
-### ShowEveryoneExceptExternalUsersClaim
-
-Enables or disables the display of the "Everyone except external users" claim in the People Picker within the tenant. When users share an item with "Everyone except external users", it is accessible to all organisation members except external users in the tenant's Azure Active Directory.
-
-The valid values are:
-True(default) - The Everyone except external users is displayed in People Picker.
-False - The Everyone except external users claim is not visible in People Picker.
-
-Microsoft recommends to review site-level sharing controls, and remove “Everyone Except External Users” from the people picker.
-The alternative to consider is the **AllowEveryoneExceptExternalUsersClaimInPrivateSite** which applies the setting only to private sites.
-
-### OneDriveSharingCapability 
+### OneDriveSharingCapability
 
 Configures sharing capability for mysite (onedrive), offering options similar to those for the overall tenant.
 
@@ -92,111 +46,179 @@ ExistingExternalUserSharingOnly - Existing guests only - only guests already in 
 
 Automatically creates a "Shared with Everyone" folder in users' OneDrive document libraries, enhancing collaboration.
 
-### EnableGuestSignInAcceleration
+OneDriveLoopDefaultSharingLinkScope                  : Uninitialized
+OneDriveLoopDefaultSharingLinkRole                   : None
 
-Enables auto-acceleration on sites that have external sharing enabled. 
+### OneDriveRequestFilesLinkEnabled                      : False
 
-If the SignInAcceleration Domain is not set , the setting cannot be changed and you will be presented with message
+Enable or disable the Request files link on the OneDrive partition for all OneDrive sites. If this value is not set, the Request files link will only show for OneDrives with Anyone links enabled.
 
-`Set-SPOTenant : This setting cannot be changed until you set the SignInAcceleration Domain.`
+### -OwnerAnonymousNotification
 
-Run the command to enable auto-acceleration on sites that aren't shared externally
-```
-Set-SPOTenant -SignInAccelerationDomain "contoso.com"
-```
+Enables or disables owner anonymous notification. If enabled, an email notification will be sent to the OneDrive for Business owners when an anonymous links are created or changed.
 
-If set to $true, you will be prompted with the message
+PARAMVALUE: $true | $false
 
-`Make sure that your federated sign-in supports guest users. If it doesn't, your guest users will no longer be able to sign in after you set EnableGuestSignlnAcceleration to $true.`
+### OrphanedPersonalSitesRetentionPeriod
 
-[Enable auto-acceleration](https://learn.microsoft.com/en-us/sharepoint/enable-auto-acceleration??wt.mc_id=MVP_308367)
+Specifies the number of days after a user's Active Directory account is deleted that their OneDrive for Business content will be deleted.
 
-### RequireAnonymousLinksExpireInDays
+The value range is in days, between 30 and 3650. The default value is 30.
 
-Sets the expiration period for all anonymous links, enhancing security by limiting access duration.
+### OneDriveStorageQuota
 
-### DefaultSharingLinkType
+Sets a default OneDrive for Business storage quota for the tenant. It will be used for new OneDrive for Business sites created.
 
-Allows administrators to choose what type of link appears is selected in the 'Get a link' sharing dialog box in OneDrive for Business and SharePoint Online.
+A typical use will be to reduce the amount of storage associated with OneDrive for Business to a level below what the License entitles the users. For example, it could be used to set the quota to 10 gigabytes (GB) by default.
 
-Values can be set to None, Direct, Internal or AnonymousAccess
+If value is set to 0, the parameter will have no effect.
 
-If set to AnonymousAccess you may get the following warning message to set `SharingCapability` to `ExternalUserAndGuestSharing`.
+If the value is set larger than the Maximum allowed OneDrive for Business quota, it will have no effect.
 
-**WARNING**: `Anonymous access links aren’t enabled for your organization. You must first enable them by running the command "Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing" before you can set the DefaultSharingLinkType parameter to AnonymousAccess. We will not set the value in this case.`
+### OneDriveRequestFilesLinkExpirationInDays             : 730
 
+Specifies the number of days before a Request files link expires for all OneDrive sites.
 
-### PreventExternalUsersFromResharing
+The value can be from 0 to 730 days.
 
-Allows or denies external users from resharing.
+To remove the expiration requirement, set the value to zero (0).
 
-### ShowPeoplePickerSuggestionsForGuestUsers
+OneDriveSharingCapability                            : ExternalUserSharingOnly
 
-Show or hide the guest users claim in the People Picker when set to true or false respectively.
+### OneDriveDefaultShareLinkScope                        : Uninitialized
 
-### FileAnonymousLinkType
+Gets or sets default share link scope for Loop and Whiteboard files on OneDrive sites.
 
-Configures anonymous link types for files. Allowed values are `View`, `Edit` or `None`
-
-### FolderAnonymousLinkType
-
-Configures anonymous link types for folders. Allowed values are `View`, `Edit` or `None`.
-
-### NotifyOwnersWhenItemsReshared
-
-When this parameter is set to true and another user re-shares a document from a user's OneDrive for Business, the OneDrive for Business owner is notified by e-mail.
-
-### DefaultLinkPermission
-
-Specifies the link permission. Valid values are `View`, `Edit` or `None`.
-
-### RequireAcceptingAccountMatchInvitedAccount
-
-Ensures that an external user can only accept an external sharing invitation with an account matching the invited email address. 
-Valid values are 
-- False (default) - When a document is shared with an external user, bob@contoso.com, it can be accepted by any user with access to the invitation link in the original e-mail.
-- True - User must accept this invitation with bob@contoso.com.
-
-If external sharing using domains is enabled you may be presented with the warning message
-
-**WARNING**: `We automatically enabled RequireAcceptingAccountMatchInvitedAccount because you selected to limit external sharing using domains.`
-
-### SharingAllowedDomainList
-
-Specifies the list of allowed domains that users can share with.
-
-### SharingBlockedDomainList
-
-Specifies the list of blocked domains that users cannot share with.
-
-### SharingDomainRestrictionMode
-
-Available values are AllowList, BlockList, None
-
-
-**WARNING**: `We automatically enabled RequireAcceptingAccountMatchInvitedAccount because you selected to limit external sharing using domains.`
-
-**WARNING**: `You must set SharingDomainRestrictionMode to AllowList in order to have the list of domains you configured for SharingAllowedDomainList to take effect.`
-
-**WARNING**: `You must set SharingDomainRestrictionMode to BlockList in order to have the list of domains you configured for SharingBlockedDomainList to take effect.`
-
-### ExternalUserExpirationRequired
-
-Enable guest access to a site or OneDrive to expire.
-
-### ExternalUserExpireInDays
-
-Specifies number of days for guest Access links to expire.
-
-Refer to [External User Access Expiration in SharePoint Online and OneDrive for Business](https://www.sharepointdiary.com/2021/08/guest-user-access-expiration-in-sharepoint-online-onedrive.html#ixzz8XVgAFD56)
-
-### -AllowEveryoneExceptExternalUsersClaimInPrivateSite
-
-Enables or disables the "Everyone except external users" claim in the People Picker of a private site. 
 The valid values are:
 
-True - The "Everyone except external users" claim is available in People Picker of a private site.
-False (default) - The "Everyone except external users" claim is not available in People Picker of a private site.
+Anyone
+Organization
+SpecificPeople
+Uninitialized
+
+
+### OneDriveDefaultShareLinkRole
+-OneDriveLoopDefaultSharingLinkRole
+Gets or sets default share link role for Loop and Whiteboard files on OneDrive sites.
+
+Note: Although the values below may be viewable in Powershell, only View OR Edit may be set at this time.
+
+The valid values are:
+
+Edit
+View
+LimitedEdit
+LimitedView
+ManageList
+None
+Owner
+RestrictedView
+Review
+Submit
+
+
+OneDriveDefaultLinkToExistingAccess                  : False
+OneDriveBlockGuestsAsSiteAdmin                       : Unspecified
+
+
+### OneDriveForGuestsEnabled
+Lets OneDrive for Business creation for administrator managed guest users. Administrator managed Guest users use credentials in the resource tenant to access the resources.
+
+The valid values are:
+
+$true - Administrator managed Guest users can be given OneDrives, provided needed licenses are assigned.
+$false - Administrator managed Guest users can't be given OneDrives as functionality is turned off.
+
+DisableAddShortcutsToOneDrive
+When the feature is disabled ($true), the option Add shortcut to My files will be removed; any folders that have already been added will remain on the user's computer.
+
+
+DefaultOneDriveInformationBarrierMode 
+
+The DefaultOneDriveInformationBarrierMode sets the information barrier mode for all OneDrive sites.
+
+The valid values are:
+
+Open
+Explicit
+Implicit
+OwnerModerated
+Mixed
+
+(Use information barriers with SharePoint)[https://learn.microsoft.com/en-us/purview/information-barriers-sharepoint]
+
+-ContentTypeSyncSiteTemplatesList [String[]] [-ExcludeSiteTemplate]
+By default Content Type Hub will no longer push content types to OneDrive for Business sites (formerly known as MySites). 
+ Enables Content Type Hub to push content types to all OneDrive for Business sites
+
+-ContentTypeSyncSiteTemplatesList MySites -ExcludeSiteTemplate
+stops publishing content types to OneDrive for Business sites.
+
+-AllowAnonymousMeetingParticipantsToAccessWhiteboards
+
+If you have external sharing enabled for OneDrive for Business, no further action is required.
+If you restrict external sharing for OneDrive for Business, you can keep it restricted, and just enable this new setting in order for external and shared device accounts to work.
+
+-BlockUserInfoVisibilityInOneDrive
+The valid values are:
+
+ApplyToNoUsers (default) - No users are prevented from accessing User Info when they have Limited Access permission only.
+
+ApplyToAllUsers - All users (internal or external) are prevented from accessing User Info if they have Limited Access permission only.
+
+ApplyToGuestAndExternalUsers - Only external or guest users are prevented from accessing User Info if they have Limited Access permission only.
+
+ApplyToInternalUsers - Only internal users are prevented from accessing User Info if they have Limited Access permission only.
+
+
+[Manage sharing for Microsoft Whiteboard.](https://learn.microsoft.com/en-us/microsoft-365/whiteboard/manage-sharing-organizations)
+
+### NotificationsInOneDriveForBusinessEnabled
+
+Enables or disables notifications in OneDrive for Business.
+
+PARAMVALUE: $true | $false
+
+Follow the guidance in the link, using the settings from below: [Control notifications - OneDrive | Microsoft Docs](https://docs.microsoft.com/en-us/onedrive/turn-on-external-sharing-notifications#allow-or-block-notifications)
+
+SharePoint Admin Center > Settings > OneDrive Notifications 
+Tick "Allow notifications"
+
+
+### NotifyOwnersWhenInvitationsAccepted
+When this parameter is set to $true and when an external user accepts an invitation to a resource in a user's OneDrive for Business, the OneDrive for Business owner is notified by e-mail.
+
+For additional information about how to configure notifications for external sharing, see Configure notifications for external sharing for OneDrive for Business.
+
+The valid values are $true and $false.
+
+
+### NotifyOwnersWhenItemsReshared
+When this parameter is set to $true and another user re-shares a document from a user's OneDrive for Business, the OneDrive for Business owner is notified by e-mail.
+
+For additional information about how to configure notifications for external sharing, see Configure notifications for external sharing for OneDrive for Business.
+
+The valid values are $true and $false.
+
+### -ODBAccessRequests
+Lets administrators set policy on access requests and requests to share in OneDrive for Business.
+
+The valid values are:
+
+On - Users without permission to share can trigger sharing requests to the OneDrive for Business owner when they attempt to share. Also, users without permission to a file or folder can trigger access requests to the OneDrive for Business owner when they attempt to access an item they do not have permissions to.
+Off - Prevent access requests and requests to share on OneDrive for Business.
+Unspecified - Let each OneDrive for Business owner enable or disable access requests and requests to share on their OneDrive.
+
+### ODBMembersCanShare
+Lets administrators set policy on re-sharing behavior in OneDrive for Business.
+
+The valid values are:
+
+On - Users with edit permissions can re-share.
+Off - Only OneDrive for Business owner can share. The value of ODBAccessRequests defines whether a request to share gets sent to the owner.
+Unspecified - Let each OneDrive for Business owner enable or disable re-sharing behavior on their OneDrive.
+
+
 
 ### Sample script to amend tenant level sharing settings 
 
@@ -432,3 +454,5 @@ Effective management of sharing settings is crucial for maintaining data securit
 [Limit Sharing](https://learn.microsoft.com/en-us/microsoft-365/solutions/microsoft-365-limit-sharing?view=o365-worldwide#people-in-your-organization-sharing-links&wt.mc_id=MVP_308367)
 
 [How to protect sensitive information in SharePoint Online using Purview Sensitivity Labels](https://www.sharepointeurope.com/how-to-protect-sensitive-information-in-sharepoint-online-using-purview-sensitivity-labels/?utm_source=collab365&utm_medium=collab365today&utm_campaign=daily_digest)
+
+[Sharing and permissions in the SharePoint modern experience](https://learn.microsoft.com/en-us/sharepoint/modern-experience-sharing-permissions)
