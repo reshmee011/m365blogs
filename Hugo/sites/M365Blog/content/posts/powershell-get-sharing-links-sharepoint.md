@@ -1,6 +1,6 @@
 ---
-title: "Oversight of Sharing Links in SharePoint sites using PowerShell"
-date: 2024-04-26T06:57:18+01:00
+title: "Oversight of Sharing Information in SharePoint sites using PowerShell and CSOM, REST and PnP PowerShell"
+date: 2024-05-05T06:57:18+01:00
 tags: ["SharePoint","SharingLinks","PowerShell","Sites", "Security","Copilot for M365", "Governance","CSOM","REST", "PnP","Microsoft Graph" ]
 featured_image: '/posts/images/powershell-get-sharing-links-sharepoint/report.png'
 draft: false
@@ -31,10 +31,6 @@ However, manually tracking down these links across multiple sites and libraries 
 
 3. [Use sharing auditing in the audit log](https://learn.microsoft.com/en-us/purview/audit-log-sharing?view=o365-worldwide&tabs=microsoft-purview-portal#how-to-identify-resources-shared-with-external-users?wt.mc_id=MVP_308367) is restricted to the filter criteria used, which may not retrieve all sharing links.
 
-In this blog post, we'll explore a PowerShell script that automates the process of retrieving sharing links in SharePoint Online and on which file or folder it was created on, empowering administrators to efficiently audit and manage permissions. The script was adapted from 
-[How to get a list of shared links in a SharePoint Online document library? Any PowerShell or other way?](https://learn.microsoft.com/en-us/answers/questions/992330/how-to-get-a-list-of-shared-links-in-a-sharepoint) using the CSOM method GetObjectSharingInformation
-
-
 I have not been able to determine why unique permissions are sometimes created without generating a sharing link. One of the scenerios I noticed is the sharing link is only created when "Copy Link" is clicked on.
 
 ![CopyLinks](../images/powershell-get-sharing-links-sharepoint/linkcopied.png)
@@ -45,123 +41,12 @@ So reporting on sharing links might not be enough and look into drilling into un
 
 ## PowerShell Script overview using the CSOM method GetObjectSharingInformation
 
-```PowerShell
-#Parameters
-$tenantUrl = Read-Host -Prompt "Enter tenant collection URL";
-$dateTime = (Get-Date).toString("dd-MM-yyyy-hh-ss")
-$invocation = (Get-Variable MyInvocation).Value
-$directorypath = Split-Path $invocation.MyCommand.Path
-$fileName = "SharedLinks-" + $dateTime + ".csv"
-$ReportOutput = $directorypath + "\Logs\"+ $fileName
+This PowerShell script automates the process of retrieving sharing information in SharePoint Online on file, folder or item empowering administrators to efficiently audit sharing. The script was adapted from 
+[How to get a list of shared links in a SharePoint Online document library? Any PowerShell or other way?](https://learn.microsoft.com/en-us/answers/questions/992330/how-to-get-a-list-of-shared-links-in-a-sharepoint) using the CSOM method GetObjectSharingInformation
 
-#Connect to PnP Online
-Connect-PnPOnline -Url $tenantUrl -Interactive
+{{< gist reshmee011 24bf63cc81ccae604b563a7c312f001f >}}
 
-$global:Results = @();
-
-function getSharingLink($_ctx,$_object,$_type,$_siteUrl,$_listUrl)
-{
-    $SharingInfo = [Microsoft.SharePoint.Client.ObjectSharingInformation]::GetObjectSharingInformation($_ctx, $_object, $false, $false, $false, $true, $true, $true, $true)
-        $ctx.Load($SharingInfo)
-        $ctx.ExecuteQuery()
-        ForEach($ShareLink in $SharingInfo.SharingLinks)
-        {
-            If($ShareLink.Url)
-            {           
-                If($ShareLink.IsEditLink)
-                {
-                    $AccessType="Edit"
-                }
-                ElseIf($shareLink.IsReviewLink)
-                {
-                    $AccessType="Review"
-                }
-                Else
-                {
-                    $AccessType="ViewOnly"
-                }
-                #Collect the data
-
-                if($_type -eq "File")
-                {
-                  $ObjectType = $_object.FileSystemObjectType; 
-                  $Name  = $_object.FieldValues["FileLeafRef"]           
-                  $RelativeURL = $_object.FieldValues["FileRef"]
-                }
-                else
-                {
-                    $ObjectType = $_type;
-                    $Name = "";
-                    $RelativeURL = $listUrl ?? $SiteUrl;
-                }
-                $result = New-Object PSObject -property $([ordered]@{
-                    SiteUrl = $_siteURL
-                    listUrl = $_listUrl
-                    Name  = $Name           
-                    RelativeURL = $RelativeURL
-                    ObjectType = $ObjectType
-                    ShareLink  = $ShareLink.Url
-                    ShareLinkAccess  =  $AccessType
-                    HasExternalGuestInvitees = $ShareLink.HasExternalGuestInvitees
-                    ShareLinkType  = $ShareLink.LinkKind
-                    AllowsAnonymousAccess  = $ShareLink.AllowsAnonymousAccess
-                    IsActive  = $ShareLink.IsActive
-                    Expiration = $ShareLink.Expiration
-                })
-                $global:Results +=$result;
-            }
-        }
-}
-
-#Exclude certain libraries
-$ExcludedLists = @("Form Templates", "Preservation Hold Library", "Site Assets", "Images", "Pages", "Settings", "Videos","Timesheet"
-    "Site Collection Documents", "Site Collection Images", "Style Library", "AppPages", "Apps for SharePoint", "Apps for Office")
-
-$m365Sites = Get-PnPTenantSite| Where-Object { ( $_.Url -like '*/sites/*') -and $_.Template -ne 'RedirectSite#0' } 
-$m365Sites | ForEach-Object {
-$siteUrl = $_.Url;     
-Connect-PnPOnline -Url $siteUrl -Interactive
-$ctx = Get-PnPContext
-$web= Get-PnPWeb
-
-Write-Host "Processing site $siteUrl"  -Foregroundcolor "Red"; 
-
-#getSharingLink $ctx $web "site" $siteUrl "";
-$ll = Get-PnPList -Includes BaseType, Hidden, Title,HasUniqueRoleAssignments,RootFolder | Where-Object {$_.Hidden -eq $False -and $_.Title -notin $ExcludedLists } #$_.BaseType -eq "DocumentLibrary" 
-  Write-Host "Number of lists $($ll.Count)";
-
-  foreach($list in $ll)
-  {
-    $listUrl = $list.RootFolder.ServerRelativeUrl;       
-
-    #Get all list items in batches
-    $ListItems = Get-PnPListItem -List $list -PageSize 2000 
- #   getSharingLink $ctx $list "list/library" $siteUrl $listUrl;
-        #Iterate through each list item
-        ForEach($item in $ListItems)
-        {
-            $ItemCount = $ListItems.Count
-            #Check if the Item has unique permissions
-            $HasUniquePermissions = Get-PnPProperty -ClientObject $Item -Property "HasUniqueRoleAssignments"
-            If($HasUniquePermissions)
-            {       
-                #Get Shared Links
-                if($list.BaseType -eq "DocumentLibrary")
-                {
-                    $type= "File";
-                }
-                else
-                {
-                    $type= "Item";
-                }
-                getSharingLink $ctx $item $type $siteUrl $listUrl;
-            }
-        }
-    }
- }
-$global:Results | Export-CSV $ReportOutput -NoTypeInformation
-Write-host -f Green "Sharing Links Report Generated Successfully!"
-```
+Some explanation of the script
 
 ### Parameters
 
@@ -196,105 +81,7 @@ The REST endpoint that can be used to return only sharing links, refer to [Exter
 
  (siteUrl)/_api/web/Lists(listid)/GetItemById(itemid)/GetSharingInformation?$Expand=permissionsInformation,pickerSettings"
 
-```PowerShell
-#Parameters
-$tenantUrl = Read-Host -Prompt "Enter tenant collection URL";
-$dateTime = (Get-Date).toString("dd-MM-yyyy-hh-ss")
-$invocation = (Get-Variable MyInvocation).Value
-$directorypath = Split-Path $invocation.MyCommand.Path
-$fileName = "SharedLinks-" + $dateTime + ".csv"
-$ReportOutput = $directorypath + "\Logs\"+ $fileName
-
-#Connect to PnP Online
-Connect-PnPOnline -Url $tenantUrl -Interactive
-
-$global:Results = @();
-
-function getSharingLink($_object,$_type,$_siteUrl,$_list)
-{
-    $relativeUrl = $_object.FieldValues["FileRef"]
-    $sharingSettings = Invoke-PnPSPRestMethod -Method Post -Url "$($_siteUrl)/_api/web/Lists(@a1)/GetItemById(@a2)/GetSharingInformation?@a1='{$($_list.Id)}'&@a2='$($_object.Id)'&`$Expand=permissionsInformation,pickerSettings"  -ContentType "application/json;odata=verbose" -Content "{}"
-    
-    ForEach ($shareLink in $sharingSettings.permissionsInformation.links) 
-    {
-        Write-Host "Shared links found in '$relativeUrl'" 
-        $linkDetails = $shareLink.linkDetails
-        if ($linkDetails.Url) {
-        $invitees = (
-            $linkDetails.Invitations | 
-            ForEach-Object { $_.Invitee.email   }
-        ) -join '|'
-        $LastModified = Get-Date -Date $linkDetails.LastModified 
-        $linkAccess = "ViewOnly"
-        if ($linkDetails.IsEditLink) {
-            $linkAccess = "Edit"
-        }
-        elseif ($linkDetails.IsReviewLink) {
-            $linkAccess = "Review"
-        }
-        $sharedLinkObject = New-Object PSObject -property $([ordered]@{ 
-            ItemID   = $item.FieldValues["UniqueId"]
-            ShareLink = $linkDetails.Url
-            Invitees  = $invitees
-            Name = $_object.FieldValues["FileLeafRef"] ?? $_object.Title       
-            FileType = $_object.FieldValues["File_x0020_Type"] ?? "Item"
-            RelativeURL = $_object.FieldValues["FileRef"] ?? ""
-            LinkAccess = $linkAccess
-            LastModified = $LastModified
-            # Add other properties as needed
-        })
-        $global:Results +=$sharedLinkObject;
-    }     
-  }
-}
-    #Exclude system lists
-$ExcludedLists = @("Access Requests", "App Packages", "appdata", "appfiles", "Apps in Testing", "Cache Profiles", "Composed Looks", "Content and Structure Reports", "Content type publishing error log", "Converted Forms",
-    "Device Channels", "Form Templates", "fpdatasources", "Get started with Apps for Office and SharePoint", "List Template Gallery", "Long Running Operation Status", "Maintenance Log Library", "Images", "site collection images"
-    , "Master Docs", "Master Page Gallery", "MicroFeed", "NintexFormXml", "Quick Deploy Items", "Relationships List", "Reusable Content", "Reporting Metadata", "Reporting Templates", "Search Config List", "Site Assets", "Preservation Hold Library",
-    "Site Pages", "Solution Gallery", "Style Library", "Suggested Content Browser Locations", "Theme Gallery", "TaxonomyHiddenList", "User Information List", "Web Part Gallery", "wfpub", "wfsvc", "Workflow History", "Workflow Tasks", "Pages")
-
-$m365Sites = Get-PnPTenantSite| Where-Object { ( $_.Url -like '*/sites/*') -and $_.Template -ne 'RedirectSite#0' } 
-$m365Sites | ForEach-Object {
-$siteUrl = $_.Url;     
-Connect-PnPOnline -Url $siteUrl -Interactive
-
-Write-Host "Processing site $siteUrl"  -Foregroundcolor "Red"; 
-
-#getSharingLink $ctx $web "site" $siteUrl "";
-$ll = Get-PnPList -Includes BaseType, Hidden, Title,HasUniqueRoleAssignments,RootFolder | Where-Object {$_.Hidden -eq $False -and $_.Title -notin $ExcludedLists } #$_.BaseType -eq "DocumentLibrary" 
-  Write-Host "Number of lists $($ll.Count)";
-
-  foreach($list in $ll)
-  {       
-    #Get all list items in batches
-    $ListItems = Get-PnPListItem -List $list -PageSize 2000 
- #   getSharingLink $ctx $list "list/library" $siteUrl $listUrl;
-        #Iterate through each list item
-        ForEach($item in $ListItems)
-        {
-            $ItemCount = $ListItems.Count
-            #Check if the Item has unique permissions
-            $HasUniquePermissions = Get-PnPProperty -ClientObject $Item -Property "HasUniqueRoleAssignments"
-            If($HasUniquePermissions)
-            {       
-                #Get Shared Links
-                if($list.BaseType -eq "DocumentLibrary")
-                {
-                    $type= $item.FileSystemObjectType;
-                }
-                else
-                {
-                    $type= "Item";
-                }
-                getSharingLink $item $type $siteUrl $list;
-            }
-        }
-    }
- }
- 
- $global:Results | Export-CSV $ReportOutput -NoTypeInformation
-Write-host -f Green "Sharing Links Report Generated Successfully!"
-```
+{{< gist reshmee011 be60dcf4e73c250aa408441423835c62 >}}
 
 ### Output of the REST EndPoint call
 ![RESTOutput](../images/powershell-get-sharing-links-sharepoint/RESTOutput.png)
@@ -310,96 +97,7 @@ The cmdlets Get-PnPFileSharingLink and Get-PnPFolderSharingLink uses the Graph E
 
 https://graph.microsoft.com/v1.0/sites/{SiteId}/drives/{VroomDriveID}/items/{VroomItemID}/permissions?$filter=Link ne null
 
-```powershell
-#Parameters
-$tenantUrl = Read-Host -Prompt "Enter tenant collection URL";
-$dateTime = (Get-Date).toString("dd-MM-yyyy-hh-ss")
-$invocation = (Get-Variable MyInvocation).Value
-$directorypath = Split-Path $invocation.MyCommand.Path
-$fileName = "SharedLinks-" + $dateTime + ".csv"
-$ReportOutput = $directorypath + "\Logs\"+ $fileName
-
-#Connect to PnP Online
-Connect-PnPOnline -Url $tenantUrl -Interactive
-
-$global:Results = @();
-
-function getSharingLink($_object,$_type,$_siteUrl,$_listUrl)
-{
-    $relativeUrl = $_object.FieldValues["FileRef"]
-    $SharingLinks = if ($_type -eq "File") {
-        Get-PnPFileSharingLink -File $relativeUrl
-    } elseif ($_type -eq "Folder") {
-        Get-PnPFolderSharingLink -Folder $relativeUrl
-    }
-    
-    ForEach($ShareLink in $SharingLinks)
-    {
-        Write-Host "Shared links found in '$relativeUrl'" 
-        $ShareLink | Add-Member -NotePropertyName "SiteUrl" -NotePropertyValue $_siteUrl
-        $ShareLink | Add-Member -NotePropertyName "ListUrl" -NotePropertyValue $_listUrl
-        $ShareLink | Add-Member -NotePropertyName "ServerRelativeUrl" -NotePropertyValue $relativeUrl
-        $ShareLink | Add-Member -NotePropertyName "RoleList" -NotePropertyValue ($ShareLink.Roles -join "|")
-        $ShareLink | Add-Member -NotePropertyName "LinkUrl" -NotePropertyValue $ShareLink.Link.WebUrl
-        $ShareLink | Add-Member -NotePropertyName "LinkScope" -NotePropertyValue $ShareLink.Link.Scope
-        $ShareLink | Add-Member -NotePropertyName "LinkType" -NotePropertyValue $ShareLink.Link.Type
-        $ShareLink | Add-Member -NotePropertyName "LinkPreventsDownload" -NotePropertyValue $ShareLink.Link.PreventsDowload
-        $ShareLink | Add-Member -NotePropertyName "LinkUsers" -NotePropertyValue ($ShareLink.GrantedToIdentitiesV2.User.Email -join "|")
-            
-        $global:Results +=$ShareLink;
-    }     
-}
-
-#Exclude certain libraries
-$ExcludedLists = @("Access Requests", "App Packages", "appdata", "appfiles", "Apps in Testing", "Cache Profiles", "Composed Looks", "Content and Structure Reports", "Content type publishing error log", "Converted Forms",
-    "Device Channels", "Form Templates", "fpdatasources", "Get started with Apps for Office and SharePoint", "List Template Gallery", "Long Running Operation Status", "Maintenance Log Library", "Images", "site collection images"
-    , "Master Docs", "Master Page Gallery", "MicroFeed", "NintexFormXml", "Quick Deploy Items", "Relationships List", "Reusable Content", "Reporting Metadata", "Reporting Templates", "Search Config List", "Site Assets", "Preservation Hold Library",
-    "Site Pages", "Solution Gallery", "Style Library", "Suggested Content Browser Locations", "Theme Gallery", "TaxonomyHiddenList", "User Information List", "Web Part Gallery", "wfpub", "wfsvc", "Workflow History", "Workflow Tasks", "Pages")
-
-$m365Sites = Get-PnPTenantSite| Where-Object { ( $_.Url -like '*/sites/*') -and $_.Template -ne 'RedirectSite#0' } 
-$m365Sites | ForEach-Object {
-$siteUrl = $_.Url;     
-Connect-PnPOnline -Url $siteUrl -Interactive
-
-Write-Host "Processing site $siteUrl"  -Foregroundcolor "Red"; 
-
-#getSharingLink $ctx $web "site" $siteUrl "";
-$ll = Get-PnPList -Includes BaseType, Hidden, Title,HasUniqueRoleAssignments,RootFolder | Where-Object {$_.Hidden -eq $False -and $_.Title -notin $ExcludedLists } #$_.BaseType -eq "DocumentLibrary" 
-  Write-Host "Number of lists $($ll.Count)";
-
-  foreach($list in $ll)
-  {
-    $listUrl = $list.RootFolder.ServerRelativeUrl;       
-
-    #Get all list items in batches
-    $ListItems = Get-PnPListItem -List $list -PageSize 2000 
-
-        ForEach($item in $ListItems)
-        {
-            $ItemCount = $ListItems.Count
-            #Check if the Item has unique permissions
-            $HasUniquePermissions = Get-PnPProperty -ClientObject $Item -Property "HasUniqueRoleAssignments"
-            If($HasUniquePermissions)
-            {       
-                #Get Shared Links
-                if($list.BaseType -eq "DocumentLibrary")
-                {
-                    $type= $item.FileSystemObjectType;
-                }
-                else
-                {
-                    $type= "Item";
-                }
-                getSharingLink $item $type $siteUrl $listUrl;
-            }
-        }
-    }
- }
- 
- $global:Results | select Id,SiteUrl,ListUrl,ServerRelativeUrl,RoleList,LinkUrl,LinkScope,LinkType,LinkPreventsDownload,LinkUsers,Invitation,ShareId,ExpirationDateTime,HasPassword,HasChanges | ConvertTo-Csv -NoTypeInformation | Out-File $ReportOutput 
-  #Export-CSV $ReportOutput -NoTypeInformation
-Write-host -f Green "Sharing Links Report Generated Successfully!"
-```
+{{< gist reshmee011 f9ff790bd6ff00824f30e8b46d39d6dc >}}
 
 However using Get-PnPFileSharingLink and Get-PnPFolderSharingLink return only sharing links and not all sharing instances without a link.
 
