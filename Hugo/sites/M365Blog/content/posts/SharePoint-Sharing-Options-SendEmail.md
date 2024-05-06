@@ -8,7 +8,9 @@ draft: False
 
 # Sharing Options Updates - Send Email button greyed out
 
-Starting from March 2024, there has been a notable change in SharePoint’s sharing options. If a user is not allowed to share on a SharePoint site (for instance, when a user is a member and only owners have sharing privileges), the Send Email button appears greyed out. Additionally, a warning message is displayed: **Sharing is limited on this item. You can only copy links for people who have existing access, and you can’t invite anyone new.** This occurs even when sharing with a user who already has existing access.
+Starting from March 2024, there has been a notable change in SharePoint’s sharing options. If a user is not allowed to share on a SharePoint site (for instance, when a user is a member and only owners have sharing privileges), the Send Email button appears greyed out. Additionally, a warning message is displayed: **Sharing is limited on this item. You can only copy links for people who have existing access, and you can’t invite anyone new.** This occurs even when sharing with a user who already has existing access. 
+
+The change of behaviour could be related to MC706173, please refer for more info[M365 Changelog: (Updated) Invite people you choose in the Share control in Microsoft 365 apps](https://petri.com/microsoft-changelog/m365-changelog-invite-people-you-choose-in-the-share-control-in-microsoft-365-apps/) though the full changes are not clear.
 
 ![Send email greyed out](../images/SharePoint-Sharing-Options-SendEmail/SendEmailGreyed.png) 
 
@@ -30,3 +32,4 @@ Clicking **Send Email to Outlook** will open Outlook in OWA, allowing users to s
 
 [Sharing files, folders, and list items](https://support.microsoft.com/en-gb/office/sharing-files-folders-and-list-items-74cab0bf-39c6-4112-a63f-88ee121722d0?wt.mc_id=MVP_308367)
 
+[M365 Changelog: (Updated) Invite people you choose in the Share control in Microsoft 365 apps](https://petri.com/microsoft-changelog/m365-changelog-invite-people-you-choose-in-the-share-control-in-microsoft-365-apps/)

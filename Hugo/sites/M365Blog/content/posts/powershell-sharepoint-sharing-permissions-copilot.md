@@ -63,6 +63,8 @@ The valid values are:
 True(default) - The "Everyone" is displayed in People Picker. When users share an item with "Everyone", it is accessible to all authenticated users including any active external users
 False - The "Everyone" claim is not visible in People Picker. It is the default for new tenants.
 
+[Grant the Everyone claim to external users in Microsoft 365](https://learn.microsoft.com/en-us/microsoft-365/troubleshoot/access-management/grant-everyone-claim-to-external-users)
+
 ### ShowEveryoneExceptExternalUsersClaim
 
 Enables or disables the display of the "Everyone except external users" claim in the People Picker within the tenant. When users share an item with "Everyone except external users", it is accessible to all organisation members except external users in the tenant's Azure Active Directory.
@@ -127,7 +129,7 @@ If set to AnonymousAccess you may get the following warning message to set `Shar
 
 ### PreventExternalUsersFromResharing
 
-Allows or denies external users from resharing. 
+Allows or denies external users from resharing files, folders, and sites that they do not own to prevent unauthorized disclosures of information.
 
 ### ShowPeoplePickerSuggestionsForGuestUsers
 
@@ -238,6 +240,17 @@ BlockAccess: Blocks Access.
 
 Refer to [Control access from unmanaged devices](https://learn.microsoft.com/en-us/sharepoint/control-access-from-unmanaged-devices?wt.mc_id=MVP_308367)
 
+### EnableAzureADB2BIntegration and SyncAadB2BManagementPolicy
+
+Enables Azure AD B2B integration for SharePoint and OneDrive to establish a trusted connection between their SharePoint environment and external tenants allowing secure collaboration and access between different tenants to on SharePoint sites, documents, and other resources.
+
+Cross-tenant collaboration is facilitated by this integration by streamlining the invitation and authentication process for external users ensuring they are properly authenticated and authorised to collaborate within the SharePoint environment. 
+
+[SharePoint and OneDrive integration with Microsoft Entra B2B](https://docs.microsoft.com/en-us/sharepoint/sharepoint-azureb2b-integration?wt.mc_id=MVP_308367)
+
+One-time passcode authentication, as described in [Email one-time passcode authentication](https://learn.microsoft.com/en-us/entra/external-id/one-time-passcode?wt.mc_id=MVP_308367) must be configured before enabling this integration.
+
+
 ### Sample script to amend tenant level sharing settings 
 
 **SPO PowerShell**
@@ -270,6 +283,8 @@ Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
             -MarkNewFilesSensitiveByDefault BlockExternalSharing `
             -AllowGuestUserShareToUsersNotInSiteCollection $false `
             -ConditionalAccessPolicy AllowLimitedAccess `
+            -EnableAzureADB2BIntegration $true `
+            -SyncAadB2BManagementPolicy $true ` #Only available through SPO PowerShell
             -ExternalUserExpireInDays 60 
 ```
 
@@ -278,7 +293,7 @@ Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
 ```PowerShell
 connect-pnponline -url https://contoso-admin.sharepoint.com -interactive
 Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
-            -CoreSharingCapability ExternalUserAndGuestSharing ` # I have created a PR to include into PnP PowerShell, not yet released
+            -CoreSharingCapability ExternalUserAndGuestSharing `
             -ShowEveryoneClaim $false  `
             -ShowAllUsersClaim $false `
             -ShowEveryoneExceptExternalUsersClaim $true `
@@ -297,9 +312,10 @@ Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
             -DefaultLinkPermission "View" `
             -RequireAcceptingAccountMatchInvitedAccount $false `
             -ExternalUserExpirationRequired  $false `
-            -AllowEveryoneExceptExternalUsersClaimInPrivateSite $true ` # I have created a PR to include into PnP PowerShell, not yet released
-            -EnableAIPIntegration $true ` # I have created a PR to include into PnP PowerShell, not yet released
-            -MarkNewFilesSensitiveByDefault BlockExternalSharing ` # I have created a PR to include into PnP PowerShell, not yet released
+            -AllowEveryoneExceptExternalUsersClaimInPrivateSite $true ` 
+            -EnableAIPIntegration $true ` 
+            -MarkNewFilesSensitiveByDefault BlockExternalSharing ` 
+            -EnableAzureADB2BIntegration $true `
             -ConditionalAccessPolicy AllowLimitedAccess `
             -ExternalUserExpireInDays 60 
 ```
@@ -506,7 +522,7 @@ Remove-SPOTenantRestrictedSearchAllowedList -SitesList <List[string]> [<CommonPa
  
 ### Sensitivity Labels
 
-Sensitivity labels are a great way to protect your data. Make sure the correct label is used for your data so that sensitive data get the correct restrictions , e.g. to prevent it from being shared externally via email or be shared with people outside a certain team.
+Sensitivity labels provides an additional layer of security to protect your data. Make sure the correct label is used for your data so that sensitive data get the correct restrictions , e.g. to prevent it from being shared externally via email or be shared with people outside a certain team.
 
 Refer to [Use PowerShell for sensitivity labels and their policies](https://learn.microsoft.com/en-us/purview/create-sensitivity-labels?view=o365-worldwide#use-powershell-for-sensitivity-labels-and-their-policies&wt.mc_id=MVP_308367) to manage sensitivity labels.
 
@@ -549,7 +565,7 @@ Effective management of sharing settings is crucial for maintaining data securit
 
 ## References
 
-[All the Microsoft Ninja Training I Know About](https://azurecloudai.blog/2021/05/12/all-the-microsoft-ninja-training-i-know-about/)
+[Microsoft Purview data security and compliance protections for Microsoft Copilot](https://learn.microsoft.com/en-gb/purview/ai-microsoft-purview?wt.mc_id=MVP_308367)
 
 [Microsoft Copilot for Microsoft 365 - best practices with SharePoint](https://learn.microsoft.com/en-us/SharePoint/sharepoint-copilot-best-practices?wt.mc_id=MVP_308367)
 
