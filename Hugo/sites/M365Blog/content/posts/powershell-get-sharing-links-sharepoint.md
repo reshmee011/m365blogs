@@ -107,7 +107,7 @@ Example output
 
 ## Conclusion
 
-This PowerShell script can help with compliance or simply optimise security practices for effective SharePoint management. There are different ways to retrieve sharing information. The CSOM method returns all sharing information while the REST and PnP cmdlets (Graph) return only sharing links.
+This PowerShell script can help with compliance or simply optimise security practices for effective SharePoint management. There are different ways to retrieve sharing information. The CSOM method wins returning all sharing information while the REST and PnP cmdlets (Graph) return only sharing links.
 
 ## References
 
