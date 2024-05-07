@@ -115,7 +115,7 @@ If set to $true, you will be prompted with the message
 
 ### RequireAnonymousLinksExpireInDays
 
-Sets the expiration period for all anonymous links, enhancing security by limiting access duration.  
+Sets the expiration period for all anonymous links, enhancing security by limiting access duration for external users and preventing accidental or malicous leaks.  
 
 ### DefaultSharingLinkType
 
@@ -187,13 +187,17 @@ Available values are AllowList, BlockList, None
 
 ### ExternalUserExpirationRequired
 
-Enable guest access to a site or OneDrive to expire. 
+Enable guest access to a site or OneDrive to expire. Once the configured expiration data is reached, external users will lose access to the site or OneDrive.
 
 ### ExternalUserExpireInDays
 
 Specifies number of days for guest Access links to expire. Guest access to a site or OneDrive will expire automatically after this many days.
 
 Refer to [External User Access Expiration in SharePoint Online and OneDrive for Business](https://www.sharepointdiary.com/2021/08/guest-user-access-expiration-in-sharepoint-online-onedrive.html#ixzz8XVgAFD56?wt.mc_id=MVP_308367)
+
+To set ExternalUserExpirationRequired and ExternalUserExpireInDays from the UI login to SharePoint Admin Center site at: https://tenant-admin.sharepoint.com > click on the "Policies" and then the "Sharing" link > expand the “More external sharing setting” and enable the checkbox “Guest access to a site or OneDrive will expire automatically after this many days” and then set the number of days. 
+
+Read more: https://www.sharepointdiary.com/2021/08/guest-user-access-expiration-in-sharepoint-online-onedrive.html#ixzz8ZW8W9x2f
 
 ### AllowEveryoneExceptExternalUsersClaimInPrivateSite
 
@@ -408,7 +412,9 @@ Edit - Sets the default link permission for the site to "edit" permissions
 
 ### AnonymousLinkExpirationInDays
 
-Specifies all anonymous/anyone links that have been created (or will be created) will expire after the set number of days. Only applies if OverrideTenantAnonymousLinkExpirationPolicy is set to true.
+Specifies all anonymous/anyone links that have been created (or will be created) will expire after the set number of days. Only applies if OverrideTenantAnonymousLinkExpirationPolicy is set to true. This allows external users to access the shared content for a limited period and prevents unauthorized access if the link is shared accidentally or maliciously.
+
+#Read more: https://www.sharepointdiary.com/2017/09/set-anonymous-link-expiration-in-sharepoint-online.html#ixzz8ZW6CchJS
 
 ### OverrideTenantExternalUserExpirationPolicy
 

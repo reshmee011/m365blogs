@@ -46,9 +46,11 @@ Automatically creates a "Shared with Everyone" folder in users' OneDrive documen
 OneDriveLoopDefaultSharingLinkScope                  : Uninitialized
 OneDriveLoopDefaultSharingLinkRole                   : None
 
-### OneDriveRequestFilesLinkEnabled                      : False
+### OneDriveRequestFilesLinkEnabled
 
 Enable or disable the Request files link on the OneDrive partition for all OneDrive sites. If this value is not set, the Request files link will only show for OneDrives with Anyone links enabled.
+
+[How to use the “Request Files” Feature in OneDrive for Business?](https://www.sharepointdiary.com/2021/06/request-files-feature-in-onedrive-for-business.html) mentions some benefits of this feature. It makes it easy to collect files from external users like suppliers, clients, etc.. securely without providing them any extra permissions. The ability for the external user to access the dedicated OneDrive Folder to upload a file by the end user via a link without the need of email attachments or manual file transfers and access to the OneDrive simplifies file collection, provides secure and controlled access, seamless collaboration, centralised file management and automated notifications.
 
 ### -OwnerAnonymousNotification
 
@@ -197,8 +199,9 @@ For additional information about how to configure notifications for external sha
 
 The valid values are $true and $false.
 
-### -ODBAccessRequests
-Lets administrators set policy on access requests and requests to share in OneDrive for Business.
+### -ODBAccessRequests 
+
+Enables/Disables access requests to OneDrive for Business.
 
 The valid values are:
 
@@ -207,7 +210,8 @@ Off - Prevent access requests and requests to share on OneDrive for Business.
 Unspecified - Let each OneDrive for Business owner enable or disable access requests and requests to share on their OneDrive.
 
 ### ODBMembersCanShare
-Lets administrators set policy on re-sharing behavior in OneDrive for Business.
+
+Sets policy on re-sharing behavior for those who have access in OneDrive for Business.
 
 The valid values are:
 
@@ -215,7 +219,24 @@ On - Users with edit permissions can re-share.
 Off - Only OneDrive for Business owner can share. The value of ODBAccessRequests defines whether a request to share gets sent to the owner.
 Unspecified - Let each OneDrive for Business owner enable or disable re-sharing behavior on their OneDrive.
 
+[Configure Access Requests and Sharing Settings in OneDrive for Business Sites](https://www.sharepointdiary.com/2019/09/configure-onedrive-for-business-access-requests-settings.html#ixzz8ZWETbmmi)
+### Set-SPOTenantSyncClientRestriction -ExcludedFileExtensions
 
+By default, Users can upload all types of files in their OneDrive for Business folder. However, for security and compliance reasons, we can restrict users from syncing specific file types in OneDrive for Business. This guide will explain how to block specific file types in OneDrive for Business using the OneDrive admin center and PowerShell.
+
+
+[OneDrive for Business: Block Syncing of Specific File Types](https://www.sharepointdiary.com/2019/09/onedrive-for-business-block-syncing-specific-file-types.html)
+
+
+### Add additional site collection admin to site
+OneDrive makes it easy to collaborate by sharing files and folders with others. By default, When the user creates SharePoint My Site or OneDrive site collection, SharePoint assigns the primary site collection administrator or the OneDrive Owner rights to the user. Sometimes, you may need to access another user’s OneDrive for Business site or share OneDrive with another user. E.g., The user left the company, and the manager of the user wants to gain access, backup purposes, compliance, delegation, security, etc. This article will walk you through how to give access to the OneDrive site to another user.
+
+#Read more: https://www.sharepointdiary.com/2017/04/gain-admin-permission-to-onedrive-for-business-sites-using-powershell.html#ixzz8ZWGLSb3I
+
+### How to Sync a SharePoint Document Library to a Local Folder using OneDrive
+
+#Read more: https://www.sharepointdiary.com/2021/09/how-to-sync-sharepoint-online-document-library-to-local-folder.html#ixzz8ZWGbu4Ho
+https://www.sharepointdiary.com/2021/09/how-to-sync-sharepoint-online-document-library-to-local-folder.html
 
 ### Sample script to amend tenant level sharing settings 
 
@@ -224,9 +245,10 @@ Unspecified - Let each OneDrive for Business owner enable or disable re-sharing 
 ```PowerShell
 connect-SPOService -Url https://contoso-admin.sharepoint.com
 ##SharePoint specific settings
-Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
-             -CoreSharingCapability ExternalUserAndGuestSharing `
-            -ShowEveryoneClaim $false  `
+Set-SPOTenant -ODBAccessRequests Off ` #Set OneDrive for business access request settings
+             -ODBMembersCanShare On` #Set "Allow members to share the site and individual files and folders."
+            -OneDriveRequestFilesLinkEnabled $true `
+            -DisableAddShortCutsToOneDrive $true  ` ##Disable Add Shortcut to OneDrive
             -ShowAllUsersClaim $false `
             -ShowEveryoneExceptExternalUsersClaim $true `
             -ProvisionSharedWithEveryoneFolder $false `
@@ -248,6 +270,11 @@ Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
             -ExternalUserExpirationRequired  $false `
             -AllowEveryoneExceptExternalUsersClaimInPrivateSite $true `
             -ExternalUserExpireInDays 60 
+#Set blocked File types
+Set-SPOTenantSyncClientRestriction -ExcludedFileExtensions "exe;mp3;mp4"
+
+#Add Site Collection Admin to the OneDrive
+Set-SPOUser -Site $OneDriveSiteUrl -LoginName $SiteCollAdmin -IsSiteCollectionAdmin $True
 ```
 
 **PnP PowerShell**
@@ -278,6 +305,8 @@ Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
             -ExternalUserExpirationRequired  $false `
             -AllowEveryoneExceptExternalUsersClaimInPrivateSite $true ` # I have created a PR to include into PnP PowerShell, not yet released
             -ExternalUserExpireInDays 60 
+#Set blocked File types
+Set-PnPTenantSyncClientRestriction -ExcludedFileExtensions "exe;mp3;mp4"
 ```
  
 ## Site Level Settings
