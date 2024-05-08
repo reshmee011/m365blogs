@@ -1,1 +1,26 @@
-<link rel="stylesheet" href="{{ "css/custom.css" | absURL }}">
+{{ partial "header" . }}
+{{ partial "nav" . }}
+<section class="section">
+  <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      {{ if .Params.tags }}
+        {{ partial "tags" .Params.tags }}
+      {{ end }}
+    </div>
+    {{if not .Date.IsZero }}
+      <h2 class="subtitle is-6">{{ .Date.Format "January 2, 2006" }}</h2>
+    {{ end }}
+    <h1 class="title">{{ .Title }}</h1>
+    {{ if .Site.Params.Info.related }}
+      <div class="related">{{ partial "related" . }}</div>
+    {{ end }}
+    <div class="content">
+      <h1 id="summary">Summary</h1>
+      {{ .Summary }}
+      <h1 id="toc">Table of Contents</h1>
+      {{ .TableOfContents }}
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+{{ partial "footer" . }}
