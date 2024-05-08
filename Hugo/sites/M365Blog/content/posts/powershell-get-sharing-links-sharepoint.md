@@ -4,9 +4,12 @@ date: 2024-05-05T06:57:18+01:00
 tags: ["SharePoint","SharingLinks","PowerShell","Sites", "Security","Copilot for M365", "Governance","CSOM","REST", "PnP","Microsoft Graph" ]
 featured_image: '/posts/images/powershell-get-sharing-links-sharepoint/report.png'
 draft: false
+toc: true
 ---
 
-# Oversight of Sharing Links and Sharing Informationin SharePoint sites using PowerShell
+{{< toc >}}
+
+# Oversight of Sharing Information in SharePoint sites using PowerShell and CSOM, REST and PnP PowerShell
 
 Effective oversight of sharing links and sharing information are paramount to ensuring data security, compliance, and optimal collaboration experiences. 
 
@@ -27,8 +30,7 @@ However, manually tracking down these links across multiple sites and libraries 
 
 1. [Report on file and folder sharing in a SharePoint site](https://learn.microsoft.com/nl-nl/sharepoint/sharing-reports?wt.mc_id=MVP_308367) allows to report on external sharing per site only.
  
-2. [Data access governance reports for SharePoint sites](https://learn.microsoft.com/en-us/sharepoint/data-access-governance-reports?wt.mc_id=MVP_308367) provide a very high level view of the sharing links without details on which folder or item the sharing link was created. At the time of writing this blog post in April/May 2024, Data Access Governance reports show new sharing links in the past 28 days, which makes it very difficult to find content that was shared using an Everyone Except External Users or Anyone links more than a month ago.
-
+2. [Data access governance reports for SharePoint sites](https://learn.microsoft.com/en-us/sharepoint/data-access-governance-reports?wt.mc_id=MVP_308367) provide a very high level view of the sharing links without details on which folder or item the sharing link was created. At the time of writing this blog post in April/May 2024, Data Access Governance reports show new sharing links in the past 28 days, which makes it very difficult to find content that was shared using an Everyone Except External Users or Anyone links more than a month ago.te
 3. [Use sharing auditing in the audit log](https://learn.microsoft.com/en-us/purview/audit-log-sharing?view=o365-worldwide&tabs=microsoft-purview-portal#how-to-identify-resources-shared-with-external-users?wt.mc_id=MVP_308367) is restricted to the filter criteria used, which may not retrieve all sharing links.
 
 I have not been able to determine why unique permissions are sometimes created without generating a sharing link. One of the scenerios I noticed is the sharing link is only created when "Copy Link" is clicked on.
