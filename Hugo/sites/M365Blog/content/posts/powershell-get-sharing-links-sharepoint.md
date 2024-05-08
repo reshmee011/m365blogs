@@ -7,7 +7,7 @@ draft: false
 toc: true
 ---
 
-{{< toc >}}
+ {{ .TableOfContents }}
 
 # Oversight of Sharing Information in SharePoint sites using PowerShell and CSOM, REST and PnP PowerShell
 
