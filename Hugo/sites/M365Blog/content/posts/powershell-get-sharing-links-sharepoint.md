@@ -7,9 +7,9 @@ draft: false
 toc: true
 ---
 
- {{ .TableOfContents }}
-
 # Oversight of Sharing Information in SharePoint sites using PowerShell and CSOM, REST and PnP PowerShell
+
+{{< toc >}}
 
 Effective oversight of sharing links and sharing information are paramount to ensuring data security, compliance, and optimal collaboration experiences. 
 
