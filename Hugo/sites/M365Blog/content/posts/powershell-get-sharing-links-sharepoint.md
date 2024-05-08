@@ -9,9 +9,6 @@ toc: true
 
 # Oversight of Sharing Information in SharePoint sites using PowerShell and CSOM, REST and PnP PowerShell
 
-
-{{ .tableOfContents }}
-
 Effective oversight of sharing links and sharing information are paramount to ensuring data security, compliance, and optimal collaboration experiences. 
 
 As organisations migrate to M365 environments, they inherit powerful collaboration tools that facilitate seamless sharing of documents and resources. However, without proper governance, these capabilities can lead to unintended consequences such as data breaches, compliance violations, and loss of intellectual property.
