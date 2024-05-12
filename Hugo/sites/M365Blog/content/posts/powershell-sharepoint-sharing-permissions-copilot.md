@@ -137,11 +137,11 @@ Show or hide the guest users claim in the People Picker when set to true or fals
 
 ### FileAnonymousLinkType
 
-Configures anonymous link types for files. Allowed values are `View`, `Edit` or `None`
+Configures anonymous link types for files to only view or view with edit. Allowed values are `View`, `Edit` or `None`
 
 ### FolderAnonymousLinkType
 
-Configures anonymous link types for folders. Allowed values are `View`, `Edit` or `None`.
+Configures anonymous link types for folders to only view or view with edit. Allowed values are `View`, `Edit` or `None`.
 
 ### DefaultLinkPermission
 
