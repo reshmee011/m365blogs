@@ -28,7 +28,7 @@ Loop components can be used across different M365 services: [Teams](https://myme
 
 Depending on where loop content was originally created it is stored in a different location. Refer to [Loop Storage](https://learn.microsoft.com/en-us/microsoft-365/loop/loop-compliance-summary?view=o365-worldwide#loop-storage&wt.mc_id=MVP_308367) for more info.
 
-[Loop Storage](https://learn.microsoft.com/en-us/microsoft-365/loop/media/loop-files-sharepoint.png?view=o365-worldwide&wt.mc_id=MVP_308367)
+![Loop Storage](https://learn.microsoft.com/en-us/microsoft-365/loop/media/loop-files-sharepoint.png)
 
 * Created in the Loop app ➡️️ SharePoint Embedded
 * Created outside the Loop app in places that have dedicated shared storage (e.g. Teams channels) ➡️️ SharePoint
