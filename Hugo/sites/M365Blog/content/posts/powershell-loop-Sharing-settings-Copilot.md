@@ -151,13 +151,14 @@ connect-SPOService -Url https://contoso-admin.sharepoint.com
 #### To get Microsoft Loop settings
 
 ```PowerShell
+#currently unable to retrieve below properties using PnP PowerShell, I have created PR https://github.com/pnp/powershell/pull/3948 to enable retrieval of these values
  Get-PnPTenant | select-object -Property IsLoopEnabled `
         ,OneDriveLoopDefaultSharingLinkScope `
         ,OneDriveLoopSharingCapability `
         ,OneDriveLoopDefaultSharingLinkRole `
         ,CoreLoopSharingCapability `
         ,CoreLoopDefaultSharingLinkScope `
-        ,CoreLoopDefaultSharingLinkRole `
+        ,CoreLoopDefaultSharingLinkRole ` 
         ,IsCollabMeetingNotesFluidEnabled `
         ,AllowAnonymousMeetingParticipantsToAccessWhiteboards
 ```
