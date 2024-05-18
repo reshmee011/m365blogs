@@ -412,17 +412,7 @@ Review [Empowering Secure Collaboration: Configuring SharePoint Sharing Tenant a
 
 ### SharePoint Premium features
 
-#### [Restrict OneDrive access by security group](https://learn.microsoft.com/en-us/sharepoint/limit-access?wt.mc_id=MVP_308367)
-
-Access and sharing of OneDrive content can be restricted to users in specified Microsoft Entra ID security groups. Users outside the specified groups won't have access to their own OneDrive content once this policy is in effect.
-
-Read more from [Restrict OneDrive access by security group](https://learn.microsoft.com/en-us/sharepoint/limit-access?wt.mc_id=MVP_308367).
-
-#### [Restrict access to a user's OneDrive content to people in a group](https://learn.microsoft.com/en-us/sharepoint/onedrive-site-access-restriction?wt.mc_id=MVP_308367)
-
-Access and sharing of individual OneDrive's content can be restricted to users in specified Microsoft Entra ID security groups using OneDrive access restriction policy. Users not in the specified group won't be able to access the content, even if they had prior permissions or shared link.
-
-Read more from [Restrict access to a user's OneDrive content to people in a group](https://learn.microsoft.com/en-us/sharepoint/onedrive-site-access-restriction?wt.mc_id=MVP_308367)
+Read [Manage SharePoint Premium Settings using PowerShell](https://reshmeeauckloo.com/posts/powershell-sharepoint-premium-settings/)
 
 ## Conclusion
 

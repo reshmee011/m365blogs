@@ -1,14 +1,16 @@
 ---
-title: "Manage SharePoint Premium Settings using PowerShell"
+title: "Manage SharePoint Premium Settings using PowerShell to help overcome oversharing for Copilot for M365 rollout"
 date: 2024-05-18T15:45:36+01:00
-tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","Copilot for M365","Governance","Sensitivity Label","Conditional Access", "SharePoint Premium"]
+tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","Copilot for M365","Information Governance","Sensitivity Label","Conditional Access", "SharePoint Premium", "SharePoint Advanced Management","IG"]
 featured_image: '/posts/images/powershell-SharePoint-Premium-Settings/SharePointPayAsYouGoBilling.png'
 draft: false
 ---
 
-# Manage SharePoint Premium Settings using PowerShell to help overcome oversharing
+# Manage SharePoint Premium Settings using PowerShell to help overcome oversharing for Copilot for M365 rollout
 
 SharePoint Premium provides features to help with oversharing which will help towards Copilot for M365 rollout to prevent accidental data leaks.
+
+Read [Microsoft Syntex - SharePoint Advanced Management overview](https://learn.microsoft.com/en-us/sharepoint/advanced-management?wt.mc_id=MVP_308367) for more info.
 
 SharePoint Premium offers Pay as you go billing. I followed the post [Enable Pay-as-You-Go Licensing for Syntex aka SharePoint Premium.](https://www.divyaakula.com/sharepointpremium/2024/05/01/enabling-sharepoint-syntex-with-pay-as-you-go.html) to enable SharePoint Premium using my Visual Studio Azure subscription.
 
@@ -34,12 +36,44 @@ If appropriate license is missing, the following error message will appear.
 
 **set-spotenant : This operation can't be performed as the tenant doesn't have the required license. Refer https://aka.ms/RACPolicyForSites to learn more**
 
+### DisableDocumentLibraryDefaultLabeling
+
+Turns off the feature that supports a default sensitivity label for SharePoint document libraries. If enabled, default sensitivity label can be set to a library to all new / modified files inside a document library.
+
+See [Configure a default sensitivity label for a SharePoint document library](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-default-label) for more info.
+
+```powershell
+set-spotenant -DisableDocumentLibraryDefaultLabeling $false #enables default sensitivity label for SharePoint document libraries
+```
+
+**PnP PowerShell**
+
+```powershell
+set-pnptenant -DisableDocumentLibraryDefaultLabeling $false #enables default sensitivity label for SharePoint document libraries
+```
+
 ### [Restrict OneDrive access by security group](https://learn.microsoft.com/en-us/sharepoint/limit-access?wt.mc_id=MVP_308367)
 
 Access and sharing of OneDrive content can be restricted to users in specified Microsoft Entra ID security groups. Users outside the specified groups won't have access to their own OneDrive content once this policy is in effect.
 
 Read more from [Restrict OneDrive access by security group](https://learn.microsoft.com/en-us/sharepoint/limit-access?wt.mc_id=MVP_308367).
 
+The only way to update this setting is to use REST method to _api/SPOInternalUseOnly.Tenant
+
+```powershell
+connect-PnPONline -Url https://reshmeeauckloo-admin.sharepoint.com -Interactive
+
+# Prepare the REST API endpoint URL
+$apiUrl = "/_api/SPOInternalUseOnly.Tenant"
+
+# Prepare the JSON payload
+$payload = @{
+    AllowSelectSGsInODBListInTenant = @('c:0t.c|tenant|a50cce6c-f979-4a1a-93dd-5b8487ada96b', 'c:0t.c|tenant|c6b80bfb-2d70-424b-a3e0-7cff04dc0387')
+} | ConvertTo-Json
+
+# Invoke the REST API method
+Invoke-PnPSPRestMethod -Method Post -Url $apiUrl -ContentType "application/json;odata=verbose" -Content $payload
+```
 
 ## Site level settings
 
@@ -85,7 +119,7 @@ If you don't have the appropriate license, you may get the error message
 
 **Set-SPOSite : You do not have required licenses to perform this operation. Please read here for licensing related requirements : https://learn.microsoft.com/en-US/sharepoint/block-download-from-sites**
 
-![Licence not activated](../images/powershell-sharePoint-sharing-permissions-copilot/BlockDownloadPolicyLicense.png)
+![Licence not activated](../images/powershell-SharePoint-Premium-Settings/BlockDownloadPolicyLicense.png)
 
 Follow the post [Enable Pay-as-You-Go Licensing for Syntex aka SharePoint Premium.](https://www.divyaakula.com/sharepointpremium/2024/05/01/enabling-sharepoint-syntex-with-pay-as-you-go.html) to find details how to enable SharePoint Premium.
 
@@ -277,7 +311,7 @@ Get-PnPTenantSite -Identity <siteurl>  -SensitivityLabel b160962f-aee6-431d-891c
 
 Default sensitivity label can be set to a library to all new / modified files inside a document library. This ensures that documents are protected even if a user forgets to specify the label. It can apply a higher priority label if a user has a default label applied.
 
-![Library sensitivity label](../images/powershell-sharePoint-sharing-permissions-copilot/LibraryDefaultSensitivityLabel.png)
+![Library sensitivity label](../images/powershell-SharePoint-Premium-Settings/LibraryDefaultSensitivityLabel.png)
 
 * PnP PowerShell
 
