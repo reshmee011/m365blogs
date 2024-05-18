@@ -7,10 +7,12 @@ draft: false
 ```PowerShell
 $AdminCenterURL="https://contoso-admin.sharepoint.com"
 $tenantUrl = "https://contoso.sharepoint.com"
-$hubSiteUrl = "https://ppfonline.sharepoint.com"
+$hubSiteUrl = "https://contoso.sharepoint.com"
+
 Connect-PnPOnline -Url $AdminCenterURL -Interactive
  
 $logoLocalPath = (Get-Location).Path + '\Logo\logo white 1280x1280.png'
+$thumbnailLocalPath = (Get-Location).Path + '\Logo\thumbnail white 1280x1280.png'
  
 $m365Sites = Get-PnPHubSiteChild -Identity $hubSiteUrl
 
@@ -19,16 +21,23 @@ Start-Transcript
 $m365Sites | ForEach-Object {
     Connect-PnPOnline -Url $_ -Interactive
     $logoFile = '__rectSitelogo__contoso-logo.png'
-  
+    $thumbnailFile = 'thumbnail.png'
+
     $logoRelativePath = $_.replace($tenantUrl, "") + "/SiteAssets/" + $logoFile
+    $thumbnailRelativePath = $_.replace($tenantUrl, "") + "/SiteAssets/" + $logoFile
+
+    $logoAslistItem =  Get-PnPFile -Url $logoRelativePath -AsListItem
+    $thumbnailAslistItem =  Get-PnPFile -Url $thumbnailRelativePath -AsListItem
  
-    $fileAslistItem =  Get-PnPFile -Url $logoRelativePath -AsListItem
- 
-    if(!$fileAslistItem){
+    if(!$logoAslistItem){
       Add-PnPFile -Path $logoLocalPath -Folder 'SiteAssets' -NewFileName $logoFile | Out-Null
     }
+    
+    if(!$thumbnailAslistItem){
+      Add-PnPFile -Path $thumbnailLocalPath -Folder 'SiteAssets' -NewFileName $thumbnailFile | Out-Null
+    }
  
-    Set-PnPWebHeader -SiteLogoUrl $logoRelativePath
+    Set-PnPWebHeader -SiteLogoUrl $logoRelativePath -SiteThumbnailUrl $thumbnailRelativePath
 }
 Stop-Transcript
 ```

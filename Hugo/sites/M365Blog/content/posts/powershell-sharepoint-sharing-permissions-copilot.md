@@ -209,7 +209,11 @@ False (default) - The "Everyone except external users" claim is not available in
 
 ### EnableAIPIntegration
 
-This parameter enables SharePoint to process the content of files stored in SharePoint and OneDrive with sensitivity labels that include encryption. For more information, see [Enable sensitivity labels for Office files in SharePoint and OneDrive](https://learn.microsoft.com/en-us/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?wt.mc_id=MVP_308367).
+This parameter enables support for sensitivity labels within SharePoint. Enabling this feature also results in SharePoint and OneDrive being able to process the contents of Office files and optionally, PDF documents that have been encrypted by using a sensitivity label. Until feature is enabled, these services can't process encrypted files, which means that coauthoring, eDiscovery, data loss prevention, search, and other collaborative features won't work for these files.For more information, see [Enable sensitivity labels for Office files in SharePoint and OneDrive](https://learn.microsoft.com/en-us/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?wt.mc_id=MVP_308367).
+
+### EnableSensitivityLabelforPDF
+
+Enables support of sensitivity labels on PDF files
 
 ### MarkNewFilesSensitiveByDefault BlockExternalSharing
 
@@ -236,11 +240,13 @@ True - Guest users will be able to find user accounts in the directory by typing
 
 Blocks or limits access to SharePoint and OneDrive content from un-managed devices.
 
+Requires SharePoint Advanced Management feature to use since it is in GA. While in preview 
+
 Possible values:
 
-AllowFullAccess: Allows full access from desktop apps, mobile apps, and the web.
-AllowLimitedAccess: Allows limited, web-only access.
-BlockAccess: Blocks Access.
+* AllowFullAccess: Allows full access from desktop apps, mobile apps, and the web.
+* AllowLimitedAccess: Allows limited, web-only access.
+* BlockAccess: Blocks Access.
 
 Refer to [Control access from unmanaged devices](https://learn.microsoft.com/en-us/sharepoint/control-access-from-unmanaged-devices?wt.mc_id=MVP_308367)
 
@@ -254,6 +260,11 @@ Cross-tenant collaboration is facilitated by this integration by streamlining th
 
 One-time passcode authentication, as described in [Email one-time passcode authentication](https://learn.microsoft.com/en-us/entra/external-id/one-time-passcode?wt.mc_id=MVP_308367) must be configured before enabling this integration.
 
+### DisableDocumentLibraryDefaultLabeling
+
+Turns off the feature that supports a default sensitivity label for SharePoint document libraries. If enabled, default sensitivity label can be set to a library to all new / modified files inside a document library.
+
+See [Configure a default sensitivity label for a SharePoint document library](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-default-label) for more info.
 
 ### Sample script to amend tenant level sharing settings 
 
@@ -288,8 +299,11 @@ Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
             -AllowGuestUserShareToUsersNotInSiteCollection $false `
             -ConditionalAccessPolicy AllowLimitedAccess `
             -EnableAzureADB2BIntegration $true `
-            -SyncAadB2BManagementPolicy $true ` #Only available through SPO PowerShell
+            -DisableDocumentLibraryDefaultLabeling $false `
+            -SyncAadB2BManagementPolicy $true `
+            -EnableSensitivityLabelforPDF $true ` 
             -ExternalUserExpireInDays 60 
+
 ```
 
 **PnP PowerShell**
@@ -321,7 +335,11 @@ Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
             -MarkNewFilesSensitiveByDefault BlockExternalSharing ` 
             -EnableAzureADB2BIntegration $true `
             -ConditionalAccessPolicy AllowLimitedAccess `
+            -DisableDocumentLibraryDefaultLabeling $false `
             -ExternalUserExpireInDays 60 
+
+            #-SyncAadB2BManagementPolicy $true ` #Only available through SPO PowerShell 
+            #-EnableSensitivityLabelforPDF $true ` #Only available through SPO PowerShell
 ```
  
 ## Site Level Settings
@@ -426,26 +444,6 @@ None: Respect the organization-level policy for external user expiration.
 False: Respect the organization-level policy for external user expiration.
 True: Override the organization-level policy for external user expiration (can be more or less restrictive).
 
-### BlockDownloadPolicy 
-   
-Blocks the download of files from SharePoint sites or OneDrive.
-[block download policy](https://learn.microsoft.com/en-us/sharepoint/block-download-from-sites?wt.mc_id=MVP_308367)
-
-### ExcludeBlockDownloadPolicySiteOwners
-
-Blocks the download of files from SharePoint sites or OneDrive except the site owners.
-
-### ConditionalAccessPolicy
-
-Enables conditional access policy to the sites.
-
-Possible values:
-
-- AllowFullAccess: Allows full access from desktop apps, mobile apps, and the web.
-- AllowLimitedAccess: Allows limited, web-only access.
-- BlockAccess: Blocks Access.
-- AuthenticationContext: Assign a Microsoft Entra authentication context. Must add the AuthenticationContextName. 
-Refer to [Configure authentication contexts](https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#configure-authentication-contexts?wt.mc_id=MVP_308367) for more details
 
 ### PowerShell script to update site sharing settings
 
@@ -467,15 +465,14 @@ Set-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
             -DefaultLinkToExistingAccess $true `
             -DisableCompanyWideSharingLinks Disabled `
             -AnonymousLinkExpirationInDays 60 `
-            -BlockDownloadPolicy $true `
-            -ExcludeBlockDownloadPolicySiteOwners $true `
-            -ConditionalAccessPolicy AllowLimitedAccess  #PnP PowerShell does not have that option yet
+           
 ```
 
 **PnP PowerShell**
 
-```
-connect-pnponline -url https://contoso.sharepoint.com/sites/SharingTest  -interactive
+```PowerShell
+
+Connect-pnponline -url https://contoso.sharepoint.com/sites/SharingTest  -interactive
 Set-PnPSite  -DisableSharingForNonOwners
 
 Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
@@ -489,9 +486,7 @@ Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
             -DefaultLinkPermission None `
             -DefaultLinkToExistingAccess $true `
             -DisableCompanyWideSharingLinks Disabled `
-            -AnonymousLinkExpirationInDays 60 `
-            -BlockDownloadPolicy $true `
-            -ExcludeBlockDownloadPolicySiteOwners $true 
+            -AnonymousLinkExpirationInDays 60 
 ```
 
 ## Other settings to consider 
