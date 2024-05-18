@@ -36,21 +36,6 @@ If appropriate license is missing, the following error message will appear.
 
 **set-spotenant : This operation can't be performed as the tenant doesn't have the required license. Refer https://aka.ms/RACPolicyForSites to learn more**
 
-### DisableDocumentLibraryDefaultLabeling
-
-Turns off the feature that supports a default sensitivity label for SharePoint document libraries. If enabled, default sensitivity label can be set to a library to all new / modified files inside a document library.
-
-See [Configure a default sensitivity label for a SharePoint document library](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-default-label) for more info.
-
-```powershell
-set-spotenant -DisableDocumentLibraryDefaultLabeling $false #enables default sensitivity label for SharePoint document libraries
-```
-
-**PnP PowerShell**
-
-```powershell
-set-pnptenant -DisableDocumentLibraryDefaultLabeling $false #enables default sensitivity label for SharePoint document libraries
-```
 
 ### [Restrict OneDrive access by security group](https://learn.microsoft.com/en-us/sharepoint/limit-access?wt.mc_id=MVP_308367)
 
@@ -73,6 +58,22 @@ $payload = @{
 
 # Invoke the REST API method
 Invoke-PnPSPRestMethod -Method Post -Url $apiUrl -ContentType "application/json;odata=verbose" -Content $payload
+```
+
+### DisableDocumentLibraryDefaultLabeling
+
+Turns off the feature that supports a default sensitivity label for SharePoint document libraries. If enabled, default sensitivity label can be set to a library to all new / modified files inside a document library.
+
+See [Configure a default sensitivity label for a SharePoint document library](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-default-label) for more info.
+
+```powershell
+set-spotenant -DisableDocumentLibraryDefaultLabeling $false #enables default sensitivity label for SharePoint document libraries
+```
+
+**PnP PowerShell**
+
+```powershell
+set-pnptenant -DisableDocumentLibraryDefaultLabeling $false #enables default sensitivity label for SharePoint document libraries
 ```
 
 ## Site level settings
