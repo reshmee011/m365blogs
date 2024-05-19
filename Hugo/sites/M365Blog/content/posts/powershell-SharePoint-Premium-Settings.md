@@ -12,7 +12,8 @@ SharePoint Premium provides features to help with oversharing which will help to
 
 Read [Microsoft Syntex - SharePoint Advanced Management overview](https://learn.microsoft.com/en-us/sharepoint/advanced-management?wt.mc_id=MVP_308367) for more info.
 
-SharePoint Premium offers Pay as you go billing. I followed the post [Enable Pay-as-You-Go Licensing for Syntex aka SharePoint Premium.](https://www.divyaakula.com/sharepointpremium/2024/05/01/enabling-sharepoint-syntex-with-pay-as-you-go.html) to enable SharePoint Premium using my Visual Studio Azure subscription.
+SharePoint Premium offers Pay as you go billing. A trial is possible by signing up on 
+Microsoft 365 admin center> Billing> Purchase Services> Search for SharePoint Advanced Management and scroll down> Click on the Details> Click on Start Free trial
 
 ## Tenant level settings
 
@@ -54,11 +55,13 @@ $apiUrl = "/_api/SPOInternalUseOnly.Tenant"
 # Prepare the JSON payload
 $payload = @{
     AllowSelectSGsInODBListInTenant = @('c:0t.c|tenant|a50cce6c-f979-4a1a-93dd-5b8487ada96b', 'c:0t.c|tenant|c6b80bfb-2d70-424b-a3e0-7cff04dc0387')
-} | ConvertTo-Json
+}
 
 # Invoke the REST API method
-Invoke-PnPSPRestMethod -Method Post -Url $apiUrl -ContentType "application/json;odata=verbose" -Content $payload
+Invoke-PnPSPRestMethod -Method Patch -Url $apiUrl -ContentType "application/json;odata.metadata=minimal" -Content $payload
 ```
+
+![OneDrive Access Restriction](../images/powershell-SharePoint-Premium-Settings/OneDriveAccessRestriction.png)
 
 ### DisableDocumentLibraryDefaultLabeling
 
@@ -264,7 +267,6 @@ Set-SPOSite -Identity <siteurl> -RemoveRestrictedAccessControlGroups 21af775d-17
 Get-PnPTenantSite -Identity <siteurl> -RemoveRestrictedAccessControlGroups 21af775d-17b3-4637-94a4-2ba8625277cb,5cecaf4f-df68-414f-8029-a4e7e37df66e
 ```
 
-
 ### Conditional Access Policy
 
 Blocks or limits access to SharePoint and OneDrive content from un-managed devices.
@@ -321,3 +323,18 @@ Set-PnPList -Identity "Demo List" -DefaultSensitivityLabelForLibrary "Business"
 ```
 
 See [Configure a default sensitivity label for a SharePoint document library](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-default-label) for more info
+
+## Other SharePoint Premium features 
+
+I followed the post [Enable Pay-as-You-Go Licensing for Syntex aka SharePoint Premium.](https://www.divyaakula.com/sharepointpremium/2024/05/01/enabling-sharepoint-syntex-with-pay-as-you-go.html) to enable SharePoint Premium using my Visual Studio Azure subscription.
+
+### Content Processing
+
+* Autofill columns
+* Taxonomy tagging
+* Content query
+* Translation
+* Annotations
+* Automated classification and security
+
+![Syntex Settings](../images/powershell-SharePoint-Premium-Settings/SyntexSettings.png)
