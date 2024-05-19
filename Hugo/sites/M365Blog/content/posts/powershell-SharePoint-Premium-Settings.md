@@ -2,7 +2,7 @@
 title: "Manage SharePoint Premium Settings using PowerShell to help overcome oversharing for Copilot for M365 rollout"
 date: 2024-05-18T15:45:36+01:00
 tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","Copilot for M365","Information Governance","Sensitivity Label","Conditional Access", "SharePoint Premium", "SharePoint Advanced Management","IG"]
-featured_image: '/posts/images/powershell-SharePoint-Premium-Settings/SharePointPayAsYouGoBilling.png'
+featured_image: '/posts/images/powershell-SharePoint-Premium-Settings/OneDriveAccessRestriction.png'
 draft: false
 ---
 
@@ -14,6 +14,9 @@ Read [Microsoft Syntex - SharePoint Advanced Management overview](https://learn.
 
 SharePoint Premium offers Pay as you go billing. A trial is possible by signing up on 
 Microsoft 365 admin center> Billing> Purchase Services> Search for SharePoint Advanced Management and scroll down> Click on the Details> Click on Start Free trial
+
+![Enable Trial](../images/powershell-SharePoint-Premium-Settings/SharePointAdvancedManagementFeatures.png)
+
 
 ## Tenant level settings
 

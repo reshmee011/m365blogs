@@ -6,7 +6,7 @@ featured_image: '/posts/images/powershell-sharePoint-sharing-permissions-copilot
 draft: true
 ---
 
-# Empowering Secure Collaboration: Configuring OneDrive Sharing Tenant Settings with PowerShell to help with oversharing
+# Empowering Secure Collaboration: Configuring OneDrive Sharing Tenant Settings with PowerShell
 
 OneDrive makes it easy to collaborate by sharing files and folders with others.
 OneDrive is the storage space for personal productivity and not meant for collaboration and is critical for usage for other M365 Apps.  
@@ -18,7 +18,7 @@ OneDrive is the storage space for personal productivity and not meant for collab
 - Loops in chats
 - Streams
 
-In this article, we'll delve into how PowerShell can empower SharePoint administrators to configure OneDrive sharing settings proactively at both the tenant and site levels. By leveraging PowerShell scripts, you can streamline the process of enforcing security measures to safeguard sensitive information and mitigate the risk of oversharing.
+In this article, we'll delve into how PowerShell can empower SharePoint administrators to configure OneDrive sharing settings proactively at the tenant levels to help with Copilor for M365 rollout to help with oversharing.
 
 ## Tenant Level Sharing Settings
 
@@ -64,19 +64,19 @@ Use other methods to create a shared folder to share with all internal users wit
 
 ### OneDriveDefaultShareLinkScope
 
-Gets or sets default share link scope for Loop and Whiteboard files on OneDrive sites.
+Gets or sets default share link scope for files on OneDrive sites.
 
 The valid values are:
 
-Anyone
-Organization
-SpecificPeople
-Uninitialized
+* Anyone
+* Organization
+* SpecificPeople
+* Uninitialized
 
 
 ### OneDriveDefaultShareLinkRole
 
-Gets or sets default share link role for Loop and Whiteboard files on OneDrive sites.
+Gets or sets default share link role for files on OneDrive sites.
 
 Note: Although the values below may be viewable in Powershell, only View OR Edit may be set at this time.
 
@@ -131,7 +131,10 @@ When set to true, default sharing link will a People with Existing Access link (
 ![linkSettings](../images/powershell-sharePoint-sharing-permissions-copilot/linktoexistingaccess.png)
 
 ### OneDriveBlockGuestsAsSiteAdmin
-: Unspecified
+
+Prevents Guests being set up as site administrators
+
+It is still an experimental feature at the time of writing the article.
 
 ### OneDriveRequestFilesLinkEnabled
 
@@ -199,6 +202,8 @@ The following warning message will display when set to $true.
 **WARNING: Users in your organization will no longer be able to add new shortcuts to their OneDrive. Existing shortcuts will remain functional.**
 
 Read more from [Teams Real Simple with Pictures: Disabling Add Shortcut to OneDrive](https://microsoft365pro.co.uk/2022/04/11/teams-real-simple-with-pictures-disabling-add-shortcut-to-onedrive/)
+
+Having shortcuts within OneDrive links to other storage areas, i.e. SharePoint libraries or folders.
 
 ### DefaultOneDriveInformationBarrierMode
 
@@ -287,8 +292,8 @@ Sets policy on re-sharing behavior for those who have access in OneDrive for Bus
 
 The valid values are:
 
-On - Users with edit permissions can re-share.
-Off - Only OneDrive for Business owner can share. The value of ODBAccessRequests defines whether a request to share gets sent to the owner.
+* On - Users with edit permissions can re-share.
+* Off - Only OneDrive for Business owner can share. The value of ODBAccessRequests defines whether a request to share gets sent to the owner.
 Unspecified - Let each OneDrive for Business owner enable or disable re-sharing behavior on their OneDrive.
 
 [Configure Access Requests and Sharing Settings in OneDrive for Business Sites](https://www.sharepointdiary.com/2019/09/configure-onedrive-for-business-access-requests-settings.html#ixzz8ZWETbmmi?&wt.mc_id=MVP_308367)
@@ -356,7 +361,6 @@ Set-SPOTenant -ODBAccessRequests Off `
             -OneDriveLoopDefaultSharingLinkRole Edit `
             -OneDriveLoopDefaultSharingLinkScope Anyone `
             -OneDriveDefaultLinkToExistingAccess $true `
-            -OneDriveBlockGuestsAsSiteAdmin On `
             -OwnerAnonymousNotification $true `
             -OrphanedPersonalSitesRetentionPeriod 30 `
             -OneDriveStorageQuota 1048576 `
@@ -369,6 +373,7 @@ Set-SPOTenant -ODBAccessRequests Off `
             -NotifyOwnersWhenItemsReshared $true
 
             # -DefaultOneDriveInformationBarrierMode   ` dependent on InformationBarriersSuspension being on
+            # -OneDriveBlockGuestsAsSiteAdmin On ` Experimental feature
 Set-SPOTenantSyncClientRestriction -ExcludedFileExtensions "exe;mp3;mp4"
 
 ```
