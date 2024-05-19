@@ -1,12 +1,12 @@
 ---
 title: "Empowering Secure Collaboration: Configuring OneDrive Sharing Tenant and Site Settings with PowerShell to prevent oversharing"
-date: 2024-05-16T06:51:10Z
+date: 2024-05-19T06:51:10Z
 tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","OneDrive","Copilot for M365","Information Governance","IG"]
 featured_image: '/posts/images/powershell-sharePoint-sharing-permissions-copilot/TenantSharingOptions_filefolderdomain.png'
 draft: true
 ---
 
-# Empowering Secure Collaboration: Configuring OneDrive Sharing Tenant Settings with PowerShell
+# Empowering Secure Collaboration: Configuring OneDrive Tenant Settings with PowerShell for infomation governance
 
 OneDrive makes it easy to collaborate by sharing files and folders with others.
 OneDrive is the storage space for personal productivity and not meant for collaboration and is critical for usage for other M365 Apps.  
@@ -73,6 +73,10 @@ The valid values are:
 * SpecificPeople
 * Uninitialized
 
+If trying to set to "Anyone" and "Anonymous access links" are not enabled at the tenant level , you will get the following warning message
+
+**WARNING: Anonymous access links aren’t enabled for your organization. You must first enable them by running the command “Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing” before you can set the DefaultSharingLinkType parameter to AnonymousAccess. We will not set the value in this case.**
+
 
 ### OneDriveDefaultShareLinkRole
 
@@ -83,15 +87,11 @@ Note: Although the values below may be viewable in Powershell, only View OR Edit
 The valid values are:
 
 * Edit
-* View
-* LimitedEdit
-* LimitedView
-* ManageList
 * None
 * Owner
 * RestrictedView
 * Review
-* Submit
+* View
 
 ### OneDriveLoopDefaultSharingLinkScope
 
@@ -104,25 +104,27 @@ The valid values are:
 * SpecificPeople
 * Uninitialized
 
+You may get the following error message while setting the property to 'Anyone' if Anyone access links are not set at the OneDrive
+ **Anyone access links aren't enabled on parent levels. You must first enable them before you can set the DefaultSharingLinkScope parameter to Anyone. We will not set the value in this case.**
+
+To fix the issue run 
+
+```PowerShell
+ set-spotenant -OneDriveSharingCapability ExternalUserAndGuestSharing
+```
 
 ### OneDriveLoopDefaultSharingLinkRole
 
 Gets or sets default share link role for Loop and Whiteboard files on OneDrive sites.
 
-Note: Although the values below may be viewable in Powershell, only View OR Edit may be set at this time.
-
 The valid values are:
 
 * Edit
-* View
-* LimitedEdit
-* LimitedView
-* ManageList
 * None
 * Owner
 * RestrictedView
 * Review
-* Submit
+* View
 
 
 ### OneDriveDefaultLinkToExistingAccess
@@ -158,11 +160,9 @@ Read more from [Enable File Requests in SharePoint or OneDrive](https://learn.mi
 
 Enables or disables owner anonymous notification. If enabled, an email notification will be sent to the OneDrive for Business owners when an anonymous links are created or changed.
 
-PARAMVALUE: $true | $false
-
 ### OrphanedPersonalSitesRetentionPeriod
 
-Specifies the number of days after a user's Entra ID account is deleted that their OneDrive content will be deleted.
+Specifies the number of days after a user's Entra ID account is deleted that their OneDrive content will be deleted. This updates the Retention Policy for All Orphaned OneDrive for Business sites.
 
 The value range is in days, between 30 and 3650. The default value is 30.
 
@@ -180,14 +180,14 @@ If the value is set larger than the Maximum allowed OneDrive for Business quota,
 
 ### OneDriveForGuestsEnabled
 
-Lets OneDrive for Business creation for administrator managed guest users. Administrator managed Guest users use credentials in the resource tenant to access the resources.
+This will enable all users, including guests, to create OneDrive for Business sites. OneDrive for Business licenses must be first assigned to the guests before they can create their OneDrive for Business sites.
 
 The valid values are:
 
-* true - Administrator managed Guest users can be given OneDrives, provided needed licenses are assigned.
-* false - Administrator managed Guest users can't be given OneDrives as functionality is turned off.
+* true - Guest users can be given access to OneDrive, provided needed licenses are assigned.
+* false - Guest users can't be given access to OneDrive as functionality is turned off.
 
-If set to $true, you will be prompted with the following promtp. Click on Yes to proceed if it's the intention to set it to true.
+If set to $true, you will be prompted with the following prompt. Click on Yes to proceed if it's the intention to set it to true.
 
 **This will enable all users, including guests, to create OneDrive for Business sites. You must first assign OneDrive for Business licenses to the guests before they can create their OneDrive for Business sites.**
 
@@ -228,14 +228,22 @@ Run the following to enable information barriers in SharePoint and OneDrive
 
 [Use information barriers with SharePoint](https://learn.microsoft.com/en-us/purview/information-barriers-sharepoint?wt.mc_id=MVP_308367)
 
-### ContentTypeSyncSiteTemplatesList [String[]] [-ExcludeSiteTemplate]
+### ContentTypeSyncSiteTemplatesList
 
 By default Content Type Hub will no longer push content types to OneDrive for Business sites (formerly known as MySites). 
  Enables Content Type Hub to push content types to all OneDrive for Business sites
 
--ContentTypeSyncSiteTemplatesList MySites -ExcludeSiteTemplate
+To enable the setting to continue syncing content types to MySites
 
-stops publishing content types to OneDrive for Business sites.
+```PowerShell
+Set-SPOTenant -ContentTypeSyncSiteTemplatesList MySites
+```
+
+To disable syncing of content types to MySites
+
+```powershell
+Set-SPOTenant -ContentTypeSyncSiteTemplatesList MySites -ExcludeSiteTemplate
+```
 
 ### BlockUserInfoVisibilityInOneDrive
 
@@ -359,46 +367,72 @@ Set-SPOTenant -ODBAccessRequests Off `
             -OneDriveDefaultShareLinkScope Organization `
             -OneDriveDefaultShareLinkRole Edit `
             -OneDriveLoopDefaultSharingLinkRole Edit `
-            -OneDriveLoopDefaultSharingLinkScope Anyone `
+            -OneDriveLoopDefaultSharingLinkScope Organization `
             -OneDriveDefaultLinkToExistingAccess $true `
             -OwnerAnonymousNotification $true `
-            -OrphanedPersonalSitesRetentionPeriod 30 `
             -OneDriveStorageQuota 1048576 `
             -OneDriveRequestFilesLinkExpirationInDays 60 `
-            -OneDriveForGuestsEnabled $false `
-            -ContentTypeSyncSiteTemplatesList `
             -BlockUserInfoVisibilityInOneDrive ApplyToNoUsers `
             -NotificationsInOneDriveForBusinessEnabled $true `
             -NotifyOwnersWhenInvitationsAccepted $true `
             -NotifyOwnersWhenItemsReshared $true
 
             # -DefaultOneDriveInformationBarrierMode   ` dependent on InformationBarriersSuspension being on
-            # -OneDriveBlockGuestsAsSiteAdmin On ` Experimental feature
-Set-SPOTenantSyncClientRestriction -ExcludedFileExtensions "exe;mp3;mp4"
+            # -OneDriveBlockGuestsAsSiteAdmin On ` experimental feature
+            Set-SPOTenant -OneDriveForGuestsEnabled $false #click yes or no for the setting to update
+            Set-SPOTenant -OrphanedPersonalSitesRetentionPeriod 30 #click yes or no for the setting to update 
+
+            Set-SPOTenantSyncClientRestriction -ExcludedFileExtensions "exe;mp3;mp4"
 
 ```
 
 **PnP PowerShell**
+
+* Get Tenant properties
+
+```powershell
+Get-PnPTenant | select-object -property ODBAccessRequests `
+            ,ODBMembersCanShare `
+            ,OneDriveRequestFilesLinkEnabled `
+            ,ProvisionSharedWithEveryoneFolder `
+            ,OneDriveLoopDefaultSharingLinkRole `
+            ,OwnerAnonymousNotification `
+            ,DisableAddToOneDrive `
+            ,OrphanedPersonalSitesRetentionPeriod `
+            ,OneDriveStorageQuota `
+            ,OneDriveRequestFilesLinkExpirationInDays `
+            ,OneDriveForGuestsEnabled `
+            ,DefaultOneDriveInformationBarrierMode `
+            ,BlockUserInfoVisibilityInOneDrive `
+            ,NotificationsInOneDriveForBusinessEnabled `
+            ,NotifyOwnersWhenInvitationsAccepted `
+            ,NotifyOwnersWhenItemsReshared
+
+<#PnP PowerShell can't be used to return the following properties at the time of writing this article
+            ,DisableAddShortCutsToOneDrive  ` - use DisableAddToOneDrive
+            OneDriveSharingCapability
+            ,OneDriveDefaultShareLinkScope `
+            ,OneDriveDefaultShareLinkRole `
+            ,OneDriveDefaultLinkToExistingAccess `
+            ,OneDriveBlockGuestsAsSiteAdmin `
+            ,ContentTypeSyncSiteTemplatesList `
+#>
+```
+
 
 ```PowerShell
 connect-pnponline -url https://contoso-admin.sharepoint.com -interactive
 Set-PnPTenant -ODBAccessRequests Off `
             -ODBMembersCanShare On `
             -OneDriveRequestFilesLinkEnabled $true `
-            -DisableAddShortCutsToOneDrive $true  `
-            -OneDriveSharingCapability ExternalUserAndGuestSharing `
-            -OneDriveDefaultShareLinkScope Organization `
-            -OneDriveDefaultShareLinkRole Edit `
+            -DisableAddToOneDrive $true  `
             -OneDriveLoopDefaultSharingLinkRole Edit `
-            -OneDriveLoopDefaultSharingLinkScope Anyone `
-            -OneDriveDefaultLinkToExistingAccess $true `
-            -OneDriveBlockGuestsAsSiteAdmin On `
+            -OneDriveLoopDefaultSharingLinkScope Organization `
             -OwnerAnonymousNotification $true `
             -OrphanedPersonalSitesRetentionPeriod 30 `
             -OneDriveStorageQuota 1048576 `
             -OneDriveRequestFilesLinkExpirationInDays 60 `
             -OneDriveForGuestsEnabled $false `
-            -ContentTypeSyncSiteTemplatesList `
             -BlockUserInfoVisibilityInOneDrive ApplyToNoUsers `
             -NotificationsInOneDriveForBusinessEnabled $true `
             -NotifyOwnersWhenInvitationsAccepted $true `

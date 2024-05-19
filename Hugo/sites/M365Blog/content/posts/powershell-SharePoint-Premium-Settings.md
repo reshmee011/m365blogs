@@ -47,7 +47,7 @@ Access and sharing of OneDrive content can be restricted to users in specified M
 
 Read more from [Restrict OneDrive access by security group](https://learn.microsoft.com/en-us/sharepoint/limit-access?wt.mc_id=MVP_308367).
 
-The only way to update this setting is to use REST method to _api/SPOInternalUseOnly.Tenant
+The only way to update this setting through PowerShell is to use REST method to _api/SPOInternalUseOnly.Tenant
 
 ```powershell
 connect-PnPONline -Url https://reshmeeauckloo-admin.sharepoint.com -Interactive
