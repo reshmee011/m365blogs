@@ -1,19 +1,21 @@
 ---
-title: "Manage SharePoint Premium Settings using PowerShell to help overcome oversharing for Copilot for M365 rollout"
+title: "Manage SharePoint Premium Settings Using PowerShell to protect data in Copilot for M365 Rollout"
 date: 2024-05-18T15:45:36+01:00
 tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","Copilot for M365","Information Governance","Sensitivity Label","Conditional Access", "SharePoint Premium", "SharePoint Advanced Management","IG"]
 featured_image: '/posts/images/powershell-SharePoint-Premium-Settings/OneDriveAccessRestriction.png'
 draft: false
 ---
 
-# Manage SharePoint Premium Settings using PowerShell to help overcome oversharing for Copilot for M365 rollout
+# Manage SharePoint Premium Settings Using PowerShell to protect data in Copilot for M365 Rollout
 
-SharePoint Premium provides features to help with oversharing which will help towards Copilot for M365 rollout to prevent accidental data leaks.
+SharePoint Premium offers advanced features to help prevent oversharing and accidental data leaks, which is crucial for a successful rollout of Copilot for M365. This guide will show you how to manage these settings using PowerShell.
 
-Read [Microsoft Syntex - SharePoint Advanced Management overview](https://learn.microsoft.com/en-us/sharepoint/advanced-management?wt.mc_id=MVP_308367) for more info.
+For an overview, read the [Microsoft Syntex - SharePoint Advanced Management overview](https://learn.microsoft.com/en-us/sharepoint/advanced-management?wt.mc_id=MVP_308367).
 
-SharePoint Premium offers Pay as you go billing. A trial is possible by signing up on 
-Microsoft 365 admin center> Billing> Purchase Services> Search for SharePoint Advanced Management and scroll down> Click on the Details> Click on Start Free trial
+## Enabling SharePoint Advanced Management - SAM
+
+SharePoint Premium provides pay-as-you-go billing. You can start a trial by navigating to:
+Microsoft 365 Admin Center > Billing > Purchase Services > Search for SharePoint Advanced Management > Scroll Down > Click on Details > Click on Start Free Trial.
 
 ![Enable Trial](../images/powershell-SharePoint-Premium-Settings/SharePointAdvancedManagementFeatures.png)
 
@@ -34,23 +36,17 @@ set-spotenant -EnableRestrictedAccessControl
 set-pnptenant -EnableRestrictedAccessControl
 ```
 
-Enables site-level access restriction for your organization. It might take up to one hour for command to take effect.
-
-If appropriate license is missing, the following error message will appear.
+This setting enables site-level access restriction for your organization. It may take up to an hour for the command to take effect. If the appropriate license is missing, you will receive an error message.
 
 **set-spotenant : This operation can't be performed as the tenant doesn't have the required license. Refer https://aka.ms/RACPolicyForSites to learn more**
 
 
 ### [Restrict OneDrive access by security group](https://learn.microsoft.com/en-us/sharepoint/limit-access?wt.mc_id=MVP_308367)
 
-Access and sharing of OneDrive content can be restricted to users in specified Microsoft Entra ID security groups. Users outside the specified groups won't have access to their own OneDrive content once this policy is in effect.
-
-Read more from [Restrict OneDrive access by security group](https://learn.microsoft.com/en-us/sharepoint/limit-access?wt.mc_id=MVP_308367).
-
-The only way to update this setting through PowerShell is to use REST method to _api/SPOInternalUseOnly.Tenant
+Restrict access and sharing of OneDrive content to users in specified Microsoft Entra ID security groups. Use the REST method to update this setting through PowerShell using REST method to _api/SPOInternalUseOnly.Tenant
 
 ```powershell
-connect-PnPONline -Url https://reshmeeauckloo-admin.sharepoint.com -Interactive
+connect-PnPOnline -Url https://reshmeeauckloo-admin.sharepoint.com -Interactive
 
 # Prepare the REST API endpoint URL
 $apiUrl = "/_api/SPOInternalUseOnly.Tenant"
@@ -64,13 +60,17 @@ $payload = @{
 Invoke-PnPSPRestMethod -Method Patch -Url $apiUrl -ContentType "application/json;odata.metadata=minimal" -Content $payload
 ```
 
+Read [Restrict OneDrive access by security group](https://learn.microsoft.com/en-us/sharepoint/limit-access?wt.mc_id=MVP_308367) for more info.
+
 ![OneDrive Access Restriction](../images/powershell-SharePoint-Premium-Settings/OneDriveAccessRestriction.png)
 
 ### DisableDocumentLibraryDefaultLabeling
 
-Turns off the feature that supports a default sensitivity label for SharePoint document libraries. If enabled, default sensitivity label can be set to a library to all new / modified files inside a document library.
+This setting turns off the default sensitivity label for SharePoint document libraries. If enabled, default sensitivity label can be set to a library to all new / modified files inside a document library.
 
-See [Configure a default sensitivity label for a SharePoint document library](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-default-label) for more info.
+For more information, see  [Configure a default sensitivity label for a SharePoint document library](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-default-label?wt.mc_id=MVP_308367).
+
+**SPO PowerShell**
 
 ```powershell
 set-spotenant -DisableDocumentLibraryDefaultLabeling $false #enables default sensitivity label for SharePoint document libraries
@@ -84,39 +84,27 @@ set-pnptenant -DisableDocumentLibraryDefaultLabeling $false #enables default sen
 
 ## Site level settings
 
-### [Block download policy for SharePoint sites and OneDrive](https://learn.microsoft.com/en-us/sharepoint/block-download-from-sites?WT.mc_id=365AdminCSH_spo&?wt.mc_id=MVP_308367)
+### [Block download policy for SharePoint sites and OneDrive](https://learn.microsoft.com/en-us/sharepoint/block-download-from-sites?WT.mc_id=365AdminCSH_spo&wt.mc_id=MVP_308367)
 
 **BlockDownloadPolicy**
 
 Block users from downloading, printing, or syncing files from specified SharePoint sites or OneDrive accounts to reduce the risk of data loss. User will have browser-only access and won't be able to access content through apps, including Microsoft Office desktop apps.
 
-Configure certain sites to not allow
-- Download
-- Print
-- Or sync of files
+For more information, see [block download policy](https://learn.microsoft.com/en-us/sharepoint/block-download-from-sites?wt.mc_id=MVP_308367)
 
-[block download policy](https://learn.microsoft.com/en-us/sharepoint/block-download-from-sites?wt.mc_id=MVP_308367)
-
-Can only be configured at site level and at not at tenant wide.
-
-This is a SharePoint Premium feature and since being in GA, you may need to consider licensing costs to use it.
+This can only be configured at site level and at not at tenant wide.
 
 **ExcludeBlockDownloadPolicySiteOwners**
 
-#Exempt site owners from this policy and allow them to download any content
-for the site
-Blocks the download of files from SharePoint sites or OneDrive except the site owners.
+Exempt site owners from this policy and allow them to download any content for the site
 
 **ExcludedBlockDownloadGroupIds**
 
 Exempt users from the mentioned groups from this policy and allow them to download any content for the site
 
-Provide comma separated group Ids.
-
 **ExcludeBlockDownloadSharePointGroups**
-Exempts users from the mentioned SharePoint groups from this policy and they can fully download any content for the site
 
-Provide comma separated group Ids.
+Exempts users from the mentioned SharePoint groups from this policy and they can fully download any content for the site
 
 **ReadOnlyForBlockDownloadPolicy**
 
@@ -127,8 +115,6 @@ If you don't have the appropriate license, you may get the error message
 **Set-SPOSite : You do not have required licenses to perform this operation. Please read here for licensing related requirements : https://learn.microsoft.com/en-US/sharepoint/block-download-from-sites**
 
 ![Licence not activated](../images/powershell-SharePoint-Premium-Settings/BlockDownloadPolicyLicense.png)
-
-Follow the post [Enable Pay-as-You-Go Licensing for Syntex aka SharePoint Premium.](https://www.divyaakula.com/sharepointpremium/2024/05/01/enabling-sharepoint-syntex-with-pay-as-you-go.html) to find details how to enable SharePoint Premium.
 
 * SPO PowerShell
 
@@ -161,9 +147,7 @@ Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
 
 Before using the property , enables tenant-level access restriction for your organization first setting the property EnableRestrictedAccessControl described above.
 
-For group connected sites if RestrictedAccessControl is enabled, SharePoint site permissions are limited to users part of the Microsoft 365 Group. Site owners won't be able to share anything with members outside the Microsoft 365 Group.
-
-For non grouped sites, site access can be restricted to members of up to 10 specified Entra ID security groups or Microsoft 365 Groups.
+For group-connected sites, this setting limits permissions to users in the Microsoft 365 Group. For non-grouped sites, access can be restricted to up to 10 specified Entra ID security groups or Microsoft 365 Groups.
 
 * SPO PowerShell
 
@@ -199,7 +183,7 @@ The following message will be displayed on resetting the site access restriction
 
 Read more [Restrict SharePoint site access with Microsoft 365 groups and Entra security groups](https://learn.microsoft.com/en-us/sharepoint/restricted-access-control)
 
-Read more from [Restrict access to a user's OneDrive content to people in a group](https://learn.microsoft.com/en-us/sharepoint/onedrive-site-access-restriction?wt.mc_id=MVP_308367)
+Read more [Restrict access to a user's OneDrive content to people in a group](https://learn.microsoft.com/en-us/sharepoint/onedrive-site-access-restriction?wt.mc_id=MVP_308367)
 
 Access and sharing of individual OneDrive's and SharePoint site content can be restricted to users in specified Microsoft Entra ID security groups using OneDrive access restriction policy. Users not in the specified group won't be able to access the content, even if they had prior permissions or shared link.
 
@@ -272,17 +256,15 @@ Get-PnPTenantSite -Identity <siteurl> -RemoveRestrictedAccessControlGroups 21af7
 
 ### Conditional Access Policy
 
-Blocks or limits access to SharePoint and OneDrive content from un-managed devices.
-
-Requires SharePoint Advanced Management feature to use since it is in GA. 
+This policy blocks or limits access to SharePoint and OneDrive content from unmanaged devices.
 
 Possible values:
 
-* AllowFullAccess: Allows full access from desktop apps, mobile apps, and the web.
-* AllowLimitedAccess: Allows limited, web-only access.
-* BlockAccess: Blocks Access.
+**AllowFullAccess**: Allows full access from desktop apps, mobile apps, and the web.
+**AllowLimitedAccess**: Allows limited, web-only access.
+**BlockAccess**: Blocks Access.
 
-Refer to [Control access from unmanaged devices](https://learn.microsoft.com/en-us/sharepoint/control-access-from-unmanaged-devices?wt.mc_id=MVP_308367)
+Refer to [Control access from unmanaged devices](https://learn.microsoft.com/en-us/sharepoint/control-access-from-unmanaged-devices?wt.mc_id=MVP_308367).
 
 ```PowerShell
 Set-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest ` 
@@ -291,13 +273,13 @@ Set-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
 
 ### Default Sensitivity label for sites and libraries for security
 
-To use the feature, the tenant setting EnableAIPIntegration needs to be enabled.
+To use this feature, enable the tenant setting EnableAIPIntegration.
 
 ```PowerShell
 Set-SPOTenant -EnableAIPIntegration $true
 ```
 
-see [Enable sensitivity labels for Office files in SharePoint and OneDrive](https://learn.microsoft.com/en-us/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?wt.mc_id=MVP_308367) for more info.
+For more information, see [Enable sensitivity labels for Office files in SharePoint and OneDrive](https://learn.microsoft.com/en-us/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?wt.mc_id=MVP_308367) for more info.
 
 #### Set Sensitivity label can be set at the site level
 
@@ -325,9 +307,9 @@ Default sensitivity label can be set to a library to all new / modified files in
 Set-PnPList -Identity "Demo List" -DefaultSensitivityLabelForLibrary "Business"
 ```
 
-See [Configure a default sensitivity label for a SharePoint document library](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-default-label) for more info
+For more information, see [Configure a default sensitivity label for a SharePoint document library](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-default-label?wt.mc_id=MVP_308367)
 
-## Other SharePoint Premium features 
+## Additional AI driven SharePoint Premium Features
 
 I followed the post [Enable Pay-as-You-Go Licensing for Syntex aka SharePoint Premium.](https://www.divyaakula.com/sharepointpremium/2024/05/01/enabling-sharepoint-syntex-with-pay-as-you-go.html) to enable SharePoint Premium using my Visual Studio Azure subscription.
 
