@@ -18,7 +18,9 @@ https://sharepains.com/2024/01/05/system-update-sharepoint-power-automate/#Locke
 /_api/web/Lists/GetbyTitle('Data Import')/items(triggerOutputs()?['body']['ID'])/ValidateUpdateListItem()
 
 {
-"formValues":[{"FieldName": "Status", "FieldValue": "In Progress"}],
+"formValues":[{"FieldName": "Status", "FieldValue": "In Progress"},
+{"FieldName": "Editor",
+ "FieldValue":"[{'Key':'triggerOutputs()?['body/Editor/Claims']'}]"}],
  "bNewDocumentUpdate":true
 }
 
@@ -48,4 +50,6 @@ outputs('Compose_-_get_driveId')
 
 ## Reference
 [Get drive id for Doc Library selection](https://powerusers.microsoft.com/t5/Building-Flows/Get-drive-id-for-Doc-Library-selection/m-p/857384#M120179)
-()[https://sharepains.com/2024/01/05/system-update-sharepoint-power-automate/#Locked_files]
+[System Update trick to avoid locked file issue](https://sharepains.com/2024/01/05/system-update-sharepoint-power-automate/#Locked_files)
+[Hyperlink Column JSON](https://tomriha.com/how-to-update-sharepoint-hyperlink-column-in-power-automate/)
+[Storing a link into Sharepoint List](https://powerusers.microsoft.com/t5/Building-Flows/Storing-a-link-into-Sharepoint-List-Hyperlink-Column/m-p/1636264#M181989) 
