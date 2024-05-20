@@ -156,11 +156,15 @@ Determines the retention period, in days, for OneDrive content after a user's En
 
 Learn more about OneDrive retention and deletion policies at [OneDrive retention and deletion](https://learn.microsoft.com/en-us/sharepoint/retention-and-deletion?wt.mc_id=MVP_308367).
 
+![retention](../images/powershell-OneDrive-Sharing-settings-Copilot/retention.png)
+
 ### OneDriveStorageQuota
 
 Sets the default storage quota for new OneDrive for Business sites within the tenant. This can be used to limit the storage available to OneDrive for Business sites to below the entitlement level of the user's license, such as setting a default quota of 10 gigabytes (GB).
 
 If the value is set to 0, it will have no effect. Similarly, if the value exceeds the maximum allowed quota for OneDrive for Business, it will be disregarded.
+
+![storage](../images/powershell-OneDrive-Sharing-settings-Copilot/storage.png)
 
 ### OneDriveForGuestsEnabled
 
@@ -291,6 +295,8 @@ For detailed instructions on configuring access requests and sharing settings, v
 Administrators can restrict the types of files that users are allowed to sync to their OneDrive for Business for security and compliance reasons. This section provides guidance on how to implement such restrictions using the OneDrive admin center and PowerShell.
 
 For a step-by-step guide on blocking specific file types from syncing in OneDrive for Business, refer to [OneDrive for Business: Block Syncing of Specific File Types](https://www.sharepointdiary.com/2019/09/onedrive-for-business-block-syncing-specific-file-types.html?wt.mc_id=MVP_308367).
+
+![sync](../images/powershell-OneDrive-Sharing-settings-Copilot/sync.png)
 
 ### Add Additional Site Collection Admin to Site
 
