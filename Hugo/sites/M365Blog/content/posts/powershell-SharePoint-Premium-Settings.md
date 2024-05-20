@@ -2,7 +2,7 @@
 title: "Manage SharePoint Premium Settings Using PowerShell to protect data in Copilot for M365 Rollout"
 date: 2024-05-18T15:45:36+01:00
 tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","Copilot for M365","Information Governance","Sensitivity Label","Conditional Access", "SharePoint Premium", "SharePoint Advanced Management","IG"]
-featured_image: '/posts/images/powershell-SharePoint-Premium-Settings/OneDriveAccessRestriction.png'
+featured_image: '/posts/images/powershell-SharePoint-Premium-Settings/SharePointAdvancedManagementSettings.png'
 draft: false
 ---
 
@@ -309,6 +309,28 @@ Set-PnPList -Identity "Demo List" -DefaultSensitivityLabelForLibrary "Business"
 
 For more information, see [Configure a default sensitivity label for a SharePoint document library](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-default-label?wt.mc_id=MVP_308367)
 
+## Other SharePoint Avanced Management features
+
+![SharePoint Avanced Management features](../images/powershell-SharePoint-Premium-Settings/SharePointAdvancedManagementSettings.png)
+
+* Change history : Find who made particular site or organization setting changes and when
+
+For more information, see [Create change history reports](https://learn.microsoft.com/en-us/sharepoint/change-history-report?wt.mc_id=MVP_308367)
+
+* Data access governance reports : Discover potential oversharing and keep track of sites that have sensitive files
+
+For more information, see [Data access governance reports for SharePoint sites](https://learn.microsoft.com/en-us/sharepoint/data-access-governance-reports?wt.mc_id=MVP_308367)
+
+![Data Governance](../images/powershell-SharePoint-Premium-Settings/DataGovernance.png)
+
+* Recent actions : Review recent site changes you made
+
+For more information, see [Review your recent changes to SharePoint site properties](https://learn.microsoft.com/en-us/sharepoint/recent-actions-panel?WT.mc_id=365AdminCSH_spo?wt.mc_id=MVP_308367)
+
+* Site lifecycle management : Automate tasks across the life cycle of your sites
+
+For more information, see [Manage site lifecycle policies](https://learn.microsoft.com/en-us/sharepoint/site-lifecycle-management?wt.mc_id=MVP_308367)
+ 
 ## Additional AI driven SharePoint Premium Features
 
 I followed the post [Enable Pay-as-You-Go Licensing for Syntex aka SharePoint Premium.](https://www.divyaakula.com/sharepointpremium/2024/05/01/enabling-sharepoint-syntex-with-pay-as-you-go.html) to enable SharePoint Premium using my Visual Studio Azure subscription.
