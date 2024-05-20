@@ -1,12 +1,12 @@
 ---
-title: "Empowering Secure Collaboration: Configuring OneDrive Sharing Tenant and Site Settings with PowerShell to prevent oversharing"
+title: "Empowering Secure Collaboration: Configuring OneDrive Tenant and Site Settings"
 date: 2024-05-19T06:51:10Z
 tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","OneDrive","Copilot for M365","Information Governance","IG"]
 featured_image: '/posts/images/powershell-sharePoint-sharing-permissions-copilot/TenantSharingOptions_filefolderdomain.png'
 draft: false
 ---
 
-# Secure Collaboration: Configuring OneDrive Tenant Settings with PowerShell
+# Empowering Secure Collaboration: Configuring OneDrive Tenant Settings with PowerShell
 
 OneDrive makes it easy to collaborate by sharing files and folders with others. OneDrive is the storage space for personal productivity and not meant for collaboration. Data stored within OneDrive are 
  
