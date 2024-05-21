@@ -1,14 +1,30 @@
 ---
 title: "Powerautomate_get Library Drive Id"
 date: 2024-05-17T16:54:24+01:00
+tags: ["Power Automate","DriveId","REST","Solution","Excel for Business"]
+featured_image: '/posts/images/powerautomate_get-library-drive-id/div_email_owa.PNG'
 draft: true
 ---
 
+# How to get DriveId of library for Excel for Business
+
 Error with malformed drive id if using document as data source
 
+```dotnetcli
 The provided drive id appears to be malformed, or does not represent a valid drive.
 clientRequestId: 6842e526-7afc-46a2-84f5-e40794457816
 serviceRequestId: 6ffaacd1-6b2d-41d7-b3a6-963ab3e2dcbd
+```
+
+![Data source library](../images/powerautomate_get-library-drive-id/DataSourceLibrary.png)
+
+![Error with data source library](../images/powerautomate_get-library-drive-id/errorwithlibrarydatasource.png)
+![filter array action](../images/powerautomate_get-library-drive-id/filterarrayaction_name.png)
+![HTTP with Microsoft Entra ID](../images/powerautomate_get-library-drive-id/HTTPWithMIcrosoftEntraID.png)
+![Libray connection](../images/powerautomate_get-library-drive-id/libraryconnection.png)
+![Invoke Entra ID error](../images/powerautomate_get-library-drive-id/InvokeEntraId_error.png)
+![REST API](../images/powerautomate_get-library-drive-id/Select_RESTAPI.png.png)
+![Send HTTP Request to SharePoint to get Drive Id ](../images/powerautomate_get-library-drive-id/SendHTTPRequestToSharePointToGetDriveId.png)
 
 ### Handling Locked files
 
