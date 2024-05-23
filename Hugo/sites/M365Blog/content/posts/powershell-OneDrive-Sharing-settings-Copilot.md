@@ -416,7 +416,8 @@ Get-PnPTenant | select-object -property ODBAccessRequests `
             ,OneDriveDefaultShareLinkRole `
             ,OneDriveDefaultLinkToExistingAccess `
             ,OneDriveBlockGuestsAsSiteAdmin `
-            ,ContentTypeSyncSiteTemplatesList `
+            ,ContentTypeSyncSiteTemplatesList
+            ,HideSyncButtonOnTeamSite `
 #>
 ```
 
