@@ -308,6 +308,21 @@ For instructions on how to grant another user access to a OneDrive for Business 
 #Add Site Collection Admin to the OneDrive
 Set-SPOUser -Site $OneDriveSiteUrl -LoginName $SiteCollAdmin -IsSiteCollectionAdmin $True
 ```
+### HideSyncButtonOnTeamSite : Turn off OneDrive sync for SharePoint libraries
+
+Users have two options when syncing files in SharePoint libraries and Teams. They can
+
+[Add shortcuts to libraries and folders to their OneDrive.](https://support.microsoft.com/office/d66b1347-99b7-4470-9360-ffc048d35a33?wt.mc_id=MVP_308367))
+[Use the Sync button in the document library.](https://support.microsoft.com/office/6de9ede8-5b6e-4503-80b2-6190f3354a88?wt.mc_id=MVP_308367))
+
+
+Adding OneDrive shortcuts allows content to be accessed on all devices, whereas sync is related to a specific device. Additionally, OneDrive shortcuts offer improved performance versus using the sync button.
+Microsoft recommends using OneDrive shortcuts as the more versatile option. The sync can be turned off at the tenant level.
+[Turn off OneDrive sync for SharePoint libraries](https://learn.microsoft.com/en-us/sharepoint/sharepoint-sync?wt.mc_id=MVP_308367)
+
+```powershell
+Set-SPOTenant -HideSyncButtonOnTeamSite $true
+```
 
 ### Sample script to amend tenant level sharing settings
 
@@ -335,7 +350,8 @@ get-SPOTenant | select-object -property ODBAccessRequests `
             ,BlockUserInfoVisibilityInOneDrive `
             ,NotificationsInOneDriveForBusinessEnabled `
             ,NotifyOwnersWhenInvitationsAccepted `
-            ,NotifyOwnersWhenItemsReshared
+            ,NotifyOwnersWhenItemsReshared `
+            ,HideSyncButtonOnTeamSite
 ```
 
 **SPO PowerShell to update OneDrive specific properties**
@@ -359,7 +375,8 @@ Set-SPOTenant -ODBAccessRequests Off `
             -BlockUserInfoVisibilityInOneDrive ApplyToNoUsers `
             -NotificationsInOneDriveForBusinessEnabled $true `
             -NotifyOwnersWhenInvitationsAccepted $true `
-            -NotifyOwnersWhenItemsReshared $true
+            -NotifyOwnersWhenItemsReshared $true `
+            -HideSyncButtonOnTeamSite $true
 
             # -DefaultOneDriveInformationBarrierMode   ` dependent on InformationBarriersSuspension being on
             # -OneDriveBlockGuestsAsSiteAdmin On ` experimental feature
@@ -399,7 +416,8 @@ Get-PnPTenant | select-object -property ODBAccessRequests `
             ,OneDriveDefaultShareLinkRole `
             ,OneDriveDefaultLinkToExistingAccess `
             ,OneDriveBlockGuestsAsSiteAdmin `
-            ,ContentTypeSyncSiteTemplatesList `
+            ,ContentTypeSyncSiteTemplatesList
+            ,HideSyncButtonOnTeamSite `
 #>
 ```
 
