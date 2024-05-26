@@ -38,6 +38,9 @@ I have not been able to determine why unique permissions are sometimes created w
 
 {{< gist reshmee011 c23123e5f1abedd1085876279ac17b7f >}}
 
+
+![Permissions report](../images/powershell-query-unique-permissions-sharepoint/report.png)
+
 ### Script Overview
 
 Let's break down the key components of the PowerShell script:
