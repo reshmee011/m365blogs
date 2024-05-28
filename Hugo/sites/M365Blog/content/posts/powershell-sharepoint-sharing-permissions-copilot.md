@@ -491,36 +491,12 @@ Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
 
 ## Other settings to consider 
 
-### Remove certain SharePoint sites from search
+### SharePoint Restricted Search
 
-Excluding certain SharePoint sites from search would mean the contents from the excluded sites won't be available to M365 search and Copilot and should be used as a last resort. 
+Until the right controls are in place, up to 100 sites can be allowed to the list of sites to be part of the Organisation wide and Copilot experience using the SharePoint Restricted Search. 
 
-Until the right controls are in place, sensitive sites may be excluded using [PowerShell Scripts for Restricted SharePoint Search](https://learn.microsoft.com/en-us/sharepoint/restricted-sharepoint-search-admin-scripts?wt.mc_id=MVP_308367).
+View post [Introducing Restricted SharePoint Search to help you get started with Copilot for Microsoft 365](https://techcommunity.microsoft.com/t5/copilot-for-microsoft-365/introducing-restricted-sharepoint-search-to-help-you-get-started/ba-p/4071060) for more details.
 
-1. Enable Restricted Search Mode
-
-```PowerShell
-Set-SPOTenantRestrictedSearchMode -Mode Enabled 
-```
-
-2. Add the sites to the allowed list via csv file or in string
-
-```Powershell
-Add-SPOTenantRestrictedSearchAllowedList  -SitesListFileUrl C:\Users\admin\Downloads\UrlList.csv
-```
-
-3. Retrieves existing list of URLs in the allowed list
-
-```powershell
- Get-SPOTenantRestrictedSearchAllowedList
-```
-
-4. Removes sites from the allow list
-
-```powershell
-Remove-SPOTenantRestrictedSearchAllowedList -SitesList <List[string]> [<CommonParameters>]
-```
- 
 ### Sensitivity Labels
 
 Sensitivity labels provides an additional layer of security to protect your data. Make sure the correct label is used for your data so that sensitive data get the correct restrictions , e.g. to prevent it from being shared externally via email or be shared with people outside a certain team.

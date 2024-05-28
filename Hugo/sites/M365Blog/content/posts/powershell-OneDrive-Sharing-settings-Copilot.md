@@ -323,6 +323,9 @@ Microsoft recommends using OneDrive shortcuts as the more versatile option. The 
 ```powershell
 Set-SPOTenant -HideSyncButtonOnTeamSite $true
 ```
+The following warning will be displayed on disabling the **sync** option.
+
+**WARNING: Users in your organization will no longer be able to use the "Sync" button to sync TeamSite content. However, existing synced content will remain functional, and users can still sync content via their OneDrive using the Add shortcut command.**
 
 ### Sample script to amend tenant level sharing settings
 
@@ -407,7 +410,8 @@ Get-PnPTenant | select-object -property ODBAccessRequests `
             ,BlockUserInfoVisibilityInOneDrive `
             ,NotificationsInOneDriveForBusinessEnabled `
             ,NotifyOwnersWhenInvitationsAccepted `
-            ,NotifyOwnersWhenItemsReshared
+            ,NotifyOwnersWhenItemsReshared `
+            ,HideSyncButtonOnTeamSite
 
 <#PnP PowerShell can't be used to return the following properties at the time of writing this article
             ,DisableAddShortCutsToOneDrive  ` - use DisableAddToOneDrive
@@ -416,8 +420,7 @@ Get-PnPTenant | select-object -property ODBAccessRequests `
             ,OneDriveDefaultShareLinkRole `
             ,OneDriveDefaultLinkToExistingAccess `
             ,OneDriveBlockGuestsAsSiteAdmin `
-            ,ContentTypeSyncSiteTemplatesList
-            ,HideSyncButtonOnTeamSite `
+            ,ContentTypeSyncSiteTemplatesList `
 #>
 ```
 
@@ -439,7 +442,8 @@ Set-PnPTenant -ODBAccessRequests Off `
             -BlockUserInfoVisibilityInOneDrive ApplyToNoUsers `
             -NotificationsInOneDriveForBusinessEnabled $true `
             -NotifyOwnersWhenInvitationsAccepted $true `
-            -NotifyOwnersWhenItemsReshared $true
+            -NotifyOwnersWhenItemsReshared $true `
+            -HideSyncButtonOnTeamSite $true
 #Set blocked File types
 Set-PnPTenantSyncClientRestriction -ExcludedFileExtensions "exe;mp3;mp4"
 ```
