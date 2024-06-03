@@ -6,3 +6,10 @@ featured_image: '/posts/images/powerautomate_field_more_255_characters/changeset
 draft: true
 ---
 
+# Power Automate flow succeeded despite failure to update multi line text field within a SharePoint Library 
+
+Power Automate flow succeeded despite failure to update multi line text field within a SharePoint Library 
+
+
+Log of error
+[Flow succeeded despite failure to update multi line text field](../images/powerautomate_field_more_255_characters/FieldMoreThan255Characters.png)
