@@ -179,6 +179,28 @@ Activating this setting prompts a confirmation to ensure intentional enabling fo
 
 ![Warning Message Enabling Guests to OneDrive](../images/powershell-OneDrive-Sharing-settings-Copilot/WarningEnablingGuestToHaveOneDrive.png)
 
+### HideSyncButtonOnTeamSite : Turn off OneDrive sync for SharePoint libraries
+
+Users have two options when syncing files in SharePoint libraries and Teams. They can
+
+[Add shortcuts to libraries and folders to their OneDrive.](https://support.microsoft.com/office/d66b1347-99b7-4470-9360-ffc048d35a33?wt.mc_id=MVP_308367))
+[Use the Sync button in the document library.](https://support.microsoft.com/office/6de9ede8-5b6e-4503-80b2-6190f3354a88?wt.mc_id=MVP_308367))
+
+
+Adding OneDrive shortcuts allow content to be accessed on all devices and browser and can be added/removed once, whereas sync is related to a specific device. Additionally, OneDrive shortcuts offer improved performance versus using the sync button.
+Microsoft recommends using OneDrive shortcuts as the more versatile option. The sync can be turned off at the tenant level. 
+Sync has a limitation of 300,000 files that can be synched across the cloud storage. Above 300000 files, performance issues may occur. Refer to [Restrictions and limitations in OneDrive and SharePoint](https://support.microsoft.com/en-gb/office/restrictions-and-limitations-in-onedrive-and-sharepoint-64883a5d-228e-48f5-b3d2-eb39e07630fa#:~:text=Number%20of%20items%20that%20can%20be%20synced%20or%20copied&text=Performance%20issues%20can%20occur%20if,the%20sync%20process%20can%20complete.) for more info. 
+
+
+[Turn off OneDrive sync for SharePoint libraries](https://learn.microsoft.com/en-us/sharepoint/sharepoint-sync?wt.mc_id=MVP_308367)
+
+```powershell
+Set-SPOTenant -HideSyncButtonOnTeamSite $true
+```
+The following warning will be displayed on disabling the **sync** option.
+
+**WARNING: Users in your organization will no longer be able to use the "Sync" button to sync TeamSite content. However, existing synced content will remain functional, and users can still sync content via their OneDrive using the Add shortcut command.**
+
 ### DisableAddShortcutsToOneDrive
 
 Controls the ability to add new shortcuts to "My files" in OneDrive. When disabled (`$true`), the option to add shortcuts is removed, though existing shortcuts remain accessible.
@@ -190,7 +212,6 @@ A warning message appears when this setting is enabled, indicating the change in
 For more information, see [Teams Real Simple with Pictures: Disabling Add Shortcut to OneDrive](https://microsoft365pro.co.uk/2022/04/11/teams-real-simple-with-pictures-disabling-add-shortcut-to-onedrive/).
 
 This adjustment affects how users can link to other storage locations, such as SharePoint libraries or folders, within OneDrive.
-Enable or disable the Request files link on the OneDrive partition for all OneDrive sites. If this value is not set, the Request files link will only show for OneDrives with Anyone links enabled.
 
 ### DefaultOneDriveInformationBarrierMode
 
@@ -308,24 +329,6 @@ For instructions on how to grant another user access to a OneDrive for Business 
 #Add Site Collection Admin to the OneDrive
 Set-SPOUser -Site $OneDriveSiteUrl -LoginName $SiteCollAdmin -IsSiteCollectionAdmin $True
 ```
-### HideSyncButtonOnTeamSite : Turn off OneDrive sync for SharePoint libraries
-
-Users have two options when syncing files in SharePoint libraries and Teams. They can
-
-[Add shortcuts to libraries and folders to their OneDrive.](https://support.microsoft.com/office/d66b1347-99b7-4470-9360-ffc048d35a33?wt.mc_id=MVP_308367))
-[Use the Sync button in the document library.](https://support.microsoft.com/office/6de9ede8-5b6e-4503-80b2-6190f3354a88?wt.mc_id=MVP_308367))
-
-
-Adding OneDrive shortcuts allows content to be accessed on all devices, whereas sync is related to a specific device. Additionally, OneDrive shortcuts offer improved performance versus using the sync button.
-Microsoft recommends using OneDrive shortcuts as the more versatile option. The sync can be turned off at the tenant level.
-[Turn off OneDrive sync for SharePoint libraries](https://learn.microsoft.com/en-us/sharepoint/sharepoint-sync?wt.mc_id=MVP_308367)
-
-```powershell
-Set-SPOTenant -HideSyncButtonOnTeamSite $true
-```
-The following warning will be displayed on disabling the **sync** option.
-
-**WARNING: Users in your organization will no longer be able to use the "Sync" button to sync TeamSite content. However, existing synced content will remain functional, and users can still sync content via their OneDrive using the Add shortcut command.**
 
 ### Sample script to amend tenant level sharing settings
 
