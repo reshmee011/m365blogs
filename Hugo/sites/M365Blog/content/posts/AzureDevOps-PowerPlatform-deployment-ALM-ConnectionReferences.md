@@ -20,6 +20,8 @@ A solution can include various artefacts, from power apps to cloud flows, and su
 
 It's advisable not to make changes directly in non development development due to the risks of introducing bugs or security loopholes. Always implement changes in a development environment using an unmanaged solution before deploying it as managed solution to other environments.
 
+![Changes can create unmanaged layer](../images/AzureDevOps-PowerPlatform-deployment-ALM-ConnectionReferences/AllowCustomisations_objects.png)
+
 ## The Role of "Allow Customisations"
 
 ![Allow Customisations](../images/AzureDevOps-PowerPlatform-deployment-ALM-ConnectionReferences/AllCustomisation.png)
@@ -34,7 +36,7 @@ Power Automate Flow actions that require authentication must use either a connec
 
 The advantage of connection references in a managed solution is that they can be updated without creating an unmanaged layer. This is unlike editing flows or power apps from a managed solution, which creates an unmanaged layer. To avoid introducing bugs, flows or power apps should not be edited in production and test environments. Setting the "Allow Customisations" flag to off can help achieve this.
 
-Keeping the "Allow Customizations" flag for connection references can help resolve issues encountered during pipeline deployment.
+Keeping the "Allow Customizations"  flag for connection references can help resolve issues encountered during pipeline deployment.
 
 ![ConnectionReference_cannot_be_Updated](../images/AzureDevOps-PowerPlatform-deployment-ALM-ConnectionReferences/ConnectionReference_cannot_be_Updated.png)
 
@@ -45,6 +47,8 @@ To view a list of connection references to find out which connection reference i
 ![List of connection references from environment](../images/AzureDevOps-PowerPlatform-deployment-ALM-ConnectionReferences/listofconnectionreferencesfromenvironment.png)
 
 For more details on editing connection references using the default solution, refer to the blog post [Changing Connections in Connection References on a Managed Solution](https://ashiqf.com/2023/01/31/changing-connections-in-connection-references-on-a-managed-solution/).
+
+![Save connection references](../images/AzureDevOps-PowerPlatform-deployment-ALM-ConnectionReferences/SaveChangesToConnectionReferences.png)
 
 Note: Attempting to update a connection reference within a default solution when "Allow customisations" is set to off will produce an error message.
 
