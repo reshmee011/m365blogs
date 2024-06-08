@@ -35,7 +35,6 @@ Add-SPOTenantRestrictedSearchAllowedList  -SitesListFileUrl C:\Users\admin\Down
 Add-SPOTenantRestrictedSearchAllowedList -SitesList  @("https://reshmeeauckloo.sharepoint.com/sites/Company311","https://reshmeeauckloo.sharepoint.com/sites/contosoportal") 
 ```
 
-
 3. Retrieves existing list of URLs in the allowed list
 
 ```powershell
