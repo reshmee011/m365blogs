@@ -1,12 +1,12 @@
 ---
-title: "Power Platform Managed Solution Deployment with Connection References - Allow customisations?"
+title: "Power Platform Managed Solution Deployment with Connection References - Allow customisations"
 date: 2024-06-07T16:54:24+01:00
 tags: ["Power Platform","Solution","Managed Solution","Customizations","ALM"]
 featured_image: '/posts/images/AzureDevOps-PowerPlatform-deployment-ALM-ConnectionReferences/ConnectionReference_cannot_be_Updated.png'
 draft: false
 ---
 
-# Power Platform Managed Solution Deployment with Connection References - Allow customisations?
+# Power Platform Managed Solution Deployment with Connection References - Allow customisations
 
 This article explores the challenges and solutions associated with Power Platform managed solution deployment, specifically focusing on connection references and the "Allow Customisations" property.
 
