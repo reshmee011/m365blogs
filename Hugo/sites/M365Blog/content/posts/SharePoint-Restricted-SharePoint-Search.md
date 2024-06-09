@@ -8,20 +8,26 @@ draft: false
 
 # Restrict certain SharePoint sites from tenant search and Copilot for M365 using PowerShell
 
-Excluding certain SharePoint sites from search would mean the contents from the excluded sites won't be available to M365 tenant search and **Copilot for M365**. It should be used as a last resort for these reasons:
+Excluding certain SharePoint sites from search would mean the contents from the excluded sites won't be available to M365 tenant search and **Copilot for M365** using Restricted SharePoint Search feature.
 
-* It will affect findability of data using tenant search which is fundamental for records management. Users would need to know the sites the data reside to search.
+The downsides using this feature are:
 
-* At the point of writing this blog post only 100 sites can be added to the lost of allowed sites. It might not work for large tenants with requirements to add more than 100 sites to the allowed sites. 
+1. **Limited Findability**: By excluding certain SharePoint sites from search, you limit the findability of data. Users would need to know the specific sites where the data resides in order to search for it. This can hinder efficient data retrieval and records management.
+
+
+2. **Limited Number of Allowed Sites**: As of the time of writing the blog post, only 100 sites can be added to the list of allowed sites. This might not be sufficient for large tenants with requirements to add more than 100 sites to the allowed sites.* 
+
 The other option is to disable site indexing to prevent results from appearing in all contextual search (site,library,list or tenant) which does not have any limit to the number of sites to be excluded. Refer to the script [Enable/Disable Search Crawling on Sites and Libraries](https://pnp.github.io/script-samples/spo-enable-disable-search-crawling/README.html?tabs=pnpps). 
 
-It would have been great to have ability to turn it off for Copilot for M365 and keep it enabled for tenant search.
+3. **No Selective Disabling**: Currently, there's no option to selectively disable the feature for specific applications like Copilot for M365 while keeping it enabled for tenant search. This lack of granular control can be a limitation for some organizations.
+
+4. **License Requirement**: To use Restricted SharePoint Search, the tenant needs to have a Copilot for M365 license enabled. Without this license, using any feature would result in a "license not assigned" message.
+
+![license required](../images/SharePoint-Restricted-SharePoint-Search/rss-licenserequired.png)
+
 
 Until the right controls are in place, sensitive sites may be excluded by turning on **Restricted SharePoint Search** using [PowerShell Scripts for Restricted SharePoint Search](https://learn.microsoft.com/en-us/sharepoint/restricted-sharepoint-search-admin-scripts?wt.mc_id=MVP_308367) and using an allowed list to specify which sites to allow **Copilot for M365** to use.
 
-To use **Restricted SharePoint Search**, the tenant needs to have **Copilot for M365** license enabled, otherwise using any feature would result in message license not assigned.
-
-![license required](../images/SharePoint-Restricted-SharePoint-Search/rss-licenserequired.png)
 
 Please refer to [Microsoft Syntex - SharePoint Advanced Management overview](https://learn.microsoft.com/en-us/sharepoint/advanced-management?wt.mc_id=MVP_308367) and [Manage SharePoint Premium Settings Using PowerShell to protect data in Copilot for M365 Rollout](https://reshmeeauckloo.com/posts/powershell-sharepoint-premium-settings/) for applying controls on content for governance.
 
