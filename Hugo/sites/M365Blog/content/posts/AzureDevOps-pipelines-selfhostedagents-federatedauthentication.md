@@ -1,12 +1,12 @@
 ---
-title: "Optimizing AzureDevOps Pipelines with Self-Hosted Build Agents for Power Platform Managed Solutions"
-date: 2024-06-07T10:56:16+01:00
-tags: ["AzureDevOps","Self hosted Agents","Federated authentication","PAT","github","git","git fetch","git switch", "git checkout","Power Platform"]
+title: "Overcoming Azure DevOps Pipelines with Self-Hosted Build Agents for Power Platform Managed Solutions"
+date: 2024-06-08T10:56:16+01:00
+tags: ["Azure","DevOps","Self hosted Agents","Federated authentication","PAT","github","git","git fetch","git switch", "git checkout","Power Platform"]
 featured_image: '/posts/images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/selfhostedagent.png'
 draft: true
 ---
 
-# Optimizing AzureDevOps Pipelines with Self-Hosted Build Agents for Power Platform Managed Solutions
+# Overcoming Challenges with Azure DevOps Pipelines and Self-Hosted Build Agents for Power Platform Managed Solutions
 
 Application Lifecycle Management (ALM) for Power Platform solutions can be effectively managed using Azure DevOps, providing a robust framework for automating deployments, version control, and continuous integration and delivery, thereby enhancing productivity and reducing manual errors. Refer to the posts for more details: [Power Platform ALM & Pipelines w/ Matt Devaney](https://www.youtube.com/watch?v=wQe7n62RRNU) and [Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform](https://reshmee.netlify.app/posts/powerplatform-convert-classic-pipeline-to-modern-pipeline/)
 
