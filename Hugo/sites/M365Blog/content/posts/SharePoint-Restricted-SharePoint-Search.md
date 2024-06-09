@@ -1,24 +1,63 @@
 ---
-title: "Sharepoint Restricted Search"
-date: 2024-05-28T09:55:41+01:00
+title: "Restrict certain SharePoint sites from tenant search and Copilot for M365 using PowerShell"
+date: 2024-06-09T09:55:41+01:00
 tags: ["SharePoint Restricted Search","Copilot for M365","Governance","PowerShell","PnP PowerShell"]
 featured_image: '/posts/images/SharePoint-Restricted-SharePoint-Search/rss_enabled.png'
 draft: false
 ---
 
-### Remove certain SharePoint sites from search
+# Restrict certain SharePoint sites from tenant search and Copilot for M365 using PowerShell
 
-Excluding certain SharePoint sites from search would mean the contents from the excluded sites won't be available to M365 search and Copilot and should be used as a last resort. 
+Excluding certain SharePoint sites from search would mean the contents from the excluded sites won't be available to M365 tenant search and **Copilot for M365**. It should be used as a last resort for these reasons:
 
-Until the right controls are in place, sensitive sites may be excluded using [PowerShell Scripts for Restricted SharePoint Search](https://learn.microsoft.com/en-us/sharepoint/restricted-sharepoint-search-admin-scripts?wt.mc_id=MVP_308367).
+* It will affect findability of data using tenant search which is fundamental for records management. Users would need to know the sites the data reside to search.
 
-1. Enable Restricted Search Mode
+* At the point of writing this blog post only 100 sites can be added to the lost of allowed sites. It might not work for large tenants with requirements to add more than 100 sites to the allowed sites. 
+The other option is to disable site indexing to prevent results from appearing in all contextual search (site,library,list or tenant) which does not have any limit to the number of sites to be excluded. Refer to the script [Enable/Disable Search Crawling on Sites and Libraries](https://pnp.github.io/script-samples/spo-enable-disable-search-crawling/README.html?tabs=pnpps). 
+
+It would have been great to have ability to turn it off for Copilot for M365 and keep it enabled for tenant search.
+
+Until the right controls are in place, sensitive sites may be excluded by turning on **Restricted SharePoint Search** using [PowerShell Scripts for Restricted SharePoint Search](https://learn.microsoft.com/en-us/sharepoint/restricted-sharepoint-search-admin-scripts?wt.mc_id=MVP_308367) and using an allowed list to specify which sites to allow **Copilot for M365** to use.
+
+To use **Restricted SharePoint Search**, the tenant needs to have **Copilot for M365** license enabled, otherwise using any feature would result in message license not assigned.
+
+![license required](../images/SharePoint-Restricted-SharePoint-Search/rss-licenserequired.png)
+
+Please refer to [Microsoft Syntex - SharePoint Advanced Management overview](https://learn.microsoft.com/en-us/sharepoint/advanced-management?wt.mc_id=MVP_308367) and [Manage SharePoint Premium Settings Using PowerShell to protect data in Copilot for M365 Rollout](https://reshmeeauckloo.com/posts/powershell-sharepoint-premium-settings/) for applying controls on content for governance.
+
+1. **Enable Restricted SharePoint Search Mode**
+
+Restricted SharePoint Search can be enable on the tenant using the cmdlets.
+
+**SPO PowerShell**
 
 ```PowerShell
 Set-SPOTenantRestrictedSearchMode -Mode Enabled 
 ```
 
-2. Add the sites to the allowed list via csv file or in list string
+To check the state of Restricted SharePoint Search
+
+```powershell
+Get-SPOTenantRestrictedSearchMode 
+```
+
+![rss state not enabled](../images/SharePoint-Restricted-SharePoint-Search/RestrictedSearchModeNotSet.png)
+
+**PnP PowerShell**
+
+```PowerShell
+Set-PnPTenantRestrictedSearchMode -Mode Enabled 
+```
+
+To check the state of Restricted SharePoint Search
+
+```powershell
+Get-PnPTenantRestrictedSearchMode 
+```
+
+![rss state mode enabled](../images/SharePoint-Restricted-SharePoint-Search/PnPRSSMode.png)
+
+2. **Add the sites to the allowed list via csv file or in list string**
 
 Sample csv to use with no headers and only one column for the site url 
 
@@ -26,6 +65,8 @@ Sample csv to use with no headers and only one column for the site url
 https://reshmeeauckloo.sharepoint.com/sites/Company311
 https://reshmeeauckloo.sharepoint.com/sites/contosoportal
 ```
+
+**SPO PowerShell**
 
 ```Powershell
 Add-SPOTenantRestrictedSearchAllowedList  -SitesListFileUrl C:\Users\admin\Downloads\UrlList.csv
@@ -35,13 +76,45 @@ Add-SPOTenantRestrictedSearchAllowedList  -SitesListFileUrl C:\Users\admin\Down
 Add-SPOTenantRestrictedSearchAllowedList -SitesList  @("https://reshmeeauckloo.sharepoint.com/sites/Company311","https://reshmeeauckloo.sharepoint.com/sites/contosoportal") 
 ```
 
-3. Retrieves existing list of URLs in the allowed list
+**PnP PowerShell**
 
+This cmdlet is dependent on the PR [new cmdlet for Add-PnPTenantRestrictedSearchAllowedList](https://github.com/pnp/powershell/pull/3993) to be merged. 
+
+```Powershell
+Add-PnPTenantRestrictedSearchAllowedList  -SitesListFileUrl C:\Users\admin\Downloads\UrlList.csv
+```
+
+```Powershell
+Add-PnPTenantRestrictedSearchAllowedList -SitesList  @("https://reshmeeauckloo.sharepoint.com/sites/Company311","https://reshmeeauckloo.sharepoint.com/sites/contosoportal") 
+```
+
+The result of enabling Restricted SharePoint Search will result in the message appearing at the top of **Copilot for M365**.
+
+![rss enabled](../images/SharePoint-Restricted-SharePoint-Search/rss_enables.png)
+
+**i Your organisation's admin has restricted Copilot from accessing certain SharePoint sites. This limits the content Copilot can search and reference when responding to your prompts. Learn more**
+
+Please note this does not prevent referencing a file not from the allowed list of sites for **Copilot for M365** to reason on it, it just won't surface it otherwise.
+
+3. **Retrieves existing list of URLs in the allowed list**
+
+**SPO PowerShell**
 ```powershell
  Get-SPOTenantRestrictedSearchAllowedList
 ```
 
-4. Removes sites from the allow list
+**PnP PowerShell**
+
+This cmdlet is dependent on the PR [New cmdlet for Get-PnPTenantRestrictedSearchAllowedList](https://github.com/pnp/powershell/pull/3997) to be merged.
+
+```powershell
+ Get-PnPTenantRestrictedSearchAllowedList
+```
+If Restricted SharePoint Search is not enabled
+
+4. Removes sites from the allowed list
+
+**SPO PowerShell**
 
 ```powershell
 Remove-SPOTenantRestrictedSearchAllowedList -SitesList <List[string]> [<CommonParameters>]
@@ -53,7 +126,17 @@ If you don't have license
 
 ![No License](../images/SharePoint-Restricted-SharePoint-Search/rss-licenserequired.png)
 
+If the Url is specified as [https://reshmeeauckloo.sharepoint.com/sites/Company311](https://reshmeeauckloo.sharepoint.com/sites/Company311) as mentioned in the docs [PowerShell Scripts for Restricted SharePoint Search](https://learn.microsoft.com/en-us/sharepoint/restricted-sharepoint-search-admin-scripts?wt.mc_id=MVP_308367), error message will be thrown.
 
-If the Url is specified as [https://reshmeeauckloo.sharepoint.com/sites/Company311](https://reshmeeauckloo.sharepoint.com/sites/Company311), keep it simple with just the URL
+**Add-PnPTenantRestrictedSearchAllowedList: Could not find site with URL [https://reshmeeauckloo.sharepoint.com/sites/Company311](https://reshmeeauckloo.sharepoint.com/sites/Company311). Verify if the site exists and URL is valid.**
 
-Add-PnPTenantRestrictedSearchAllowedList: Could not find site with URL [https://reshmeeauckloo.sharepoint.com/sites/Company311](https://reshmeeauckloo.sharepoint.com/sites/Company311). Verify if the site exists and URL is valid.
+![Could not find url](../images/SharePoint-Restricted-SharePoint-Search/rss_add_couldnotfindsitewithurl.png)
+
+Keep it simple with just the URL, otherwise you will be presented with message.
+
+## References
+
+[Prepare content for Microsoft Copilot w/ SharePoint Content Governance | M365 Community Conference](https://www.youtube.com/watch?v=B5VRu9q6sZ8&t=404s)
+
+[PowerShell Scripts for Restricted SharePoint Search](https://learn.microsoft.com/en-us/sharepoint/restricted-sharepoint-search-admin-scripts?wt.mc_id=MVP_308367)
+

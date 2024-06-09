@@ -122,3 +122,5 @@ Optimizing Azure DevOps Pipelines with self-hosted build agents for Power Platfo
 [Power Platform ALM & Pipelines w/ Matt Devaney](https://www.youtube.com/watch?v=wQe7n62RRNU)
 
 [Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform](https://reshmee.netlify.app/posts/powerplatform-convert-classic-pipeline-to-modern-pipeline/)
+
+[What is Azure Pipelines?](https://learn.microsoft.com/en-gb/training/modules/create-a-build-pipeline/2-what-is-azure-pipelines?pivots=ms-hosted-agents)
