@@ -10,6 +10,8 @@ draft: false
 
 This article explores the challenges and solutions associated with Power Platform managed solution deployment, specifically focusing on connection references and the "Allow Customisations" property.
 
+Refer to the posts for more details to set up Application Lifecycle Management (ALM) for power platform: [Power Platform ALM & Pipelines w/ Matt Devaney](https://www.youtube.com/watch?v=wQe7n62RRNU) and [Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform](https://reshmee.netlify.app/posts/powerplatform-convert-classic-pipeline-to-modern-pipeline/)
+
 ## Understanding Solutions in Power Platform
 
 A solution in Power Platform is a container that assists with Application Lifecycle Management (ALM). It comes in two forms:

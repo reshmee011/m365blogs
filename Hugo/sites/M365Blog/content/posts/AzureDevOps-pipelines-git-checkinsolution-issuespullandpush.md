@@ -1,8 +1,8 @@
 ---
 title: "Optimizing AzureDevOps Pipelines with Self-Hosted Build Agents for Power Platform Managed Solutions"
 date: 2024-06-07T10:56:16+01:00
-tags: ["AzureDevOps","Self hosted Agents","Federated authentication","PAT","github","git","git fetch","git switch", "git checkout"]
-featured_image: '/posts/images/SharePoint-Restricted-SharePoint-Search/rss_enabled.png'
+tags: ["AzureDevOps","Self hosted Agents","Federated authentication","PAT","github","git","git fetch","git switch", "git checkout","Power Platform"]
+featured_image: '/posts/images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/selfhostedagent.png'
 draft: true
 ---
 
@@ -11,6 +11,8 @@ draft: true
 Application Lifecycle Management (ALM) for Power Platform solutions can be effectively managed using Azure DevOps, providing a robust framework for automating deployments, version control, and continuous integration and delivery, thereby enhancing productivity and reducing manual errors. Refer to the posts for more details: [Power Platform ALM & Pipelines w/ Matt Devaney](https://www.youtube.com/watch?v=wQe7n62RRNU) and [Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform](https://reshmee.netlify.app/posts/powerplatform-convert-classic-pipeline-to-modern-pipeline/)
 
 ALM depends on build agents : Microsoft host agents and self hosted agents. Self-hosted agents and Microsoft-hosted agents each have their own advantages, depending on your specific needs and circumstances. This post focuses on using self-hosted agent hence sepcifying the benefits of using self-hosted agents:
+
+![Self hosted pool agent](../images/selfhostedagent.png)
 
 **Control**: With self-hosted agents, there is more control over the environment. The hardware, operating system, and installed software can be chosen and the configuration fine-tuned to meet specific needs.
 
@@ -108,6 +110,10 @@ git commit -m "Checked in by Power Platform Release"
 echo Pushing solution components to $(BranchName)
 git push origin HEAD:$(BranchName) --force
 ```
+
+## Conclusion
+
+Optimizing Azure DevOps Pipelines with self-hosted build agents for Power Platform managed solutions can significantly enhance the efficiency and control of your Application Lifecycle Management (ALM). While transitioning to self-hosted agents with Federated Authentication can introduce certain challenges, the solutions provided in this post can help overcome them effectively. 
 
 ## References
 
