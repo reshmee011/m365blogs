@@ -36,6 +36,13 @@ However, transitioning to self-hosted agents with managed identity can introduce
 
 ![Build identity missing contribute permissions](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/MissingPermission_Contribute_ForBuildIdentity.png)
 
+1. **Copy the GUID**: First, copy the GUID part of the identity name from the error message.
+2. **Navigate to Repository Settings**: Go to your repository settings in Azure DevOps.
+3. **Search for the GUID**: In the permissions section, search for the GUID copied earlier in the “Search for users and groups” field.
+4. **Select the Correct User**: A user named “Project Collection Build Service (OrganizationName).” will be returned. Select this user.
+5. **Set Permissions**: Set the necessary permissions for this user according to requirements. In my scenerio, the permissions highlighted were granted.
+
+![Grant Contribute permissions](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/MissingPermission_Contribute_ForBuildIdentity.png)
 
 2. **Artefacts Not Cleaned by Default**: Add a delete file action to remove all artefacts before starting the build. This ensures that artefacts from previous builds are not left in the working directory, otherwise deleted artefacts from your solution will remain in the build directory.
 
