@@ -1,7 +1,7 @@
 ---
 title: "Overcoming challenges with Azure DevOps Pipelines using Self-Hosted Build Agents for Power Platform Managed Solutions"
 date: 2024-06-08T10:56:16+01:00
-tags: ["Azure","DevOps","Self hosted Agents","Federated authentication","PAT","github","git","git fetch","git switch", "git checkout","Power Platform"]
+tags: ["Azure","DevOps","Self hosted Agents","Federated authentication","PAT","git","git fetch","git switch", "git checkout","Power Platform"]
 featured_image: '/posts/images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/selfhostedagent.png'
 draft: false
 ---
@@ -62,11 +62,11 @@ Amending branch security was not an option to allow force push and has to find a
 
 ## Solution
 
-The Github issues with pull and push were resolved using the clean option in the build pipeline. For classic pipeline, you can do it from the user interface. 
+The Azure DevOps issues with pull and push were resolved using the clean option in the build pipeline. For classic pipeline, you can do it from the user interface. 
 
 ![Clean options](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/CleanOptions_Classic.png)
 
-If using YAML, add a clean job GitHub action to ensure a clean working repository.
+If using YAML, add a clean job action to ensure a clean working repository.
 
 ```yaml
 - job: myJob
@@ -82,7 +82,7 @@ When you specify one of the clean options, they're interpreted as follows:
 
 [Read more about clean options from 'Specify jobs in your pipeline'](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml#workspace&wt.mc_id=MVP_308367)
 
-## Final code for Check in Solution github action
+## Final code for Check in Solution action for the build pipeline
 
 ```powerShell
 # Display the current branch
