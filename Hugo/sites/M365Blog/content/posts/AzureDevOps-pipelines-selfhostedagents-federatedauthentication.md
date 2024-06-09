@@ -24,11 +24,9 @@ ALM depends on build agents : Microsoft host agents and self-hosted agents. Self
 
 **Remove the need to use PAT**: Self-hosted agents can use service principal, which can be more secure and convenient than using Personal Access Tokens (PATs). PATs are linked to individual account and expired after a certain time depending on the orginisation's policy and need to be regenerated which can be a pain.
 
--[Register an agent using a service principal](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/service-principal-agent-registration?view=azure-devops?wt.mc_id=MVP_308367)
+- [Register an agent using a service principal](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/service-principal-agent-registration?view=azure-devops?wt.mc_id=MVP_308367)
 - [Running Azure DevOps Self-hosted agent on AKS without using PAT](https://eggboy.medium.com/running-azure-devops-self-hosted-agent-on-aks-without-using-pat-1b90f714c147)
 - [Using Managed Identity in Azure DevOps Pipeline with Federated Identity](https://eggboy.medium.com/using-managed-identity-in-azure-devops-pipeline-with-federated-identity-72813873b933)
-- [Register an agent using a service principal](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/service-principal-agent-registration?view=azure-devops?wt.mc_id=MVP_308367)
-- [Use service principals & managed identities](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/service-principal-managed-identity?view=azure-devops&wt.mc_id=MVP_308367)
 
 However, transitioning to self-hosted agents with managed identity can introduce challenges not encountered with Microsoft Hosted Agents. This article discusses these challenges and provides solutions to overcome them.
 
@@ -153,3 +151,5 @@ Optimizing Azure DevOps Pipelines with self-hosted build agents for Power Platfo
 [What is Azure Pipelines?](https://learn.microsoft.com/en-gb/training/modules/create-a-build-pipeline/2-what-is-azure-pipelines?pivots=ms-hosted-agents)
 
 [Connect to Azure by using an Azure Resource Manager service connection](https://learn.microsoft.com/en-gb/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#create-an-azure-resource-manager-service-connection-using-workload-identity-federation)
+
+[Deploy SPFx app using pipeline's Workload Identity federation](https://dev.to/kkazala/deploy-spfx-app-using-pipelines-workload-identity-federation-5fhi)
