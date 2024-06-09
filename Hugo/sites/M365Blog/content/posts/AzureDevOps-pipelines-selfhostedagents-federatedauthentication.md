@@ -22,19 +22,24 @@ ALM depends on build agents : Microsoft host agents and self-hosted agents. Self
 
 **Availability**: Unlike Microsoft-hosted agents, which can occasionally run out of capacity during peak times, self-hosted agents are always available for builds and releases.
 
-**Federated Authentication**: Self-hosted agents can use federated authentication, which can be more secure and convenient than using Personal Access Tokens (PATs). Read more using the links below
+**Remove the need to use PAT**: Self-hosted agents can use service principal, which can be more secure and convenient than using Personal Access Tokens (PATs). PATs are linked to individual account and expired after a certain time depending on the orginisation's policy and need to be regenerated which can be a pain.
 
+-[Register an agent using a service principal](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/service-principal-agent-registration?view=azure-devops?wt.mc_id=MVP_308367)
 - [Running Azure DevOps Self-hosted agent on AKS without using PAT](https://eggboy.medium.com/running-azure-devops-self-hosted-agent-on-aks-without-using-pat-1b90f714c147)
 - [Using Managed Identity in Azure DevOps Pipeline with Federated Identity](https://eggboy.medium.com/using-managed-identity-in-azure-devops-pipeline-with-federated-identity-72813873b933)
 - [Register an agent using a service principal](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/service-principal-agent-registration?view=azure-devops?wt.mc_id=MVP_308367)
+- [Use service principals & managed identities](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/service-principal-managed-identity?view=azure-devops&wt.mc_id=MVP_308367)
 
-However, transitioning to self-hosted agents with Federated Authentication can introduce challenges not encountered with Microsoft Hosted Agents. This article discusses these challenges and provides solutions to overcome them.
+However, transitioning to self-hosted agents with managed identity can introduce challenges not encountered with Microsoft Hosted Agents. This article discusses these challenges and provides solutions to overcome them.
 
 ## Challenges
 
 1. **Build Identity Missing Permissions**: Ensure the project admin grants the build identity the correct permissions to check in the solution to the Azure DevOps remote repository otherwise you may get "Generic Contribute" error message.
 
 ![Build identity missing contribute permissions](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/MissingPermission_Contribute_ForBuildIdentity.png)
+
+Permission "Microsoft.VisualStudio.Services.TFS" granted to the agent pool.
+![TFS](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/ServicePrincipal_MsVisualStudioServices.TFS.png)
 
 2. **Artefacts Not Cleaned by Default**: Add a delete file action to remove all artefacts before starting the build. This ensures that artefacts from previous builds are not left in the working directory, otherwise deleted artefacts from your solution will remain in the build directory.
 
@@ -148,3 +153,5 @@ Optimizing Azure DevOps Pipelines with self-hosted build agents for Power Platfo
 [Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform](https://reshmee.netlify.app/posts/powerplatform-convert-classic-pipeline-to-modern-pipeline/)
 
 [What is Azure Pipelines?](https://learn.microsoft.com/en-gb/training/modules/create-a-build-pipeline/2-what-is-azure-pipelines?pivots=ms-hosted-agents)
+
+[Connect to Azure by using an Azure Resource Manager service connection](https://learn.microsoft.com/en-gb/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#create-an-azure-resource-manager-service-connection-using-workload-identity-federation)

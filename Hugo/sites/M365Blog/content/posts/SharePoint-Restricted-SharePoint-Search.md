@@ -63,7 +63,7 @@ Get-PnPTenantRestrictedSearchMode
 
 ![rss state mode enabled](../images/SharePoint-Restricted-SharePoint-Search/PnPRSSMode.png)
 
-2. **Add the sites to the allowed list via csv file or in list string**
+2. **Add the sites to the allowed list via csv file or in list array of urls**
 
 Sample csv to use with no headers and only one column for the site url 
 
@@ -96,9 +96,9 @@ Add-PnPTenantRestrictedSearchAllowedList -SitesList  @("https://reshmeeauckloo.s
 
 The result of enabling Restricted SharePoint Search will result in the message appearing at the top of **Copilot for M365**.
 
-![rss enabled](../images/SharePoint-Restricted-SharePoint-Search/rss_enables.png)
+![rss enabled](../images/SharePoint-Restricted-SharePoint-Search/rss_enabled.png)
 
-**i Your organisation's admin has restricted Copilot from accessing certain SharePoint sites. This limits the content Copilot can search and reference when responding to your prompts. Learn more**
+**Your organisation's admin has restricted Copilot from accessing certain SharePoint sites. This limits the content Copilot can search and reference when responding to your prompts. Learn more**
 
 Please note this does not prevent referencing a file not from the allowed list of sites for **Copilot for M365** to reason on it, it just won't surface it otherwise.
 
@@ -128,17 +128,21 @@ Remove-SPOTenantRestrictedSearchAllowedList -SitesList <List[string]> [<CommonPa
 
 ## Potential issues
 
-If you don't have license 
-
-![No License](../images/SharePoint-Restricted-SharePoint-Search/rss-licenserequired.png)
-
-If the Url is specified as [https://reshmeeauckloo.sharepoint.com/sites/Company311](https://reshmeeauckloo.sharepoint.com/sites/Company311) as mentioned in the docs [PowerShell Scripts for Restricted SharePoint Search](https://learn.microsoft.com/en-us/sharepoint/restricted-sharepoint-search-admin-scripts?wt.mc_id=MVP_308367), error message will be thrown.
+If the Url is specified as [https://reshmeeauckloo.sharepoint.com/sites/Company311](https://reshmeeauckloo.sharepoint.com/sites/Company311) as mentioned in the docs [PowerShell Scripts for Restricted SharePoint Search](https://learn.microsoft.com/en-us/sharepoint/restricted-sharepoint-search-admin-scripts?wt.mc_id=MVP_308367), error message may be thrown.
 
 **Add-PnPTenantRestrictedSearchAllowedList: Could not find site with URL [https://reshmeeauckloo.sharepoint.com/sites/Company311](https://reshmeeauckloo.sharepoint.com/sites/Company311). Verify if the site exists and URL is valid.**
 
 ![Could not find url](../images/SharePoint-Restricted-SharePoint-Search/rss_add_couldnotfindsitewithurl.png)
 
 Keep it simple with just the URL, otherwise you will be presented with message.
+
+## Conclusion
+
+Restricted SharePoint Search can be a powerful tool for organizations that need to control which SharePoint sites are accessible to tenant search and Copilot for M365. It provides a layer of security and governance by allowing administrators to specify an allowed list of sites.
+
+However, it's important to be aware of the limitations and potential issues. These include limited findability, a cap on the number of allowed sites, lack of selective disabling, and license requirements. Additionally, the process of enabling and managing this feature requires the use of PowerShell scripts, which may require a certain level of technical expertise.
+
+Restricted SharePoint Search needs to be used as a temporary measure for Copilot for M365 rollout and disable it once appropriate controls are in place for governance, compliance and security. 
 
 ## References
 
