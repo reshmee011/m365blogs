@@ -1,7 +1,7 @@
 ---
 title: "Overcoming challenges with Azure DevOps Pipelines using Self-Hosted Build Agents for Power Platform Managed Solutions"
 date: 2024-06-08T10:56:16+01:00
-tags: ["Azure","DevOps","Self hosted Agents","Federated authentication","PAT","git","git fetch","git switch", "git checkout","Power Platform"]
+tags: ["Azure","DevOps","self-hosted Agents","Federated authentication","PAT","git","git fetch","git switch", "git checkout","Power Platform"]
 featured_image: '/posts/images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/selfhostedagent.png'
 draft: false
 ---
@@ -10,9 +10,9 @@ draft: false
 
 Application Lifecycle Management (ALM) for Power Platform solutions can be effectively managed using Azure DevOps, providing a robust framework for automating deployments, version control, and continuous integration and delivery, thereby enhancing productivity and reducing manual errors. Refer to the posts for more details: [Power Platform ALM & Pipelines w/ Matt Devaney](https://www.youtube.com/watch?v=wQe7n62RRNU) and [Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform](https://reshmee.netlify.app/posts/powerplatform-convert-classic-pipeline-to-modern-pipeline/)
 
-ALM depends on build agents : Microsoft host agents and self hosted agents. Self-hosted agents and Microsoft-hosted agents each have their own advantages, depending on your specific needs and circumstances. This post focuses on using self-hosted agent hence sepcifying the benefits of using self-hosted agents:
+ALM depends on build agents : Microsoft host agents and self-hosted agents. Self-hosted agents and Microsoft-hosted agents each have their own advantages, depending on your specific needs and circumstances. This post focuses on using self-hosted agent hence sepcifying the benefits of using self-hosted agents:
 
-![Self hosted pool agent](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/selfhostedagent.png)
+![self-hosted pool agent](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/selfhostedagent.png)
 
 **Control**: With self-hosted agents, there is more control over the environment. The hardware, operating system, and installed software can be chosen and the configuration fine-tuned to meet specific needs.
 
@@ -62,11 +62,19 @@ Amending branch security was not an option to allow force push and has to find a
 
 ## Solution
 
-The Azure DevOps issues with pull and push were resolved using the clean option in the build pipeline. For classic pipeline, you can do it from the user interface. 
+The Azure DevOps issues with pull and push were resolved using the **Clean** setting in the pipeline settings UI if using self-hosted agents. 
+
+### Classic pipeline
+
+For classic pipeline, this can be done from the user interface. 
 
 ![Clean options](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/CleanOptions_Classic.png)
 
-If using YAML, add a clean job action to ensure a clean working repository.
+**You can perform different kinds of cleaning of the working directory of your private agent before the build is run.**
+
+### YAML pipeline
+
+If using YAML, add a clean job action to ensure a clean workspace repository.
 
 ```yaml
 - job: myJob
@@ -80,7 +88,23 @@ When you specify one of the clean options, they're interpreted as follows:
 * resources: Delete Build.SourcesDirectory before running a new job.
 * all: Delete the entire Pipeline.Workspace directory before running a new job.
 
+Jobs are always run on a new agent with Microsoft-hosted agents hence the **Clean** is helpful for self-hosted agents
+
 [Read more about clean options from 'Specify jobs in your pipeline'](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml#workspace&wt.mc_id=MVP_308367)
+
+In addition to workspace clean, the **Clean** can be set for the pipeline. From the UI, edit the pipeline and select triggers. Select YAML, Get Sources and configure **Clean** setting. 
+
+![Get Sources](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/GetSources_YAML.png)
+
+### Clean setting
+
+When the **Clean** setting is true, which is also its default value, it's equivalent to specifying **clean: true** for every checkout step in the pipeline. **Clean: true** is equivalent to running **git clean -ffdx** followed by git **reset --hard HEAD** before **git fetching**. All the issues I was having was because **Clean** option was set to false for some reasons.  
+
+- **git clean -ffdx**: This command is used to remove untracked files and directories from your working directory. The -f option stands for 'force', which is required to make git clean do anything in most cases. The second -f is used to force cleaning of directories even if they have a .gitignore file. The -d option tells Git to remove untracked directories as well. The -x option makes Git ignore the standard ignore rules (.gitignore files, .git/info/exclude, and core.excludesFile), thus removing all untracked files.
+
+- **git reset --hard HEAD**: This command resets your current branch and working directory to the state of the HEAD commit. The --hard option changes all the files in your working directory to match the files in HEAD. This will discard all changes since the last commit and all uncommitted changes.
+
+- **git fetch**: This command downloads objects and refs from another repository. It's often used to review changes that have been made to the remote repository. Unlike git pull, git fetch does not merge any changes into your current branch.
 
 ## Final code for Check in Solution action for the build pipeline
 
