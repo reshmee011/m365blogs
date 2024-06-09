@@ -38,8 +38,6 @@ However, transitioning to self-hosted agents with managed identity can introduce
 
 ![Build identity missing contribute permissions](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/MissingPermission_Contribute_ForBuildIdentity.png)
 
-Permission "Microsoft.VisualStudio.Services.TFS" granted to the agent pool.
-![TFS](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/ServicePrincipal_MsVisualStudioServices.TFS.png)
 
 2. **Artefacts Not Cleaned by Default**: Add a delete file action to remove all artefacts before starting the build. This ensures that artefacts from previous builds are not left in the working directory, otherwise deleted artefacts from your solution will remain in the build directory.
 
