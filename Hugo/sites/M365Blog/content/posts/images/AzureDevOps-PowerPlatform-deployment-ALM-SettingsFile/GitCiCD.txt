@@ -1,0 +1,36 @@
+https://ppf-st.crm11.dynamics.com/api/data/v8.2/EntityDefinitions(533b362d-e88f-4171-93df-b53688a9a06c)
+
+
+git branch --show-current
+echo Commit Solution into GIT Branch $(BranchName)
+git config user.email "srv_d_conligo@ppf.co.uk"
+git config user.name "Conligo Service Account (Dev)"
+ 
+echo Performing Git Fetch
+git fetch
+ 
+echo Checking out  $(BranchName) branch
+git switch $(BranchName)
+ 
+echo Adding all files to $(BranchName)
+git add --all
+ 
+echo Pushing solution components to $(BranchName)
+git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push origin $(BranchName) --force
+
+
+
+echo Commit Solution
+git config user.email "srv_d_conligo@ppf.co.uk"
+git config user.name "Conligo Service Account (Dev)"
+
+git switch -c $(BranchName)
+
+echo Adding all files to $(BranchName)
+git add --all
+git commit -m"Checked in by Power Platform Release"
+
+echo Push Solution to Repo
+git pull
+
+git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push origin $(BranchName) -force
