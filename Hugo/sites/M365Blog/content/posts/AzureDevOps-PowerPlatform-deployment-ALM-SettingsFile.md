@@ -1,29 +1,44 @@
-
 ---
-title: "Power Platform managed solution deployment with connection reference with no Allow customisations"
+title: "Power Platform managed solution deployment using settings files"
 date: 2024-06-03T16:54:24+01:00
 tags: ["Power Platform","solution","managed","allow customizations","ALM"]
 featured_image: '/posts/images/AzureDevOps-PowerPlatform-deployment-ALM-SettingsFile/settingsFile.png'
 draft: true
 ---
 
-# Power Platform managed solution deployment with connection reference with no Allow customisations
+# Power Platform managed solution deployment using settings files
 
+The first step would be to create our Settings file. There are several ways of doing it (as described in the docs). We will do it based on a solution file.
 
-This article will focus on connection references and issue you may face if the property "Allow customisations" is turned off trying to follow best practices to avoid unamanged layer.
+Export Solution
+We export the solution we created as part of the prerequisites unmanaged and save it somewhere on our machine.
 
-## Solution
+## Run pac
 
-A solution helps with ALM. It has two forms :
-- Unmanaged to use in for development purposes for customisations
-- Managed to deploy into other non dev environments to avoid customisations
+Open a Command Prompt (or PowerShell) in the folder which contains the solution zip file.
 
-A solution can have different artefacts from power apps to cloud flows and supported artefacts like environment variables and connection references. 
+The following command will create a settings file (called settings-test.json) based on your solution in the same folder. You have to replace the name of the zip file with yours.
 
-## Allow customisations
+Make sure you have the latest version of the pac installed by executing “pac install latest” first.
+pac solution create-settings --solution-zip ./DevToolsTest_1_0_0_1.zip --settings-file ./settings-test.json
+In my case, the settings file looks like this
 
-![Allow Customisations](../images/AzureDevOps-PowerPlatform-deployment-ALM-ConnectionReferences/AllCustomisation.png)
+{
+"EnvironmentVariables": [
+{
+"SchemaName": "bebe_EnvVarTest",
+"Value": ""
+}
+],
+"ConnectionReferences": [
+{
+"LogicalName": "bebe_sharedcommondataserviceforapps_e904a",
+"ConnectionId": "",
+"ConnectorId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+}
+]
+}
+What you can see is that there is an array of Environment Variables where you could add the desired value. The file also contains an array of Connection References, what missing here is the ID of the connection (in the target environment) you would like to associate.
 
-It is a good practice to turn off the "Allow Customisations" on all artefacts. However I was facing issues deploying the managed solution to a different environment due to the connection references 
-
+For the ease of this post, I will hard code all of that. For sure you could dynamically set/fill this file as a part of your pipeline. What I found most practical is having a settings file for every target environment. Much like the app.config one knows from C# projects.
 
