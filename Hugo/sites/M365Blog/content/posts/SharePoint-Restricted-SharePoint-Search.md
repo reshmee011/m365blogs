@@ -100,7 +100,32 @@ The result of enabling Restricted SharePoint Search will result in the message a
 
 **Your organisation's admin has restricted Copilot from accessing certain SharePoint sites. This limits the content Copilot can search and reference when responding to your prompts. Learn more**
 
+The same message appears under for tenant level search "Search in SharePoint" with files not within the allowed list returned.
+
+![search restricted for tenant ](../images/SharePoint-Restricted-SharePoint-Search/Rss_OrganisationSearch.png)
+
+Click on [Learn More](https://support.microsoft.com/en-gb/office/why-am-i-seeing-limited-results-29c9d8da-30d0-4ec2-a41f-5f2d93b509e4)
+
+This content below is copied from the **Learn More** above.
+
+```html
+Your search and your Copilot experience are showing you limited results because your organization’s administrator has decided to restrict the SharePoint sites that appear in the organization-wide search results and Copilot experiences. When your administrator makes this decision, only the following organization content will show up in your organization-wide search and your Copilot experiences:
+
+A curated list of  SharePoint sites set up by your organization’s administrator
+
+Content from SharePoint sites you frequently visit
+
+Your files from OneDrive, chats, emails, and calendars you have access to 
+
+Files that were shared directly with you 
+
+Files you’ve viewed, edited, or created 
+
+To have more results included in search and Copilot experiences, please get in touch with your administrator to provide access to additional sites.
+```
 Please note this does not prevent referencing a file not from the allowed list of sites for **Copilot for M365** to reason on it, it just won't surface it otherwise.
+
+![file referenced from outside the allowed list of sites](../images/SharePoint-Restricted-SharePoint-Search/FilereferencedFrom_not_allowedListofsites.png)
 
 3. **Retrieves existing list of URLs in the allowed list**
 
