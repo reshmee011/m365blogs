@@ -46,7 +46,7 @@ However, transitioning to self-hosted agents with managed identity can introduce
 
 2. **issue with Fatal: Could not read password for 'https://OrganizationName@dev.azure.com': terminal prompts disabled**: 
 
-Ensure the **Allow Scripts To Access TheOAuth Token** is set at the pipeline level on the Agent level
+Ensure the **Allow Scripts To Access TheOAuth Token** is set at the pipeline level on the agent level. This enables scripts and other processes launched by tasks to access the OAuth token through the System.AccessToken variable.
 
 ![Allow Scripts To Access TheOAuth Token](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/AllowScriptToAccessTheOAuthToken.png)
 
