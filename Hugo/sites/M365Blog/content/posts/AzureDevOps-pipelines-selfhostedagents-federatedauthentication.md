@@ -36,27 +36,40 @@ However, transitioning to self-hosted agents with managed identity can introduce
 
 ![Build identity missing contribute permissions](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/MissingPermission_Contribute_ForBuildIdentity.png)
 
-1. **Copy the GUID**: First, copy the GUID part of the identity name from the error message.
-2. **Navigate to Repository Settings**: Go to your repository settings in Azure DevOps.
-3. **Search for the GUID**: In the permissions section, search for the GUID copied earlier in the “Search for users and groups” field.
-4. **Select the Correct User**: A user named “Project Collection Build Service (OrganizationName).” will be returned. Select this user.
-5. **Set Permissions**: Set the necessary permissions for this user according to requirements. In my scenerio, the permissions highlighted were granted.
+- **Copy the GUID**: First, copy the GUID part of the identity name from the error message.
+- **Navigate to Repository Settings**: Go to your repository settings in Azure DevOps.
+- **Search for the GUID**: In the permissions section, search for the GUID copied earlier in the “Search for users and groups” field.
+- **Select the Correct User**: A user named “Project Collection Build Service (OrganizationName).” will be returned. Select this user.
+-  **Set Permissions**: Set the necessary permissions for this user according to requirements. In my scenerio, the permissions highlighted were granted.
 
 ![Grant Contribute permissions](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/MissingPermission_Contribute_ForBuildIdentity.png)
 
-2. **Artefacts Not Cleaned by Default**: Add a delete file action to remove all artefacts before starting the build. This ensures that artefacts from previous builds are not left in the working directory, otherwise deleted artefacts from your solution will remain in the build directory.
+2. **issue with Fatal: Could not read password for 'https://OrganizationName@dev.azure.com': terminal prompts disabled**: 
+
+Ensure the **Allow Scripts To Access TheOAuth Token** is set at the pipeline level on the Agent level
+
+![Allow Scripts To Access TheOAuth Token](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/AllowScriptToAccessTheOAuthToken.png)
+
+If using YAML , refer to https://stackoverflow.com/questions/56733922/fatal-could-not-read-password-for-https-organizationnamedev-azure-com-ter how to get 
+round the issue or for each git cmdlet use **http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)"**
+
+```PowerShell
+git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push origin HEAD:${{ parameters.branch_name }} --force
+```
+
+3. **Artefacts Not Cleaned by Default**: Add a delete file action to remove all artefacts before starting the build. This ensures that artefacts from previous builds are not left in the working directory, otherwise deleted artefacts from your solution will remain in the build directory.
 
 ![Delete files from Build working directory](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/DeleteFilesfromBuild.png)
 
-3. **Failure to `git push` without `git pull`**: Always perform a `git pull` before a `git push` to avoid conflicts. **Updates were rejected because a pushed branch tip is behind its remote**
+4. **Failure to `git push` without `git pull`**: Always perform a `git pull` before a `git push` to avoid conflicts. **Updates were rejected because a pushed branch tip is behind its remote**
 
 ![Attempt to Push Without Pull](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/AttempttoPushWithoutPull.png)
 
-4. **Failure to Merge**: Use `git pull --no-rebase` to fetch changes from the remote and create a merge commit, preserving your local commit history maintaining a clear, linear history. `git pull` defaults to `rebase` which will fetch any changes to the tracking branch and then rebase any local changes on top.
+5. **Failure to Merge**: Use `git pull --no-rebase` to fetch changes from the remote and create a merge commit, preserving your local commit history maintaining a clear, linear history. `git pull` defaults to `rebase` which will fetch any changes to the tracking branch and then rebase any local changes on top.
 
 ![failed to merge](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/FailedToMerge.png)
 
-5. **Force Push Failure Due to Lack of Permission**: Ensure the user has force push permission on the branch. Use the --force option judiciously as it overwrites all changes from the remote with the local files.
+6. **Force Push Failure Due to Lack of Permission**: Ensure the user has force push permission on the branch. Use the --force option judiciously as it overwrites all changes from the remote with the local files.
 
 **(TF401027: You need the Git 'ForcePush' permission to perform this action. Details: identity 'Build\92e00 error: failed to push some refs to 'https://dev.azure.com/contoso/test/_git/test'**
 
