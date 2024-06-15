@@ -2,7 +2,7 @@
 title: "Counting Files within a SharePoint Library using PnP PowerShell"
 date: 2024-06-15T14:49:19+01:00
 tags: ["PnP PowerShell", "Get File count","SharePoint", "Library"]
-featured_image: '/images/PowerShell_GetFileCountWithinLibrary/example.png'
+featured_image: '/posts/images/PowerShell_GetFileCountWithinLibrary/example.png'
 draft: false
 ---
 
