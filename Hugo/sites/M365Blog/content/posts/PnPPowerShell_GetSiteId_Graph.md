@@ -1,16 +1,42 @@
+---
+title: "Retrieving SiteId from Microsoft Graph for Subsequent API Calls"
+date: 2024-06-15T14:49:19+01:00
+tags: ["PnP PowerShell", "Get Site Id","Microsoft Graph"]
+featured_image: '/images/pnpbatch-update-biglist-sharepoint/ThrottlingIssue.png'
+draft: false
+---
 
+# Retrieving SiteId from Microsoft Graph for Subsequent API Calls
+
+This post offers an option to retrieve a SiteId from Microsoft Graph using PnP PowerShell. This can be particularly useful when making further API calls that require the SiteId.
 
 ```powershell
 $url = "https://contoso-admin.sharepoint.com"
 Connect-PnPOnline -url $url -interactive
+# for the site url https://contoso-admin.sharepoint.com/teams/app-m365 
 $RestMethodUrl = "v1.0/sites/contoso.sharepoint.com:/teams/app-m365?$select=id"
 $site = (Invoke-PnPGraphMethod -Url $RestMethodUrl -Method Get -ConsistencyLevelEventual)
 write-host  $site.id
 ```
-Sample output 
+
+The above script connects to your SharePoint admin site, makes a GET request to Microsoft Graph to retrieve the SiteId, and then prints the SiteId.
+
+Here's a sample output:
+
 ```powershell
 contoso.sharepoint.com,18440dad-4514-4946-bcb5-ba2f7e033ed1,dbfeb5ba-2bf1-4ff8-bf61-af1d984fceb1
 ```
+
+This output represents the SiteId that you can use for subsequent API calls.
+
+```powershell
+$siteId = "contoso.sharepoint.com,18440dad-4514-4946-bcb5-ba2f7e033ed1,dbfeb5ba-2bf1-4ff8-bf61-af1d984fceb1"
+$RestMethodUrl = "v1.0/sites/$siteId"
+$siteDetails = (Invoke-PnPGraphMethod -Url $RestMethodUrl -Method Get)
+write-host $siteDetails
+```
+
+In this example, the Invoke-PnPGraphMethod cmdlet is used to make a GET request to the /sites/{site-id} endpoint of the Microsoft Graph API. The {site-id} is replaced with the actual SiteId. The response, which contains the details of the SharePoint site, is then printed to the console.
 
 ## References
 
