@@ -1,4 +1,10 @@
-
+---
+title: "Get File Count within Library using PowerShell"
+date: 2024-06-15T14:49:19+01:00
+tags: ["PnP PowerShell", "Get File count","SharePoint", "Library"]
+featured_image: '/images/pnpbatch-update-biglist-sharepoint/ThrottlingIssue.png'
+draft: false
+---
 
 ```PowerShell
 $SiteURL = "https://contoso.sharepoint.com/teams/PROJ-IT-Transformation"
