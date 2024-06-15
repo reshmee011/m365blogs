@@ -2,7 +2,7 @@
 title: "Retrieving SiteId from Microsoft Graph for Subsequent API Calls"
 date: 2024-06-15T14:49:19+01:00
 tags: ["PnP PowerShell", "Get Site Id","Microsoft Graph"]
-featured_image: '/images/PnPPowerShell_GetSiteId_Graph/example.png'
+featured_image: '/images/PowerShell_GetSiteId_Graph/example.png'
 draft: false
 ---
 
@@ -45,6 +45,8 @@ $RestMethodUrl = "v1.0/sites/$siteId"
 $siteDetails = (Invoke-PnPGraphMethod -Url $RestMethodUrl -Method Get)
 write-host $siteDetails
 ```
+
+![Sample Output](../images/PowerShell_GetSiteId_Graph/example.png)
 
 In this example, the Invoke-PnPGraphMethod cmdlet is used to make a GET request to the /sites/{site-id} endpoint of the Microsoft Graph API. The {site-id} is replaced with the actual SiteId. The response, which contains the details of the SharePoint site, is then printed to the console.
 

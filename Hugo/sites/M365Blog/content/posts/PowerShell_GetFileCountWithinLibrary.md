@@ -1,13 +1,17 @@
 ---
-title: "Get File Count within Library using PowerShell"
+title: "Counting Files within a SharePoint Library using PnP PowerShell"
 date: 2024-06-15T14:49:19+01:00
 tags: ["PnP PowerShell", "Get File count","SharePoint", "Library"]
-featured_image: '/images/pnpbatch-update-biglist-sharepoint/ThrottlingIssue.png'
+featured_image: '/images/PowerShell_GetFileCountWithinLibrary/example.png'
 draft: false
 ---
 
+# Counting Files within a SharePoint Library using PnP PowerShell
+
+This post shows a PowerShell script using PnP PowerShell module to count the number of files and folders within a SharePoint library. It might be useful doing an inventory of file count. One useful application was to check whether the number of items ingested from the SharePoint site in a third party application like RecordPoint tally.
+
 ```PowerShell
-$SiteURL = "https://contoso.sharepoint.com/teams/PROJ-IT-Transformation"
+$SiteURL = "Counting Files within a SharePoint Library using PnP PowerShell"
  
 # Generate a unique log file name using today's date
 $dateTime = (Get-Date).toString("dd-MM-yyyy")
@@ -19,8 +23,7 @@ $NumberOfFiles = 0
 #Connect to SharePoint Online
 Connect-PnPOnline $SiteURL -Interactive
  
-$SystemLists = @("Converted Forms", "Master Page Gallery", "Customized Reports", "Form Templates", "List Template Gallery", "Theme Gallery","Apps for SharePoint",
-                            "Reporting Templates", "Solution Gallery", "Style Library", "Web Part Gallery","Site Assets", "wfpub", "Site Pages", "Images", "MicroFeed","Pages")
+$SystemLists = @("Converted Forms", "Master Page Gallery", "Customized Reports", "Form Templates", "List Template Gallery", "Theme Gallery","Apps for SharePoint","Reporting Templates", "Solution Gallery", "Style Library", "Web Part Gallery","Site Assets", "wfpub", "Site Pages", "Images", "MicroFeed","Pages")
 $FolderStats = @()
 #Get the list
 Get-PnPList -Includes RootFolder | Where {$_.Hidden -eq $false -and $SystemLists -notcontains $_.Title -and $_.BaseTemplate -eq 101 } | ForEach-Object {
@@ -45,3 +48,7 @@ $NumberOfFiles = $List.ItemCount - $FolderItems.Count
 #Export the data to CSV
 $FolderStats | Export-Csv -Path $OutPutView -NoTypeInformation
 ```
+
+This script connects to a SharePoint site, retrieves all non-hidden libraries, and counts the number of files and folders in each library. It then exports this data to a CSV file.
+
+![Sample Output](../images/PowerShell_GetFileCountWithinLibrary/example.png)
