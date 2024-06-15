@@ -1,45 +1,57 @@
 ---
-title: "Power Platform managed solution deployment using settings files"
-date: 2024-06-03T16:54:24+01:00
-tags: ["Power Platform","solution","managed","allow customizations","ALM"]
+title: "Guide to Preparing setting files for Power Platform managed solution deployment"
+date: 2024-06-15T16:54:24+01:00
+tags: ["Power Platform","solution","managed solution","setting file","ALM"]
 featured_image: '/posts/images/AzureDevOps-PowerPlatform-deployment-ALM-SettingsFile/settingsFile.png'
-draft: true
+draft: false
 ---
 
-# Power Platform managed solution deployment using settings files
+# Guide to Preparing setting files for Power Platform managed solution deployment
 
-The first step would be to create our Settings file. There are several ways of doing it (as described in the docs). We will do it based on a solution file.
+This guide will walk you through the process of creating a settings file for Power Platform managed solution deployment. Refer to the posts for more details to set up Application Lifecycle Management (ALM) for power platform: [Power Platform ALM & Pipelines w/ Matt Devaney](https://www.youtube.com/watch?v=wQe7n62RRNU) and [Converting to Modern YAML Pipeline: Application Lifecycle Management in Azure DevOps for Power Platform](https://reshmee.netlify.app/posts/powerplatform-convert-classic-pipeline-to-modern-pipeline/) for detailed steps for ALM for power platform solutions.
+The settings file will be created referring to an exported solution, one of several methods described in the official documentation using **Power Platform CLI (pac)**
 
-Export Solution
-We export the solution we created as part of the prerequisites unmanaged and save it somewhere on our machine.
+Make sure you have the latest version of pac installed by executing `pac install latest` first.
 
-## Run pac
+## Export Solution
 
-Open a Command Prompt (or PowerShell) in the folder which contains the solution zip file.
+Start by exporting the solution as managed to a local location on your machine.
 
-The following command will create a settings file (called settings-test.json) based on your solution in the same folder. You have to replace the name of the zip file with yours.
+```dotnetcli
+pac solution export --path E:\Settings\test_managed.zip --name test --managed
+```
 
-Make sure you have the latest version of the pac installed by executing “pac install latest” first.
+![Export solution](../images/AzureDevOps-PowerPlatform-deployment-ALM-SettingsFile/Export_Solution.png)
+
+## Run Power Platform CLI (pac)
+
+Next, open a Command Prompt or PowerShell in the folder containing the solution zip file. We will use the Power Platform CLI (pac) to create a settings file based on the exported solution. 
 
 ```PowerShell
+# connect to the power platform environment
 pac auth create --environment "dev (contoso.co.uk)"
 ```
 
-```PowerShell
-pac auth list
-```
+![Successful connection](../images/AzureDevOps-PowerPlatform-deployment-ALM-SettingsFile/pac_environment_success.png)
 
 ```PowerShell
+# ensure the correct environment is selected
+pac auth list
+# select the environment by specifying the index
 pac auth select --index 1
 ```
 
+![pac auth select](../images/AzureDevOps-PowerPlatform-deployment-ALM-SettingsFile/pac_auth_select.png)
 
 ```PowerShell
 pac solution create-settings --solution-zip ./DevToolsTest_1_0_0_1.zip --settings-file ./settings-test.json
 ```
 
-In my case, the settings file looks like this
+![Create Deployment settings](../images/AzureDevOps-PowerPlatform-deployment-ALM-SettingsFile/CreateDeploymentSettings.png)
 
+The settings file generated will look something like this with two main sections for **EnvironmentVariables** and **ConnectionReferences**
+
+```json
 {
   "EnvironmentVariables": [
 
@@ -78,48 +90,74 @@ In my case, the settings file looks like this
     }
   ]
 }
+```
 
+Each environment variable and connection reference will need to be filled out according. A separate settings file for each target environment : test, UAT and Prod needs to be prepared.
 
-
+```json
 {
   "EnvironmentVariables": [
     {
-      "SchemaName": "ppf_ConligoSPSitePrefix",
+      "SchemaName": "contoso_SPSitePrefix",
       "Value": "Test - ",
       "DefaultValue": "Test - ",
       "Name": {
-        "Default": "Conligo - SP Site Prefix",
+        "Default": "test - SP Site Prefix",
         "ByLcid": {
-          "1033": "Conligo - SP Site Prefix"
+          "1033": "test - SP Site Prefix"
         }
       }
     },
     {
-      "SchemaName": "ppf_ConligoSPSiteUrl",
-      "Value": "https://ppfonline.sharepoint.com/teams/t-app-conligo",
+      "SchemaName": "contoso_SPSiteUrl",
+      "Value": "https://contoso.sharepoint.com/teams/t-app-test",
       "Name": {
-        "Default": "Conligo - SP SiteUrl",
+        "Default": "test - SP SiteUrl",
         "ByLcid": {
-          "1033": "Conligo - SP SiteUrl"
+          "1033": "test - SP SiteUrl"
         }
       }
     }
   ],
   "ConnectionReferences": [
     {
-        "LogicalName": "ppf_Conligo",
+        "LogicalName": "contoso_test",
         "ConnectionId": "0ba02acefbfc464f870b6d421f633e82",
         "ConnectorId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
       },
       {
-        "LogicalName": "ppf_ConligoApprovals",
+        "LogicalName": "ppf_testApprovals",
         "ConnectionId": "429957a759e3460badcd197b746afb4a",
         "ConnectorId": "/providers/Microsoft.PowerApps/apis/shared_approvals"
       }
   ]
 }
+```
 
-What you can see is that there is an array of Environment Variables where you could add the desired value. The file also contains an array of Connection References, what missing here is the ID of the connection (in the target environment) you would like to associate.
+An errors in the deploymemt settings file will result in an error.
 
-For the ease of this post, I will hard code all of that. For sure you could dynamically set/fill this file as a part of your pipeline. What I found most practical is having a settings file for every target environment. Much like the app.config one knows from C# projects.
+## Environment variable missing value
 
+In case the value of an environment variable is left empty, attempt to deploy the solution using the settings file will result in 
+
+![Environment Variable can't be empty](../images/AzureDevOps-PowerPlatform-deployment-ALM-SettingsFile/EnvironmentVariableCantBeEmpty.png)
+
+## Wrong connection reference
+
+In case the connection referece connectionid or connectorid is incorrect the error **An error unexpected occurred.** can be thrown.
+
+![An unexpected error occurred](../images/AzureDevOps-PowerPlatform-deployment-ALM-SettingsFile/AnexpectedError.png)
+
+Ensure the connection has been created and correct id populated in the settings file. Also shared the connection with the identity used for deployment of the managed solution.
+
+Navigate to the Power Platform environment, click on connections, select the connection (for example SharePoint) and copy the Id from the Url into the connectionid property
+
+![Connection Id](../images/AzureDevOps-PowerPlatform-deployment-ALM-SettingsFile/connectionid.png)
+
+## Successful deployment
+
+If the environment variables and connection reference have been populated correctly, the managed solution will be successfuly deployed.
+
+## References
+
+[pac admin](https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/admin)
