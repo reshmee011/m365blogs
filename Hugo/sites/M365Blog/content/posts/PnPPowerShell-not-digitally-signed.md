@@ -22,7 +22,7 @@ For more information, run 'Import-Module PnP. PowerShell'.
 
 ![Not digitally signed](../images/PnPPowerShell-not-digitally-signed/Notdigitallysigned.png)
 
-he error message indicates that the PnP PowerShell module is not digitally signed, which prevents it from being loaded on your system. This is a security measure to prevent the execution of malicious scripts.
+The error message indicates that the PnP PowerShell module is not digitally signed, which prevents it from being loaded on your system. This is a security measure to prevent the execution of malicious scripts.
 
 The solution is to change the execution policy of your PowerShell session. This can be done using the **set-executionpolicy** cmdlet. The following command sets the execution policy for the current process to Bypass, which allows scripts to run regardless of their signing status:
 
