@@ -84,6 +84,33 @@ set-pnptenant -DisableDocumentLibraryDefaultLabeling $false #enables default sen
 
 ## Site level settings
 
+### Restricted Content Discoverability (RCD)-"Advanced per Site control"
+
+Due to oversharing, unintended content discovery via search and Copilot is a concern!
+
+1. Use this site-level setting Restricted Content Discoverability to restrict content discoverability
+via Copilot and Org-wide search.
+2. SharePoint Admin sets this property to a site via PS cmdlet.
+3. There is no change to the site's permissions! > Users continue to have physical access
+4. Contents of the site gets reindexed ** - as a result contents are security trimmed and not
+discoverable via Copilot and tenant-wide search
+
+License required: SharePoint Advanced Management
+
+In Private Preview
+
+**SPO PowerShell**
+
+```PowerShell
+Set-SPOSite -Identity <site-url> -RestrictContentOrgWideSearch $true
+```
+
+**PnP PowerShell**
+
+```PowerShell
+Set-PnPSite -Identity <site-url> -RestrictContentOrgWideSearch $true
+```
+
 ### [Block download policy for SharePoint sites and OneDrive](https://learn.microsoft.com/en-us/sharepoint/block-download-from-sites?WT.mc_id=365AdminCSH_spo&wt.mc_id=MVP_308367)
 
 **BlockDownloadPolicy**

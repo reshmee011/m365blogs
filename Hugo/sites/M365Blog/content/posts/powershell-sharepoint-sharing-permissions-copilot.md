@@ -444,6 +444,15 @@ None: Respect the organization-level policy for external user expiration.
 False: Respect the organization-level policy for external user expiration.
 True: Override the organization-level policy for external user expiration (can be more or less restrictive).
 
+### ReadOnlyForUnmanagedDevices
+
+To set this parameter the **ConditionalAccessPolicy** needs to be set to **AllowLimitedAccess** and configures the site to be readonly on unmanaged devices meaning users can view the content on these devices, but they cannot make any changes. This helps to protect the data from potential security threats. 
+
+Unmanaged devices include personal laptops, smartphones, or tablets that employees use to access company resources. These devices typically do not have the same security controls present on managed devices like firewalls, automatic updates, etc.. posing security risks.
+
+**To set this parameter, you need to set the Set-SPOSite -ConditionalAccessPolicy to AllowLimitedAccess. <Would you like to set it now?>**
+
+![Prompt to set read only for unmanaged devices](../images/powershell-sharePoint-sharing-permissions-copilot/ReadOnlyForUnmanagedDevices.png)
 
 ### PowerShell script to update site sharing settings
 
