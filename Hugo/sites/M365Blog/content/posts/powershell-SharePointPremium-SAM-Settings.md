@@ -1,24 +1,27 @@
 ---
-title: "Manage SharePoint Premium Settings Using PowerShell to protect data in Copilot for M365 Rollout"
+title: "Manage SharePoint Premium - SharePoint Advanced Management Settings Using PowerShell to protect data in Copilot for M365 Rollout"
 date: 2024-05-18T15:45:36+01:00
-tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","Copilot for M365","Information Governance","Sensitivity Label","Conditional Access", "SharePoint Premium", "SharePoint Advanced Management","IG"]
-featured_image: '/posts/images/powershell-SharePoint-Premium-Settings/SharePointAdvancedManagementSettings.png'
+tags: ["SharePoint Premium","Syntex","oversharing","Tenant","Sites","PowerShell","Copilot for M365","Information Governance","Sensitivity Label","Conditional Access", "SharePoint Premium", "SharePoint Advanced Management","IG"]
+featured_image: '/posts/images/powershell-SharePointPremium-SAM-Settings/SharePointAdvancedManagementSettings.png'
 draft: false
 ---
 
-# Manage SharePoint Premium Settings Using PowerShell to protect data in Copilot for M365 Rollout
+# Manage SharePoint Premium - SharePoint Advanced Management Settings Using PowerShell to protect data in Copilot for M365 Rollout
 
-SharePoint Premium offers advanced features to help prevent oversharing and accidental data leaks, which is crucial for a successful rollout of Copilot for M365. This guide will show you how to manage these settings using PowerShell.
+SharePoint Premium - SharePoint Advanced Management offers features to help prevent data oversharing and accidental leaks, which is crucial for a successful rollout of Copilot for M365. This guide will show you how to manage these settings using PowerShell.
 
-For an overview, read the [Microsoft Syntex - SharePoint Advanced Management overview](https://learn.microsoft.com/en-us/sharepoint/advanced-management?wt.mc_id=MVP_308367).
+For an overview, read the [Microsoft SharePoint Premium - SharePoint Advanced Management overview](https://learn.microsoft.com/en-us/sharepoint/advanced-management?wt.mc_id=MVP_308367).
+
+This post covers how to manage **SharePoint Premium - SharePoint Advanced Management** settings at both the tenant and site level using PowerShell.
 
 ## Enabling SharePoint Advanced Management - SAM
 
 SharePoint Premium provides pay-as-you-go billing. You can start a trial by navigating to:
 Microsoft 365 Admin Center > Billing > Purchase Services > Search for SharePoint Advanced Management > Scroll Down > Click on Details > Click on Start Free Trial.
 
-![Enable Trial](../images/powershell-SharePoint-Premium-Settings/SharePointAdvancedManagementFeatures.png)
+![Enable Trial](../images/powershell-SharePointPremium-SAM-Settings/SharePointAdvancedManagementFeatures.png)
 
+Once enabled SAM (SharePoint Advanced Management) settings like **Restrict SharePoint site access with Microsoft 365 groups and Entra security groups**,  **Restrict OneDrive content access**,**Restrict OneDrive service access**, **Conditional access policy for SharePoint sites and OneDrive**, **Data access governance reports for SharePoint sites** and **Restricted Content Discoverability (RCD)**  can be managed using PowerShell.
 
 ## Tenant level settings
 
@@ -39,7 +42,6 @@ set-pnptenant -EnableRestrictedAccessControl
 This setting enables site-level access restriction for your organization. It may take up to an hour for the command to take effect. If the appropriate license is missing, you will receive an error message.
 
 **set-spotenant : This operation can't be performed as the tenant doesn't have the required license. Refer https://aka.ms/RACPolicyForSites to learn more**
-
 
 ### [Restrict OneDrive access by security group](https://learn.microsoft.com/en-us/sharepoint/limit-access?wt.mc_id=MVP_308367)
 
@@ -62,7 +64,7 @@ Invoke-PnPSPRestMethod -Method Patch -Url $apiUrl -ContentType "application/json
 
 Read [Restrict OneDrive access by security group](https://learn.microsoft.com/en-us/sharepoint/limit-access?wt.mc_id=MVP_308367) for more info.
 
-![OneDrive Access Restriction](../images/powershell-SharePoint-Premium-Settings/OneDriveAccessRestriction.png)
+![OneDrive Access Restriction](../images/powershell-SharePointPremium-SAM-Settings/OneDriveAccessRestriction.png)
 
 ### DisableDocumentLibraryDefaultLabeling
 
@@ -84,20 +86,11 @@ set-pnptenant -DisableDocumentLibraryDefaultLabeling $false #enables default sen
 
 ## Site level settings
 
-### Restricted Content Discoverability (RCD)-"Advanced per Site control"
+### Restricted Content Discoverability (RCD)
 
-Due to oversharing, unintended content discovery via search and Copilot is a concern!
+Restricted Content Discoverability (RCD) is another SharePoint Advanced Management (SAM) feature which can be an alternative to [Restricted SharePoint Search - RSS](https://reshmeeauckloo.com/posts/sharepoint-restricted-sharepoint-search/) to use to restrict content discoverability via Copilot and Org-wide search if oversharing is a concern.
 
-1. Use this site-level setting Restricted Content Discoverability to restrict content discoverability
-via Copilot and Org-wide search.
-2. SharePoint Admin sets this property to a site via PS cmdlet.
-3. There is no change to the site's permissions! > Users continue to have physical access
-4. Contents of the site gets reindexed ** - as a result contents are security trimmed and not
-discoverable via Copilot and tenant-wide search
-
-License required: SharePoint Advanced Management
-
-In Private Preview
+At the time of writing this blog post , this setting is still in private preview. Again use it judiciously as less data will be available to Copilot for responses, hence less intelligent response and affects findability/search.
 
 **SPO PowerShell**
 
@@ -106,6 +99,8 @@ Set-SPOSite -Identity <site-url> -RestrictContentOrgWideSearch $true
 ```
 
 **PnP PowerShell**
+
+This setting is dependent on the PR getting merged [4024](https://github.com/pnp/powershell/pull/4024) being merged into **PnP PowerShell**.
 
 ```PowerShell
 Set-PnPSite -Identity <site-url> -RestrictContentOrgWideSearch $true
@@ -141,7 +136,7 @@ If you don't have the appropriate license, you may get the error message
 
 **Set-SPOSite : You do not have required licenses to perform this operation. Please read here for licensing related requirements : https://learn.microsoft.com/en-US/sharepoint/block-download-from-sites**
 
-![Licence not activated](../images/powershell-SharePoint-Premium-Settings/BlockDownloadPolicyLicense.png)
+![Licence not activated](../images/powershell-SharePointPremium-SAM-Settings/BlockDownloadPolicyLicense.png)
 
 * SPO PowerShell
 
@@ -326,7 +321,7 @@ Get-PnPTenantSite -Identity <siteurl>  -SensitivityLabel b160962f-aee6-431d-891c
 
 Default sensitivity label can be set to a library to all new / modified files inside a document library. This ensures that documents are protected even if a user forgets to specify the label. It can apply a higher priority label if a user has a default label applied.
 
-![Library sensitivity label](../images/powershell-SharePoint-Premium-Settings/LibraryDefaultSensitivityLabel.png)
+![Library sensitivity label](../images/powershell-SharePointPremium-SAM-Settings/LibraryDefaultSensitivityLabel.png)
 
 * PnP PowerShell
 
@@ -338,7 +333,7 @@ For more information, see [Configure a default sensitivity label for a SharePoin
 
 ## Other SharePoint Avanced Management features
 
-![SharePoint Avanced Management features](../images/powershell-SharePoint-Premium-Settings/SharePointAdvancedManagementSettings.png)
+![SharePoint Avanced Management features](../images/powershell-SharePointPremium-SAM-Settings/SharePointAdvancedManagementSettings.png)
 
 * Change history : Find who made particular site or organization setting changes and when
 
@@ -348,7 +343,7 @@ For more information, see [Create change history reports](https://learn.microsof
 
 For more information, see [Data access governance reports for SharePoint sites](https://learn.microsoft.com/en-us/sharepoint/data-access-governance-reports?wt.mc_id=MVP_308367)
 
-![Data Governance](../images/powershell-SharePoint-Premium-Settings/DataGovernance.png)
+![Data Governance](../images/powershell-SharePointPremium-SAM-Settings/DataGovernance.png)
 
 * Recent actions : Review recent site changes you made
 
@@ -371,4 +366,4 @@ I followed the post [Enable Pay-as-You-Go Licensing for Syntex aka SharePoint Pr
 * Annotations
 * Automated classification and security
 
-![Syntex Settings](../images/powershell-SharePoint-Premium-Settings/SyntexSettings.png)
+![Syntex Settings](../images/powershell-SharePointPremium-SAM-Settings/SyntexSettings.png)
