@@ -14,7 +14,6 @@ The downsides using this feature are:
 
 1. **Limited Findability**: By excluding certain SharePoint sites from search, you limit the findability of data. Users would need to know the specific sites where the data resides in order to search for it. This can hinder efficient data retrieval and records management.
 
-
 2. **Limited Number of Allowed Sites**: As of the time of writing the blog post, only 100 sites can be added to the list of allowed sites. This might not be sufficient for large tenants with requirements to add more than 100 sites to the allowed sites.* 
 
 The other option is to disable site indexing to prevent results from appearing in all contextual search (site,library,list or tenant) which does not have any limit to the number of sites to be excluded. Refer to the script [Enable/Disable Search Crawling on Sites and Libraries](https://pnp.github.io/script-samples/spo-enable-disable-search-crawling/README.html?tabs=pnpps). 

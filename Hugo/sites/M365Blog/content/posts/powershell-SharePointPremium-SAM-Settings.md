@@ -94,6 +94,11 @@ set-pnptenant -DisableDocumentLibraryDefaultLabeling $false #enables default sen
 
 At the time of writing this blog post , this setting is still in private preview. Again use it judiciously as less data will be available to Copilot for M365 for responses, hence less intelligent response and affects findability/search. To accelerate Copilot For M365 deployment while still reviewing governace controls, this setting can be used for those sites, e.g. sensitive sites.
 
+Some caveats to be aware similar to **Restricted Access Control** :
+- The setting affects both tenant-side search and Copilot for M365 with no option to set it up only for Copilot for M365
+- All users require a license
+- Affects search/findability of data at the tenant wide level
+
 **SPO PowerShell**
 
 ```PowerShell
