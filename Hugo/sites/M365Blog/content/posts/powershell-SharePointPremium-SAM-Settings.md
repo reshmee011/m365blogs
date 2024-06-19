@@ -23,6 +23,8 @@ Microsoft 365 Admin Center > Billing > Purchase Services > Search for SharePoint
 
 Once enabled SAM (SharePoint Advanced Management) settings like **Restrict SharePoint site access with Microsoft 365 groups and Entra security groups**,  **Restrict OneDrive content access**,**Restrict OneDrive service access**, **Conditional access policy for SharePoint sites and OneDrive**, **Data access governance reports for SharePoint sites** and **Restricted Content Discoverability (RCD)**  can be managed using PowerShell.
 
+Refer to the video [Prepare content for Microsoft Copilot w/ SharePoint Content Governance | M365 Community Conference](https://www.youtube.com/watch?v=B5VRu9q6sZ8&t=404s) to learn more about SAM features.
+
 ## Tenant level settings
 
 ### Enable Restricted Access Control
@@ -88,15 +90,17 @@ set-pnptenant -DisableDocumentLibraryDefaultLabeling $false #enables default sen
 
 ### Restricted Content Discoverability (RCD)
 
-Restricted Content Discoverability (RCD) is another SharePoint Advanced Management (SAM) feature which can be an alternative to [Restricted SharePoint Search - RSS](https://reshmeeauckloo.com/posts/sharepoint-restricted-sharepoint-search/) to use to restrict content discoverability via Copilot and Org-wide search if oversharing is a concern.
+**Restricted Content Discoverability (RCD)** is another SharePoint Advanced Management (SAM) feature which can be an alternative to [Restricted SharePoint Search - RSS](https://reshmeeauckloo.com/posts/sharepoint-restricted-sharepoint-search/) to use to restrict content discoverability via Copilot and Org-wide search if oversharing is a concern. **Restricted Access Control** affects access to end users while **Restricted Content Discoverability** allows end users to work on files not impacting productivity except making contents undiscoverable within Copilot for M365.
 
-At the time of writing this blog post , this setting is still in private preview. Again use it judiciously as less data will be available to Copilot for responses, hence less intelligent response and affects findability/search.
+At the time of writing this blog post , this setting is still in private preview. Again use it judiciously as less data will be available to Copilot for M365 for responses, hence less intelligent response and affects findability/search. To accelerate Copilot For M365 deployment while still reviewing governace controls, this setting can be used for those sites, e.g. sensitive sites.
 
 **SPO PowerShell**
 
 ```PowerShell
 Set-SPOSite -Identity <site-url> -RestrictContentOrgWideSearch $true
 ```
+
+The caveat is it might take a while to see the setting being applied as it depends on all contents being reindexed which might take a while for a big site. 
 
 **PnP PowerShell**
 
@@ -367,3 +371,16 @@ I followed the post [Enable Pay-as-You-Go Licensing for Syntex aka SharePoint Pr
 * Automated classification and security
 
 ![Syntex Settings](../images/powershell-SharePointPremium-SAM-Settings/SyntexSettings.png)
+
+
+## References
+
+[Prepare content for Microsoft Copilot w/ SharePoint Content Governance | M365 Community Conference](https://www.youtube.com/watch?v=B5VRu9q6sZ8&t=404s)
+
+[Enable Pay-as-You-Go Licensing for Syntex aka SharePoint Premium.](https://www.divyaakula.com/sharepointpremium/2024/05/01/enabling-sharepoint-syntex-with-pay-as-you-go.html)
+
+[Manage site lifecycle policies](https://learn.microsoft.com/en-us/sharepoint/site-lifecycle-management?wt.mc_id=MVP_308367)
+
+[Review your recent changes to SharePoint site properties](https://learn.microsoft.com/en-us/sharepoint/recent-actions-panel?WT.mc_id=365AdminCSH_spo?wt.mc_id=MVP_308367)
+
+[Data access governance reports for SharePoint sites](https://learn.microsoft.com/en-us/sharepoint/data-access-governance-reports?wt.mc_id=MVP_308367)
