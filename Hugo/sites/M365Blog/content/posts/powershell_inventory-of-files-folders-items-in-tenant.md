@@ -1,8 +1,11 @@
 ---
 title: "Powershell_inventory of Files Folders Items in Tenant"
-date: 2024-06-19T20:09:11+01:00
-draft: true
+date: 2024-06-21T07:17:21+01:00
+tags: ["PowerShell", "Inventory","Excel for business"]
+featured_image: '/posts/images/Powershell-inventory-of-Files-Folders-Items-in-Tenant/example.png'
+draft: false
 ---
+
 
 ```PowerShell
 #Parameters
@@ -13,22 +16,10 @@ $invocation = (Get-Variable MyInvocation).Value
 $directorypath = Split-Path $invocation.MyCommand.Path
 $fileName = "SiteStats-" + $dateTime + ".csv"
 $OutPutView = $directorypath + "\Logs\"+ $fileName
-$Excludedsites =@("https://contosoonline.sharepoint.com/sites/ACT-TrunkDemo-OpenAccess","https://contosoonline.sharepoint.com/teams/ACT-TrunkDemo","https://contosoonline.sharepoint.com/sites/PROJ-AnilTest-OpenAccess"
-,"https://contosoonline.sharepoint.com/teams/PROJ-AnilTest" ,"https://contosoonline.sharepoint.com/sites/D-PROJ-BakingCompetitionProject","https://contosoonline.sharepoint.com/sites/d-commsite-playground","https://contosoonline.sharepoint.com/sites/d-intranet",
+$Excludedsites =@("https://contosoonline.sharepoint.com/sites/ACT-TrunkDemo-OpenAccess","https://contosoonline.sharepoint.com/teams/TrunkDemo","https://contosoonline.sharepoint.com/sites/Test-OpenAccess"
+,"https://contosoonline.sharepoint.com/teams/Test1","https://contosoonline.sharepoint.com/sites/d-intranet",
  "https://contosoonline.sharepoint.com/sites/d-intranet-aboutus","https://contosoonline.sharepoint.com/sites/d-intranet-community", "https://contosoonline.sharepoint.com/sites/d-intranet-directorate",
- "https://contosoonline.sharepoint.com/sites/d-intranet-directorate-comms","https://contosoonline.sharepoint.com/sites/d-intranet-employeehub", "https://contosoonline.sharepoint.com/sites/d-intranet-news", "https://contosoonline.sharepoint.com/sites/d-app-littlefish",
- "https://contosoonline.sharepoint.com/teams/d-app-ar", "https://contosoonline.sharepoint.com/teams/d-app-caspr-portal","https://contosoonline.sharepoint.com/teams/d-app-conligo",
- "https://contosoonline.sharepoint.com/teams/d-app-iqm","https://contosoonline.sharepoint.com/teams/d-app-marvin","https://contosoonline.sharepoint.com/teams/d-team-playground","https://contosoonline.sharepoint.com/teams/d-TEAM-DemoTeam", 
- "https://contosoonline.sharepoint.com/teams/d-TEAM-DemoTeam-DemoPrivateChannel","https://contosoonline.sharepoint.com/teams/DevDemoTeam-DemoSharedChannel","https://contosoonline.sharepoint.com/teams/DevDemoTeam-SandboxSharedChannel",
- "https://contosoonline.sharepoint.com/teams/d-app-mars","https://contosoonline.sharepoint.com/teams/D-TEAM-Site","https://contosoonline.sharepoint.com/sites/D-TEAM-Site-OpenAccess","https://contosoonline.sharepoint.com/teams/d-app-software-catalogue",
- "https://contosoonline.sharepoint.com/sites/t-intranet","https://contosoonline.sharepoint.com/sites/t-intranet-aboutus","https://contosoonline.sharepoint.com/sites/t-intranet-community","https://contosoonline.sharepoint.com/sites/t-intranet-directorate",
-  "https://contosoonline.sharepoint.com/sites/t-intranet-employeehub","https://contosoonline.sharepoint.com/sites/t-intranet-news","https://contosoonline.sharepoint.com/teams/t-app-ar","https://contosoonline.sharepoint.com/teams/t-app-conligo",
-  "https://contosoonline.sharepoint.com/teams/t-app-iqm","https://contosoonline.sharepoint.com/teams/t-app-marvin","https://contosoonline.sharepoint.com/teams/t-app-mars","https://contosoonline.sharepoint.com/teams/t-planner-nickabraham","https://contosoonline.sharepoint.com/sites/u-intranet",
-  "https://contosoonline.sharepoint.com/sites/u-intranet-aboutus","https://contosoonline.sharepoint.com/sites/u-intranet-community","https://contosoonline.sharepoint.com/sites/u-intranet-directorate","https://contosoonline.sharepoint.com/sites/u-intranet-employeehub",
-   "https://contosoonline.sharepoint.com/sites/u-intranet-home","https://contosoonline.sharepoint.com/sites/u-intranet-home1","https://contosoonline.sharepoint.com/sites/U-Intranet-Home42","https://contosoonline.sharepoint.com/sites/u-Intranet-Home5",
-"https://contosoonline.sharepoint.com/sites/u-intranet-news","https://contosoonline.sharepoint.com/sites/u-intranet-selfservice","https://contosoonline.sharepoint.com/teams/u-app-ar","https://contosoonline.sharepoint.com/teams/u-app-caspr-portal",
-"https://contosoonline.sharepoint.com/teams/u-app-conligo","https://contosoonline.sharepoint.com/teams/u-app-iqm","https://contosoonline.sharepoint.com/teams/u-app-marvin","https://contosoonline.sharepoint.com/teams/u-app-mars",
-"https://contosoonline.sharepoint.com/sites/Test","https://contosoonline.sharepoint.com/sites/Test964","https://contosoonline.sharepoint.com/sites/Test-CreatethecommsforUsers","https://contosoonline.sharepoint.com/sites/TestDT");
+ "https://contosoonline.sharepoint.com/sites/d-intranet-directorate-comms","https://contosoonline.sharepoint.com/sites/d-intranet-employeehub", "https://contosoonline.sharepoint.com/sites/d-intranet-news","https://contosoonline.sharepoint.com/teams/d-app-caspr-portal","https://contosoonline.sharepoint.com/teams/d-app-app");
 
 $global:foldercounter = 0 
 $global:fileCounter = 0 
