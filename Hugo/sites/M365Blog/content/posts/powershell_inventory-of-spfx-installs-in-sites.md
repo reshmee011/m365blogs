@@ -1,22 +1,29 @@
 ---
-title: "Powershell inventory of Spfx Installed in Site Collection and Tenant App Catalog"
+title: "SharePoint Framework (SPFx) Inventory with PowerShell at Tenant and Site Collection App Catalog"
 date: 2024-06-21T07:17:21+01:00
-tags: ["PowerShell", "Inventory","SPFX"]
+tags: ["PowerShell", "Inventory","SharePoint Framework (SPFx)","SPFx"]
 featured_image: '/posts/images/powershell_inventory-of-spfx-installs-in-sites/example.png'
 draft: false
 ---
 
+# SharePoint Framework (SPFx) Inventory with PowerShell at Tenant and Site Collection App Catalog
+
+This post covers a PowerShell script to generate an inventory of SPFx installations within your SharePoint Online environment which will help you maintain oversight of your SPFx solutions, ensuring they are up-to-date and compliant. The script was particularly useful in pinpointing sites within the tenant where third-party applications, specifically an analytics SPFx component, were deployed. This was crucial for ensuring that data collection was confined to designated sites, such as the intranet in my case study. Despite the analytics dashboard aggregating data from all tenant sites, it was challenging to discern the sources of data collection. Therefore, this script was developed to clearly identify the sites from which data were being collected.
+
+## Script
+
 ```PowerShell
+# Parameters
 $AdminCenterURL = "https://contosoonline-admin.sharepoint.com"
 $tenantAppCatalogUrl = "https://contosoonline.sharepoint.com/sites/appcatalog"
-$hubSiteUrl = "https://contosoonline.sharepoint.com"
+$sppkgFolder = "./packages"
 $dateTime = (Get-Date).toString("dd-MM-yyyy")
+$fileName = "\InventorySPFx-" + $dateTime + ".csv"
+
 $invocation = (Get-Variable MyInvocation).Value
 $directorypath = Split-Path $invocation.MyCommand.Path
-$fileName = "\InventorySPFx-" + $dateTime + ".csv"
 $OutPutView = $directorypath + $fileName
 
-$sppkgFolder = "./packages"
  
 cd $PSScriptRoot
 $packageFiles = Get-ChildItem $sppkgFolder
@@ -81,3 +88,30 @@ catch{
 #Export the result Array to CSV file
 $SiteAppUpdateCollection | Export-CSV $OutPutView -Force -NoTypeInformation
 ```
+
+The PowerShell scripts generates an inventory of SPFx packages installed in both site collection app catalogs and the tenant app catalog exported to a CSV file.
+Specific targeted sites are excluded based on the template namely : "PWA#0","SRCHCEN#0", "REDIRECTSITE#0", "SPSMSITEHOST#0", "APPCATALOG#0", "POINTPUBLISHINGHUB#0", "POINTPUBLISHINGTOPIC#0","EDISC#0" and "STS#-1". Please amend the list as appropriate as per your needs.
+
+### Prerequisites
+
+* SharePoint Administrator or Global administrator right to the tenant
+* PowerShell PnP module installed
+
+### How to use
+
+1. Copy and paste the above script
+2. Amend the values of the variables for the $AdminCenterURL, $tenantappcatalogURL, $sppkgFolder, and filenames to store the output
+
+### How it works
+
+The script iterates through each site collection, checking for SPFx packages in both the site collection app catalog and tenant app catalog. It checks whether the package is installed in the site collection app catalog before checking the tenant app catalog. This is because if the package is installed at both the site collection app catalog and tenant app catalog, the site collection app catalog takes precedence and the package installed in the site will be from site collection app catalog. 
+
+For each SPFx package found, the script collects details such as the site URL, package name, version, and whether it's installed in the tenant app catalog or a site collection app catalog. The inventory data is exported into a CSV file, providing a clear view of SPFx installations across the environment.
+
+![Output](../images/powershell_inventory-of-spfx-installs-in-sites/example.png)
+
+## Conclusion
+
+This PowerShell script can be used by SharePoint administrators and developers looking to audit their SPFx installation efficiently. Feel free to customize the script to fit your specific needs and enhance your SharePoint governance strategy.
+
+Call to Action: Share your experiences using the script.
