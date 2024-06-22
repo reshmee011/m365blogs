@@ -13,3 +13,7 @@ Power Automate flow succeeded despite failure to update multi line text field wi
 
 Log of error
 [Flow succeeded despite failure to update multi line text field](../images/powerautomate_field_more_255_characters/FieldMoreThan255Characters.png)
+
+[Allow Unlimited length](../images/powerautomate_field_more_255_characters/ModernEdit_AllowUnlimitedLength.png)
+
+[Update Error Log](../images/powerautomate_field_more_255_characters/updatestatustofailed.png)
