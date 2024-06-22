@@ -3,7 +3,7 @@ title: "Powershell_inventory of Files Folders Items in Tenant"
 date: 2024-06-21T07:17:21+01:00
 tags: ["PowerShell", "Inventory","Excel for business"]
 featured_image: '/posts/images/Powershell-inventory-of-Files-Folders-Items-in-Tenant/example.png'
-draft: false
+draft: true
 ---
 
 
