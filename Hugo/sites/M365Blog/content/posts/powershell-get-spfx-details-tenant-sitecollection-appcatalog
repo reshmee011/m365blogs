@@ -1,0 +1,56 @@
+$AdminCenterURL="https://ppfonline-admin.sharepoint.com"
+$tenantAppCatalogUrl = "https://ppfonline.sharepoint.com/sites/appcatalog"
+$hubSiteUrl = "https://ppfonline.sharepoint.com"
+$dateTime = (Get-Date).toString("dd-MM-yyyy")
+$invocation = (Get-Variable MyInvocation).Value
+$directorypath = Split-Path $invocation.MyCommand.Path
+$fileName = "\InventorySPFx-" + $dateTime + ".csv"
+$OutPutView = $directorypath + $fileName
+ 
+cd $PSScriptRoot
+ 
+Connect-PnPOnline $tenantAppCatalogUrl -Interactive
+$appCatConnection  = Get-PnPConnection
+ 
+Connect-PnPOnline $AdminCenterURL -Interactive
+$adminConnection  = Get-PnPConnection
+ 
+$appsDetails = @()
+ 
+#Get associated sites with hub
+$sites = Get-PnPTenantSite -Detailed -Connection $adminConnection  | Where-Object -Property Template -NotIn ("PWA#0","SRCHCEN#0", "REDIRECTSITE#0", "SPSMSITEHOST#0", "APPCATALOG#0", "POINTPUBLISHINGHUB#0", "POINTPUBLISHINGTOPIC#0","EDISC#0", "STS#-1") 
+$istenantApp = ""
+$RestMethodUrl = '/_api/web/lists/getbytitle(''Apps%20for%20SharePoint'')/items?$select=Title,LinkFilename,SkipFeatureDeployment,ContainsTeamsManifest,ContainsVivaManifest,SupportsTeamsTabs,WebApiPermissionScopesNote,ContainsTenantWideExtension,IsolatedDomain,PackageDefaultSkipFeatureDeployment,IsClientSideSolutionCurrentVersionDeployed,ExternalContentDomains,IsClientSideSolutionDeployed,IsClientSideSolution,AppPackageErrorMessage,IsValidAppPackage,SharePointAppCategory,AppDescription,AppShortDescription'
+
+$apps = (Invoke-PnPSPRestMethod -Url $RestMethodUrl -Method Get -Connection $appCatConnection).Value
+#export details of apps
+$apps| foreach-object{
+    $app = $_
+    $app  | Add-Member -MemberType NoteProperty -name "App Catalog Url" -value $tenantAppCatalogUrl
+    $appsDetails += $app
+}
+$istenantApp = "Tenant App Catalog"
+
+$sites | select url | ForEach-Object {
+  $Site = Get-PnPTenantSite $_.url -Connection $adminConnection
+  Connect-PnPOnline -Url $Site.url -Interactive
+  $siteConnection  = Get-PnPConnection   
+
+  try{
+
+      if((Get-PnPSiteCollectionAppCatalog -CurrentSite)){
+        $apps = (Invoke-PnPSPRestMethod -Url $RestMethodUrl -Method Get -Connection $siteConnection).Value
+        $apps| foreach-object{
+            $app = $_
+            $app  | Add-Member -MemberType NoteProperty -name "App Catalog Url" -value $Site.url
+            $appsDetails += $app
+        }
+      }
+     }
+ catch{
+  write-host -f Red $_.Exception.Message
+ }
+}
+#Export the result Array to CSV file
+$appsDetails | Export-CSV $OutPutView -Force -NoTypeInformation
+ 
