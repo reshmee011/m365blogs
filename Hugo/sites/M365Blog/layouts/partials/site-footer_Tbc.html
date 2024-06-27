@@ -1,0 +1,29 @@
+<footer class="{{ .Site.Params.background_color_class | default "bg-black" }} bottom-0 w-100 pa3" role="contentinfo">
+  {{- if (eq (.Site.Params.disableComments | default false) false) -}}
+  {{- if (eq (.Params.disableComments | default false) false) -}}
+      <script src="https://giscus.app/client.js"
+          data-repo="reshmee011/m365blogs"
+          data-repo-id=""
+          data-category="General"
+          data-category-id="DIC_kwDOFKl2284CWeue"
+          data-mapping="pathname"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="{{ .Site.Params.giscusTheme }}"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+      </script>
+  {{- end -}}
+{{- end -}}
+
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="{{ .Site.Home.Permalink }}" >
+    &copy; {{ with .Site.Copyright | default .Site.Title }} {{ . | safeHTML }} {{ now.Format "2006"}} {{ end }}
+  </a>
+    <div>{{ partial "social-follow.html" . }}</div>
+  </div>
+</footer>
