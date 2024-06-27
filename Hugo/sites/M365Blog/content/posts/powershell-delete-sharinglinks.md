@@ -1,6 +1,6 @@
 ---
 title: "Deletion of sharing links with PowerShell"
-date: 2024-06-27T07:17:21+01:00
+date: 2024-06-26T07:17:21+01:00
 tags: ["PowerShell", "Sharing Links","Governance","Copilot for M365 rollout"]
 featured_image: '/posts/images/powershell-delete-sharinglinks/example.png'
 draft: false
