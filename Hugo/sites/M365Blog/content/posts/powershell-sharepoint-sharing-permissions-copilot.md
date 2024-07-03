@@ -155,6 +155,16 @@ Check [Sharing files, folders, and list items](https://support.microsoft.com/en-
 
 Ensures guests must sign in using the same account to which sharing invitations are sent. This ensures that only the intended party is opening the shared document. 
 
+**Note: SharePoint Online: Legacy SharePoint Invitation Manager PowerShell cmdlets have retired**
+
+```html
+As of March 2024, the legacy SharePoint Invitation Manager is no longer used for any external sharing scenarios, as described in MC696169 (Updated) Legacy SharePoint Invitation Manager is being retired (December 2023). The two cmdlets that customized external sharing are no longer functional and are being retired.
+
+How this will affect your organization:
+
+You will no longer be able to use the properties -RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations.
+```
+
 Possible values are
   
 - False (default) - When a document is shared with an external user, bob@contoso.com, it can be accepted by any user with access to the invitation link in the original e-mail.
@@ -271,7 +281,7 @@ See [Configure a default sensitivity label for a SharePoint document library](ht
 **SPO PowerShell**
 
 ```PowerShell
-connect-SPOService -Url https://contoso-admin.sharepoint.com
+connect-SPOService https://contoso-admin.sharepoint.com
 ##SharePoint specific settings
 Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
              -CoreSharingCapability ExternalUserAndGuestSharing `
@@ -291,7 +301,7 @@ Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
             -FileAnonymousLinkType Edit  `
             -FolderAnonymousLinkType Edit `
             -DefaultLinkPermission "View" `
-            -RequireAcceptingAccountMatchInvitedAccount $false `
+            -RequireAcceptingAccountMatchInvitedAccount $false ` #You will no longer be able to use the properties RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations as from March 2024
             -ExternalUserExpirationRequired  $false `
             -AllowEveryoneExceptExternalUsersClaimInPrivateSite $true `
             -EnableAIPIntegration $true `
@@ -328,7 +338,7 @@ Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
             -FileAnonymousLinkType Edit  `
             -FolderAnonymousLinkType Edit `
             -DefaultLinkPermission "View" `
-            -RequireAcceptingAccountMatchInvitedAccount $false `
+            -RequireAcceptingAccountMatchInvitedAccount $false ` #You will no longer be able to use the properties RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations as from March 2024
             -ExternalUserExpirationRequired  $false `
             -AllowEveryoneExceptExternalUsersClaimInPrivateSite $true ` 
             -EnableAIPIntegration $true ` 
@@ -340,6 +350,90 @@ Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
 
             #-SyncAadB2BManagementPolicy $true ` #Only available through SPO PowerShell 
             #-EnableSensitivityLabelforPDF $true ` #Only available through SPO PowerShell
+```
+
+### Script to get Tenant sharing setting
+
+**SPO PowerShell**
+
+```PowerShell
+connect-SPOService https://contoso-admin.sharepoint.com
+### You will no longer be able to use the properties RequireAcceptingAccountMatchInvitedAccount or NotifyOwnersWhenInvitationsAccepted for SetSPOTenant, because these properties only applied to legacy external invitations as from March 2024
+Get-spotenant | select `
+            SharingCapability, `
+            CoreSharingCapability, `
+            CoreDefaultShareLinkScope, `
+            ShowEveryoneClaim, `
+            ShowAllUsersClaim,  `
+            ShowEveryoneExceptExternalUsersClaim, `
+            EnableGuestSignInAcceleration,  `
+            BccExternalSharingInvitations,  `
+            BccExternalSharingInvitationsList, `
+            RequireAnonymousLinksExpireInDays, `
+            SharingAllowedDomainList, `
+            SharingBlockedDomainList, `
+            SharingDomainRestrictionMode, `
+            DefaultSharingLinkType,  `
+            PreventExternalUsersFromResharing,   `
+            ShowPeoplePickerSuggestionsForGuestUsers,  `
+            FileAnonymousLinkType, `
+            FolderAnonymousLinkType, `
+            DefaultLinkPermission, `
+            RequireAcceptingAccountMatchInvitedAccount, `
+            ExternalUserExpirationRequired,  `
+            AllowEveryoneExceptExternalUsersClaimInPrivateSite, `
+            EnableAIPIntegration, `
+            MarkNewFilesSensitiveByDefault, `
+            AllowGuestUserShareToUsersNotInSiteCollection,  `
+            ConditionalAccessPolicy, `
+            EnableAzureADB2BIntegration, `
+            DisableDocumentLibraryDefaultLabeling,  `
+            SyncAadB2BManagementPolicy, `
+            EnableSensitivityLabelforPDF, `
+            ExternalUserExpireInDays 
+
+```
+
+**PnP PowerShell**
+
+```PowerShell
+connect-pnponline -url https://contoso-admin.sharepoint.com -interactive
+
+Get-PnPTenant | select `
+            SharingCapability, `
+            CoreDefaultShareLinkScope, `
+            CoreSharingCapability, `
+            ShowEveryoneClaim, `
+            ShowAllUsersClaim,  `
+            ShowEveryoneExceptExternalUsersClaim, `
+            EnableGuestSignInAcceleration,  `
+            BccExternalSharingInvitations,  `
+            BccExternalSharingInvitationsList, `
+            RequireAnonymousLinksExpireInDays, `
+            SharingAllowedDomainList, `
+            SharingBlockedDomainList, `
+            SharingDomainRestrictionMode, `
+            DefaultSharingLinkType,  `
+            PreventExternalUsersFromResharing,   `
+            ShowPeoplePickerSuggestionsForGuestUsers,  `
+            FileAnonymousLinkType, `
+            FolderAnonymousLinkType, `
+            DefaultLinkPermission, `
+            RequireAcceptingAccountMatchInvitedAccount, `
+            ExternalUserExpirationRequired,  `
+            AllowEveryoneExceptExternalUsersClaimInPrivateSite, `
+            EnableAIPIntegration, `
+            MarkNewFilesSensitiveByDefault, `
+            AllowGuestUserShareToUsersNotInSiteCollection,  `
+            ConditionalAccessPolicy, `
+            EnableAzureADB2BIntegration, `
+            DisableDocumentLibraryDefaultLabeling,  `
+            SyncAadB2BManagementPolicy, `
+            EnableSensitivityLabelforPDF, `
+            ExternalUserExpireInDays 
+
+            #-SyncAadB2BManagementPolicy $true ` #Only available through SPO PowerShell 
+
 ```
  
 ## Site Level Settings
@@ -458,7 +552,7 @@ Unmanaged devices include personal laptops, smartphones, or tablets that employe
 
 ```PowerShell
 
-Connect-SPOService -Url https://contoso-admin.sharepoint.com
+Connect-SPOService https://contoso-admin.sharepoint.com
 
 Set-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest ` -DisableSharingForNonOwners
 
@@ -474,6 +568,8 @@ Set-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
             -DefaultLinkToExistingAccess $true `
             -DisableCompanyWideSharingLinks Disabled `
             -AnonymousLinkExpirationInDays 60 `
+            -ConditionalAccessPolicy AllowLimitedAccess `
+            -ReadOnlyForUnmanagedDevices $true
            
 ```
 
@@ -495,9 +591,60 @@ Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
             -DefaultLinkPermission None `
             -DefaultLinkToExistingAccess $true `
             -DisableCompanyWideSharingLinks Disabled `
-            -AnonymousLinkExpirationInDays 60 
+            -AnonymousLinkExpirationInDays 60 `
+            -ConditionalAccessPolicy AllowLimitedAccess `
+            -ReadOnlyForUnmanagedDevices $true
 ```
 
+### PowerShell script to get site sharing settings
+
+```PowerShell
+
+Connect-SPOService https://contoso-admin.sharepoint.com
+
+Get-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest | select `
+            ShowPeoplePickerSuggestionsForGuestUsers, `
+            SharingCapability, `
+            ExternalUserExpirationInDays, `
+            SharingAllowedDomainList, `
+            SharingBlockedDomainList, `
+            SharingDomainRestrictionMode, `
+            OverrideTenantExternalUserExpirationPolicy, `
+            DefaultSharingLinkType, `
+            DefaultLinkPermission, `
+            DefaultLinkToExistingAccess, `
+            DisableCompanyWideSharingLinks, `
+            AnonymousLinkExpirationInDays, `
+            ConditionalAccessPolicy, `
+            ReadOnlyForUnmanagedDevices, `
+            DisableSharingForNonOwners 
+           
+```
+
+**PnP PowerShell**
+
+```PowerShell
+
+Connect-pnponline -url https://contoso.sharepoint.com/sites/SharingTest  -interactive
+
+Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
+Get-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest | select `
+            ShowPeoplePickerSuggestionsForGuestUsers, `
+            SharingCapability, `
+            ExternalUserExpirationInDays, `
+            SharingAllowedDomainList, `
+            SharingBlockedDomainList, `
+            SharingDomainRestrictionMode, `
+            OverrideTenantExternalUserExpirationPolicy, `
+            DefaultSharingLinkType, `
+            DefaultLinkPermission, `
+            DefaultLinkToExistingAccess, `
+            DisableCompanyWideSharingLinks, `
+            AnonymousLinkExpirationInDays, `
+            ConditionalAccessPolicy, `
+            ReadOnlyForUnmanagedDevices, `
+            DisableSharingForNonOwners 
+```
 ## Other settings to consider 
 
 ### SharePoint Restricted Search

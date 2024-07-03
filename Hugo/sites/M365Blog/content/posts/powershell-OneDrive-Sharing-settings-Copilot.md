@@ -281,6 +281,16 @@ For detailed guidance, refer to [Control notifications in OneDrive](https://docs
 
 Setting this parameter to **true** activates email notifications for OneDrive for Business owners whenever an external user accepts an invitation to access resources within their OneDrive. This feature enhances the visibility of external user engagement and resource access.
 
+**Note: SharePoint Online: Legacy SharePoint Invitation Manager PowerShell cmdlets have retired**
+
+```html
+As of March 2024, the legacy SharePoint Invitation Manager is no longer used for any external sharing scenarios, as described in MC696169 (Updated) Legacy SharePoint Invitation Manager is being retired (December 2023). The two cmdlets that customized external sharing are no longer functional and are being retired.
+
+How this will affect your organization:
+
+You will no longer be able to use the properties -RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations.
+```
+
 For more information on configuring external sharing notifications, consult [Configure notifications for external sharing in OneDrive for Business](https://docs.microsoft.com/en-us/onedrive/turn-on-external-sharing-notifications#configure-notifications-for-external-sharing?wt.mc_id=MVP_308367).
 
 ### NotifyOwnersWhenItemsReshared
@@ -355,7 +365,7 @@ get-SPOTenant | select-object -property ODBAccessRequests `
             ,ContentTypeSyncSiteTemplatesList `
             ,BlockUserInfoVisibilityInOneDrive `
             ,NotificationsInOneDriveForBusinessEnabled `
-            ,NotifyOwnersWhenInvitationsAccepted `
+            ,NotifyOwnersWhenInvitationsAccepted ` #You will no longer be able to use the properties -RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations.
             ,NotifyOwnersWhenItemsReshared `
             ,HideSyncButtonOnTeamSite
 ```
@@ -380,7 +390,7 @@ Set-SPOTenant -ODBAccessRequests Off `
             -OneDriveRequestFilesLinkExpirationInDays 60 `
             -BlockUserInfoVisibilityInOneDrive ApplyToNoUsers `
             -NotificationsInOneDriveForBusinessEnabled $true `
-            -NotifyOwnersWhenInvitationsAccepted $true `
+            -NotifyOwnersWhenInvitationsAccepted $true ` #You will no longer be able to use the properties -RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations.
             -NotifyOwnersWhenItemsReshared $true `
             -HideSyncButtonOnTeamSite $true
 

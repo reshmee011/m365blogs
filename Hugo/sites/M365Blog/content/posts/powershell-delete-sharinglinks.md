@@ -17,18 +17,22 @@ The sharing link is created when the **copy links** is clicked from the sharing 
 
 ![CopyLinks](../images/powershell-get-sharing-links-sharepoint/linkcopied.png)
 
-However by default, if sharing options have not been configured, links to "People in <tenant>" is selected
+However by default, if sharing options have not been configured, links to "People in <tenant>" or "Anyone" (if external sharing is allowed) is selected
 
 ![default sharing link](../images/powershell-delete-sharinglinks/PeopleOrg.png)
 
 The sharing behaviour can be changed to "People with existing access" using PowerShell to prevent accidental sharing not to worsen the situation.
 
 ```powershell
+
 Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
             -DefaultLinkPermission None `
             -DefaultLinkToExistingAccess $true `
             -DisableCompanyWideSharingLinks Disabled `
 ```
+
+![default sharing link](../images/powershell-delete-sharinglinks/PeopleOrg.png)
+
 
 Please refer to [Get sharing links](https://reshmeeauckloo.com/posts/powershell-get-sharing-links-sharepoint/) how to retrieve all sharing instances generated.
 
@@ -131,6 +135,22 @@ The PowerShell script provided is designed to connect to a specified SharePoint 
 ## Using Remove-PnPFileSharingLink and Remove-PnPFolderSharingLink
 
 The Remove-PnPFileSharingLink and Remove-PnPFolderSharingLink will remove sharing links created only at file and folder level excluding item level. 
+
+## Automatic deletion of sharing links with expiry date
+
+![Expiry Date](../images/powershell-delete-sharinglinks/ExpiryDate.png)
+
+A well sought feature: an expiration date for all sharing links is being rolled out. This feature is anticipated to restrict sharing to a specific period, adding a valuable layer of control to content dissemination.
+
+This is related to message Id MC799277 from the message center.
+
+"Coming soon: When you share a link in Microsoft 365, Set expiration date will let users set a date for a link to expire. After a user sets a date and the link expires, the link won't work, and the user will need to make a new link or reshare with people so they can continue to access the file. Before the rollout, users can only set the expiration for links for Anyone. With this rollout, users can also set an expiration on for links for People in your organization and People you choose. This message applies to Microsoft 365 apps for the web, for desktop on Windows or Mac, and for mobile on Android or iOS.
+
+When this will happen:
+Targeted Release: We will begin rolling out late June 2024 and expect to complete by early July 2024.
+General Availability (Worldwide, GCC, GCC High, and DoD): We will begin rolling out early July 2024 and expect to complete by mid-July 2024."
+
+There is a corresponding setting to allow Admins to set automatic expiry date for the sharing links soon.
 
 ## Conclusion
 
