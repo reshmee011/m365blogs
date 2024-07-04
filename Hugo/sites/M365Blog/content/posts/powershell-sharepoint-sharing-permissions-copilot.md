@@ -472,7 +472,7 @@ Get-PnPTenant | select `
             ExternalUserExpireInDays, `
             CoreDefaultShareLinkRole, `
             CoreDefaultShareLinkScope 
-             
+            #CoreDefaultShareLinkRole,CoreDefaultShareLinkScope will be available to use when https://github.com/pnp/powershell/pull/4067 is merged
             #SyncAadB2BManagementPolicy ` #Only available through SPO PowerShell 
 ```
  
@@ -496,7 +496,7 @@ It can help to prevent accidental sharing with everyone authenticated within the
 When set to true, default sharing link will a People with Existing Access link (which does not modify permissions) maintaining permission integrity.
 ![linkSettings](../images/powershell-sharePoint-sharing-permissions-copilot/linktoexistingaccess.png)
 
-When set to false (the default), the default sharing link type is controlled by the DefaultSharingLinkType parameter.
+When set to false (the default), the default sharing link type is controlled by the CoreDefaultShareLinkScope (replacing DefaultSharingLinkType) parameter.
 
 ### DisableSharingForNonOwners
 
@@ -543,7 +543,9 @@ Specifies a list of email domains that is blocked or prohibited for sharing with
 
 ### DefaultSharingLinkType
 
-Sets the default link type for the site collection
+Sets the default link type for SharePoint sites. 
+
+**Note**: Use CoreDefaultShareLinkScope or OneDriveCoreDefaultShareLinkScope instead. 
 
 Possible values are 
 

@@ -1,6 +1,6 @@
 ---
 title: "Empowering Secure Collaboration: Configuring OneDrive Tenant and Site Settings"
-date: 2024-05-19T06:51:10Z
+date: 2024-07-03T06:51:10Z
 tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","OneDrive","Copilot for M365","Information Governance","IG"]
 featured_image: '/posts/images/powershell-sharePoint-sharing-permissions-copilot/TenantSharingOptions_filefolderdomain.png'
 draft: false
@@ -344,8 +344,11 @@ Set-SPOUser -Site $OneDriveSiteUrl -LoginName $SiteCollAdmin -IsSiteCollectionAd
 
 **SPO PowerShell to get OneDrive Specific properties**
 
+
 ```powershell
-get-SPOTenant | select-object -property ODBAccessRequests `
+#You will no longer be able to use the properties -RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations.
+
+Get-SPOTenant | select-object -property ODBAccessRequests `
             ,ODBMembersCanShare `
             ,OneDriveRequestFilesLinkEnabled `
             ,DisableAddShortCutsToOneDrive  `
@@ -365,7 +368,7 @@ get-SPOTenant | select-object -property ODBAccessRequests `
             ,ContentTypeSyncSiteTemplatesList `
             ,BlockUserInfoVisibilityInOneDrive `
             ,NotificationsInOneDriveForBusinessEnabled `
-            ,NotifyOwnersWhenInvitationsAccepted ` #You will no longer be able to use the properties -RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations.
+            ,NotifyOwnersWhenInvitationsAccepted ` 
             ,NotifyOwnersWhenItemsReshared `
             ,HideSyncButtonOnTeamSite
 ```
@@ -374,6 +377,9 @@ get-SPOTenant | select-object -property ODBAccessRequests `
 
 ```PowerShell
 connect-SPOService -Url https://contoso-admin.sharepoint.com
+
+#You will no longer be able to use the properties -RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations.
+
 ##OneDrive specific settings
 Set-SPOTenant -ODBAccessRequests Off `
             -ODBMembersCanShare On `
@@ -390,7 +396,7 @@ Set-SPOTenant -ODBAccessRequests Off `
             -OneDriveRequestFilesLinkExpirationInDays 60 `
             -BlockUserInfoVisibilityInOneDrive ApplyToNoUsers `
             -NotificationsInOneDriveForBusinessEnabled $true `
-            -NotifyOwnersWhenInvitationsAccepted $true ` #You will no longer be able to use the properties -RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations.
+            -NotifyOwnersWhenInvitationsAccepted $true ` 
             -NotifyOwnersWhenItemsReshared $true `
             -HideSyncButtonOnTeamSite $true
 
@@ -425,10 +431,8 @@ Get-PnPTenant | select-object -property ODBAccessRequests `
             ,NotifyOwnersWhenInvitationsAccepted `
             ,NotifyOwnersWhenItemsReshared `
             ,HideSyncButtonOnTeamSite
-
-<#PnP PowerShell can't be used to return the following properties at the time of writing this article
-            ,DisableAddShortCutsToOneDrive  ` - use DisableAddToOneDrive
-            OneDriveSharingCapability
+            ,DisableAddShortCutsToOneDrive  `
+            ,OneDriveSharingCapability
             ,OneDriveDefaultShareLinkScope `
             ,OneDriveDefaultShareLinkRole `
             ,OneDriveDefaultLinkToExistingAccess `
@@ -441,22 +445,27 @@ Get-PnPTenant | select-object -property ODBAccessRequests `
 
 ```PowerShell
 connect-pnponline -url https://contoso-admin.sharepoint.com -interactive
+#You will no longer be able to use the properties -RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations.
+
 Set-PnPTenant -ODBAccessRequests Off `
             -ODBMembersCanShare On `
             -OneDriveRequestFilesLinkEnabled $true `
-            -DisableAddToOneDrive $true  `
+            -DisableAddShortCutsToOneDrive $true  `
+            -OneDriveSharingCapability ExternalUserAndGuestSharing `
+            -OneDriveDefaultShareLinkScope Organization `
+            -OneDriveDefaultShareLinkRole Edit `
             -OneDriveLoopDefaultSharingLinkRole Edit `
             -OneDriveLoopDefaultSharingLinkScope Organization `
+            -OneDriveDefaultLinkToExistingAccess $true `
             -OwnerAnonymousNotification $true `
-            -OrphanedPersonalSitesRetentionPeriod 30 `
             -OneDriveStorageQuota 1048576 `
             -OneDriveRequestFilesLinkExpirationInDays 60 `
-            -OneDriveForGuestsEnabled $false `
             -BlockUserInfoVisibilityInOneDrive ApplyToNoUsers `
             -NotificationsInOneDriveForBusinessEnabled $true `
-            -NotifyOwnersWhenInvitationsAccepted $true `
+            -NotifyOwnersWhenInvitationsAccepted $true ` 
             -NotifyOwnersWhenItemsReshared $true `
             -HideSyncButtonOnTeamSite $true
+
 #Set blocked File types
 Set-PnPTenantSyncClientRestriction -ExcludedFileExtensions "exe;mp3;mp4"
 ```
