@@ -1,5 +1,5 @@
 ---
-title: "SharePoint Framework (SPFx) Inventory with PowerShell at Tenant and Site Collection App Catalog"
+title: "List of SharePoint Framework (SPFx) packages installation with PowerShell at Tenant and Site Collection App Catalog"
 date: 2024-06-21T07:17:21+01:00
 tags: ["PowerShell", "Inventory","SharePoint Framework (SPFx)","SPFx"]
 featured_image: '/posts/images/powershell_inventory-of-spfx-installs-in-sites/example.png'
