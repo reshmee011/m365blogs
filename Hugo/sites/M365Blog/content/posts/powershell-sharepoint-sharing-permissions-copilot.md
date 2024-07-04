@@ -1,6 +1,6 @@
 ---
 title: "Empowering Secure Collaboration: Configuring SharePoint Tenant and Site Settings with PowerShell to prevent oversharing"
-date: 2024-05-03T06:51:10Z
+date: 2024-07-03T06:51:10Z
 tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","Copilot for M365","Governance","Sensitivity Label", "Data Loss Prevention","Retention Policies","RSS", "DLP", "Restricted SharePoint Search"]
 featured_image: '/posts/images/powershell-sharePoint-sharing-permissions-copilot/TenantSharingOptions_filefolderdomain.png'
 draft: false
