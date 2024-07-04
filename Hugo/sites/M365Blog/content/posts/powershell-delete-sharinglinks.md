@@ -26,13 +26,15 @@ The sharing behaviour can be changed to "People with existing access" using Powe
 ```powershell
 
 Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
+            -DefaultSharingLinkType None `
             -DefaultLinkPermission None `
             -DefaultLinkToExistingAccess $true `
             -DisableCompanyWideSharingLinks Disabled `
 ```
 
-![default sharing link](../images/powershell-delete-sharinglinks/PeopleOrg.png)
+Setting **DefaultSharingLinkType** and **DefaultLinkPermission** to 'None' means respecting the organisation setting. Setting **DisableCompanyWideSharingLinks** to **Disabled** disables the option to pick organisation wide sharing. The **DefaultLinkToExistingAccess** sets the default link to be "People with existing access" with ability for the user to pick a different setting as needed.
 
+![default sharing link](../images/powershell-delete-sharinglinks/PeopleOrg.png)
 
 Please refer to [Get sharing links](https://reshmeeauckloo.com/posts/powershell-get-sharing-links-sharepoint/) how to retrieve all sharing instances generated.
 
