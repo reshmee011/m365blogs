@@ -276,6 +276,37 @@ Turns off the feature that supports a default sensitivity label for SharePoint d
 
 See [Configure a default sensitivity label for a SharePoint document library](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-default-label) for more info.
 
+
+### CoreDefaultShareLinkScope
+
+Sets the default sharing link scope for SharePoint sites. It replaces the DefaultSharingLinkType.
+
+Options include:
+
+- **Anyone**: Shareable with anyone, including external users.
+- **Organization**: Limits sharing within your organization.
+- **SpecificPeople**: Restricts sharing to specific individuals.
+- **Uninitialized**: Default state before an explicit setting is applied.
+
+**Error Handling**: Attempting to set the scope to 'Anyone' without enabling "Anyone access links" at the tenant level will result in an error. To resolve, execute:
+
+```PowerShell
+Set-SPOTenant -OneDriveSharingCapability ExternalUserAndGuestSharing
+```
+
+### CoreDefaultShareLinkRole
+
+Sets the default permission level for sharing links in SharePoint sites. It replaces the DefaultLinkPermission.
+
+Valid options:
+
+* Edit
+* None
+* Owner
+* RestrictedView
+* Review
+* View
+
 ### Sample script to amend tenant level sharing settings 
 
 **SPO PowerShell**
@@ -283,6 +314,8 @@ See [Configure a default sensitivity label for a SharePoint document library](ht
 ```PowerShell
 connect-SPOService https://contoso-admin.sharepoint.com
 ##SharePoint specific settings
+#You will no longer be able to use the properties RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations as from March 2024
+
 Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
              -CoreSharingCapability ExternalUserAndGuestSharing `
             -ShowEveryoneClaim $false  `
@@ -301,7 +334,7 @@ Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
             -FileAnonymousLinkType Edit  `
             -FolderAnonymousLinkType Edit `
             -DefaultLinkPermission "View" `
-            -RequireAcceptingAccountMatchInvitedAccount $false ` #You will no longer be able to use the properties RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations as from March 2024
+            -RequireAcceptingAccountMatchInvitedAccount $false ` 
             -ExternalUserExpirationRequired  $false `
             -AllowEveryoneExceptExternalUsersClaimInPrivateSite $true `
             -EnableAIPIntegration $true `
@@ -312,14 +345,17 @@ Set-SPOTenant -SharingCapability ExternalUserAndGuestSharing `
             -DisableDocumentLibraryDefaultLabeling $false `
             -SyncAadB2BManagementPolicy $true `
             -EnableSensitivityLabelforPDF $true ` 
-            -ExternalUserExpireInDays 60 
-
+            -ExternalUserExpireInDays 60 `
+            -CoreDefaultShareLinkRole None `
+            -CoreDefaultShareLinkScope Uninitialized 
 ```
 
 **PnP PowerShell**
 
 ```PowerShell
 connect-pnponline -url https://contoso-admin.sharepoint.com -interactive
+#You will no longer be able to use the properties RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations as from March 2024
+
 Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
             -CoreSharingCapability ExternalUserAndGuestSharing `
             -ShowEveryoneClaim $false  `
@@ -338,7 +374,7 @@ Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
             -FileAnonymousLinkType Edit  `
             -FolderAnonymousLinkType Edit `
             -DefaultLinkPermission "View" `
-            -RequireAcceptingAccountMatchInvitedAccount $false ` #You will no longer be able to use the properties RequireAcceptingAccountMatchInvitedAccount or -NotifyOwnersWhenInvitationsAccepted for Set-SPOTenant, because these properties only applied to legacy external invitations as from March 2024
+            -RequireAcceptingAccountMatchInvitedAccount $false ` 
             -ExternalUserExpirationRequired  $false `
             -AllowEveryoneExceptExternalUsersClaimInPrivateSite $true ` 
             -EnableAIPIntegration $true ` 
@@ -346,7 +382,9 @@ Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
             -EnableAzureADB2BIntegration $true `
             -ConditionalAccessPolicy AllowLimitedAccess `
             -DisableDocumentLibraryDefaultLabeling $false `
-            -ExternalUserExpireInDays 60 
+            -ExternalUserExpireInDays 60 `
+            -CoreDefaultShareLinkRole None `
+            -CoreDefaultShareLinkScope Uninitialized 
 
             #-SyncAadB2BManagementPolicy $true ` #Only available through SPO PowerShell 
             #-EnableSensitivityLabelforPDF $true ` #Only available through SPO PowerShell
@@ -359,7 +397,7 @@ Set-PnPTenant -SharingCapability ExternalUserAndGuestSharing `
 ```PowerShell
 connect-SPOService https://contoso-admin.sharepoint.com
 ### You will no longer be able to use the properties RequireAcceptingAccountMatchInvitedAccount or NotifyOwnersWhenInvitationsAccepted for SetSPOTenant, because these properties only applied to legacy external invitations as from March 2024
-Get-spotenant | select `
+Get-SPOTenant | select `
             SharingCapability, `
             CoreSharingCapability, `
             CoreDefaultShareLinkScope, `
@@ -390,8 +428,9 @@ Get-spotenant | select `
             DisableDocumentLibraryDefaultLabeling,  `
             SyncAadB2BManagementPolicy, `
             EnableSensitivityLabelforPDF, `
-            ExternalUserExpireInDays 
-
+            ExternalUserExpireInDays, `
+            CoreDefaultShareLinkRole, `
+            CoreDefaultShareLinkScope  
 ```
 
 **PnP PowerShell**
@@ -430,10 +469,11 @@ Get-PnPTenant | select `
             DisableDocumentLibraryDefaultLabeling,  `
             SyncAadB2BManagementPolicy, `
             EnableSensitivityLabelforPDF, `
-            ExternalUserExpireInDays 
-
-            #-SyncAadB2BManagementPolicy $true ` #Only available through SPO PowerShell 
-
+            ExternalUserExpireInDays, `
+            CoreDefaultShareLinkRole, `
+            CoreDefaultShareLinkScope 
+             
+            #SyncAadB2BManagementPolicy ` #Only available through SPO PowerShell 
 ```
  
 ## Site Level Settings
