@@ -82,12 +82,11 @@ Configures the default permission level for sharing links created for files in O
 
 Available options:
 
-* Edit
-* None
-* Owner
-* RestrictedView
-* Review
-* View
+* None: No permissions granted.
+* View: View-only permissions.
+* Edit: Edit permissions.
+* Review: Review permissions.
+* RestrictedView: Restricted view permissions.
 
 ### OneDriveLoopDefaultSharingLinkScope
 
@@ -112,13 +111,11 @@ Sets the default permission level for sharing links for Loop and Whiteboard file
 
 Valid options:
 
-* Edit
-* None
-* Owner
-* RestrictedView
-* Review
-* View
-
+* None: No permissions granted.
+* View: View-only permissions.
+* Edit: Edit permissions.
+* Review: Review permissions.
+* RestrictedView: Restricted view permissions.
 
 ### OneDriveDefaultLinkToExistingAccess
 

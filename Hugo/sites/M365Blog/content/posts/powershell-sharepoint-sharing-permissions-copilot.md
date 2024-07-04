@@ -300,12 +300,11 @@ Sets the default permission level for sharing links in SharePoint sites. It repl
 
 Valid options:
 
-* Edit
-* None
-* Owner
-* RestrictedView
-* Review
-* View
+* None: No permissions granted.
+* View: View-only permissions.
+* Edit: Edit permissions.
+* Review: Review permissions.
+* RestrictedView: Restricted view permissions.
 
 ### Sample script to amend tenant level sharing settings 
 
