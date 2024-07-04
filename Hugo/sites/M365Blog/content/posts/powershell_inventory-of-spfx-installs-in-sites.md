@@ -1,12 +1,12 @@
 ---
-title: "List of specofc SharePoint Framework (SPFx) packages installation with PowerShell at Tenant and Site Collection App Catalog"
+title: "Find SharePoint Framework (SPFx) packages installation with PowerShell at Tenant and Site Collection App Catalog"
 date: 2024-06-21T07:17:21+01:00
 tags: ["PowerShell", "Inventory","SharePoint Framework (SPFx)","SPFx"]
 featured_image: '/posts/images/powershell_inventory-of-spfx-installs-in-sites/example.png'
 draft: false
 ---
 
-# List of specific SharePoint Framework (SPFx) packages installation with PowerShell at Tenant and Site Collection App Catalog
+# Find SharePoint Framework (SPFx) packages installation with PowerShell at Tenant and Site Collection App Catalog
 
 This post covers a PowerShell script to generate an inventory of SPFx installations within your SharePoint Online environment which will help you maintain oversight of your SPFx solutions, ensuring they are up-to-date and compliant. The script was particularly useful in pinpointing sites within the tenant where third-party applications, specifically an analytics SPFx component, were deployed. This was crucial for ensuring that data collection was confined to designated sites, such as the intranet in my case study. Despite the analytics dashboard aggregating data from all tenant sites, it was challenging to discern the sources of data collection. Therefore, this script was developed to clearly identify the sites from which data were being collected.
 
