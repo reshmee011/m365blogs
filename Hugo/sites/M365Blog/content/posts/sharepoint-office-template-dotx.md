@@ -1,7 +1,8 @@
 ---
 title: "Streamlining SharePoint Template Usage: A Guide to Opening DOTX Files as DOCX"
-date: 2024-06-30T00:39:57+01:00
+date: 2024-07-04T00:39:57+01:00
 tags: ["SharePoint", "Office Templates", "DOTX", "Productivity", "Workarounds"]
+featured_image: '/posts/images/sharepoint-office-template-dotx/ContentType_WithDocumentTemplate.png'
 draft: false
 ---
 
@@ -23,7 +24,11 @@ While SharePoint does not natively support opening "*.dotx" templates as "*.docx
 4. **Upload Document Template**: In the content type settings, choose "Advance settings" and upload your ".dotx" document template.
 5. **Save Your Settings**: Confirm by clicking "Save".
 6. **New Document Creation**: Users can now hit the "New" icon, choose "Document", and be prompted to open the template as a standard document.
+![NewContentType](../images/sharepoint-office-template-dotx/New_ContentType.png)
 7. **Open in Desktop App**: Selecting "Yes" to the prompt and choosing "Open in Desktop App" will open the template as a new ".docx" document, named "Document1".
+
+![ContentType with template](../images/sharepoint-office-template-dotx/ContentType_WithDocumentTemplate.png)
 
 However it is not a desirable approach when endusers has 50 + templates they need to use regularly.
 
+Until we have the feature inbuilt in SharePoint we have to contend ourselves with the workaround.
