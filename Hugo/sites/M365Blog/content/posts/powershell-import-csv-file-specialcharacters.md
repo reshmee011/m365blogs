@@ -52,4 +52,3 @@ import-csv -Path $csvPath -Encoding ansi
 ```
 
 ![Encoding Ansi](../images/powershell-import-csv-file-specialcharacters/importCSV_encoding_ansi.png)
-
