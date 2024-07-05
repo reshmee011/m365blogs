@@ -8,11 +8,11 @@ $field = Get-PnPField -List $list -Identity "Category"
 $catChoices = $field.choices
  
 $sitesWithTimesheet = @(
-    "https://contoso.sharepoint.com/teams/TEAM-PMO"
-    "https://contoso.sharepoint.com/sites/Infrastructure"
-    "https://contoso.sharepoint.com/teams/TEAM-Security"
-    "https://contoso.sharepoint.com/teams/TEAM-DevTest"
-    "https://contoso.sharepoint.com/teams/TEAM-SD"
+    "https://contoso.sharepoint.com/teams/PMO"
+    "https://contoso.sharepoint.com/sites/In"
+    "https://contoso.sharepoint.com/teams/Security"
+    "https://contoso.sharepoint.com/teams/Dev"
+    "https://contoso.sharepoint.com/teams/SD"
 )
  
 if(Test-Path $ExportFileDirectory){
