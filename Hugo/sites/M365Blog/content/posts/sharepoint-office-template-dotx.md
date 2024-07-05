@@ -1,73 +1,29 @@
 ---
-title: "Sharepoint Office Template Dotx"
-date: 2024-05-14T00:39:57+01:00
-draft: true
+title: "Streamlining SharePoint Template Usage: A Guide to Opening DOTX Files as DOCX"
+date: 2024-06-30T00:39:57+01:00
+tags: ["SharePoint", "Office Templates", "DOTX", "Productivity", "Workarounds"]
+draft: false
 ---
 
-The issue you’re facing is an expected behavior because when you open a ".dotx" file in SharePoint, it opens the template for editing rather than creating a new ".docx" file from the template like it happens when we open it from Windows File Explorer.
-While it is not possible to open a "*.dotx" template directly from SharePoint as a "*.docx" file, you can utilize the below steps as a workaround.
-1.	Navigate to Site Contents -> Site Settings from the respective SharePoint site.
-2.	Click on "Site content types" under "Web Designer Galleries".
-3.	Create a new content type and click on it to open the same.
-4.	In the next page, click on "Advance settings" -> Upload a new document template.
-5.	Click on "Save".
-6.	Now when the users click on "New" icon, they can select "Document" which you created/uploaded.
-7.	Users will see a prompt that will say "The document you are trying to open is a template. Would you like to open and edit as a standard document".
-8.	Users should click on "Yes" and click on "Open in Desktop App".
-9.	This will now open the template you created/uploaded with name "Document1" in "*.docx" format.
+# Streamlining SharePoint Template Usage: A Guide to Opening DOTX Files as DOCX
 
+Encountering issues with opening ".dotx" templates in SharePoint is a common scenario that can disrupt your workflow. Typically, when you attempt to open a ".dotx" file in SharePoint, it opens in edit mode for the template itself, rather than generating a new ".docx" document as expected. This behavior diverges from the experience in Windows File Explorer and can hinder productivity.
 
+## Workaround 1 : Downloading template or syncing via OneDrive 
 
-Business Impact Statement (BIS) 
-  
-Please compose a "Business Impact Statement" (BIS) by answering the questions below in as much detail as possible. Try to put accurate numerical values for users being affected and loss of business, etc.
+Downloading templates or syncing via OneDrive to use the dotx in file explorer is one viable option , however direct opening from SharePoint is preferred for efficiency and be more intuitive.
 
-Please describe your organization:
+## Workaround 2: Content Types with template
 
-Issue description: When attempting to open “.dotx” templates from SharePoint using the “Open in Desktop App” feature, the documents fail to open as “.docx” document. This issue prevents users from utilizing these templates directly from SharePoint in their desktop applications, impacting productivity.
+While SharePoint does not natively support opening "*.dotx" templates as "*.docx" files directly, the following workaround offers a seamless solution:
 
-Business Impact: 
-  
-1.	Which of the Microsoft 365 Apps channels is this fix needed in?
-SharePoint
+1. **Access Site Settings**: Go to Site Contents -> Site Settings on your SharePoint site.
+2. **Navigate to Content Types**: Select "Site content types" under "Web Designer Galleries".
+3. **Create a New Content Type**: Follow the prompts to create and then click on your new content type.
+4. **Upload Document Template**: In the content type settings, choose "Advance settings" and upload your ".dotx" document template.
+5. **Save Your Settings**: Confirm by clicking "Save".
+6. **New Document Creation**: Users can now hit the "New" icon, choose "Document", and be prompted to open the template as a standard document.
+7. **Open in Desktop App**: Selecting "Yes" to the prompt and choosing "Open in Desktop App" will open the template as a new ".docx" document, named "Document1".
 
-2.	Is the issue:
-A. Affecting an existing deployment? A
-B. Blocking from releasing a new deployment?
-C. Blocking from deploying Microsoft Office 365 Apps for the first time?
+However it is not a desirable approach when endusers has 50 + templates they need to use regularly.
 
-3.	How are you using the product in question and what functionality are you attempting to provide to the business?
-
-Unable to open a template in SharePoint – reverts to .dotx file extension
-
-4.	How is the problem keeping you from performing specific business functions?
-
-Have to use workaround which is to download template and save to file explorer and open from there
-
-5.	If the problem is not resolved, how will it affect your business?
-Example answer: We will be unable to use this add-in for the sales summary reporting, which will significantly impact the add-in's worth, and may require us to reconsider using Excel for this purpose.
-
-It would not be ideal if issue is not resolved as all templates are saved in SharePoint and to keep downloading templates and saving to file explorer will waste our time.
-
-6.	How many users are affected by this issue?
-Example answer: 200 of our 10,000 users currently cannot use this add-in with Excel.
- 
-Less than 10 users are affected
-
-7.	How frequently are those users affected by this issue?
-Example answer: Daily/Weekly/Monthly, 25% of the time, or inconsistent.
-
-each time a template is used the user is affected
-templates are used on a daily basis
-
-8.	What is the financial impact of this issue?
-Example answer: $30,000 for the sales unit on add-in development, and $2,000 per month in lost productivity.
-
- no financial impact, however time is wasted by downloading the templates
-It should be as simple as opening from sharepoint without the need of downloading
-
-9.	What are the proposed workarounds and why are they not acceptable?
-
-workaround is to download template and save to file explorer or sync sharepoint site via onedrive file explorer.
-
-Workaround is fine, however, would prefer the templates to open directly in sharepoint as they are saved there currently.
