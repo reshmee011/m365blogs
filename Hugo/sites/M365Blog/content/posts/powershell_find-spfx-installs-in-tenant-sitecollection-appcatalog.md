@@ -1,8 +1,8 @@
 ---
 title: "Find SharePoint Framework (SPFx) Packages with PowerShell in Tenant and Site Collection App Catalogs"
-date: 2024-06-21T07:17:21+01:00
+date: 2024-07-04T07:17:21+01:00
 tags: ["PowerShell", "Inventory","SharePoint Framework (SPFx)","SPFx"]
-featured_image: '/posts/images/powershell_inventory-of-spfx-installs-in-sites/example.png'
+featured_image: '/posts/images/powershell_find-spfx-installs-in-tenant-sitecollection-appcatalog/example.png'
 draft: false
 ---
 
@@ -108,7 +108,7 @@ The script iterates through each site collection, checking for SPFx packages in 
 
 For each SPFx package found, the script collects details such as the site URL, package name, version, and whether it's installed in the tenant app catalog or a site collection app catalog. The inventory data is exported into a CSV file, providing a clear view of SPFx installations across the environment.
 
-![Output](../images/powershell_inventory-of-spfx-installs-in-sites/example.png)
+![Output](../images/powershell_find-spfx-installs-in-tenant-sitecollection-appcatalog/example.png)
 
 ## Conclusion
 
