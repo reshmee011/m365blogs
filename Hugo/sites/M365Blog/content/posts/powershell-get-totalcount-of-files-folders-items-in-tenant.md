@@ -12,7 +12,7 @@ This PowerShell script powered by PnP PowerShell can help to get total count of 
 
 ## Script Overview
 
-The script connects to  SharePoint Online tenant and iterates over each site collection, excluding specific system sites. It tallies the number of files, folders, and list items, excluding items from system lists and libraries. The results are compiled into a CSV report for easy analysis.
+The script connects to SharePoint Online tenant and iterates over each site collection, excluding specific system sites. It tallies the number of files, folders, and list items, excluding items from system lists and libraries. The results are compiled into a CSV report for easy analysis.
 
 ### Prerequisites
 
