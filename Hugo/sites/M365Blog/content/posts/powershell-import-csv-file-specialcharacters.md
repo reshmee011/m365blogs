@@ -1,20 +1,20 @@
 ---
-title: "Handling Special Characters in PowerShell: A Guide to Importing CSV Files with Encoding"
+title: "Handling Special Characters within CSV with PowerShell using Encoding"
 date: 2024-07-04T10:30:00+01:00
 tags: ["PowerShell", "CSV", "Encoding", "Special Characters"]
 featured_image: '/posts/images/powershell-import-csv-file-specialcharacters/importCSV_encoding_ansi.png'
 draft: false
 ---
 
-# Handling Special Characters in PowerShell: A Guide to Importing CSV Files with Encoding
+# Handling Special Characters within CSV with PowerShell using Encoding
 
-When working with CSV files in PowerShell, especially those exported from applications like Excel, you might encounter an issue where special characters (e.g., em dashes `—`) are incorrectly represented as a question mark inside a diamond `�`. This common issue arises due to PowerShell's default encoding not matching the encoding used in the CSV file.
+When working with CSV files in PowerShell with special characters you might encounter an issue where special characters (e.g., em dashes `—`) are incorrectly represented as a question mark inside a diamond `�`. This common issue arises due to PowerShell's default encoding not matching the encoding used in the CSV file.
 
-## Understanding the Problem
+## Problem Statement
 
 The root of this problem lies in the encoding mismatch. Encoding is a method of converting characters into a format that can be easily stored or transmitted. Different applications and systems use various encoding standards, and when these standards don't match, special characters can appear garbled.
 
-For example, consider a CSV file exported from Excel containing special characters. When you try to import this file into PowerShell using the `Import-Csv` cmdlet without specifying an encoding, PowerShell uses its default encoding. If the default encoding doesn't align with the file's encoding, special characters will not display correctly.
+For example, consider a CSV file containing special characters. When you try to import this file into PowerShell using the `Import-Csv` cmdlet without specifying an encoding, PowerShell uses its default encoding. If the default encoding doesn't align with the file's encoding, special characters will not display correctly.
 
 ```PowerShell
 import-csv -Path $csvPath 
@@ -22,7 +22,7 @@ import-csv -Path $csvPath
 
 Special characters e.g. — from excel turning into � powershell by default if no encoding parameters are used
 
-## The Solution: Specifying Encoding
+## Solution: Use Encoding parameter
 
 To resolve this issue, you can specify the encoding of the CSV file using the -Encoding parameter in the Import-Csv cmdlet. For many Western languages, the ansi encoding option can correctly handle special characters.
 
@@ -43,7 +43,7 @@ PowerShell supports several encoding options, each suitable for different scenar
 
 ![Different encodings](../images/powershell-get-sharing-links-sharepoint/importCSV_encoding.png)
 
-### Solution
+### Solution for dash `—`
 
 The solution importing csv file with dash `—` was to use encoding ansi.
 
