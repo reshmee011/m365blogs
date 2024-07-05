@@ -1,10 +1,25 @@
 ---
-title: "Powershell_inventory of Files Folders Items in Tenant"
-date: 2024-06-21T07:17:21+01:00
+title: "Inventory SharePoint Files, Folders, and Items with PnP PowerShell"
+date: 2024-07-05T07:17:21+01:00
 tags: ["PowerShell", "Inventory","Excel for business"]
 featured_image: '/posts/images/Powershell-inventory-of-Files-Folders-Items-in-Tenant/example.png'
-draft: true
+draft: false
 ---
+
+# Inventory SharePoint Files, Folders, and Items with PnP PowerShell
+
+This post covers the use of PnP PowerShell module to get an inventory of files, folders, and list items across SharePoint tenant. This script is invaluable for administrators looking to perform audits, verify data migrations, or simply keep tabs on the content sprawl within their environments. The use case of this script was to get a total number of items that would be ingested into a third party application Records365 by RecordPoint to ensure the number tally for compliance purposes and identify any gaps.
+
+## Script Overview
+
+The script connects to  SharePoint Online tenant and iterates over each site collection, excluding specific system sites. It tallies the number of files, folders, and list items, excluding items from system lists and libraries. The results are compiled into a CSV report for easy analysis.
+
+### Prerequisites
+
+- SharePoint Online Management Shell
+- PnP PowerShell Module
+
+### Script Breakdown
 
 
 ```PowerShell
@@ -74,10 +89,6 @@ Start-Transcript
                $global:ItemCounter += $filesItems.Count
                $siteItemCount += $filesItems.Count
             }
-        
-         <#   if(($filesItems.Count + $folders.Count) -ne $list.ItemCount){
-                write-host "count don't match"-ForegroundColor red
-            }#>
         }
         $TotalFileCount = Get-PnPFolderStorageMetric -FolderSiteRelativeUrl $siteurl -connection $siteconnection| Select -ExpandProperty TotalFileCount  
         #Collect data
@@ -108,3 +119,4 @@ $FolderStats | Export-Csv -Path $OutPutView -NoTypeInformation
 
 Stop-Transcript
 ```
+This script provides a detailed snapshot of your SharePoint content, helping you manage your digital estate more effectively. Whether you're conducting a routine audit or preparing for a migration, this tool simplifies the process of inventorying your SharePoint assets.

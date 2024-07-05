@@ -6,7 +6,7 @@ featured_image: '/posts/images/PowerShell_GetFileCountWithinLibrary/example.png'
 draft: false
 ---
 
-# Counting Files within SharePoint Libraries using PnP PowerShell
+# Counting Files and Folders within SharePoint Libraries using PnP PowerShell
 
 This post shows a PowerShell script using PnP PowerShell module to count the number of files and folders within a SharePoint library. It might be useful doing an inventory of file count.
 
