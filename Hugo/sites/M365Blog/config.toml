@@ -38,8 +38,8 @@ enableRobotsTXT = true
   description = "Welcome to my blog post. I am Reshmee Auckloo, a SharePoint Developer from United Kingdom. I am passionate about development and I love to share my knowledge with others. I am also a tech enthusiast and I love to learn new things."
   # choose a background color from any on this page: https://tachyons.io/docs/themes/skins/ and preface it with "bg-"
   background_color_class = "bg-black"
-  recent_posts_number = 6
-  commentoEnable = true
+  recent_posts_number = 10
+  commentoEnable = false
 
 [markup]
   [markup.highlight]
