@@ -1,19 +1,5 @@
 
-#languageCode = 'en-us'
-#title = 'Reshmee blog'
-#theme = 'ananke'
-
-#[taxonomies]
- # tag = "tag"
-  #category = "category"
-
-#[outputs]
- # home = ['HTML', 'RSS']
-  #page = ['HTML', 'RSS']  
-#
-
-
-title = "Blog about anything related to Technology"
+title = "Blog about anything related to my learnings"
 baseURL = 'https://reshmee.netlify.app/'
 languageCode = "en-uk"
 theme = 'ananke'
