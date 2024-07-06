@@ -1,7 +1,7 @@
 <footer class="{{ .Site.Params.background_color_class | default "bg-black" }} bottom-0 w-100 pa3" role="contentinfo">
   {{- if (eq (.Site.Params.disableComments | default false) false) -}}
   {{- if (eq (.Params.disableComments | default false) false) -}}
-    {{ partial "giscus.html" . }}
+   <!-- {{ partial "giscus.html" . }} -->
   {{- end -}}
 {{- end -}}
 
