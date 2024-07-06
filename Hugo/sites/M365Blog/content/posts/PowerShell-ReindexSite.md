@@ -3,6 +3,7 @@ title: "Automating Site Reindexing with PowerShell"
 date: 2024-02-19T16:16:55Z
 tags: ["SharePoint","PnP","PowerShell","Reindex","Sites"]
 featured_image: '/posts/images/powerShell-reindexSites/ReindexSiteWarning.png'
+omit_header_text: true
 draft: false
 ---
 

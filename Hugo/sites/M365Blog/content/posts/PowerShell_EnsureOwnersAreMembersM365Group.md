@@ -3,6 +3,7 @@ title: "Ensuring Owners Are Members"
 date: 2023-10-17T09:57:15+01:00
 tags: ["M365 Group","Owners","Members","PowerShell", "Permissions"]
 featured_image: '/posts/images/PowerShell_ensureownersaremembers/GroupMembership.png'
+omit_header_text: true
 draft: false
 ---
 

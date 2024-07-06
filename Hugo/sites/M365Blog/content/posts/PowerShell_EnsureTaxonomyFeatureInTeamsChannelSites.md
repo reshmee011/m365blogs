@@ -3,6 +3,7 @@ title: "Ensure Taxonomy Feature in SharePoint Sites Connected to Private/Shared 
 date: 2023-10-18T09:57:45+01:00
 tags: ["Taxonomy","Teams Channels","Managed Metadata","PowerShell"]
 featured_image: '/posts/images/PowerShell_EnsureTaxonomyFeatureInTeamsChannelSites/TaxonomyDisabled.png'
+omit_header_text: true
 draft: false
 ---
 

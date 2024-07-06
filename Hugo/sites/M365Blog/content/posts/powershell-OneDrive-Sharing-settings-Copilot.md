@@ -3,6 +3,7 @@ title: "Empowering Secure Collaboration: Configuring OneDrive Tenant and Site Se
 date: 2024-07-03T06:51:10Z
 tags: ["SharePoint","Sharing","Tenant","Sites","PowerShell","OneDrive","Copilot for M365","Information Governance","IG"]
 featured_image: '/posts/images/powershell-sharePoint-sharing-permissions-copilot/TenantSharingOptions_filefolderdomain.png'
+omit_header_text: true
 draft: false
 ---
 

@@ -3,6 +3,7 @@ title: "Teams Add-in Not Showing Within Outlook"
 date: 2023-07-23T14:49:19+01:00
 tags: ["Outlook", "Teams","Add-in"]
 draft: false
+omit_header_text: true
 featured_image: '/images/teams-addin-not-showing-in-outlook/TeamsAddInMissing.png'
 ---
 

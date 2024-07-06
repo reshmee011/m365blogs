@@ -3,6 +3,7 @@ title: "Retrieving File Count and Size of a folder using PnP PowerShell"
 date: 2024-06-15T14:49:19+01:00
 tags: ["PnP PowerShell", "Get File count and size","SharePoint", "Get-PnPFolderStorageMetric",folder"]
 featured_image: '/posts/images/PowerShell_GetFolderStorageMetric/example.png'
+omit_header_text: true
 draft: false
 ---
 

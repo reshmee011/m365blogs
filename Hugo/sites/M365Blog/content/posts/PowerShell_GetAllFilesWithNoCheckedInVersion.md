@@ -3,6 +3,7 @@ title: "Discovering All Checked Out Files including those with no checked in ver
 date: 2023-11-15T07:08:24Z
 tags: ["OneDrive","Checked out","PowerShell", "PnP", "Mandatory Metadata"]
 featured_image: '/posts/images/PowerShell_GetAllFilesWithNoCheckedInVersion/listofCheckedOutFiles.png'
+omit_header_text: true
 draft: false
 ---
 

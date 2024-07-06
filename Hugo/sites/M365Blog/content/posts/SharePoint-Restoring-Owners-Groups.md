@@ -3,6 +3,7 @@ title: "Recreating Deleted Owners Group for M365-Connected SharePoint Sites"
 date: 2024-01-20T06:19:42Z
 tags: ["SharePoint","Owners","M365 Owners" ,"M365", "Team site", "PowerShell","Security", "Governance"]
 featured_image: '/posts/images/SharePoint-Restoring-Owners-Groups/DeletedOwnerGroup.png'
+omit_header_text: true
 draft: False
 ---
 

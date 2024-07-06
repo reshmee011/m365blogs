@@ -1,6 +1,7 @@
 ---
 title: "PowerShell Set Version Trim"
 date: 2024-06-17T06:43:47+01:00
+omit_header_text: true
 draft: true
 ---
 

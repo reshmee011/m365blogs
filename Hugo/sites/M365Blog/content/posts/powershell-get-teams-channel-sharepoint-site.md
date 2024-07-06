@@ -3,6 +3,7 @@ title: "Retrieving SharePoint Site URL for Teams Channels"
 date: 2024-04-21T06:19:42Z
 tags: ["SharePoint","Teams","Graph","Private Channels" ,"Shared Channels", "Microsoft Graph", "Invoke-PnPGraphMethod"]
 featured_image: '/posts/images/powershell-get-teams-channel-sharepoint-site/ChannelSharePointUrl.png'
+omit_header_text: true
 draft: false
 ---
 

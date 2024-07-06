@@ -3,6 +3,7 @@ title: "Working with psm1 Files in PowerShell"
 date: 2024-04-21T17:32:36Z
 tags: ["psm1","PowerShell","PnP","PowerShell Script Module"]
 featured_image: '/posts/images/PowerShell-editing-psm1-reload/script.png'
+omit_header_text: true
 draft: false
 ---
 

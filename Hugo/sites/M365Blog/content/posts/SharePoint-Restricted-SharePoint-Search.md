@@ -3,6 +3,7 @@ title: "Restrict certain SharePoint sites from tenant search and Copilot for M36
 date: 2024-06-08T09:55:41+01:00
 tags: ["SharePoint Restricted Search","Copilot for M365","Governance","PowerShell","PnP PowerShell"]
 featured_image: '/posts/images/SharePoint-Restricted-SharePoint-Search/rss_enabled.png'
+omit_header_text: true
 draft: false
 ---
 

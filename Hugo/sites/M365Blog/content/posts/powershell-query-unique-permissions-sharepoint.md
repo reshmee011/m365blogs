@@ -3,6 +3,7 @@ title: "PowerShell Script to Query Unique Permissions in SharePoint"
 date: 2024-04-28T22:31:33+01:00
 tags: ["SharePoint","Unique Permissions","SharingLinks","PowerShell","Sites", "Security","Copilot for M365", "Governance","CSOM"]
 featured_image: '/posts/images/powershell-query-unique-permissions-sharepoint/report.png'
+omit_header_text: true
 draft: false
 ---
 

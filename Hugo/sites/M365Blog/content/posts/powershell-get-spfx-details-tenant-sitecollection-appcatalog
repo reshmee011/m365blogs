@@ -1,3 +1,13 @@
+---
+title: "Get SPFx details from Tenant SiteCollection AppCatalog and SiteCollection AppCatalog using PowerShell"
+date: 2024-07-05T07:17:21+01:00
+tags: ["PowerShell", "SPFx","SharePoint Online","App Catalog","Inventory"]
+featured_image: '/posts/images/powershell-get-totalcount-of-files-folders-items-in-tenant/example.png'
+omit_header_text: true
+draft: true
+---
+
+```PowerShell
 $AdminCenterURL="https://ppfonline-admin.sharepoint.com"
 $tenantAppCatalogUrl = "https://ppfonline.sharepoint.com/sites/appcatalog"
 $hubSiteUrl = "https://ppfonline.sharepoint.com"
@@ -54,3 +64,4 @@ $sites | select url | ForEach-Object {
 #Export the result Array to CSV file
 $appsDetails | Export-CSV $OutPutView -Force -NoTypeInformation
  
+```

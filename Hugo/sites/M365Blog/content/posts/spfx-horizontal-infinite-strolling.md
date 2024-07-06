@@ -1,6 +1,7 @@
 ---
 title: "Spfx Horizontal Infinite Strolling"
 date: 2024-02-24T20:13:53Z
+omit_header_text: true
 draft: true
 ---
 

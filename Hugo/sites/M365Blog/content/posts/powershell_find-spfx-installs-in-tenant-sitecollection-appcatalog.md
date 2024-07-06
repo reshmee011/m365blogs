@@ -3,6 +3,7 @@ title: "Find SharePoint Framework (SPFx) Packages with PowerShell in Tenant and 
 date: 2024-07-04T07:17:21+01:00
 tags: ["PowerShell", "Inventory","SharePoint Framework (SPFx)","SPFx"]
 featured_image: '/posts/images/powershell_find-spfx-installs-in-tenant-sitecollection-appcatalog/example.png'
+omit_header_text: true
 draft: false
 ---
 

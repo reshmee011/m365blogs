@@ -3,6 +3,7 @@ title: "Optimizing Email HTML for Outlook"
 date: 2023-11-29T16:15:32Z
 tags: ["Power Automate","Email Action","HTML"]
 featured_image: '/posts/images/PowerAutomate_EmailHtmlGotchas/div_email_owa.PNG'
+omit_header_text: true
 draft: false
 ---
 

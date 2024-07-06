@@ -3,6 +3,7 @@ title: "Exploring some Limitations of Copilot in Power Automate"
 date: 2023-11-20T06:19:42Z
 tags: ["Power Automate","Copilot"]
 featured_image: '/posts/images/PowerAutomate_Copilot/NewFlowExperience_withPrompting.png'
+omit_header_text: true
 draft: false
 ---
 

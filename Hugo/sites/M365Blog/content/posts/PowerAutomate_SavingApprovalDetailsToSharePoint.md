@@ -3,6 +3,7 @@ title: "Updating Approval Details in SharePoint Library using 'Send HTTP Request
 date: 2023-09-21T07:17:21+01:00
 tags: ["PowerAutomate", "Approval","SharePoint", "Send HTTP Request to SharePoint"]
 featured_image: '/posts/images/PowerAutomate_SavingApprovalDetailsToSharePoint/AllFieldsUpdatedCorrectly.png'
+omit_header_text: true
 draft: false
 ---
 

@@ -3,6 +3,7 @@ title: "Importing data from Excel file into SharePoint list in Power Automate"
 date: 2024-06-21T07:17:21+01:00
 tags: ["PowerAutomate", "Excel Business Online","SharePoint", "Data Import"]
 featured_image: '/posts/images/PowerAutomate_SavingApprovalDetailsToSharePoint/AllFieldsUpdatedCorrectly.png'
+omit_header_text: true
 draft: true
 ---
 

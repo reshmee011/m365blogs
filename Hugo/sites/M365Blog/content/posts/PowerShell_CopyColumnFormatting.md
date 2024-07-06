@@ -3,6 +3,7 @@ title: "Copy Column View Formatting to different environment using PnP PowerShel
 date: 2023-11-06T11:52:05Z
 draft: false
 tags: ["PnP","Formatting","Columns","Views", "Permissions"]
+omit_header_text: true
 featured_image: '/posts/images/PowerShell_CopyColumnFormatting/Output_ColF.PNG'
 ---
 

@@ -6,6 +6,7 @@ githubname: reshmee011
 categories: ["Post"]
 tags: ["Pipeline", "Azure DevOps","YAML"]
 type: "regular"
+omit_header_text: true
 draft: false
 ---
 

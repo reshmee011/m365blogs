@@ -3,6 +3,7 @@ title: "SharePoint Search: Excluding Columns from Search Results"
 date: 2024-05-01T06:32:50Z
 tags: ["SharePoint Online","Search","Field","Column","Governance"]
 featured_image: '/posts/images/SharePoint-Exclude-Columns-from-Search/SearchableColumns.png'
+omit_header_text: true
 draft: false
 ---
 

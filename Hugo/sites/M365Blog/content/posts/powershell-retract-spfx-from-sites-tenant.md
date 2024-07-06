@@ -3,6 +3,7 @@ title: "Retracting SPFx Solutions from Hub Site and associated sites using PnP P
 date: 2024-03-20T08:25:29Z
 tags: ["App Catalog","SPFx","PowerShell", "Uninstall"]
 featured_image: '/posts/images/powershell-retract-spfx-from-sites-tenant/retract.png'
+omit_header_text: true
 draft: false
 ---
 

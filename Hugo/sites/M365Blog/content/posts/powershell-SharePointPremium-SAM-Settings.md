@@ -3,6 +3,7 @@ title: "Manage SharePoint Premium - SharePoint Advanced Management Settings Usin
 date: 2024-06-18T15:45:36+01:00
 tags: ["SharePoint Premium","Syntex","oversharing","Tenant","Sites","PowerShell","Copilot for M365","Information Governance","Sensitivity Label","Conditional Access", "SharePoint Premium", "SharePoint Advanced Management","IG"]
 featured_image: '/posts/images/powershell-SharePointPremium-SAM-Settings/SharePointAdvancedManagementSettings.png'
+omit_header_text: true
 draft: false
 ---
 

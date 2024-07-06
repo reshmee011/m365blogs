@@ -3,6 +3,7 @@ title: "Deploying SPFx Packages from Tenant App Catalog to Hub Site and Associat
 date: 2024-03-17T07:06:22Z
 tags: ["App Catalog","SPFx","PowerShell", "Deployment"]
 featured_image: '/posts/images/PowerShell_SPFXUpgradeFromTenant/Update.png'
+omit_header_text: true
 draft: false
 ---
 

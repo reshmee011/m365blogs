@@ -3,6 +3,7 @@ title: "PowerShell: Set and Remove SharePoint Site Thumbnail Logo"
 date: 2024-02-12T21:21:02Z
 tags: ["SharePoint","PnP","PowerShell","CLI for M365","M365","Logo","Thumbnail"]
 featured_image: '/posts/images/PowerShell-set-web-thumbnail-logo/thumbnail_logo.png'
+omit_header_text: true
 draft: false
 ---
 

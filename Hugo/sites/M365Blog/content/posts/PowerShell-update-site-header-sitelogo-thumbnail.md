@@ -1,6 +1,7 @@
 ---
 title: "PowerShell Update Site Header Sitelogo Thumbnail"
 date: 2024-02-11T06:39:48Z
+omit_header_text: true
 draft: false
 ---
 

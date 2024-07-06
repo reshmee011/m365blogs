@@ -1,6 +1,7 @@
 ---
 title: "Spfx React Hook Tooltip Mouseposition"
 date: 2024-02-21T17:08:27Z
+omit_header_text: true
 draft: true
 ---
 

@@ -1,3 +1,11 @@
+---
+title: "Find orphaned values not available within choice values"
+date: 2024-02-09T16:16:09Z
+tags: ["SharePoint","PnP","PowerShell","Choice","SharePoint Online"]
+featured_image: '/posts/images/PowerShell_PnPUnifiedLog/Sample.png'
+omit_header_text: true
+draft: false
+---
 
 ```PowerShell
 #$SiteCollectionUrl = Read-Host -Prompt "Enter site collection URL: ";

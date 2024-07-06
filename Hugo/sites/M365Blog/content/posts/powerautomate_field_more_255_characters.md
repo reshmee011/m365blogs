@@ -3,6 +3,7 @@ title: "Power Automate trying to update multi line field with more than 255 char
 tags: ["Power Automate","MultiLine Text field"]
 date: 2024-05-22T17:12:39+01:00
 featured_image: '/posts/images/powerautomate_field_more_255_characters/changesetting.png'
+omit_header_text: true
 draft: true
 ---
 

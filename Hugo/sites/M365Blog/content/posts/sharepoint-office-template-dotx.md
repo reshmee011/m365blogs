@@ -3,6 +3,7 @@ title: "Streamlining SharePoint Template Usage: A Guide to Opening DOTX Files as
 date: 2024-07-04T00:39:57+01:00
 tags: ["SharePoint", "Office Templates", "DOTX", "Productivity", "Workarounds"]
 featured_image: '/posts/images/sharepoint-office-template-dotx/ContentType_WithDocumentTemplate.png'
+omit_header_text: true
 draft: false
 ---
 

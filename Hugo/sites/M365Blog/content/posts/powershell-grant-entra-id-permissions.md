@@ -3,6 +3,7 @@ title: "Managing Service Principal Permission Requests using PowerShell"
 date: 2024-04-03T08:25:29Z
 tags: ["SPFx","PowerShell", "Permission", "Service Principal","CLIforM365","PnP PowerShell","SPO PowerShell","Declarative","Explicit"]
 featured_image: '/posts/images/powershell-grant-entra-id-permissions/PendingRequests.png'
+omit_header_text: true
 draft: false
 ---
 

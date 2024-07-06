@@ -1,3 +1,11 @@
+---
+title: "CAML in PowerShell to query SharePoint List"
+date: 2024-04-21T17:32:36Z
+tags: ["CAML","PowerShell","PnP","SharePoint"]
+featured_image: '/posts/images/PowerShell-editing-psm1-reload/script.png'
+omit_header_text: true
+draft: true
+---
 
 ```PowerShell
 $SiteCollectionUrl = Read-Host -Prompt "Enter site collection URL: ";

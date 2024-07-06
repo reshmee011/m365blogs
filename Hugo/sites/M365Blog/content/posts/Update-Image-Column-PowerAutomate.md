@@ -8,6 +8,7 @@ images:
 - images:Update-Image-Column-PowerAutomate/images/PowerAutomate.png
 tags: ["Image, PowerAutomate","SharePoint List"]
 type: "regular"
+omit_header_text: true
 draft: false
 ---
 

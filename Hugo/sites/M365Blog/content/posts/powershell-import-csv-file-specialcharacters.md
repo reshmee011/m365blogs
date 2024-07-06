@@ -3,6 +3,7 @@ title: "Handling Special Characters within CSV with PowerShell using Encoding"
 date: 2024-07-04T10:30:00+01:00
 tags: ["PowerShell", "CSV", "Encoding", "Special Characters"]
 featured_image: '/posts/images/powershell-import-csv-file-specialcharacters/importCSV_encoding_ansi.png'
+omit_header_text: true
 draft: false
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Sharepoint_embedded"
 date: 2024-01-03T16:35:49Z
+omit_header_text: true
 draft: true
 ---
 

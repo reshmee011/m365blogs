@@ -3,6 +3,7 @@ title: "Sharing Options Updates - Send Email Button Greyed Out"
 date: 2024-04-29T06:19:42Z
 tags: ["SharePoint","Owners","M365", "PowerShell","Send Email", "Governance"]
 featured_image: '/posts/images/SharePoint-Sharing-Options-SendEmail/SendLinkInOutlook.png'
+omit_header_text: true
 draft: False
 ---
 
