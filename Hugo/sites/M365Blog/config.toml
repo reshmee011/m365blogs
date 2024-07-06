@@ -49,4 +49,12 @@ enableRobotsTXT = true
 name = "twitter"
 url = "https://twitter.com/reshmeeauckloo"
 
+[[params.ananke_socials]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/reshmee-auckloo-98a23619"
+
+[[params.ananke_socials]]
+name = "github"
+url = "https://github.com/reshmee011"
+
 
