@@ -3,6 +3,7 @@ title: "Internal References in SharePoint Column Formatting for Document librari
 date: 2024-01-20T16:49:18Z
 tags: ["libraries", "List Formatting", "Name", "fileleafref", "fileref", "file type"]
 featured_image: '/posts/images/ListFormatting-libraries-use-title-and-folder/Screenshot.png'
+omit_header_text: true
 draft: false
 ---
 

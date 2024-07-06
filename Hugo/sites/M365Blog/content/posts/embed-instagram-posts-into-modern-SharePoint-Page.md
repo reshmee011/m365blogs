@@ -2,6 +2,7 @@
 title: "Embedding Instagram Posts in Modern SharePoint Pages using embed webpart"
 date: 2023-07-04T14:49:19+01:00
 tags: ["Embed, Instagram","SharePoint Page"]
+omit_header_text: true
 draft: false
 ---
 

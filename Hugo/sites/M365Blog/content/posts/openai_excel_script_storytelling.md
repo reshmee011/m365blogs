@@ -2,6 +2,7 @@
 title: "Use Open AI in Excel"
 date: 2024-04-22T11:15:28Z
 tags: ["OpenAi","Excel","Script", "Google Spreadsheet"]
+omit_header_text: true
 draft: true
 ---
 

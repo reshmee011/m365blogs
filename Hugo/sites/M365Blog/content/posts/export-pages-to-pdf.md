@@ -2,6 +2,7 @@
 title: "Export SharePoint Pages to PDF for SharePoint OnPremises"
 date: 2023-12-02T07:49:47+01:00
 draft: false
+omit_header_text: true
 tags: ["Export to PDF", "Chrome","SharePoint Pages", "OnPremises"]
 ---
 

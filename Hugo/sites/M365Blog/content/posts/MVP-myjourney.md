@@ -1,6 +1,7 @@
 ---
 title: "MVP Myjourney"
 date: 2024-01-30T18:29:17Z
+omit_header_text: true
 draft: true
 ---
 

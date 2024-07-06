@@ -3,6 +3,7 @@ title: "Overcoming challenges with Azure DevOps Pipelines using Self-Hosted Buil
 date: 2024-06-08T10:56:16+01:00
 tags: ["Azure","DevOps","self-hosted Agents","managed identity","PAT","git","git fetch","git switch", "git checkout","Power Platform"]
 featured_image: '/posts/images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/selfhostedagent.png'
+omit_header_text: true
 draft: false
 ---
 

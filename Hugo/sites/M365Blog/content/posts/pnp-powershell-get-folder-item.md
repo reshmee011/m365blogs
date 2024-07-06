@@ -3,6 +3,7 @@ title: "Get Folder Item properties using PnP PowerShell : Get-PnPFolderItem vers
 date: 2024-04-01T09:00:00Z
 tags: ["SharePoint","PnP","PowerShell", "lists","libraries"]
 featured_image: '/posts/images/Pnp-Powershell-Get-Folder-Item/sample.png'
+omit_header_text: true
 draft: false
 ---
 

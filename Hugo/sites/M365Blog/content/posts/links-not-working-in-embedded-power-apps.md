@@ -2,6 +2,7 @@
 title: "Troubleshooting Blocked Links to SharePoint Pages in Embedded Power Apps"
 date: 2023-07-04T11:04:28+01:00
 tags: ["Embed, Power Apps","Links to SharePoint Pages"]
+omit_header_text: true
 draft: false
 ---
 

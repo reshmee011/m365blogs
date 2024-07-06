@@ -2,6 +2,7 @@
 title: "Get a CSV of all my pull requests from Github using Github CLI and PowerShell"
 date: 2023-07-11T17:00:15+01:00
 tags: ["GitHub", "CLI","PowerShell"]
+omit_header_text: true
 draft: false
 ---
 

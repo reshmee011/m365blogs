@@ -3,6 +3,7 @@ title: "MS Build AI Day: Develop in the cloud with Microsoft Dev Box by Dona Sar
 date: 2023-10-20T07:05:15+01:00
 draft: false
 featured_image: '/posts/images/Event_MsBuildAIDay/Dona_WhyDevBox.jpg'
+omit_header_text: true
 tags: [MS Dev Box, AI, Copilots, COBOL]
 ---
 

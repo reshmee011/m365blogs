@@ -3,6 +3,7 @@ title: "Executing a Flow from Column Formatting from a page using the Embed Webp
 date: 2023-12-08T15:01:42Z
 tags: ["List formatting","JSON","HTML","CSS", "Embed WebPart","Trigger Flow"]
 featured_image: '/posts/images/ListFormatting_StartFlowFromEmbedWebPart/EmbedWebPartForFlow.PNG'
+omit_header_text: true
 draft: false
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "JW Get Authenticate Using Certificate"
 date: 2024-03-07T09:02:50Z
+omit_header_text: true
 draft: true
 ---
 

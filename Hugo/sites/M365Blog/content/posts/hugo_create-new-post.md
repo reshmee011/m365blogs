@@ -3,6 +3,7 @@ title: "Creating New Posts with Hugo"
 date: 2023-12-18T04:10:42Z
 tags: ["Hugo", "Blogging", "Tutorial"]
 featured_image: '/posts/images/Hugo_NewPosts/Post.png'
+omit_header_text: true
 draft: false
 ---
 

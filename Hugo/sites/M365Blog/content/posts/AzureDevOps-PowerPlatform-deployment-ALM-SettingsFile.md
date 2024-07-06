@@ -2,6 +2,7 @@
 title: "Guide to Preparing setting files for Power Platform managed solution deployment"
 date: 2024-06-15T16:54:24+01:00
 tags: ["Power Platform","solution","managed solution","setting file","ALM"]
+omit_header_text: true
 featured_image: '/posts/images/AzureDevOps-PowerPlatform-deployment-ALM-SettingsFile/CreateDeploymentSettings.png'
 draft: false
 ---

@@ -3,6 +3,7 @@ title: "Embed GitHub Gist in Hugo posts"
 date: 2024-04-30T08:30:42+01:00
 tags: ["Hugo","git", "Copilot", "GitHub","gist","shortcodes"]
 featured_image: '/posts/images/hugo_embed-raw-gitgub-url/GistWithinHugo.png'
+omit_header_text: true
 draft: false
 ---
 

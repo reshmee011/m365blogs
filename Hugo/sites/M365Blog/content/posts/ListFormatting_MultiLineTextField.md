@@ -3,6 +3,7 @@ title: "Enhance List Formatting for Multi-Line Text fields challenges"
 date: 2023-12-13T13:40:12+01:00
 tags: ["List formatting","JSON","HTML","CSS", "MultiLineText"]
 featured_image: '/posts/images/ListFormatting_MultiLineTextField/MultiLineViewMore.PNG'
+omit_header_text: true
 draft: false
 ---
 

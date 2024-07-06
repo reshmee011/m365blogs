@@ -2,6 +2,7 @@
 title: "AzureDevOps Powerplatform Managedidentity"
 date: 2024-02-08T16:46:04Z
 draft: true
+omit_header_text: true
 ---
 
 # Using managed identify in Azure Devops for Power Platform deployment

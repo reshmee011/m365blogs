@@ -3,6 +3,7 @@ title: "Power Platform Managed Solution Deployment with Connection References - 
 date: 2024-06-07T16:54:24+01:00
 tags: ["Power Platform","Solution","Managed Solution","Customizations","ALM"]
 featured_image: '/posts/images/AzureDevOps-PowerPlatform-deployment-ALM-ConnectionReferences/ConnectionReference_cannot_be_Updated.png'
+omit_header_text: true
 draft: false
 ---
 

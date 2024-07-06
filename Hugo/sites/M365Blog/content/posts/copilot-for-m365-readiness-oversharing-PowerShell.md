@@ -1,6 +1,7 @@
 ---
 title: "Powershell Copilotform365 Readiness"
 date: 2024-05-03T07:15:05+01:00
+omit_header_text: true
 draft: true
 ---
 

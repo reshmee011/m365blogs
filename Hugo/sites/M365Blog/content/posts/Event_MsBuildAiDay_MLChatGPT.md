@@ -4,6 +4,7 @@ date: 2023-10-20T07:06:22+01:00
 draft: false
 Tags: [AI Concerns, Language Calculator,Azure ML]
 featured_image: '/posts/images/Event_MsBuildAIDay/WordsMatchedToNumbers.jpg'
+omit_header_text: true
 tags: [Azure OpenAi, Generative AI, AzureML, ChatGPT, Prompt Flow]
 ---
 

@@ -3,6 +3,7 @@ title: "Powerapps Listforms Deployments solutions"
 date: 2024-03-25T12:02:22Z
 tags: ["PowerApps", "CI/CD", "Deployments","Solutions"]
 featured_image: '/posts/images/powerapps-azuredevops-pipeline-failed-duetolicense-expired/Sample.png'
+omit_header_text: true
 draft: false
 ---
 

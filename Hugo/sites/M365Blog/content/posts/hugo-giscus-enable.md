@@ -3,6 +3,7 @@ title: "Enable Giscus for Hugo Blog"
 date: 2024-07-05T07:17:21+01:00
 tags: ["Hugo", "Giscus","Comments","netlify","Blog site","GitHub","ananke theme"]
 featured_image: '/posts/images/hugo-giscus-enable/giscus_at_end_blogpost.png'
+omit_header_text: true
 draft: false
 ---
 

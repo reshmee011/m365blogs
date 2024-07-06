@@ -1,3 +1,11 @@
+---
+title: "Using Template for ALM for Power Platform Deployment"
+date: 2024-06-15T16:54:24+01:00
+tags: ["Power Platform","solution","managed solution","Template","Azure DevOps","ALM"]
+omit_header_text: true
+featured_image: '/posts/images/AzureDevOps-PowerPlatform-deployment-ALM-SettingsFile/CreateDeploymentSettings.png'
+draft: true
+---
 
 Template to build
 ```yaml

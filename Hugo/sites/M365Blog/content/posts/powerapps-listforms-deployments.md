@@ -1,6 +1,7 @@
 ---
 title: "Powerapps Listforms Deployments"
 date: 2024-03-25T12:02:05Z
+omit_header_text: true
 draft: true
 ---
 ## steps

@@ -3,6 +3,7 @@ title: "Ms Build AI Day Keynote on the 19 Oct 2023"
 date: 2023-10-20T05:35:04+01:00
 tags: ["Copilot", "Github", "Responsible AI", "Temperature", "Safety Checks","Prompt Engineering", "Grounding","Efficiency"]
 featured_image: '/posts/images/Event_MsBuildAIDay/CopilotStack.jpg'
+omit_header_text: true
 draft: false
 ---
 

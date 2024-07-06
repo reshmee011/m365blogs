@@ -1,6 +1,7 @@
 ---
 title: "Logicapps_sourcecontrol_systemassigned"
 date: 2024-01-03T16:36:34Z
+omit_header_text: true
 draft: true
 ---
 
