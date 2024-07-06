@@ -1,5 +1,5 @@
 ---
-title: "Articles"
+title: "Posts"
 featured_image: '/images/pic.jpg'
 menu:
   main:
@@ -7,4 +7,4 @@ menu:
 ---
 {{< figure src="/images/pic.jpg" title="Anything related to tech" >}}
 
-Welcome to my blog post. I am Reshmee Auckloo, a SharePoint Developer from United Kingdom. I am passionate about development and I love to share my knowledge with others. I am also a tech enthusiast and I love to learn new things.
+Welcome to my blog post. I am Reshmee Auckloo, a SharePoint Developer currently residing in United Kingdom. I am passionate about development and I love to share my knowledge with others. I am also a tech enthusiast and I love to learn new things.
