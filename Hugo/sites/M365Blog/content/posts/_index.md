@@ -1,5 +1,5 @@
 ---
-title: "Posts"
+title: "Articles"
 featured_image: '/images/pic.jpg'
 menu:
   main:
