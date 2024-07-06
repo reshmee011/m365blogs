@@ -13,7 +13,7 @@
 #
 
 
-title = "Tech Blog !!"
+title = "Blog about anything related to Technology"
 baseURL = 'https://reshmee.netlify.app/'
 languageCode = "en-uk"
 theme = 'ananke'
