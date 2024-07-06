@@ -3,6 +3,7 @@ title: "Get Total Count of SharePoint Files, Folders, and Items with PnP PowerSh
 date: 2024-07-05T07:17:21+01:00
 tags: ["PowerShell", "Inventory","SharePoint Online","Libraries","Lists"]
 featured_image: '/posts/images/powershell-get-totalcount-of-files-folders-items-in-tenant/example.png'
+omit_header_text: true
 draft: false
 ---
 
