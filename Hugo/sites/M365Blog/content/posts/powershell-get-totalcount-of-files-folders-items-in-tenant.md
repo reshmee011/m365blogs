@@ -123,3 +123,5 @@ Stop-Transcript
 ![example output](../images/powershell-get-totalcount-of-files-folders-items-in-tenant/example.png)
 
 This script provides a detailed snapshot of your SharePoint content, helping you manage your digital estate more effectively. Whether you're conducting a routine audit or preparing for a migration, this tool simplifies the process of inventorying your SharePoint assets.
+
+{{ partial "giscus.html" . }}
