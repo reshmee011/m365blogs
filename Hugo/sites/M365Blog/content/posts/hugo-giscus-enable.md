@@ -49,11 +49,11 @@ I recently switched to Giscus for comments on my blog post, inspired by its popu
 
 6. I am using the ananke theme for Hugo. Copy the theme's layout by copying the file **single.html** file from themes/ananke/layouts/_default/ to the site's layouts directory at layouts/_default/single.html if there is not one already.
 
-[Script Code](../images/hugo-giscus-enable/giscus_scriptcode.png)
+![Script Code](../images/hugo-giscus-enable/giscus_scriptcode.png)
 
 7. Modify this copied file in the same way by adding the {{ partial "giscus.html" . }} line where the comments need to appear.
 
-[Giscus partial](../images/hugo-giscus-enable/AddtoSingleHtmltoreplaceCommento.png)
+![Giscus partial](../images/hugo-giscus-enable/AddtoSingleHtmltoreplaceCommento.png)
 
 In my scenerio I replaced the existing placeholder for commento **{{- partial "commento.html" . -}}** with **{{ partial "giscus.html" . }}**
 
@@ -61,7 +61,7 @@ In my scenerio I replaced the existing placeholder for commento **{{- partial "c
 
 Ensure after the hugo site is published with netlify, the posts have Giscus appearing and login to Github to leave a comment to test.
 
-[Giscus ready to use](../posts/images/hugo-giscus-enable/giscus_at_end_blogpost.png)
+![Giscus ready to use](../posts/images/hugo-giscus-enable/giscus_at_end_blogpost.png)
 
 ## Conclusion
 
