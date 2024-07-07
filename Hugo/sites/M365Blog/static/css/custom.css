@@ -3,3 +3,17 @@
     background-color: #ffe564;
     border-left: 3px solid #ffa600;
 }
+.admonition.note {
+    background-color: #f0faff;
+    border-left: 4px solid #007bff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .admonition-icon {
+    /* Your icon styling */
+  }
+  
+  .admonition-content {
+    /* Content styling */
+  }
