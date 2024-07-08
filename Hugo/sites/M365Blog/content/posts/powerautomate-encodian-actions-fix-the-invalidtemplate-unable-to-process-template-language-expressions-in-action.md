@@ -4,7 +4,7 @@ date: 2024-07-07T09:53:05+01:00
 tags: ["Power Automate","Encodian","InvalidTemplate"]
 featured_image: '/posts/images/powerautomate-encodian-actions-fix-the-invalidtemplate-unable-to-process-template-language-expressions-in-action/InvalidTemplate.png'
 omit_header_text: true
-draft: true
+draft: false
 ---
 
 # Power Automate fix for InvalidTemplate: Unable to process template language expressions
