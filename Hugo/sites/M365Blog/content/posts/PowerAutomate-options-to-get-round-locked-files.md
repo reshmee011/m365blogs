@@ -22,7 +22,7 @@ File lock issues in Power Automate can occur due to:
  
 The error within Power Automate flow is 
 
-[locked file issue](../images/PowerAutomate-options-to-get-round-locked-files/FileLockedIssue.png)
+![locked file issue](../images/PowerAutomate-options-to-get-round-locked-files/FileLockedIssue.png)
 
 {{< warning >}}
 The file "https://contoso.sharepoint.com/teams/d-team/ControlledDocuments/Sample Document 10.docx" is locked for shared use by srv_p@.co.uk.
@@ -52,7 +52,7 @@ body
 }
 ```
 
-[Http with Editor](../images/PowerAutomate-options-to-get-round-locked-files/UseHttp_for_SharePoint_SpecifyingEditor.png)
+![Http with Editor](../images/PowerAutomate-options-to-get-round-locked-files/UseHttp_for_SharePoint_SpecifyingEditor.png)
 
 This action updates a file selected by the Power Automate trigger `for a selected file` with the status "Pending Approval" and sets LastReviewDate to the current date and time.
 
@@ -60,7 +60,7 @@ This action updates a file selected by the Power Automate trigger `for a selecte
 
 The `bNewDocumentUpdate` parameter determines whether new versions are created. If set to true, no new versions are created. However, for auditing purposes, versions were required even if changes were made by the flow. Therefore, `bNewDocumentUpdate` is set to false.
 
-[versions saved](../images/PowerAutomate-options-to-get-round-locked-files/VersionsSave.png)
+![versions saved](../images/PowerAutomate-options-to-get-round-locked-files/VersionsSave.png)
 
 ## Conclusion
 
