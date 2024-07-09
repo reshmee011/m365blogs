@@ -1,7 +1,7 @@
 ---
 title: "Publishing Major Versions of Files in SharePoint with Power Automate"
 date: 2024-07-07T09:53:05+01:00
-tags: ["Power Automate","File","Major Version","SharePoint","REST"]
+tags: ["Power Automate","File","Major Version","SharePoint","REST","Send an HTTP request to SharePoint"]
 featured_image: '/posts/images/PowerAutomate-publish-file-major-version/PublishFileMajorVersion.png'
 omit_header_text: true
 draft: false
@@ -15,11 +15,13 @@ Just for context, a Power Automate approval flow with trigger `for a selected fi
 
 ## checkin REST endpoint
 
-The checkin endpoint can be used to publish as major version.
+The checkin endpoint can be used to publish as major version using **Send an HTTP request to SharePoint** action.
 
 {{< warning >}}
  _api/web/GetFileByServerRelativePath(DecodedUrl='@{body('Get_site_server_relative_url')?['d']?['ServerRelativeUrl']}/@{body('Get_file_properties')?['{FullPath}']}')/CheckIn(comment='COMMENTS%20FOR%20PUBLISH',checkintype=1)
 {{< /warning >}}
+
+![checkin endpoint](../images/PowerAutomate-publish-file-major-version/CheckedIn_endpoint_Version.png)
 
 However it can lead to issues if the file isn't already checked out, leading to errors and a failure to publish the document as a major version.
 
@@ -35,7 +37,6 @@ However it can lead to issues if the file isn't already checked out, leading to 
 }
 {{< /warning >}}
 
-![checkin endpoint](../images/PowerAutomate-publish-file-major-version/CheckedIn_endpoint_Version.png)
 
 For a detailed guide on how to check out and check in a file as required, refer to [How to Publish Major Version in SharePoint using Microsoft Power Automate](https://powerusers.microsoft.com/t5/Power-Apps-Community-Blog/How-to-Publish-Major-Version-in-SharePoint-using-Microsoft-Power/ba-p/1622788)
 
