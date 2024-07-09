@@ -7,7 +7,7 @@ omit_header_text: true
 draft: true
 ---
 
-# Overcoming File Lock Issues in Power Automate
+# Handling Locked Office Files issue In Power Automate
 
 Inspired by the workaround described by Pieter Veenstra [System Updates in SharePoint from Power Automate using the ValidateUpdateListItem endpoint](https://sharepains.com/2024/01/05/system-update-sharepoint-power-automate) to help with the locked file issue, this post covers file version creation as well.
 
