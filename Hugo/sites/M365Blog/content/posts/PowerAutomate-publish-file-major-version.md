@@ -17,7 +17,9 @@ Just for context, a Power Automate approval flow with trigger `for a selected fi
 
 The checkin endpoint can be used to publish as major version.
 
-> _api/web/GetFileByServerRelativePath(DecodedUrl='@{body('Get_site_server_relative_url')?['d']?['ServerRelativeUrl']}/@{body('Get_file_properties')?['{FullPath}']}')/CheckIn(comment='COMMENTS%20FOR%20PUBLISH',checkintype=1)
+{{< warning >}}
+ _api/web/GetFileByServerRelativePath(DecodedUrl='@{body('Get_site_server_relative_url')?['d']?['ServerRelativeUrl']}/@{body('Get_file_properties')?['{FullPath}']}')/CheckIn(comment='COMMENTS%20FOR%20PUBLISH',checkintype=1)
+{{< /warning >}}
 
 However it can lead to issues if the file isn't already checked out, leading to errors and a failure to publish the document as a major version.
 
