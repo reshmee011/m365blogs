@@ -15,8 +15,8 @@ draft: false
 
 This error is not specific to the Encodian connector, it can affect other connectors in Power Automate:
 
-[Invalid Template](../images/powerautomate-encodian-actions-fix-the-invalidtemplate-unable-to-process-template-language-expressions-in-action/InvalidTemplate.png)
+![Invalid Template](../images/powerautomate-encodian-actions-fix-the-invalidtemplate-unable-to-process-template-language-expressions-in-action/InvalidTemplate.png)
 
 The way I resolve the issue was instead resubmitting a previous flow run to start for it to be successful.
 
-[Successful flow](../images/powerautomate-encodian-actions-fix-the-invalidtemplate-unable-to-process-template-language-expressions-in-action/SuccessfulAction.png.png)
+![Successful flow](../images/powerautomate-encodian-actions-fix-the-invalidtemplate-unable-to-process-template-language-expressions-in-action/SuccessfulAction.png.png)

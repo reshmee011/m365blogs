@@ -29,4 +29,4 @@ The function `dayOfWeek` returns the day of the week that a specific date was on
 
 > dayOfWeek(triggerBody()?['Created'])
 
-Above example returnd the day of the week that this item was created.
+Above example returned the day of the week that this item was created.
