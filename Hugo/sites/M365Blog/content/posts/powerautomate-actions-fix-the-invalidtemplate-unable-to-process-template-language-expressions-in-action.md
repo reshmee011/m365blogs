@@ -1,8 +1,8 @@
 ---
 title: "Power Automate fix for InvalidTemplate: Unable to process template language expressions"
 date: 2024-07-07T09:53:05+01:00
-tags: ["Power Automate","Encodian","InvalidTemplate"]
-featured_image: '/posts/images/powerautomate-encodian-actions-fix-the-invalidtemplate-unable-to-process-template-language-expressions-in-action/InvalidTemplate.png'
+tags: ["Power Automate","Encodian","Dataverse","InvalidTemplate"]
+featured_image: '/posts/images/powerautomate-actions-fix-the-invalidtemplate-unable-to-process-template-language-expressions-in-action/InvalidTemplate.png'
 omit_header_text: true
 draft: false
 ---
@@ -15,8 +15,12 @@ draft: false
 
 This error is not specific to the Encodian connector, it can affect other connectors in Power Automate:
 
-![Invalid Template](../images/powerautomate-encodian-actions-fix-the-invalidtemplate-unable-to-process-template-language-expressions-in-action/InvalidTemplate.png)
+![Invalid Template Encodian](../images/powerautomate-actions-fix-the-invalidtemplate-unable-to-process-template-language-expressions-in-action/InvalidTemplate.png)
+
+Another example for Dataverse action 'Update a row'
+
+![Invalid Template Dataverse](../images/powerautomate-actions-fix-the-invalidtemplate-unable-to-process-template-language-expressions-in-action/InvalidTemplate_DataverseAction.png)
 
 The way I resolve the issue was instead resubmitting a previous flow run to start for it to be successful.
 
-![Successful flow](../images/powerautomate-encodian-actions-fix-the-invalidtemplate-unable-to-process-template-language-expressions-in-action/SuccessfulAction.png.png)
+![Successful flow](../images/powerautomate-actions-fix-the-invalidtemplate-unable-to-process-template-language-expressions-in-action/SuccessfulAction.png.png)
