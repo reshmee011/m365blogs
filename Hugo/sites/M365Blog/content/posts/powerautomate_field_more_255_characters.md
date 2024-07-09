@@ -2,7 +2,7 @@
 title: "Power Automate updating multi line field with more than 255 characters"
 tags: ["Power Automate","MultiLine Text field","SharePoint"]
 date: 2024-07-07T17:12:39+01:00
-featured_image: '/posts/images/powerautomate_field_more_255_characters/changesetting.png'
+featured_image: '/posts/images/powerautomate_field_more_255_characters/FieldMoreThan255Characters.png'
 omit_header_text: true
 draft: false
 ---
