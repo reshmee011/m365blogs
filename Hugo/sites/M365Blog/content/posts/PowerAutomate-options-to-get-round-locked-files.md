@@ -4,7 +4,7 @@ date: 2024-07-09T09:53:05+01:00
 tags: ["Power Automate","Locked Files","REST","validateUpdateListItem"]
 featured_image: '/posts/images/PowerAutomate-options-to-get-round-locked-files/FileLockedIssue.png'
 omit_header_text: true
-draft: true
+draft: false
 ---
 
 # Handling Locked Office Files issue In Power Automate
