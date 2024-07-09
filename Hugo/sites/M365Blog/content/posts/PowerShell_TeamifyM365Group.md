@@ -10,7 +10,9 @@ draft: false
 
 Within M365 , SharePoint and Teams together provides a rich collaboaration platform. When a team site is created from SharePoint admin centre, it is not associated with a `Teams` despite a M365 group is created in the background. To extend SharePoint collaboration features , there is a need to "teamify" an existing Microsoft 365 Group, essentially attaching a new Teams instance to it to allow use of channels and other apps. This post covers how the an existing M365 group can be teamified. 
 
-> This action can't be undone.
+{{< warning >}}
+This action can't be undone.
+{{< /warning >}}
 
 ## Prerequisites
 
@@ -23,7 +25,7 @@ Within M365 , SharePoint and Teams together provides a rich collaboaration platf
 $AdminCenterURL="https://contoso-admin.sharepoint.com/"
 Connect-PnPOnline -Url $AdminCenterURL -Interactive
  
-$siteurl = "https://ppfonline.sharepoint.com/teams/TEAM-PMO/"
+$siteurl = "https://contoso.sharepoint.com/teams/TEAM-PMO/"
 $siteinfo = Get-PnPtenantSite -Identity $siteurl -Detailed
  
 $GroupId = $SiteInfo.GroupId
