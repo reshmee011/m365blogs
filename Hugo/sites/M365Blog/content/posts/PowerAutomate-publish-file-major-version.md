@@ -17,9 +17,9 @@ Just for context, a Power Automate approval flow with trigger `for a selected fi
 
 The checkin endpoint can be used to publish as major version using **Send an HTTP request to SharePoint** action.
 
-{{< warning >}}
+```plaintext
  _api/web/GetFileByServerRelativePath(DecodedUrl='@{body('Get_site_server_relative_url')?['d']?['ServerRelativeUrl']}/@{body('Get_file_properties')?['{FullPath}']}')/CheckIn(comment='COMMENTS%20FOR%20PUBLISH',checkintype=1)
-{{< /warning >}}
+```
 
 ![checkin endpoint](../images/PowerAutomate-publish-file-major-version/CheckedIn_endpoint_Version.png)
 
