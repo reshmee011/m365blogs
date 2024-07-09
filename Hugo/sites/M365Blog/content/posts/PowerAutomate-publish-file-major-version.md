@@ -21,7 +21,8 @@ The checkin endpoint can be used to publish as major version.
 
 However it can lead to issues if the file isn't already checked out, leading to errors and a failure to publish the document as a major version.
 
-> {
+{{< warning >}}
+ {
   "status": 423,
   "message": "The file \"ControlledDocuments/Sample Document 10.docx\" is not checked out.\r\nclientRequestId: 455056b3-ad8b-4da4-bbf4-6f7d3cb7fd71\r\nserviceRequestId: d8473aa1-4086-9000-5f10-bcce28eea893",
   "source": "https://contoso.sharepoint.com/teams/d-team/_api/web/GetFileByServerRelativePath(DecodedUrl='/teams/d-team-playground/ControlledDocuments/Sample%20Document%2010.docx')/CheckIn(comment='COMMENTS%20FOR%20PUBLISH',checkintype=1)",
@@ -30,6 +31,9 @@ However it can lead to issues if the file isn't already checked out, leading to 
     "Microsoft.SharePoint.SPFileCheckOutException"
   ]
 }
+{{< /warning >}}
+
+![checkin endpoint](../images/PowerAutomate-publish-file-major-version/CheckedIn_endpoint_Version.png)
 
 For a detailed guide on how to check out and check in a file as required, refer to [How to Publish Major Version in SharePoint using Microsoft Power Automate](https://powerusers.microsoft.com/t5/Power-Apps-Community-Blog/How-to-Publish-Major-Version-in-SharePoint-using-Microsoft-Power/ba-p/1622788)
 
