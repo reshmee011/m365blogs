@@ -2,7 +2,7 @@
 title: "Overcoming challenges with Azure DevOps Pipelines using Self-Hosted Build Agents for Power Platform Managed Solutions"
 date: 2024-06-08T10:56:16+01:00
 tags: ["Azure","DevOps","self-hosted Agents","managed identity","PAT","git","git fetch","git switch", "git checkout","Power Platform"]
-featured_image: '/posts/images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/selfhostedagent.png'
+featured_image: '/posts/images/AzureDevOps-pipelines-selfhostedagents/selfhostedagent.png'
 omit_header_text: true
 draft: false
 ---
@@ -13,7 +13,7 @@ Application Lifecycle Management (ALM) for Power Platform solutions can be effec
 
 ALM depends on build agents : Microsoft host agents and self-hosted agents. Self-hosted agents and Microsoft-hosted agents each have their own advantages, depending on your specific needs and circumstances. This post focuses on using self-hosted agent hence sepcifying the benefits of using self-hosted agents:
 
-![self-hosted pool agent](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/selfhostedagent.png)
+![self-hosted pool agent](../images/AzureDevOps-pipelines-selfhostedagents/selfhostedagent.png)
 
 **Control**: With self-hosted agents, there is more control over the environment. The hardware, operating system, and installed software can be chosen and the configuration fine-tuned to meet specific needs.
 
@@ -35,7 +35,7 @@ However, transitioning to self-hosted agents with managed identity can introduce
 
 1. **Build Identity Missing Permissions**: Ensure the project admin grants the build identity the correct permissions to check in the solution to the Azure DevOps remote repository otherwise you may get "Generic Contribute" error message.
 
-![Build identity missing contribute permissions](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/MissingPermission_Contribute_ForBuildIdentity.png)
+![Build identity missing contribute permissions](../images/AzureDevOps-pipelines-selfhostedagents/MissingPermission_Contribute_ForBuildIdentity.png)
 
 - **Copy the GUID**: First, copy the GUID part of the identity name from the error message.
 - **Navigate to Repository Settings**: Go to your repository settings in Azure DevOps.
@@ -43,13 +43,13 @@ However, transitioning to self-hosted agents with managed identity can introduce
 - **Select the Correct User**: A user named “Project Collection Build Service (OrganizationName).” will be returned. Select this user.
 -  **Set Permissions**: Set the necessary permissions for this user according to requirements. In my scenerio, the permissions highlighted were granted.
 
-![Grant Contribute permissions](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/MissingPermission_Contribute_ForBuildIdentity.png)
+![Grant Contribute permissions](../images/AzureDevOps-pipelines-selfhostedagents/MissingPermission_Contribute_ForBuildIdentity.png)
 
 2. **issue with Fatal: Could not read password for 'https://OrganizationName@dev.azure.com': terminal prompts disabled**: 
 
 Ensure the **Allow Scripts To Access TheOAuth Token** is set at the pipeline level on the agent level. This enables scripts and other processes launched by tasks to access the OAuth token through the System.AccessToken variable.
 
-![Allow Scripts To Access TheOAuth Token](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/AllowScriptToAccessTheOAuthToken.png)
+![Allow Scripts To Access TheOAuth Token](../images/AzureDevOps-pipelines-selfhostedagents/AllowScriptToAccessTheOAuthToken.png)
 
 If using YAML , refer to https://stackoverflow.com/questions/56733922/fatal-could-not-read-password-for-https-organizationnamedev-azure-com-ter how to get 
 round the issue or for each git cmdlet use **http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)"**
@@ -60,27 +60,27 @@ git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push origi
 
 3. **Artefacts Not Cleaned by Default**: Add a delete file action to remove all artefacts before starting the build. This ensures that artefacts from previous builds are not left in the working directory, otherwise deleted artefacts from your solution will remain in the build directory.
 
-![Delete files from Build working directory](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/DeleteFilesfromBuild.png)
+![Delete files from Build working directory](../images/AzureDevOps-pipelines-selfhostedagents/DeleteFilesfromBuild.png)
 
 4. **Failure to `git push` without `git pull`**: Always perform a `git pull` before a `git push` to avoid conflicts. **Updates were rejected because a pushed branch tip is behind its remote**
 
-![Attempt to Push Without Pull](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/AttempttoPushWithoutPull.png)
+![Attempt to Push Without Pull](../images/AzureDevOps-pipelines-selfhostedagents/AttempttoPushWithoutPull.png)
 
 5. **Failure to Merge**: Use `git pull --no-rebase` to fetch changes from the remote and create a merge commit, preserving your local commit history maintaining a clear, linear history. `git pull` defaults to `rebase` which will fetch any changes to the tracking branch and then rebase any local changes on top.
 
-![failed to merge](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/FailedToMerge.png)
+![failed to merge](../images/AzureDevOps-pipelines-selfhostedagents/FailedToMerge.png)
 
 6. **Force Push Failure Due to Lack of Permission**: Ensure the user has force push permission on the branch. Use the --force option judiciously as it overwrites all changes from the remote with the local files.
 
 **(TF401027: You need the Git 'ForcePush' permission to perform this action. Details: identity 'Build\92e00 error: failed to push some refs to 'https://dev.azure.com/contoso/test/_git/test'**
 
-![Force Push permission missing](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/ForcePushPermission_missing.png)
+![Force Push permission missing](../images/AzureDevOps-pipelines-selfhostedagents/ForcePushPermission_missing.png)
 
 Amending branch security was not an option to allow force push and has to find alternate appropriate solutions. 
 
 6. **Pushing Changes Without Using the --force with Unsuccessful Pull**: Always ensure a successful pull before attempting to push changes.
 
-![Successful check in](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/All_success.png)
+![Successful check in](../images/AzureDevOps-pipelines-selfhostedagents/All_success.png)
 
 ## Solution
 
@@ -90,7 +90,7 @@ The Azure DevOps issues with pull and push were resolved using the **Clean** set
 
 For classic pipeline, this can be done from the user interface. 
 
-![Clean options](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/CleanOptions_Classic.png)
+![Clean options](../images/AzureDevOps-pipelines-selfhostedagents/CleanOptions_Classic.png)
 
 **You can perform different kinds of cleaning of the working directory of your private agent before the build is run.**
 
@@ -116,7 +116,7 @@ Jobs are always run on a new agent with Microsoft-hosted agents hence the **Clea
 
 In addition to workspace clean, the **Clean** can be set for the pipeline. From the UI, edit the pipeline and select triggers. Select YAML, Get Sources and configure **Clean** setting. 
 
-![Get Sources](../images/AzureDevOps-pipelines-selfhostedagents-federatedauthentication/GetSources_YAML.png)
+![Get Sources](../images/AzureDevOps-pipelines-selfhostedagents/GetSources_YAML.png)
 
 ### Clean setting
 
