@@ -1,15 +1,14 @@
 ---
 title: "Effective permissions of end user using across sites PowerShell"
-date: 2024-02-09T16:16:09Z
+date: 2024-07-10T16:16:09Z
 tags: ["SharePoint","PnP","PowerShell","Effective permissions" ,"Security","Permissions"]
 featured_image: '/posts/images/PowerShell_PnPUnifiedLog/Sample.png'
 omit_header_text: true
-draft: false
+draft: true
 ---
 
-```PowerShell
-```
-```PowerShell
+{{< gist reshmee011 7e9e09d016e0384a6aff31d7d10804e8 >}}
+
 #Parameters
 $tenantUrl = Read-Host -Prompt "Enter tenant collection URL";
 $dateTime = (Get-Date).toString("dd-MM-yyyy-hh-ss")
@@ -17,7 +16,7 @@ $invocation = (Get-Variable MyInvocation).Value
 $directorypath = Split-Path $invocation.MyCommand.Path
 $fileName = "EffectivePermissionsReport-" + $dateTime + ".csv"
 $ReportOutput = $directorypath + "\Logs\"+ $fileName
-$userName =  "i:0#.f|membership|steve.moon@ppf.co.uk"
+$userName =  "i:0#.f|membership|test.test@contoso.co.uk"
 #Connect to PnP Online
 Connect-PnPOnline -Url $tenantUrl -Interactive
 
@@ -118,4 +117,3 @@ $ll = Get-PnPList -Includes BaseType, Hidden, Title,HasUniqueRoleAssignments,Roo
  }
   $global:Results | Export-CSV $ReportOutput -NoTypeInformation
 Write-host -f Green "Effective Permissions for user generated Successfully!"
-```
