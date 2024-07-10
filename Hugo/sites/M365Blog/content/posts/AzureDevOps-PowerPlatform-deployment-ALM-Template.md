@@ -4,7 +4,7 @@ date: 2024-06-15T16:54:24+01:00
 tags: ["Power Platform","solution","managed solution","Template","Azure DevOps","ALM"]
 omit_header_text: true
 featured_image: '/posts/images/AzureDevOps-PowerPlatform-deployment-ALM-SettingsFile/CreateDeploymentSettings.png'
-draft: true
+draft: false
 ---
 
 Template to build
@@ -23,12 +23,6 @@ jobs:
     name: M365
 
   steps:
-  - task: DeleteFiles@1
-    displayName: 'Delete files from $(Build.SourcesDirectory)/${{ parameters.solution_folder }}'
-    inputs:
-      SourceFolder: '$(Build.SourcesDirectory)/${{ parameters.solution_folder }}'
-      Contents: '**/*'
-
   - task: microsoft-IsvExpTools.PowerPlatform-BuildTools.tool-installer.PowerPlatformToolInstaller@2
     displayName: 'Power Platform Tool Installer'
 
@@ -64,7 +58,8 @@ jobs:
       git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push origin HEAD:${{ parameters.branch_name }} --force
     displayName: 'Check In Solution'
 ```
-Template to deploy
+
+## Template to deploy
 
 ```yaml
 parameters:
@@ -113,21 +108,23 @@ jobs:
         PublishCustomizationChanges: true```
 ```
 
-Using the template to export
+Save template as power-platform-solution-export
+
+## Using the template to export
 
 ```yaml
 stages:
 - stage: export
-  displayName: Export Supplier Validation Solution
+  displayName: Export Power PLatform Solution
   jobs:
     - template: ./power-platform-solution-export.yml
       parameters:
-        solution_folder: SupplierDataValidation
-        solution_name: PPFFinanceSupplierValidation
-        branch_name: supplier
+        solution_folder: PowerPlatform
+        solution_name: powerplatfomsolution
+        branch_name: pipeline
 ```
 
-Using the template to deploy
+## Using the template to deploy
 
 ```yaml
 name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)

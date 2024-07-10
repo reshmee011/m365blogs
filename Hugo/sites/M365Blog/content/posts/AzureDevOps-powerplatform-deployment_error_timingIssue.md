@@ -9,7 +9,7 @@ draft: false
 
 If it takes too long to deploy the solution, time out issues might occur. In this instance consider checking and updating the MaxAsyncWaitTime. Its value has been increased to 120 which means the deployment process will wait up to 120 seconds (or 2 minutes) for asynchronous operations such as import power platform solution to complete fixing the timing out issue.
 
-[Timing out issue](../images/AzureDevOps-powerplatform-deployment_error_timingIssue/PAppsTimeout.PNG)
+![Timing out issue](../images/AzureDevOps-powerplatform-deployment_error_timingIssue/PAppsTimeout.PNG)
 
 The fix is to amend the MaxAsyncWaitTime to 120
 
@@ -27,4 +27,4 @@ The fix is to amend the MaxAsyncWaitTime to 120
               MaxAsyncWaitTime: "120"
 ```
 
-[Change Async Time to 120](../images/AzureDevOps-powerplatform-deployment_error_timingIssue/ChangeAsyncTime_to_120.PNG)
+![Change Async Time to 120](../images/AzureDevOps-powerplatform-deployment_error_timingIssue/ChangeAsyncTime_to_120.PNG)
