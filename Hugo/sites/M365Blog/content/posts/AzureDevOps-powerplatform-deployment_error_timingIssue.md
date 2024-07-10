@@ -18,7 +18,7 @@ The fix is to amend the MaxAsyncWaitTime to 120
             inputs:
               authenticationType: PowerPlatformSPN
               PowerPlatformSPN: 'powerplatform-t-connection'
-              Environment: 'https://ppf-st.crm11.dynamics.com'
+              Environment: 'https://contoso-st.crm11.dynamics.com'
               SolutionInputFile: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/$(SolutionName)_Managed.zip'
               UseDeploymentSettingsFile: true
               DeploymentSettingsFile: '$(System.DefaultWorkingDirectory)/PowerPlatformSolution/settings-test.json'
