@@ -2,7 +2,7 @@
 title: "Importing Dates and Numbers from Excel file into SharePoint list with Power Automate"
 date: 2024-07-11T07:17:21+01:00
 tags: ["PowerAutomate", "Excel Business Online","SharePoint", "Data Import"]
-featured_image: '/posts/images/PowerAutomate_SavingApprovalDetailsToSharePoint/AllFieldsUpdatedCorrectly.png'
+featured_image: '/posts/images/PowerAutomate-createitem-datefromExcel/ImportDataFromExcelIntoSPList.png'
 omit_header_text: true
 draft: false
 ---
@@ -23,7 +23,9 @@ When importing datetime data with the "List rows present in a table" action from
 
 The error typically appears when the "Create Item" action in SharePoint fails due to the date format not being recognized:
 
-**The 'inputs.parameters' of workflow operation 'Create_item' of type 'OpenApiConnection' is not valid. Error details: Input parameter 'item/StartDate' is required to be of type 'String/date'. The runtime value '"44378"' to be converted doesn't have the expected format 'String/date'.**
+{{< warning >}}
+The 'inputs.parameters' of workflow operation 'Create_item' of type 'OpenApiConnection' is not valid. Error details: Input parameter 'item/StartDate' is required to be of type 'String/date'. The runtime value '"44378"' to be converted doesn't have the expected format 'String/date'.**
+{{< /warning >}}
 
 ![Issue Date 44378](../images/PowerAutomate-createitem-datefromExcel/Date_44378.png)
 

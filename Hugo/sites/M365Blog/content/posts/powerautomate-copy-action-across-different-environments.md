@@ -1,6 +1,6 @@
 ---
 title: "Power Automate copy actions across different environments"
-date: 2024-07-07T09:53:05+01:00
+date: 2024-07-12T09:53:05+01:00
 tags: ["Power Automate","Copy Actions","Environment"]
 featured_image: '/posts/images/powerautomate-actions-fix-the-invalidtemplate-unable-to-process-template-language-expressions-in-action/InvalidTemplate.png'
 omit_header_text: true
