@@ -30,3 +30,7 @@ The function `dayOfWeek` returns the day of the week that a specific date was on
 > dayOfWeek(triggerBody()?['Created'])
 
 Above example returned the day of the week that this item was created.
+
+## UTC Today's Date
+ 
+> formatDateTime(utcNow(), 'dd/MM/yyyy HH:mm')
