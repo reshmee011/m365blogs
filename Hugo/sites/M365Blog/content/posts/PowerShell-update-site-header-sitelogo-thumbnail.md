@@ -1,8 +1,10 @@
 ---
 title: "PowerShell Update Site Header Sitelogo Thumbnail"
 date: 2024-02-11T06:39:48Z
+tags: ["PowerShell","Site Logo","Thumbnail","SharePoint"]
+featured_image: '/posts/images/PowerShell-update-site-header-sitelogo-thumbnail/example.png'
 omit_header_text: true
-draft: false
+draft: true
 ---
 
 ```PowerShell
