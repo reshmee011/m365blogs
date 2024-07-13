@@ -1,10 +1,10 @@
 ---
 title: "Updating SharePoint Site Logo and Thumbnail with PowerShell"
-date: 2024-02-11T06:39:48Z
+date: 2024-07-12T06:39:48Z
 tags: ["PowerShell","Site Logo","Thumbnail","Branding","SharePoint"]
 featured_image: '/posts/images/PowerShell-update-site-header-sitelogo-thumbnail/example.png'
 omit_header_text: true
-draft: true
+draft: false
 ---
 
 # Updating SharePoint Site Logo and Thumbnail with PowerShell 
@@ -66,6 +66,9 @@ $m365Sites | ForEach-Object {
 }
 Stop-Transcript
 ```
+After running the script
+
+![Update Site Logo and Thumbnail](../images/PowerShell-update-site-header-sitelogo-thumbnail/example.png)
 
 ## Conclusion
 
