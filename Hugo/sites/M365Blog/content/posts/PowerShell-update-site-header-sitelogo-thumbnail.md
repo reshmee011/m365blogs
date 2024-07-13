@@ -2,14 +2,14 @@
 title: "Updating SharePoint Site Logo and Thumbnail with PowerShell"
 date: 2024-07-12T06:39:48Z
 tags: ["PowerShell","Site Logo","Thumbnail","Branding","SharePoint"]
-featured_image: '/posts/images/PowerShell-update-site-header-sitelogo-thumbnail/example.png'
+featured_image: '/posts/images/PowerShell-update-site-header-sitelogo-thumbnail/sitelogothumbnail.png'
 omit_header_text: true
 draft: false
 ---
 
-# Updating SharePoint Site Logo and Thumbnail with PowerShell 
+# Update SharePoint Site Logo and Thumbnail with PowerShell 
 
-SIn SharePoint Online sites, the distinction between the `Site Logo` and `Site Logo Thumbnail` is crucial. The site logo appears in the site header, while the site logo thumbnail is used in search results, site cards, file copying/moving, and other areas.
+In SharePoint Online sites, the distinction between the `Site Logo` and `Site Thumbnail` is crucial. The site logo appears in the site header, while the site thumbnail is used in search results, site cards, file copying/moving, and other areas.
 
 Both site logo and thumbnail are part of SharePoint branding. This post covers how to update the site logo and thumbnail across multiple SharePoint sites within a hub using PowerShell.
 
@@ -66,9 +66,10 @@ $m365Sites | ForEach-Object {
 }
 Stop-Transcript
 ```
+
 After running the script
 
-![Update Site Logo and Thumbnail](../images/PowerShell-update-site-header-sitelogo-thumbnail/example.png)
+![Update Site Logo and Thumbnail](../images/PowerShell-update-site-header-sitelogo-thumbnail/sitelogothumbnail.png)
 
 ## Conclusion
 
