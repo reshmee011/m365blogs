@@ -7,6 +7,8 @@ omit_header_text: true
 draft: true
 ---
 
+```powershell
+
 $siteUrl =  "https://contoso.sharepoint.com/teams/TEAM-TEST"
 $list = "Risk Factors"
  
@@ -28,3 +30,4 @@ $filePath = $_['FileRef']
     }
 }
 
+```

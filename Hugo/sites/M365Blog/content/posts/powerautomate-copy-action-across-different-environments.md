@@ -22,8 +22,8 @@ Note: Pasted code clears each time you log out of Power
 Automate.
 {{< /warning >}}
 
-[Copy Clipboard](../images/powerautomate-copy-action-across-different-environments/CopyClipboard.png)
+![Copy Clipboard](../images/powerautomate-copy-action-across-different-environments/CopyClipboard.png)
 
 Don't fret, the option is just to paste by pressing ctrl+v onto the empty clipboard and voila the action is there to be choose to add to the flow.
 
-[Available Clipboard](../images/powerautomate-copy-action-across-different-environments/ActionAvailableIntheClipboard.png)
+![Available Clipboard](../images/powerautomate-copy-action-across-different-environments/ActionAvailableIntheClipboard.png)
