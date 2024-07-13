@@ -4,7 +4,7 @@ date: 2024-07-12T16:16:09Z
 tags: ["SharePoint","PnP","PowerShell","Choice type","SharePoint"]
 featured_image: '/posts/images/powershell-find-orphanedvalues-from-listitems-notin-choicevalues/example.png'
 omit_header_text: true
-draft: true
+draft: false
 ---
 
 # Find orphaned choice values in SharePoint list/libraries using PowerShell
@@ -13,8 +13,7 @@ One common issue is orphaned choice values in SharePoint lists which may affect 
 
 ## PowerShell Script
 
-The script below iterates through specified sites, to identify any choice values in list items that are not present in the choice field's options/values. 
-
+The script below iterates through specified sites, to identify any choice values in list items that are not present in the choice field's options/values.
 
 ```PowerShell
  

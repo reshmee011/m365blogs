@@ -7,8 +7,6 @@ omit_header_text: true
 draft: false
 ---
 
-# Update Choice values of List Items in SharePoint List
-
 Maintaining up-to-date list items, especially when dealing with choice fields, can be a daunting task sepcially after choice field values are updated. We need a way to update these old values to the correct new ones.
 
 ## The Challenge
