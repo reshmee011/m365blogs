@@ -23,7 +23,7 @@ The PowerShell script automates the update of choice values in SharePoint list i
 
 To use the script prepare a csv file with mapping of old value to new value
 
-![csv][../images/powershell-update-choice-value-from-old-to-new/csv.png]
+![csv](../images/powershell-update-choice-value-from-old-to-new/csv.png)
 
 ```PowerShell
 $SiteCollectionUrl = Read-Host -Prompt "Enter site collection URL";

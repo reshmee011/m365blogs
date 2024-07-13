@@ -1,6 +1,6 @@
 ---
 title: "Overcoming SharePoint's List View Threshold with CAML Queries in PowerShell"
-date: 2024-04-21T17:32:36Z
+date: 2024-07-12T17:32:36Z
 tags: ["CAML","PowerShell","PnP","SharePoint","List View Threshold"]
 featured_image: '/posts/images/powershell-caml-query-sharepoint-list/listviewthreshold_CAML_error.png'
 omit_header_text: true
@@ -43,7 +43,7 @@ $items = Get-PnPListItem -Connection $Connection -List $list -Query $q
 
 If the SharePoint list field used in the CAML is not indexed, the script fails for SharePoint list more than 5000 items.
 
-!(List view threshold)[../images/powershell-caml-query-sharepoint-list/listviewthreshold_CAML_error.png]
+![List view threshold](../images/powershell-caml-query-sharepoint-list/listviewthreshold_CAML_error.png)
 
 ## Addressing the List View Threshold Error with indexed column
 
@@ -51,11 +51,11 @@ To circumvent this, ensure the field used in the CAML query is indexed.
 
 **Index the Column**: Navigate to the list settings and add the column to the indexed fields.
 
-!(indexed in progress)[../images/powershell-caml-query-sharepoint-list/Add_Column_To_Indexed_InProgress.png]
+![indexed in progress](../images/powershell-caml-query-sharepoint-list/Add_Column_To_Indexed_InProgress.png)
 
 **Wait for Indexing**: The process may take some time, depending on the size of the list.
 
-!(Indexed Category)[../images/powershell-caml-query-sharepoint-list/IndexedCategory.png]
+![Indexed Category](../images/powershell-caml-query-sharepoint-list/IndexedCategory.png)
 
 **Re-run the Script**: With the column indexed, the script should now execute successfully, retrieving the desired list items
 
