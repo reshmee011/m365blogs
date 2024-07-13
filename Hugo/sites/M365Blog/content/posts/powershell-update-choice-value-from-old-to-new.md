@@ -1,10 +1,10 @@
 ---
 title: "Update Choice values of List Items in SharePoint List"
-date: 2024-07-11T06:39:48Z
+date: 2024-07-13T06:39:48Z
 tags: ["PowerShell","Choice","SharePoint","List"]
 featured_image: '/posts/images/powershell-update-choice-value-from-old-to-new/csv.png'
 omit_header_text: true
-draft: true
+draft: false
 ---
 
 # Update Choice values of List Items in SharePoint List
