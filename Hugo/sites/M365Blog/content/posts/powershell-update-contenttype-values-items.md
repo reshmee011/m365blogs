@@ -1,7 +1,7 @@
 ---
 title: "Update Content Type of List Items in SharePoint List"
 date: 2024-07-11T06:39:48Z
-tags: ["PowerShell","ContentType","SharePoint","Data Management"]
+tags: ["PowerShell","Content Type","SharePoint","Data Management"]
 featured_image: '/posts/images/powershell-update-contenttype-values-items/ContentTypeAmended.png'
 omit_header_text: true
 draft: false
