@@ -4,7 +4,7 @@ date: 2024-07-13T06:39:48Z
 tags: ["PnP PowerShell","version","SharePoint","List"]
 featured_image: '/posts/images/powershell-restore-previous-version/example.png'
 omit_header_text: true
-draft: false
+draft: true
 ---
 
 When working with SharePoint lists, there might be times when you need to restore items to a previous version. Whether it's due to an error, unwanted changes, or simply needing to revert to an earlier state, SharePoint's versioning feature is a lifesaver. This posts covers how to restore previous versions of items in a SharePoint list using `PnP PowerShell`.
@@ -93,6 +93,8 @@ Start-Transcript
 $ItemsRestored | Export-Csv -Path $restoredVersionFilePath -NoTypeInformation -Force -Delimiter ","
 Stop-Transcript
 ```
+
+![example outcome](../images/powershell-restore-previous-version/example.png)
 
 ## Conclusion
 
