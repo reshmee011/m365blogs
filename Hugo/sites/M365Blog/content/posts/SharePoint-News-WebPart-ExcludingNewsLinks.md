@@ -1,6 +1,6 @@
 ---
 title: "Exclude News Link from News WebPart SharePoint Online"
-date: 2024-07-10T16:16:09Z
+date: 2024-07-15T16:16:09Z
 tags: ["SharePoint","Newslink","Search","News WebPart"]
 featured_image: '/posts/images/SharePoint-News-WebPart-ExcludingNewsLinks/Sample.png'
 omit_header_text: true
