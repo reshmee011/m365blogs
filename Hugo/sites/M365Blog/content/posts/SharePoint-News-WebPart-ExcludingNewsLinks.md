@@ -2,7 +2,7 @@
 title: "Exclude News Links from News WebPart in SharePoint Online"
 date: 2024-07-15T16:16:09Z
 tags: ["SharePoint","Newslink","Search","News WebPart"]
-featured_image: '/posts/images/SharePoint-News-WebPart-ExcludingNewsLinks/Sample.png'
+featured_image: '/posts/images/SharePoint-News-WebPart-ExcludingNewsLinks/ExcludeNewsLinkFromNewsWebpart.png'
 omit_header_text: true
 draft: false
 ---
@@ -21,7 +21,7 @@ To exclude news links from the News WebPart, follow these steps:
 
 * Edit the News WebPart.
 * Select the managed property OriginalSourceUrIOWSTEXT.
-![Original Source Url](../images/SharePoint-News-WebPart-ExcludingNewsLinks/OriginalSourceUrlOWSText.png)
+![Original Source Ows Test](../images/SharePoint-News-WebPart-ExcludingNewsLinks/OriginalSourceUrlOWSText.png)
 * Set the field to Doesn't contain and specify the domain name (e.g., contoso).
 
 ![Original Source Url](../images/SharePoint-News-WebPart-ExcludingNewsLinks/ExcludeNewsLinkFromNewsWebpart.png)
