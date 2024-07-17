@@ -17,6 +17,12 @@ For instance, adding a specific number of months to a date retrieved from an act
 
 > addToTime(body('Wait_for_an_approval_2')?['completionDate'], int(body('Get_file_properties')?['ReviewFrequency']?['Value']), 'Month', 'dd/MM/yyyy HH:mm')
 
+## Substract Time
+
+Specific number of months can be substracted from the date retrieved from an action
+
+> string(subtractFromTime(items('Apply_to_each')?['DueDate'],1,'Month','dd/MM/yyyy HH:mm'))
+
 ## Format Date Time
 
 Formatting date to a specific string format is essential otherwise update of data fields might fail because of culture differences. The snippet below formats the date into UK date format before saving it to the date field.
