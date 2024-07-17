@@ -1,7 +1,7 @@
 ---
 title: "How to Filter SharePoint Libraries to Return Less Than 5,000 Items"
 date: 2024-07-16T06:32:50Z
-tags: ["SharePoint Online","Search","Field","Column","Governance"]
+tags: ["SharePoint Online","List View Threshold","Grouping"]
 featured_image: '/posts/images/SharePoint-Filter-libraries-listViewThreshold/LVT_morethan5000.png'
 omit_header_text: true
 draft: false
