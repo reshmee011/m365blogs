@@ -33,9 +33,9 @@ Get-PnPTenantSite |  Sort-Object StorageUsageCurrent -Descending  | Select-Objec
 
 > Omit `Select-Object -First 10` if all sites need to be monitored. 
 
+> add the parameter -IncludeOneDriveSites to consider OneDrive sites 
+
 
 ## Conclusion
 
 PowerShell can help monitor storage within the tenant
-
-
