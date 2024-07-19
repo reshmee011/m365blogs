@@ -14,11 +14,11 @@ Objectives
 Storage Calculation
 Total storage depends on number of licensed users
 1 TB plus 10GB per license purchased
-We purchased 2TB for one 1 year till March 2025 to increase capacity from 8 TB to 10 TB.
+
 
 What data is stored
 1.	Files, Meetings within SharePoint - Teams sites
-2.	Others service like Loop workspace and SharePoint Embedded are part of the storage but it has not been implemented at PPF.
+2.	Others service like Loop workspace and SharePoint Embedded are part of the storage but it has not been implemented
 
 OneDrive storage is not reflected
 
