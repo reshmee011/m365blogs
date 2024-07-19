@@ -1,8 +1,8 @@
 ---
-title: "SharePoint Portals Site collections types"
+title: "SharePoint Portals Site collections Inventory"
 date: 2024-07-19T09:53:05+01:00
-tags: ["SharePoint", "Site Collections", "Portals"]
-featured_image: '/posts/images/SharePoint-sitecollections-type/Script_result.png'
+tags: ["SharePoint", "Site Collections", "Portals","PowerShell","Inventory"]
+featured_image: '/posts/images/SharePoint-Portal-sitecollections-Inventory/Script_result.png'
 omit_header_text: true
 draft: false
 ---
