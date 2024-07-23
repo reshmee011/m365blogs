@@ -71,3 +71,12 @@ Headers : content-type: application/json;odata=verbose
 Body : {"BannerImageUrl":"@{body('Parse_Page_Details_JSON')?['d']?['BannerImageUrl']?['Url']}","Description":"@{body('Parse_Page_Details_JSON')?['d']?['Description']}","IsBannerImageUrlExternal":false,"OriginalSourceUrl":"@{concat(triggerOutputs()?['body/SiteUrl'],'/SitePages/',triggerOutputs()?['body/PageUrl'])}","ShouldSaveAsDraft":false,"Title":"@{body('Parse_Page_Details_JSON')?['d']?['Title']}","OriginalSourceSiteId":"@{triggerOutputs()?['body/OriginalSourceSiteId']}","OriginalSourceWebId":"@{triggerOutputs()?['body/OriginalSourceWebId']}","OriginalSourceListId":"@{triggerOutputs()?['body/OriginalSourceListId']}","OriginalSourceItemId":"@{triggerOutputs()?['body/OriginalSourceItemId']}","__metadata":{"type":"SP.Publishing.RepostPage"}}
 
 ![Create News Link](../images/powerautomate-create-newlinks/CreateNewsLink.png)
+
+
+4. Publish Page
+
+Method: POST
+Uri: _api/sitepages/pages(@{body('Create_News_Link')['body']['d']['Id']})/publish
+Headers : content-type: application/json;odata=verbose
+        accept : application/json;odata=verbose
+![Publish News ](../images/powerautomate-create-newlinks/PublishNews.png)
