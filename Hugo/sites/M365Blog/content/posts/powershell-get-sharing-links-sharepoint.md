@@ -1,6 +1,6 @@
 ---
 title: "Oversight of Sharing Information in SharePoint sites using PowerShell and CSOM, REST and PnP PowerShell"
-date: 2024-05-05T06:57:18+01:00
+date: 2024-07-22T06:57:18+01:00
 tags: ["SharePoint","SharingLinks","PowerShell","Sites", "Security","Copilot for M365", "Governance","CSOM","REST", "PnP","Microsoft Graph" ]
 featured_image: '/posts/images/powershell-get-sharing-links-sharepoint/report.png'
 omit_header_text: true
@@ -133,7 +133,6 @@ The cmdlets Get-PnPFileSharingLink and Get-PnPFolderSharingLink uses the Graph E
 2. Ables to return sharing links from list items
 
 ## CSOM combined with PnP Get-PnPFileSharingLink and Get-PnPFolderSharingLink
-
 
 {{< gist reshmee011 d54e69e40a1de64bfdf228b7a805ff58 >}}
 
