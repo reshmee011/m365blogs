@@ -42,7 +42,21 @@ So reporting on sharing links might not be enough and look into drilling into un
 
 ## PowerShell Script sharing links overview using the PnP PowerShell
 
-{{< gist reshmee011 24bf63cc81ccae604b563a7c312f001f >}}
+### Using Get-PnPFileSharingLink and Get-PnPFolderSharingLink
+
+The Get-PnPFileSharingLink and Get-PnPFolderSharingLink returns all sharing links created only at file/item, folder level.
+![ActualLinks](../images/powershell-get-sharing-links-sharepoint/ActualSharingLinks.png)
+
+The cmdlets Get-PnPFileSharingLink and Get-PnPFolderSharingLink uses the Graph EndPoint under the hood.
+
+> https://graph.microsoft.com/v1.0/sites/{SiteId}/drives/{VroomDriveID}/items/{VroomItemID}/permissions?$filter=Link ne null
+
+{{< gist reshmee011 f9ff790bd6ff00824f30e8b46d39d6dc >}}
+
+### Advantages over CSOM function GetObjectSharingInformation
+
+1. Returns all sharing links including those of type `blockdownload`
+2. Ables to return sharing links from list items
 
 ## PowerShell Script sharing links overview using the CSOM method GetObjectSharingInformation
 
@@ -115,22 +129,6 @@ The REST endpoint that can be used to return only sharing links, refer to [Exter
 ### Output of the REST EndPoint call
 
 ![RESTOutput](../images/powershell-get-sharing-links-sharepoint/RESTOutput.png)
-
-## Using Get-PnPFileSharingLink and Get-PnPFolderSharingLink
-
-The Get-PnPFileSharingLink and Get-PnPFolderSharingLink returns all sharing links created only at file/item, folder level.
-![ActualLinks](../images/powershell-get-sharing-links-sharepoint/ActualSharingLinks.png)
-
-The cmdlets Get-PnPFileSharingLink and Get-PnPFolderSharingLink uses the Graph EndPoint under the hood.
-
-> https://graph.microsoft.com/v1.0/sites/{SiteId}/drives/{VroomDriveID}/items/{VroomItemID}/permissions?$filter=Link ne null
-
-{{< gist reshmee011 f9ff790bd6ff00824f30e8b46d39d6dc >}}
-
-### Advantages over CSOM function GetObjectSharingInformation
-
-1. Returns all sharing links including those of type `blockdownload`
-2. Ables to return sharing links from list items
 
 ## CSOM combined with PnP Get-PnPFileSharingLink and Get-PnPFolderSharingLink
 
