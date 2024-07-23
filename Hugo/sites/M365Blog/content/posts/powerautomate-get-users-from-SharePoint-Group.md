@@ -1,3 +1,11 @@
+---
+title: "Power Automate get SharePoint group users"
+date: 2024-07-23T09:53:05+01:00
+tags: ["Power Automate","Copy Actions","Environment"]
+featured_image: '/posts/images/powerautomate-create-newlinks/GetPageDetails.png'
+omit_header_text: true
+draft: true
+---
 
 1. Http request to SharePoin
 ![get group users](../images/powerautomate-get-users-from-SharePoint-Group/GetUsersFromSharePointGroup.png)
