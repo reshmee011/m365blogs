@@ -4,18 +4,23 @@ date: 2024-07-23T09:53:05+01:00
 tags: ["Power Automate","Get User Details","REST API","SharePoint"]
 featured_image: '/posts/images/powerautomate-get-user-details/GetAuthorDetails.png'
 omit_header_text: true
-draft: true
+draft: false
 ---
 
-1. `Send an Http request to SharePoint` Action renamed to `Get Page Author Details`
+This post covers how to leverage SharePoint REST API to get user details from Power Automate using the `Send an Http request to SharePoint` action.
 
-Site Address: @triggerOutputs()?['body/SiteUrl']
-Method: Get
-Uri : /_api/web/_api/Web/GetUserById(body('Parse_Page_Details_JSON')?['d']?['AuthorId'])
+Within a Power Automate flow follow the steps below to retrieve a user details.
+
+1. `Send an Http request to SharePoint` action renamed to `Get Page Author Details`
+
+Site Address: https://test.sharepoint.com
+Method: GET
+URI: /_api/web/_api/Web/GetUserById(14)
+Here's the output from the API:
 
 ![Get User Details](../images/powerautomate-get-user-details/GetAuthorDetails.png)
 
-Output of the API
+Here's the output from the API:
 
 ```json
 {
@@ -57,8 +62,8 @@ Output of the API
 }
 ```
 
-2. `Parse JSON` Action renamed to `Parse JSON Author Details`
-
+2. `Parse JSON` action renamed to `Parse JSON Author Details`
+    
 Content: body('Get_Page_Author_details')
 Schema:
 ```json
@@ -166,7 +171,12 @@ Schema:
 }
 ```
 
-3. Use User Details in any subsequent actions
+3. Use Parsed User Details in any subsequent actions
+
+To utilize the user details, refer to the parsed JSON:
+
+```md
 body('Parse_JSON_Author_Details')?['d']?['LoginName']
+```
 
 ![Update Author](../images/powerautomate-get-user-details/UpdateAuthorDetails.png)
