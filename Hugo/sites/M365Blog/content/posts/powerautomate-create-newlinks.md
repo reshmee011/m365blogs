@@ -1,22 +1,30 @@
 ---
-title: "Power Automate create and publish news link"
+title: "Power Automate: Create and Publish a News Link"
 date: 2024-07-23T09:53:05+01:00
-tags: ["Power Automate","Copy Actions","Environment"]
+tags: ["Power Automate","Publish Page","SharePoint","News Link"]
 featured_image: '/posts/images/powerautomate-create-newlinks/GetPageDetails.png'
 omit_header_text: true
-draft: true
+draft: false
 ---
 
-1. Get Page Details
-Site Address : site url 
-Method : GET
-Uri : /_api/web/lists/GetByTitle('Site%20Pages')/items(@{triggerOutputs()?['body/SourcePageId']})
+This post covers how to leverage SharePoint REST API to create and publish a news link from Power Automate using the `Send an Http request to SharePoint` action.
+
+Within a Power Automate flow follow the steps below to create and publish a news link details. 
+
+1. `Send an Http request to SharePoint` action renamed to `Get Page Details`.
+
+* Site Address : site url 
+* Method : GET
+* Uri : /_api/web/lists/GetByTitle('Site%20Pages')/items(10)
 
 ![Get News Details](../images/powerautomate-create-newlinks/GetPageDetails.png)
 
-2. Parse JSON
-Content : body('Get_Page_Details')
-Schema: 
+2. `Parse JSON` renamed to `Parse Page Details JSON`
+
+Add the action `Parse JSON` and refer to the content from previous steps
+
+* Content: body('Get_Page_Details')
+* Schema:
 
 ```JSON
 {
@@ -58,14 +66,17 @@ Schema:
     }
 }
 ```
+
 ![Parse Page Details](../images/powerautomate-create-newlinks/ParsePageDetailsJSON.png)
 
-3. Create News Link
+3. Add a `Send an Http request to SharePoint` action renamed to `Create News Link`
 
-Site Address : site url 
-Method : POST 
-Uri : _api/sitepages/pages/reposts
-Headers : content-type: application/json;odata=verbose
+Configure the action
+
+* Site Address : site url 
+* Method : POST 
+* Uri : _api/sitepages/pages/reposts
+* Headers : content-type: application/json;odata=verbose
         accept : application/json;odata=verbose
 
 Body : {"BannerImageUrl":"@{body('Parse_Page_Details_JSON')?['d']?['BannerImageUrl']?['Url']}","Description":"@{body('Parse_Page_Details_JSON')?['d']?['Description']}","IsBannerImageUrlExternal":false,"OriginalSourceUrl":"@{concat(triggerOutputs()?['body/SiteUrl'],'/SitePages/',triggerOutputs()?['body/PageUrl'])}","ShouldSaveAsDraft":false,"Title":"@{body('Parse_Page_Details_JSON')?['d']?['Title']}","OriginalSourceSiteId":"@{triggerOutputs()?['body/OriginalSourceSiteId']}","OriginalSourceWebId":"@{triggerOutputs()?['body/OriginalSourceWebId']}","OriginalSourceListId":"@{triggerOutputs()?['body/OriginalSourceListId']}","OriginalSourceItemId":"@{triggerOutputs()?['body/OriginalSourceItemId']}","__metadata":{"type":"SP.Publishing.RepostPage"}}
@@ -76,11 +87,13 @@ example of body sent to the API:
 
 ![Create News Link](../images/powerautomate-create-newlinks/CreateNewsLink.png)
 
-4. Publish Page
+4. Add a `Send an Http request to SharePoint` action renamed to `Publish Page`
 
-Method: POST
-Uri: _api/sitepages/pages(@{body('Create_News_Link')['body']['d']['Id']})/publish
-Headers : content-type: application/json;odata=verbose
+Configure the action as follows
+
+* Method: POST
+* Uri: _api/sitepages/pages(@{body('Create_News_Link')['body']['d']['Id']})/publish
+* Headers : content-type: application/json;odata=verbose
         accept : application/json;odata=verbose
 
 ![Publish News ](../images/powerautomate-create-newlinks/PublishNews.png)
