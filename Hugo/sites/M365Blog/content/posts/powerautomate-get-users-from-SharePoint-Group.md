@@ -1,7 +1,7 @@
 ---
 title: "Power Automate get SharePoint group users"
 date: 2024-07-23T09:53:05+01:00
-tags: ["Power Automate","Copy Actions","Environment"]
+tags: ["Power Automate","Copy Actions","REST API"]
 featured_image: '/posts/images/powerautomate-create-newlinks/GetPageDetails.png'
 omit_header_text: true
 draft: true

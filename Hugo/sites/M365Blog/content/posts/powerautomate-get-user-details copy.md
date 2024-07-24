@@ -1,8 +1,8 @@
 ---
 title: "Power Automate get user details"
 date: 2024-07-23T09:53:05+01:00
-tags: ["Power Automate","Get User Details"]
-featured_image: '/posts/images/powerauomate-get-user-details/GetAuthorDetails.png'
+tags: ["Power Automate","Get User Details","REST API","SharePoint"]
+featured_image: '/posts/images/powerautomate-get-user-details/GetAuthorDetails.png'
 omit_header_text: true
 draft: true
 ---
@@ -13,7 +13,7 @@ Site Address: @triggerOutputs()?['body/SiteUrl']
 Method: Get
 Uri : /_api/web/_api/Web/GetUserById(body('Parse_Page_Details_JSON')?['d']?['AuthorId'])
 
-![Get User Details](../images/powerauomate-get-user-details/GetAuthorDetails.png)
+![Get User Details](../images/powerautomate-get-user-details/GetAuthorDetails.png)
 
 Output of the API
 
@@ -169,4 +169,4 @@ Schema:
 3. Use User Details in any subsequent actions
 body('Parse_JSON_Author_Details')?['d']?['LoginName']
 
-![Update Author](../images/powerauomate-get-user-details/UpdateAuthorDetails.png)
+![Update Author](../images/powerautomate-get-user-details/UpdateAuthorDetails.png)
