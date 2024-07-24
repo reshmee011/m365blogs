@@ -1,5 +1,5 @@
 ---
-title: "Power Automate get user details"
+title: "Power Automate: Retrieve User Details"
 date: 2024-07-23T09:53:05+01:00
 tags: ["Power Automate","Get User Details","REST API","SharePoint"]
 featured_image: '/posts/images/powerautomate-get-user-details/GetAuthorDetails.png'
@@ -13,9 +13,10 @@ Within a Power Automate flow follow the steps below to retrieve a user details.
 
 1. `Send an Http request to SharePoint` action renamed to `Get Page Author Details`
 
-Site Address: https://test.sharepoint.com
-Method: GET
-URI: /_api/web/_api/Web/GetUserById(14)
+* Site Address: https://test.sharepoint.com
+* Method: GET
+* URI: /_api/web/_api/Web/GetUserById(14)
+
 Here's the output from the API:
 
 ![Get User Details](../images/powerautomate-get-user-details/GetAuthorDetails.png)
@@ -63,9 +64,10 @@ Here's the output from the API:
 ```
 
 2. `Parse JSON` action renamed to `Parse JSON Author Details`
-    
-Content: body('Get_Page_Author_details')
-Schema:
+
+* Content: body('Get_Page_Author_details')
+* Schema:
+
 ```json
 {
     "type": "object",
