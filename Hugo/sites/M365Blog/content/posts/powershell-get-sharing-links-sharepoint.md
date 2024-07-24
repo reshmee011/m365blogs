@@ -32,20 +32,25 @@ However, manually tracking down these links across multiple sites and libraries 
 2. [Data access governance reports for SharePoint sites](https://learn.microsoft.com/en-us/sharepoint/data-access-governance-reports?wt.mc_id=MVP_308367) provide a very high level view of the sharing links without details on which folder or item the sharing link was created. At the time of writing this blog post in April/May 2024, Data Access Governance reports show new sharing links in the past 28 days, which makes it very difficult to find content that was shared using an Everyone Except External Users or Anyone links more than a month ago.te
 3. [Use sharing auditing in the audit log](https://learn.microsoft.com/en-us/purview/audit-log-sharing?view=o365-worldwide&tabs=microsoft-purview-portal#how-to-identify-resources-shared-with-external-users?wt.mc_id=MVP_308367) is restricted to the filter criteria used, which may not retrieve all sharing links.
 
-I have not been able to determine why unique permissions are sometimes created without generating a sharing link. One of the scenerios I noticed is the sharing link is only created when "Copy Link" is clicked on.
+The sharing link is created when "Copy Link" is clicked on, otherwise custom permissions are created. 
 
 ![CopyLinks](../images/powershell-get-sharing-links-sharepoint/linkcopied.png)
 
+Sharing links can be accessed from `Manage Access`.
+
+![ActualLinks](../images/powershell-get-sharing-links-sharepoint/ActualSharingLinks.png)
+
 There have been changes to sharing as per MC706173, please refer for more info[M365 Changelog: (Updated) Invite people you choose in the Share control in Microsoft 365 apps](https://petri.com/microsoft-changelog/m365-changelog-invite-people-you-choose-in-the-share-control-in-microsoft-365-apps/) though the full changes are not clear.
 
-So reporting on sharing links might not be enough and look into drilling into unique permissions applied to each file, folder or item. I have provided two flavours of scripts using CSOM, PnP cmdlets and REST API
+So reporting on sharing links might not be enough and look into drilling into unique permissions applied to each file, folder or item. 
 
-## PowerShell Script sharing links overview using the PnP PowerShell
+View post [Query unique permissions](https://reshmeeauckloo.com/posts/powershell-query-unique-permissions-sharepoint/) for more details.
 
-### Using Get-PnPFileSharingLink and Get-PnPFolderSharingLink
+This post focuses on retrieving sharing links using different options: PnP PowerShell, REST and CSOM.
 
-The Get-PnPFileSharingLink and Get-PnPFolderSharingLink returns all sharing links created only at file/item, folder level.
-![ActualLinks](../images/powershell-get-sharing-links-sharepoint/ActualSharingLinks.png)
+## Get all sharing links using the PnP PowerShell
+
+The cmdlets `Get-PnPFileSharingLink` and `Get-PnPFolderSharingLink` return all sharing links created at file/item and folder level respectively.
 
 The cmdlets Get-PnPFileSharingLink and Get-PnPFolderSharingLink uses the Graph EndPoint under the hood.
 
@@ -56,12 +61,11 @@ The cmdlets Get-PnPFileSharingLink and Get-PnPFolderSharingLink uses the Graph E
 ### Advantages over CSOM function GetObjectSharingInformation
 
 1. Returns all sharing links including those of type `blockdownload`
-2. Ables to return sharing links from list items
+2. Able to get sharing links from list items
 
-## PowerShell Script sharing links overview using the CSOM method GetObjectSharingInformation
+## Get sharing links with the CSOM method GetObjectSharingInformation
 
-This PowerShell script automates the process of retrieving sharing information in SharePoint Online on file, folder or item empowering administrators to efficiently audit sharing. The script was adapted from 
-[How to get a list of shared links in a SharePoint Online document library? Any PowerShell or other way?](https://learn.microsoft.com/en-us/answers/questions/992330/how-to-get-a-list-of-shared-links-in-a-sharepoint) using the CSOM method GetObjectSharingInformation
+The script was adapted from [How to get a list of shared links in a SharePoint Online document library? Any PowerShell or other way?](https://learn.microsoft.com/en-us/answers/questions/992330/how-to-get-a-list-of-shared-links-in-a-sharepoint) using the CSOM method GetObjectSharingInformation
 
 {{< gist reshmee011 24bf63cc81ccae604b563a7c312f001f >}}
 
@@ -80,7 +84,7 @@ The script connects to the SharePoint Online environment using the Connect-PnPOn
 
 ### Retrieval of Sharing Links
 
-The getSharingLink function retrieves sharing links for a given object (site or list item) using the ObjectSharingInformation class. It collects relevant information such as the URL of the shared link, access type, expiration date, and more.
+The getSharingLink function retrieves sharing links for a given object (site or list oritem) using the ObjectSharingInformation class. It collects relevant information such as the URL of the shared link, access type, expiration date, and more.
 
 ### Exclusion of Certain Libraries
 
@@ -96,35 +100,52 @@ Finally, the collected sharing link data is exported to a CSV file with a timest
 
 ### Issues with CSOM function GetObjectSharingInformation
 
-1. Inconsistency in Retrieving List Item Sharing Links
+1. Inconsistency in getting List Item Sharing Links
 
-Despite the presence of a sharing link for a specific list item, the CSOM function **GetObjectSharingInformation** fails to retrieve this link. 
+Despite the presence of a sharing link for a specific list item, the CSOM function **GetObjectSharingInformation** fails to retrieve the link.
 
 * Evidence of Sharing Link for List Item:
 ![list item sharing link](../images/powershell-get-sharing-links-sharepoint/ListItemLink.png)
 
-* Failure to retrieve Sharing Link:
+* Failure to get Sharing Link:
 ![list item sharing link not returned](../images/powershell-get-sharing-links-sharepoint/CSOM_SharingLink_NotReturning_SharingLink_2.png)
 
-2. Partial Retrieval of Sharing Link Information excluding those blocking download of files.
+2. Not all Sharing Links are returned. The list excludes those blocking download of files.
 
 In an instance where a folder was associated with seven distinct sharing links, the **GetObjectSharingInformation** function was only able to fetch five of these links, , omitting those that prevent the downloading of files. This partial retrieval indicates a limitation in the function's ability to comprehensively gather all sharing information.
 
 * Evidence of 7 Sharing Link for folder:
 
-![links](../images/powershell_getsharinginformation_csom_graph/CSOM_sharinglink.png)
+![links](../images/powershell-get-sharing-links-sharepoint/CSOM_sharinglink.png)
 
 * Failure to retrieve all sharing links:
 
-![not all links returned](../images/powershell_getsharinginformation_csom_graph/LinksRetrieved_excludeblockdownload.jpg)
+![not all links returned](../images/powershell-get-sharing-links-sharepoint/LinksRetrieved_excludeblockdownload.jpg)
  
-## Using REST EndPoint
+## Gets sharing links using REST EndPoint
 
 The REST endpoint that can be used to return only sharing links, refer to [Externally Sharing – GetSharingInformation REST API](https://sharepoint.stackexchange.com/questions/309303/get-all-shared-links-to-a-specific-user-in-tenant)
 
  (siteUrl)/_api/web/Lists(listid)/GetItemById(itemid)/GetSharingInformation?$Expand=permissionsInformation,pickerSettings"
 
 {{< gist reshmee011 be60dcf4e73c250aa408441423835c62 >}}
+
+Compared to the PnP PowerShell cmdlets, the REST endpoint returns only the links specific to the file excluding the sharing links defined at the folder level.
+
+* Evidence of 1 link
+![RESTOutput](../images/powershell-get-sharing-links-sharepoint/File_Link.png)
+
+* Output of sharing links from REST endpoint
+![RESTOutput](../images/powershell-get-sharing-links-sharepoint/File_Link_REST.png)
+
+* Output of sharing Links from PnP PowerShell cmdlet, aka Microsoft Graph
+![RESTOutput](../images/powershell-get-sharing-links-sharepoint/File_Link.png)
+
+
+### Advantages over CSOM function GetObjectSharingInformation
+
+1. Returns all sharing links including those of type `blockdownload`
+2. Able to get sharing links from list items
 
 ### Output of the REST EndPoint call
 
