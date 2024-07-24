@@ -15,7 +15,7 @@ Within a Power Automate flow follow the steps below to retrieve a user details.
 
 * Site Address: https://test.sharepoint.com
 * Method: GET
-* URI: /_api/web/_api/Web/GetUserById(14)
+* URI: _api/Web/GetUserById(14)
 
 Here's the output from the API:
 
