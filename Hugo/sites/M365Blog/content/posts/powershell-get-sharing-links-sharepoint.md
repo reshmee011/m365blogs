@@ -122,11 +122,11 @@ In an instance where a folder was associated with seven distinct sharing links, 
 
 ![not all links returned](../images/powershell-get-sharing-links-sharepoint/LinksRetrieved_excludeblockdownload.jpg)
  
-## Gets sharing links using REST EndPoint
+## Gets sharing links using REST Endpoint
 
-The REST endpoint that can be used to return only sharing links, refer to [Externally Sharing – GetSharingInformation REST API](https://sharepoint.stackexchange.com/questions/309303/get-all-shared-links-to-a-specific-user-in-tenant)
+The SharePoint REST endpoint `GetSharingInformation` can be used to return sharing links, this script is based on [Externally Sharing – GetSharingInformation REST API](https://sharepoint.stackexchange.com/questions/309303/get-all-shared-links-to-a-specific-user-in-tenant)
 
- (siteUrl)/_api/web/Lists(listid)/GetItemById(itemid)/GetSharingInformation?$Expand=permissionsInformation,pickerSettings"
+ > (siteUrl)/_api/web/Lists(listid)/GetItemById(itemid)/GetSharingInformation?$Expand=permissionsInformation,pickerSettings"
 
 {{< gist reshmee011 be60dcf4e73c250aa408441423835c62 >}}
 
@@ -148,7 +148,8 @@ Compared to the PnP PowerShell cmdlets, the REST endpoint returns only the links
 
 1. Returns all sharing links including those of type `blockdownload`
 2. Able to get sharing links from list items
-3. Get more details on each link like
+
+Both CSOM function GetObjectSharingInformation and REST endpoint `GetSharingInformation` provide more detailed information for each link compared to PnP PowerShell or Microsoft Graph, including:
     * Created
     * CreatedBy
     * LastModifiedBy
@@ -167,7 +168,7 @@ Compared to the PnP PowerShell cmdlets, the REST endpoint returns only the links
 
 {{< gist reshmee011 d54e69e40a1de64bfdf228b7a805ff58 >}}
 
-However using Get-PnPFileSharingLink and Get-PnPFolderSharingLink return only sharing links and not all sharing instances without a link, hence combining the cmdlets with CSOM 
+However using Get-PnPFileSharingLink and Get-PnPFolderSharingLink return only sharing links and not all sharing instances without a link, hence combining the cmdlets with CSOM.
 
 Example output
 
