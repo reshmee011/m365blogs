@@ -38,4 +38,10 @@ Get-PnPTenantSite |  Sort-Object StorageUsageCurrent -Descending  | Select-Objec
 
 ## Conclusion
 
-PowerShell can help monitor storage within the tenant
+PowerShell can help monitor storage within the tenant.
+
+Consider the intelligent versioning
+
+## References
+
+[https://www.microsoft.com/en-ie/microsoft-365/roadmap?filters=&searchterms=395380](https://www.microsoft.com/en-ie/microsoft-365/roadmap?filters=&searchterms=395380)
