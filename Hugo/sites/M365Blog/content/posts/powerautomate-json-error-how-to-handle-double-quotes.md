@@ -1,5 +1,5 @@
 ---
-title: "JSON Data Handling in Power Automate: double quotes"
+title: "JSON Data Handling in Power Automate: Double Quotes"
 date: 2024-07-24T09:53:05+01:00
 tags: ["Power Automate", "JSON", "Data Handling","Coalesce"]
 featured_image: '/posts/images/powerautomate-json-error-how-to-handle-double-quotes/InternalError_Json_cause.png'
@@ -7,7 +7,11 @@ omit_header_text: true
 draft: false
 ---
 
-One particular action `Send an Http request to SharePoint` to create news link from a SharePoint List Item created trigger was failing whenever the original post had a double quote in the Page title or description.
+When using Power Automate action `Send an Http request to SharePoint` specially to send data in the body to a REST API call, for instance to create a news link from a SharePoint List Item, you might encounter issues if the body contains double quotes in the title or description. This blog post will walk you through the problem and provide solutions to handle double quotes in JSON strings.
+
+## Problem Overview
+
+Using the Send an Http request to SharePoint action to create a news link can fail if the JSON body contains double quotes. Here's an example of a problematic JSON body:
 
 The body sent to the action
 
@@ -16,7 +20,11 @@ The body sent to the action
 ```
 ![Error](../images/powerautomate-json-error-how-to-handle-double-quotes/InternalError_Json_cause.png)
 
-The error is clearly with double quotes in the JSON string.
+This results in an error because the JSON parser expects commas to separate elements, and double quotes within strings can disrupt this structure.
+
+## Error Message
+
+Here's the typical error message you might see:
 
 >{
   "status": 400,
@@ -32,21 +40,44 @@ The error is clearly with double quotes in the JSON string.
 
 ## Solution
 
-### Replace " with  \
-The double quotes can be escaped by using a backlash (\).
+### Escape Double Quotes
 
+To fix this issue, you need to escape double quotes in your JSON strings. Use a backslash (\) before each double quote.
+
+**Replace function:**
+
+```json
 Replace(triggerBody()['text'], '"', '\"')
+```
 
-Ensure to handle empty string , otherwise, the error will be thrown
+If a null value is passed to the Replace function, the error below will be thrown.
 
-### Use coalesce to handle null
+### Handle Null Values
+
+To avoid errors with null values, use the coalesce function to provide a default value.
+
 > Unable to process template language expressions in action 'Create_News_Link' inputs at line '0' and column '0': 'The template language function 'replace' expects its first parameter 'string' to be a string. The provided value is of type 'Null'. Please see https://aka.ms/logicexpressions#replace for usage details.'.
 
+Using coalesce and replace together:
+
+```json
 Replace(coalesce(body('Parse_Page_Details_JSON')?['d']?['Title'],''),'"','\"')
 Replace(coalesce(body('Parse_Page_Details_JSON')?['d']?['Description'], ''), '"', '\"')
+```
 
-After the fix the body looks like
+## Example Fixed JSON Body
+After applying the fix, your JSON body should look like this:
 
 ```Json
-{"BannerImageUrl":"body('Parse_Page_Details_JSON')?['d']?['BannerImageUrl']?['Url']","Description":"replace(coalesce(body('Parse_Page_Details_JSON')?['d']?['Description'], ''), '"', '\"')","IsBannerImageUrlExternal":false,"OriginalSourceUrl":"concat(triggerOutputs()?['body/SiteUrl'],'/SitePages/',triggerOutputs()?['body/PageUrl'])","ShouldSaveAsDraft":false,"Title":"Replace(coalesce(body('Parse_Page_Details_JSON')?['d']?['Title'],''),'"','\"')","OriginalSourceSiteId":"triggerOutputs()?['body/OriginalSourceSiteId']","OriginalSourceWebId":"triggerOutputs()?['body/OriginalSourceWebId']","OriginalSourceListId":"triggerOutputs()?['body/OriginalSourceListId']","OriginalSourceItemId":"triggerOutputs()?['body/OriginalSourceItemId']","__metadata":{"type":"SP.Publishing.RepostPage"}}
+{"BannerImageUrl":"body('Parse_Page_Details_JSON')?['d']?['BannerImageUrl']?['Url']",
+"Description":"replace(coalesce(body('Parse_Page_Details_JSON')?['d']?['Description'], ''), '"', '\"')","IsBannerImageUrlExternal":false,
+"OriginalSourceUrl":"concat(triggerOutputs()?['body/SiteUrl'],'/SitePages/',triggerOutputs()?['body/PageUrl'])","ShouldSaveAsDraft":false,
+"Title":"Replace(coalesce(body('Parse_Page_Details_JSON')?['d']?['Title'],''),'"','\"')",
+"OriginalSourceSiteId":"triggerOutputs()?['body/OriginalSourceSiteId']",
+"OriginalSourceWebId":"triggerOutputs()?['body/OriginalSourceWebId']",
+"OriginalSourceListId":"triggerOutputs()?['body/OriginalSourceListId']",
+"OriginalSourceItemId":"triggerOutputs()?['body/OriginalSourceItemId']",
+"__metadata":{"type":"SP.Publishing.RepostPage"}}
 ```
+
+By following these steps, you can ensure that your Power Automate flow correctly handles double quotes in JSON strings, preventing errors when creating and publishing news links from SharePoint List Items.
