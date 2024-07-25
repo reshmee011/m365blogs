@@ -101,8 +101,6 @@ File count for both sites are 6 if no additional file was added to the sites
 * file  VideoPreview.png  in List Style Library
 * file  MediaWebPartPreview.png  in List Style Library
 
-
-
 ## Conclusion
 
 All these sites are Out of the Box sites which came with the tenant.  Impact will need to be assessed before deleting those.
