@@ -1,11 +1,12 @@
 ---
 title: "Power Automate : Update Author and Editor of a Page"
-date: 2024-07-23T09:53:05+01:00
+date: 2024-07-20T09:53:05+01:00
 tags: ["Power Automate","Update Author",""Update Editor","REST API","SharePoint"]
 featured_image: '/posts/images/powerauomate-get-user-details/GetAuthorDetails.png'
 omit_header_text: true
 draft: false
 ---
+
 
 This post outlines how to use Power Automate to update author and editor of a Page within SharePoint using the `Send an Http request to SharePoint action`.
 
