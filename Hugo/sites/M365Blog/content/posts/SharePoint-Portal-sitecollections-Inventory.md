@@ -9,19 +9,21 @@ draft: false
 
 As part of the Copilot for M365 rollout , questions were raised on the `/portals/Community` and `/portals/hub` as both 'Everyone Except External Users' was granted access raising concerns on the content on the site. These are legacy sites and are currently inaccessible. Historically, these sites were accessible via the legacy SharePoint admin centre, however, they are not available through the modern SharePoint admin centre interface.
 
-Thanks to Gregory Zelfond's blog post ![What are all these site collections in SharePoint?](https://sharepointmaven.com/site-collections-sharepoint/) I found why these sites exist. 
+Thanks to Gregory Zelfond's blog post [What are all these site collections in SharePoint?](https://sharepointmaven.com/site-collections-sharepoint/) I found why these sites exist. 
 
 ## /portals/Community
+
 This site collection is a dedicated space with the Community features enabled. It allows Administrators to manage discussions in a virtual environment. Read about this site collection [here](https://support.office.com/en-us/article/Create-a-community-8b6bb936-7ebc-4e60-b8ab-2d4897499af9).
 
 ## /portals/hub 
+
 This is a site collection that contains all the videos posted to Office 365 Video Portal. Check it out [here](https://sharepointmaven.com/how-to-add-a-video-in-sharepoint/). Office 365 Video Portal is like an internal YouTube for your organization. Now Stream is the preferred option for videos
 
 ## Contents
 
 The sites can't be navigated from the UI
 
-![Site can't be reached from UI](../images/SharePoint-sitecollections-type/Portals_Community_Inaccessible.png)
+![Site can't be reached from UI](../images/SharePoint-Portal-sitecollections-Inventory/Portals_Community_Inaccessible.png)
 
 PowerShell came to the rescue to monitor contents within the portals site.
 
@@ -84,7 +86,7 @@ $SiteStats
 Stop-Transcript
 ```
 
-![Script inventoryresult](../images/SharePoint-sitecollections-type/Script_result.png)
+![Script inventoryresult](../images/SharePoint-Portal-sitecollections-Inventory/Script_result.png)
 
 File count for both sites are 6 if no additional file was added to the sites
 
