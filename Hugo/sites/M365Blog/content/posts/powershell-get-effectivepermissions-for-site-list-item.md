@@ -9,5 +9,7 @@ draft: true
 
 Permissions granted to a user either directly or through a shared link , SharePoint Group or M365 group to any list/libraries or file/item can be checked using the effectivepermissions endpoint
 
+The script using the effecivepermissions endpoint to identify any permissions assigned to the site, list/library and item/file/folder level. 
+
 {{< gist reshmee011 7e9e09d016e0384a6aff31d7d10804e8 >}}
 
