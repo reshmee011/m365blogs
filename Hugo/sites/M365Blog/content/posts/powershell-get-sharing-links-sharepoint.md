@@ -52,13 +52,13 @@ This post focuses on retrieving sharing links using different options: PnP Power
 
 The cmdlets `Get-PnPFileSharingLink` and `Get-PnPFolderSharingLink` return all sharing links created at file/item and folder level respectively.
 
-The cmdlets Get-PnPFileSharingLink and Get-PnPFolderSharingLink uses the Graph EndPoint under the hood.
+The cmdlets Get-PnPFileSharingLink and Get-PnPFolderSharingLink uses the Microsoft Graph `permissions` endPoint under the hood.
 
 > https://graph.microsoft.com/v1.0/sites/{SiteId}/drives/{VroomDriveID}/items/{VroomItemID}/permissions?$filter=Link ne null
 
 {{< gist reshmee011 f9ff790bd6ff00824f30e8b46d39d6dc >}}
 
-### Advantages over CSOM function GetObjectSharingInformation
+### Advantages using PnP PowerShell cmdlets over CSOM function GetObjectSharingInformation
 
 1. Returns all sharing links including those of type `blockdownload`
 2. Able to get sharing links from list items
@@ -84,7 +84,7 @@ The script connects to the SharePoint Online environment using the Connect-PnPOn
 
 ### Retrieval of Sharing Links
 
-The getSharingLink function retrieves sharing links for a given object (site or list oritem) using the ObjectSharingInformation class. It collects relevant information such as the URL of the shared link, access type, expiration date, and more.
+The getSharingLink function retrieves sharing links for a given object (site or list or item) using the ObjectSharingInformation class. It collects relevant information such as the URL of the shared link, access type, expiration date, and more.
 
 ### Exclusion of Certain Libraries
 
@@ -116,7 +116,7 @@ In an instance where a folder was associated with seven distinct sharing links, 
 
 * Evidence of 7 Sharing Link for folder:
 
-![links](../images/powershell-get-sharing-links-sharepoint/CSOM_sharinglink.png)
+![links](../images/powershell-get-sharing-links-sharepoint/CSOM_sharinglink.jpg)
 
 * Failure to retrieve all sharing links:
 
@@ -130,6 +130,8 @@ The REST endpoint that can be used to return only sharing links, refer to [Exter
 
 {{< gist reshmee011 be60dcf4e73c250aa408441423835c62 >}}
 
+## Difference from CSOM and PnP PowerShell/Microsoft Graph 
+
 Compared to the PnP PowerShell cmdlets, the REST endpoint returns only the links specific to the file excluding the sharing links defined at the folder level.
 
 * Evidence of 1 link
@@ -139,13 +141,23 @@ Compared to the PnP PowerShell cmdlets, the REST endpoint returns only the links
 ![RESTOutput](../images/powershell-get-sharing-links-sharepoint/File_Link_REST.png)
 
 * Output of sharing Links from PnP PowerShell cmdlet, aka Microsoft Graph
-![RESTOutput](../images/powershell-get-sharing-links-sharepoint/File_Link.png)
+![RESTOutput](../images/powershell-get-sharing-links-sharepoint/File_Link_Graph_PnP.png)
 
 
-### Advantages over CSOM function GetObjectSharingInformation
+### Advantages using REST over CSOM function GetObjectSharingInformation
 
 1. Returns all sharing links including those of type `blockdownload`
 2. Able to get sharing links from list items
+3. Get more details on each link like
+    * Created
+    * CreatedBy
+    * LastModifiedBy
+    * LastModified
+    * PasswordLastModified
+    * PasswordLastModifiedBy
+    * HasExternalGuestInvitees
+    * HasAnonymousLink
+    * AllowsAnonymousAccess
 
 ### Output of the REST EndPoint call
 
@@ -163,7 +175,7 @@ Example output
 
 ## Conclusion
 
-This PowerShell script can help with compliance or simply optimise security practices for effective SharePoint management. There are different ways to retrieve sharing information. The CSOM method wins returning all sharing information while the REST and PnP cmdlets (Graph) return only sharing links.
+This PowerShell script can help with compliance or simply optimise security practices for effective SharePoint management. There are different ways to retrieve sharing information with each endpoint returning different information. Analyse the most convenient method retrieving those information.
 
 ## References
 
