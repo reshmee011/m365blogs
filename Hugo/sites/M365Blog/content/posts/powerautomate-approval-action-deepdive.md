@@ -83,12 +83,16 @@ When using the "Start and Wait for an Approval" action, you can specify differen
 
 **Pros** 
 * Allows for customized email text and outcomes.
+
 * External people can be set as approvers.
 
 ### SharePoint Content Approval
 
 **Pro**
 * Enabled within SharePoint lists and libraries.
+
 * Use on document, image, or page libraries.
+
 * Supports versioning settings with content approval.
+
 * Workflow can handle approval status changes and actions based on whether an item is approved or rejected.

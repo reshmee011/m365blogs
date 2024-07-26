@@ -34,54 +34,32 @@ Power Automate offers an approval action to fulfil business approval requirement
 The 'Create an Approval` starts the approval process without waiting for a response.
 ![Approval task](../images/powerautomate-approval-action-reminders/CreateApprovalTask.png)
 
-### Wait for Approval 
+### Until Loop to trigger reminder if not already approved for 4 times
 
+![Until Loop condition](../images/powerautomate-approval-action-reminders/UntilApprovalIsComplete.png)
 
-### Loop through 4 four times or until approval is complated
+Add the following actions within the loop
 
-
-
-## Start and Wait for an Approval
-
-Behavior: Commonly used. Keeps the workflow running until all approvers complete their tasks.
-
-## Timeout
-
-Approval Task lasts forever despite
-
-## Wait for an Approval
-
+#### Wait for Approval 
 Behavior: Waits for a specific approval process to complete.
+Condition to run on time out of the action `Wait for Approval`
 
-## Custom Outcomes and Responses
+![Wait for Approval](../images/powerautomate-approval-action-reminders/WaitforAnApproval.png)
 
-When using the "Start and Wait for an Approval" action, you can specify different approval types and custom responses:
+Settings for Approval to timeout after 6 days
 
-### Approval Types:
+![Wait for Approval settings](../images/powerautomate-approval-action-reminders/WaitforAnApproval_Settings.png)
 
-Custom Responses - Wait for all responses
-Approve/Reject - First to respond
-Approve/Reject - Everyone must approve
-Custom Responses - Wait for one response
+#### Add Condition to run on timeout
 
-## Approval Settings
+Action to check criteria to send reminder
+![Condition to send reminder](../images/powerautomate-approval-action-reminders/condition_to_send_reminder.png)
 
-* Timeout: Uses ISO 8601 format (e.g., P5D for 5 days, PT1M30S for 1 minute and 30 seconds).
+Configure the Run after to be last action timing out
 
-* Retry Policy: Default is 4 retries. Options include none, exponential interval, or fixed interval, also using ISO 8601 format.
+![Trigger on timeout](../images/powerautomate-approval-action-reminders/ConditionToSendReminderOnTimeOutifApprovalPending.png
 
-## Alternatives to Approval Actions
+#### Send Reminder Email 
 
-### Send Email with Options:
+![Condition to send reminder](../images/powerautomate-approval-action-reminders/condition_to_send_reminder_steps.png)
 
-**Pros** 
-* Allows for customized email text and outcomes.
-* External people can be set as approvers.
-
-### SharePoint Content Approval
-
-**Pro**
-* Enabled within SharePoint lists and libraries.
-* Use on document, image, or page libraries.
-* Supports versioning settings with content approval.
-* Workflow can handle approval status changes and actions based on whether an item is approved or rejected.
