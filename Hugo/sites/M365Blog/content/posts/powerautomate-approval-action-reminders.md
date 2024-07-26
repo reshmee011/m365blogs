@@ -7,30 +7,39 @@ omit_header_text: true
 draft: true
 ---
 
-Power Automate offers an approval action to fulfil business approval requirement. This post covers some of the action settings.
+Power Automate offers an approval action to fulfil business approval requirement. This post covers some workarounds around two limitations
 
-## The Pros of using approval action
- 
-**Interactive Emails**: Built-in, interactive emails with buttons and a text box for approvers to provide outcomes and comments.
-**Parallel Approvals**: Supports parallel approval processes out of the box.
-**Mobile Integration**: Integrated with the mobile app for on-the-go approvals.
-**Centralized Management**: Manage approvals through flow.Microsoft.com.
-**Push Notifications**: Receive app push notifications for approval requests.
-
-## The Cons of approval action
-
-**Limited Customisation**: Emails are not customizable, only the request details can be modified.
-**Visibility Issues**: No visibility into existing approvals beyond your own.
 **No Built-in Reminders**: Does not provide overdue reminders out of the box.
-**No Serial Process**: No out-of-the-box support for serial approval processes; must be manually built.
-**Internal Approvers Only**: Approvers must be within the organization.
+
 **Timeout Limit**: Power Autpmate flow times out after 30 days due to a time out though the approval task stays active in the background.
 
-## Approval Action Types
+## Steps to add reminders every 6 days from the approval being created 
 
-### Create an Approval
+### Initialise Variables
 
-Behavior: Starts the approval process without waiting for a response.
+1. Create a variable to check whether approval is complete
+![ApprovalComplete](../images/powerautomate-approval-action-reminders/var_approvalcomplete.png)
+
+2. Create a variable to keep track of the times the reminder has been sent
+![Reminder Count](../images/powerautomate-approval-action-reminders/var_remindercount.png)
+
+3. Create a variable to store the approvalId
+![Approval Id](../images/powerautomate-approval-action-reminders/var_approvalid.png)
+
+4. Create a variable to store the respondlink
+![Respond link](../images/powerautomate-approval-action-reminders/var_respondlink.png)
+
+### Create an Approval 
+
+The 'Create an Approval` starts the approval process without waiting for a response.
+![Approval task](../images/powerautomate-approval-action-reminders/CreateApprovalTask.png)
+
+### Wait for Approval 
+
+
+### Loop through 4 four times or until approval is complated
+
+
 
 ## Start and Wait for an Approval
 

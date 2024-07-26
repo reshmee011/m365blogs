@@ -2,7 +2,7 @@
 title: "Power Automate Approval Actions: Reminders option"
 date: 2024-07-25T09:53:05+01:00
 tags: ["Power Automate", "Approval", "Reminders"]
-featured_image: '/posts/images/powerautomate-approval-action-reminders/approval.png'
+featured_image: '/posts/images/powerautomate-approval-action-reminders/create_approval.png'
 omit_header_text: true
 draft: true
 ---
@@ -11,19 +11,31 @@ Power Automate offers an approval action to fulfil business approval requirement
 
 ## The Pros of using approval action
  
-**Interactive Emails**: Built-in, interactive emails with buttons and a text box for approvers to provide outcomes and comments.
+**Interactive Emails**: Built-in, interactive emails and Teams approval notifications with buttons and a text box for approvers to provide outcomes and comments.
+
+
 **Parallel Approvals**: Supports parallel approval processes out of the box.
+
 **Mobile Integration**: Integrated with the mobile app for on-the-go approvals.
+
 **Centralized Management**: Manage approvals through flow.Microsoft.com.
+
 **Push Notifications**: Receive app push notifications for approval requests.
+
 
 ## The Cons of approval action
 
 **Limited Customisation**: Emails are not customizable, only the request details can be modified.
+![Email Sample](../images/powerautomate-approval-action-reminders/approval_emailformat.png)
+
 **Visibility Issues**: No visibility into existing approvals beyond your own.
+
 **No Built-in Reminders**: Does not provide overdue reminders out of the box.
+
 **No Serial Process**: No out-of-the-box support for serial approval processes; must be manually built.
+
 **Internal Approvers Only**: Approvers must be within the organization.
+
 **Timeout Limit**: Power Autpmate flow times out after 30 days due to a time out though the approval task stays active in the background.
 
 ## Approval Action Types
@@ -38,7 +50,7 @@ Behavior: Commonly used. Keeps the workflow running until all approvers complete
 
 ## Timeout
 
-Approval Task lasts forever despite
+Approval Task lasts forever despite the flow has timed out. 
 
 ## Wait for an Approval
 
@@ -50,16 +62,20 @@ When using the "Start and Wait for an Approval" action, you can specify differen
 
 ### Approval Types:
 
-Custom Responses - Wait for all responses
-Approve/Reject - First to respond
-Approve/Reject - Everyone must approve
-Custom Responses - Wait for one response
+* Custom Responses - Wait for all responses
+* Approve/Reject - First to respond
+* Approve/Reject - Everyone must approve
+* Custom Responses - Wait for one response
+
+![Email Sample](../images/powerautomate-approval-action-reminders/approval_types.png)
 
 ## Approval Settings
 
 * Timeout: Uses ISO 8601 format (e.g., P5D for 5 days, PT1M30S for 1 minute and 30 seconds).
 
 * Retry Policy: Default is 4 retries. Options include none, exponential interval, or fixed interval, also using ISO 8601 format.
+
+![Approval Settings](../images/powerautomate-approval-action-reminders/approval_settings.png)
 
 ## Alternatives to Approval Actions
 
