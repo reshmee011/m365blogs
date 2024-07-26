@@ -115,7 +115,7 @@ sample output
 
 ```
 
-2.	Network tool
+2. Network tool
 
 3. win mtr  tool
 
