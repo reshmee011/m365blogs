@@ -34,13 +34,26 @@ Power Automate offers an approval action to fulfil business approval requirement
 The 'Create an Approval` starts the approval process without waiting for a response.
 ![Approval task](../images/powerautomate-approval-action-reminders/CreateApprovalTask.png)
 
+### Set Variables
+
+![Set Variables](../images/powerautomate-approval-action-reminders/setVariables.png)
+
+1. Set variable to store the approvalId
+![Approval Id](../images/powerautomate-approval-action-reminders/var_approvalid.png)
+
+2. Set variable to store the respondlink
+![Respond link](../images/powerautomate-approval-action-reminders/var_respondlink.png)
+
 ### Until Loop to trigger reminder if not already approved for 4 times
+
+Add `Do Unitl` loop action
 
 ![Until Loop condition](../images/powerautomate-approval-action-reminders/UntilApprovalIsComplete.png)
 
 Add the following actions within the loop
 
 #### Wait for Approval 
+
 Behavior: Waits for a specific approval process to complete.
 Condition to run on time out of the action `Wait for Approval`
 
@@ -50,7 +63,7 @@ Settings for Approval to timeout after 6 days
 
 ![Wait for Approval settings](../images/powerautomate-approval-action-reminders/WaitforAnApproval_Settings.png)
 
-#### Add Condition to run on timeout
+#### Condition to run on timeout
 
 Action to check criteria to send reminder
 ![Condition to send reminder](../images/powerautomate-approval-action-reminders/condition_to_send_reminder.png)
@@ -63,3 +76,38 @@ Configure the Run after to be last action timing out
 
 ![Condition to send reminder](../images/powerautomate-approval-action-reminders/condition_to_send_reminder_steps.png)
 
+![Send Email](../images/powerautomate-approval-action-reminders/SendEmail.png)
+
+#### Increment variable ReminderCount
+
+ReminderCount keeps track of the number of reminders sent and is incremented by 1 each time a email reminder is sent
+
+#### Add 'Terminate' action
+
+Ad `Terminate` action and set status to `Succeeded` to complete the flow.
+
+#### Handle Approval
+
+![Handle Approvals](../images/powerautomate-approval-action-reminders/HandleApprovals.png)
+
+Add a parallel `Set Variable` action after the `Wait for Approval` and specify the run after property to be successful to set the variable `varApprovalComplete` to true.
+
+![Run after success](../images/powerautomate-approval-action-reminders/SetApprovalComplete_RunAfterSuccess.png)
+
+Add other actions how to handle Approved or Reject status.
+
+### Handle Timeout to cancel approval task 
+
+![Handle Approvals](../images/powerautomate-approval-action-reminders/HandleTimeOut.png)
+
+* Add `Delay` action for 28 days as a parallel action to the action 'Until Loop to trigger reminder if not already approved for 4 times'
+
+* Cancel Approval Task using `Update a row` Dataverse connector
+
+![Cancel Approvals](../images/powerautomate-approval-action-reminders/CancelApproval.png)
+
+* Add `Terminate` Action to cancel flow setting status to 'Cancelled`
+
+* Set variable varApprovalComplete to true
+
+* Add any other corresponding actions like updating list item status
