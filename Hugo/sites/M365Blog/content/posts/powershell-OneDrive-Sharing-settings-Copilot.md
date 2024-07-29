@@ -430,13 +430,12 @@ Get-PnPTenant | select-object -property ODBAccessRequests `
             ,NotifyOwnersWhenItemsReshared `
             ,HideSyncButtonOnTeamSite
             ,DisableAddShortCutsToOneDrive  `
-            ,OneDriveSharingCapability
             ,OneDriveDefaultShareLinkScope `
             ,OneDriveDefaultShareLinkRole `
             ,OneDriveDefaultLinkToExistingAccess `
             ,OneDriveBlockGuestsAsSiteAdmin `
             ,ContentTypeSyncSiteTemplatesList `
-#>
+<#OneDriveSharingCapability not available in PnP PowerShell#>
 ```
 
 **Update Tenant OneDrive settings**
@@ -449,7 +448,6 @@ Set-PnPTenant -ODBAccessRequests Off `
             -ODBMembersCanShare On `
             -OneDriveRequestFilesLinkEnabled $true `
             -DisableAddShortCutsToOneDrive $true  `
-            -OneDriveSharingCapability ExternalUserAndGuestSharing `
             -OneDriveDefaultShareLinkScope Organization `
             -OneDriveDefaultShareLinkRole Edit `
             -OneDriveLoopDefaultSharingLinkRole Edit `
@@ -463,7 +461,7 @@ Set-PnPTenant -ODBAccessRequests Off `
             -NotifyOwnersWhenInvitationsAccepted $true ` 
             -NotifyOwnersWhenItemsReshared $true `
             -HideSyncButtonOnTeamSite $true
-
+<# not available in PnP PowerShell#>
 #Set blocked File types
 Set-PnPTenantSyncClientRestriction -ExcludedFileExtensions "exe;mp3;mp4"
 ```
