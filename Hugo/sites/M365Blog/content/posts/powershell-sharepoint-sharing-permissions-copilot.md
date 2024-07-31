@@ -620,7 +620,6 @@ Set-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
 ```PowerShell
 
 Connect-pnponline -url https://contoso.sharepoint.com/sites/SharingTest  -interactive
-Set-PnPSite  -DisableSharingForNonOwners
 
 Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
             -ShowPeoplePickerSuggestionsForGuestUsers $false `
@@ -636,6 +635,7 @@ Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
             -AnonymousLinkExpirationInDays 60 `
             -ConditionalAccessPolicy AllowLimitedAccess `
             -ReadOnlyForUnmanagedDevices $true
+            -DisableSharingForNonOwners
 ```
 
 ### PowerShell script to get site sharing settings
@@ -644,7 +644,7 @@ Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
 
 Connect-SPOService https://contoso-admin.sharepoint.com
 
-Get-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest | select `
+Get-SPOSite -Identity https://reshmeeauckloo.sharepoint.com/sites/SharingTest | select `
             ShowPeoplePickerSuggestionsForGuestUsers, `
             SharingCapability, `
             ExternalUserExpirationInDays, `
@@ -658,8 +658,9 @@ Get-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest | select 
             DisableCompanyWideSharingLinks, `
             AnonymousLinkExpirationInDays, `
             ConditionalAccessPolicy, `
-            ReadOnlyForUnmanagedDevices, `
-            DisableSharingForNonOwners 
+            ReadOnlyForUnmanagedDevices
+            
+# DisableSharingForNonOwners does not return any value
            
 ```
 
@@ -669,8 +670,7 @@ Get-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest | select 
 
 Connect-pnponline -url https://contoso.sharepoint.com/sites/SharingTest  -interactive
 
-Set-PnPTenantSite -Identity https://contoso.sharepoint.com/sites/SharingTest `
-Get-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest | select `
+Get-PnTenantPSite -Identity https://contoso.sharepoint.com/sites/SharingTest | select `
             ShowPeoplePickerSuggestionsForGuestUsers, `
             SharingCapability, `
             ExternalUserExpirationInDays, `
@@ -684,9 +684,10 @@ Get-SPOSite -Identity https://contoso.sharepoint.com/sites/SharingTest | select 
             DisableCompanyWideSharingLinks, `
             AnonymousLinkExpirationInDays, `
             ConditionalAccessPolicy, `
-            ReadOnlyForUnmanagedDevices, `
-            DisableSharingForNonOwners 
+            ReadOnlyForUnmanagedDevices
+           # DisableSharingForNonOwners does not return any value
 ```
+
 ## Other settings to consider 
 
 ### SharePoint Restricted Search
