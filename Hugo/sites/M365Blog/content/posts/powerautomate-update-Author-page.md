@@ -13,14 +13,23 @@ Within a Power Automate flow, follow the following steps
 
 1. Add `Send an Http request to SharePoint` renamed to `Update Author`
 
-* Site Address: siteUrl
-* Method: POST
-* Uri : _api/web/lists/GetByTitle('Site%20Pages')/items(1)/ValidateUpdateListItem()
+### Properties
 
-* Headers : content-type: application/json;odata=verbose
-            accept : application/json;odata=verbose
+|Property|Value|
+|---|---|
+|Site Address|_The SharePoint site URL_|
+|Method|POST|
+|Uri|`_api/web/lists/GetByTitle('Site%20Pages')/items(1)/ValidateUpdateListItem()`|
+|Headers|_See **Headers** table below_|
+|Body|_See **Body** table below_|
 
-* Body :
+### Headers
+|Name|Value|
+|---|---|
+|Accept|`application/json; odata=nometadata`|
+|Content-Type|`application/json; odata=verbose`|
+
+### Body :
 
 ```json
 {"formValues":[{"FieldName":"Author","FieldValue":"[{'key':'@{body('Parse_JSON_Author_Details')?['d']?['LoginName']}'}]"},{"FieldName":"Editor","FieldValue":"[{'key':'body('Parse_JSON_Author_Details')?['d']?['LoginName']}']"}],"bNewDocumentUpdate":true,"checkInComment":null}
