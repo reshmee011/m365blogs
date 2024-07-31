@@ -19,9 +19,13 @@ Within a Power Automate flow, follow the following steps
 |---|---|
 |Site Address|_The SharePoint site URL_|
 |Method|POST|
-|Uri|`_api/web/lists/GetByTitle('Site%20Pages')/items(1)/ValidateUpdateListItem()`|
+|Uri|_See **Uri** below_|
 |Headers|_See **Headers** table below_|
-|Body|_See **Body** table below_|
+|Body|_See **Body** below_|
+
+### Uri
+
+_api/web/lists/GetByTitle('Site%20Pages')/items(1)/ValidateUpdateListItem()`
 
 ### Headers
 |Name|Value|
