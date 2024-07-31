@@ -2,7 +2,7 @@
 title: "Power Automate : Update Author and Editor of a Page"
 date: 2024-07-21T09:53:05+01:00
 tags: ["Power Automate","Update Author","Update Editor","REST API","SharePoint"]
-featured_image: '/posts/images/powerauomate-get-user-details/GetAuthorDetails.png'
+featured_image: '/posts/images/powerauomate-get-user-details/UpdateAuthorDetails.png'
 omit_header_text: true
 draft: false
 ---
