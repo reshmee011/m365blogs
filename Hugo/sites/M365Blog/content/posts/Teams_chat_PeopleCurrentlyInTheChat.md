@@ -1,5 +1,5 @@
 ---
-title: "Teams Chats - Restricting Sharing Links to 'People Currently in this Chat"
+title: "Teams Chats - default Sharing Links to 'People Currently in this Chat"
 date: 2024-07-30T06:51:10Z
 tags: ["OneDrive","Teams Chat","Tenant","Sites","PowerShell","OneDrive","Copilot for M365","Information Governance","IG", "PowerShell", "Tackling oversharing"]
 featured_image: '/posts/images/Teams_chat_PeopleCurrentlyInTheChat/PeopleInChatCanEdit.png'
@@ -7,7 +7,7 @@ omit_header_text: true
 draft: false
 ---
 
-Have you ever wondered how to restrict the default sharing link in Teams chats to 'People currently in this chat'? By default, if "Anyone" is disabled within the tenant, the sharing link is set to "People in my organization". This can be a challenge when you want to limit access to only those in the current chat. All files uploaded to a Teams Chat are stored in the uploader's OneDrive for Business.
+Have you ever wondered how to default the default sharing link in Teams chats to 'People currently in this chat'? By default, if "Anyone" is disabled within the tenant, the sharing link is set to "People in my organization". This can be a challenge when you want to limit access to only those in the current chat. All files uploaded to a Teams Chat are stored in the uploader's OneDrive for Business.
 
 ![MS Teams Chat Files](../images/Teams_chat_PeopleCurrentlyInTheChat/OneDriveMSTeamsChatFiles.png)
 

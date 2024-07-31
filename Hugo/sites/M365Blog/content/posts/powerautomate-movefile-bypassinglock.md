@@ -117,6 +117,119 @@ Within a Power Automate flow, follow the following steps
 {"exportObjectUris":["https://contoso.sharepoint.com/teams/test/Shared%20Documents/To%20Be%20Processed/test.xlsx"],"destinationUri":"https://contoso.sharepoint.com/teams/test/Shared%20Documents/Completed","options":{"IgnoreVersionHistory":true,"AllowSchemaMismatch":true,"BypassSharedLock":true,"IsMoveMode":true,"IncludeItemPermissions":true,"SameWebCopyMoveOptimization":true}}
 ```
 
+then we have these options these are the
+6:33
+parameters that you can pass in the body
+6:36
+that will decide whether to keep the
+6:37
+version or not keep the same file again
+6:40
+a not and few other things right so
+6:43
+let's go one by one ignore version
+6:46
+history if you keep it true that means
+6:49
+we don't want versions if you don't put
+6:52
+any of this it's true so default is true
+6:55
+default is ignore version history we
+6:58
+going to say false so we're not going to
+7:00
+ignore the version history is move mode
+7:03
+that is if it's true it's going to move
+7:05
+the file if it is false it's going to
+7:08
+copy the
+7:09
+file allow schema mismatch this is so
+7:12
+for example if you're moving a file from
+7:14
+one library that is a different content
+7:16
+type to the different library that has a
+7:18
+different content
+7:19
+type if it doesn't match you will get an
+7:22
+error if you say true that means it will
+7:25
+allow to move the file so it will
+7:26
+actually move your file and then you can
+7:29
+match the content type once the file has
+7:31
+been moved and then we have the name
+7:33
+conflict behavior that is whether you
+7:35
+want to overwrite or key this going to
+7:37
+tell you whether you want to replace or
+7:40
+overwrite the file or you want to keep
+7:42
+the both one is replace two is we're
+7:46
+going to keep
+7:47
+both okay so this is a setup that you
+7:50
+need to do of course what you need to
+7:52
+change in this structure when you copy
+7:54
+from the from the commment section URL
+7:57
+of your site and and then you need to
+8:00
+get the path and any parameter that you
+8:02
+want to change click save I'm going to
+8:05
+click
+8:08
+test and if you are creating this flow
+8:12
+either an automat or schedule you can
+8:15
+just wait for your trigger to
+8:18
+trigger okay it's going to ask for the
+8:20
+connections continue click run
+8:22
+flow okay so the flow is running I can
+8:25
+go into my final status file and see if
+8:28
+the file is start
+8:30
+moving and you can also see how quick
+8:33
+these flows runs right as you can see
+8:36
+here all the files from this library to
+8:39
+this library has been copied now if I go
+8:41
+to the version
+8:43
+history and as you can see all the
+8:46
+previous versions also moved I can see
+8:50
+any other
+8:54
+file awesome right yeah so this was a
 
 ![Move Action](../images/powerautomate-movefile-bypassinglock/rest_api_createcopyjobs.png.png)
 
