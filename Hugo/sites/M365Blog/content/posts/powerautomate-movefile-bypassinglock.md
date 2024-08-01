@@ -1,32 +1,36 @@
 ---
 title: "Power Automate : Move File bypassing locked issue"
 date: 2024-07-31T09:53:05+01:00
-tags: ["Power Automate","Update Author","Update Editor","REST API","SharePoint"]
-featured_image: '/posts/images/powerautomate-movefile-bypassinglock/UpdateAuthorDetails.png'
+tags: ["Power Automate","Update Author","Update Editor","REST API","SharePoint","BypassSharedLock"]
+featured_image: '/posts/images/powerautomate-movefile-bypassinglock/rest_api_createcopyjobs.png'
 omit_header_text: true
-draft: true
+draft: false
 ---
 
-The  `SharePoint - Move file` action can be used , however the file can't be moved if the file was accessed by the current Power Automate flow for any processing throwing the locked file error.
+The  `SharePoint - Move file` action can be used to move files, however the file can't be moved if the file was accessed by the current Power Automate flow for any processing reslutng in a locked file error.
 
-[../images/powerautomate-movefile-bypassinglock/movefile_networkerror.png]
+! [../images/powerautomate-movefile-bypassinglock/movefile_networkerror.png]
 
 > {
   "status": 400,
-  "message": "File 'Shared Documents/Staff Attendances/To Be Processed/Staff Attendance -16072024.xlsx' cannot be moved because it is in locked mode.\r\nclientRequestId: d6df7566-881f-4f14-8548-c5fac1eda46d\r\nserviceRequestId: 606841a1-40f0-9000-9c69-507df9b21720"
+  "message": "File 'Shared Documents/Attendances/To Be Processed/Attendance -16072024.xlsx' cannot be moved because it is in locked mode.\r\nclientRequestId: d6df7566-881f-4f14-8548-c5fac1eda46d\r\nserviceRequestId: 606841a1-40f0-9000-9c69-507df9b21720"
 }
 
-There are two options to use if `SharePoint - Move file` is used
-- Handle locked file in a loop to attempt moving file until it is not locked
+## Handling Locked Files
+
+There are two options to handlelocked files when using `SharePoint - Move file` action:
+
+1. **Handle Locked file in a Loop**: Attempt to move the file in a loop until it is no longer locked.
 
 [../images/powerautomate-movefile-bypassinglock/loop_MoveFileUntilUnlocked.png]
 
-- Add `Delay` action for at least 5-6 minutes to wait until the Power Automate release the lock to do any action with the file including move
+2. **Add Delay action**: Add a `Delay` action for at least 5-6 minutes to wait until the Power Automate automatically releases the lock.
 
+However, the time Power Automate takes to release the lock is unpredictable and can sometimes exceed 5-6 minutes, causing the flow to run longer.
 
-However speed is key and I have noticed the amount of time Power Automate releases the lock is unpredictable sometimes taking longer than 5-6 minutes which may cause the flow to run longer.
+## Using REST API to Move Files
 
-I have used the endpoint `_api/SP.MoveCopyUtil.MoveFileByPath(overwrite=@a1)?@a1=true` in vain as described [Moving Files with SharePoint Online REST APIs in Microsoft Flow]https://gist.github.com/zplume/9f4c1a658517802701deff3473f23a60.
+I attempted to use the endpoint `_api/SP.MoveCopyUtil.MoveFileByPath(overwrite=@a1)?@a1=true` as described in [Moving Files with SharePoint Online REST APIs in Microsoft Flow](https://gist.github.com/zplume/9f4c1a658517802701deff3473f23a60), but encountered issues..
 
 >{
   "status": 400,
@@ -35,65 +39,28 @@ I have used the endpoint `_api/SP.MoveCopyUtil.MoveFileByPath(overwrite=@a1)?@a1
   "errors": []
 }
 
-[../images/powerautomate-movefile-bypassinglock/movefilebypath_badrequest.png]
+![../images/powerautomate-movefile-bypassinglock/movefilebypath_badrequest.png]
 
 The above posts guided me to dig out the API being called from the network tab from developer tools in the browser to confirm the API called.
 
+### Inspecting SharePoint API traffic
 
-## Inspecting SharePoint API traffic
+To understand how SharePoint Online's modern UI uses SharePoint REST APIs, you can inspect the network traffic using the Network tab of your browser developer tools or a debugging proxy like [Fiddler](https://www.telerik.com/fiddler). This is helpful to discover what endpoints are called during operations.
 
-If you're curious about how SharePoint Online's modern UI uses SharePoint REST APIs, you can inspect the Network traffic sent from the SharePoint page using either the Network tab of your browser developer tools, or a debugging proxy like Telerik's excellent (and free) [Fiddler](https://www.telerik.com/fiddler).
+### CreateCopyJobs to copy or move file
 
-This can be a useful technique for discovering as-yet undocumented APIs or how to use APIs that are documented but not explained clearly enough with examples.
+When moving a file using the 'Move To' button in a SharePoint Online document library, , the following REST request is made:
 
-In this post I'll focus on using the Network tab of Chrome's developer tools, but the same principals should apply to other browser development tools.
-
-To only show API requests, you'll want to filter traffic shown in the Network tab by clicking on the XHR heading.
-You can additionally filter by a text value in the 'Filter' text box.
-
-## SP.MoveCopyUtil in the modern UI
-
-If you navigate to a SharePoint Online document library that's configured to show the modern UI and (while inspecting browser network traffic) use the 'Move To' button to move a file to a different folder in the same library, you'll see the following REST request:
-
-```
-https://tenant.sharepoint.com/_api/SP.MoveCopyUtil.MoveFileByPath()
+```md
+https://tenant.sharepoint.com/_api/site/CreateCopyJobs
 ```
 
-This endpoint accepts source and destination URLs in the request **body** rather than the request **URL**, which means it doesn't have the drawbacks of the `getFileByServerRelativeUrl('/from/')/moveTo(newUrl='/to/')` approach. 🎉
+## Using Power Automate to Move Files
+ 
+To move a file within SharePoint using the `Send an Http request to SharePoint` action in Power Automate, follow these steps:
 
-If you try and move a file to a folder that already contains a file with that name, the API request will return an error (HTTP 400) and you'll see the prompt `A file with this name already exists` with an option to `replace the existing one`. If you click **Replace**, the request is sent again with an additional parameter:
 
-```
-https://tenant.sharepoint.com/_api/SP.MoveCopyUtil.MoveFileByPath(overwrite=@a1)?@a1=true
-```
-
-If you inspect the request body (in Chrome this is via Headers > Request payload), you'll see something like the following JSON:
-
-```json
-{
-    "srcPath": {
-        "__metadata": {
-            "type": "SP.ResourcePath"
-        },
-        "DecodedUrl": "https://tenant.sharepoint.com/Shared Documents/FileName.docx"
-    },
-    "destPath": {
-        "__metadata": {
-            "type": "SP.ResourcePath"
-        },
-        "DecodedUrl": "https://tenant.sharepoint.com/Shared Documents/FolderName/FileName.docx"
-    }
-}
-```
-
-As you can see, the **DecodedUrl** values are absolute URLs that include the source and destination file names.
-The other option is to use [https://www.cleverworkarounds.com/2021/02/21/how-to-clear-annoying-excel-file-locks-in-power-automate/comment-page-2/](https://www.cleverworkarounds.com/2021/02/21/how-to-clear-annoying-excel-file-locks-in-power-automate/comment-page-2/)
-
-This post outlines how to use Power Automate to move a file within SharePoint using the `Send an Http request to SharePoint action`.
-
-Within a Power Automate flow, follow the following steps
-
-1. Add `Send an Http request to SharePoint` renamed to `Move file`
+1. Add `Send an Http request to SharePoint` and rename it to `Move file`
 
 ### Properties
 
@@ -106,131 +73,68 @@ Within a Power Automate flow, follow the following steps
 |Body|_See **Body** below_|
 
 ### Headers
+
 |Name|Value|
 |---|---|
 |Accept|`application/json; odata=nometadata`|
 |Content-Type|`application/json; odata=verbose`|
 
-### Body :
+### Body
 
 ```json
-{"exportObjectUris":["https://contoso.sharepoint.com/teams/test/Shared%20Documents/To%20Be%20Processed/test.xlsx"],"destinationUri":"https://contoso.sharepoint.com/teams/test/Shared%20Documents/Completed","options":{"IgnoreVersionHistory":true,"AllowSchemaMismatch":true,"BypassSharedLock":true,"IsMoveMode":true,"IncludeItemPermissions":true,"SameWebCopyMoveOptimization":true}}
+{
+    "exportObjectUris":["https://contoso.sharepoint.com/teams/test/Shared%20Documents/To%20Be%20Processed/test.xlsx"],
+    "destinationUri":"https://contoso.sharepoint.com/teams/test/Shared%20Documents/Completed",
+    "options":{
+        "IgnoreVersionHistory":true,
+        "AllowSchemaMismatch":true,
+        "BypassSharedLock":true,
+        "IsMoveMode":true,
+        "IncludeItemPermissions":true,
+        "SameWebCopyMoveOptimization":true
+      }
+}
 ```
 
-then we have these options these are the
-6:33
-parameters that you can pass in the body
-6:36
-that will decide whether to keep the
-6:37
-version or not keep the same file again
-6:40
-a not and few other things right so
-6:43
-let's go one by one ignore version
-6:46
-history if you keep it true that means
-6:49
-we don't want versions if you don't put
-6:52
-any of this it's true so default is true
-6:55
-default is ignore version history we
-6:58
-going to say false so we're not going to
-7:00
-ignore the version history is move mode
-7:03
-that is if it's true it's going to move
-7:05
-the file if it is false it's going to
-7:08
-copy the
-7:09
-file allow schema mismatch this is so
-7:12
-for example if you're moving a file from
-7:14
-one library that is a different content
-7:16
-type to the different library that has a
-7:18
-different content
-7:19
-type if it doesn't match you will get an
-7:22
-error if you say true that means it will
-7:25
-allow to move the file so it will
-7:26
-actually move your file and then you can
-7:29
-match the content type once the file has
-7:31
-been moved and then we have the name
-7:33
-conflict behavior that is whether you
-7:35
-want to overwrite or key this going to
-7:37
-tell you whether you want to replace or
-7:40
-overwrite the file or you want to keep
-7:42
-the both one is replace two is we're
-7:46
-going to keep
-7:47
-both okay so this is a setup that you
-7:50
-need to do of course what you need to
-7:52
-change in this structure when you copy
-7:54
-from the from the commment section URL
-7:57
-of your site and and then you need to
-8:00
-get the path and any parameter that you
-8:02
-want to change click save I'm going to
-8:05
-click
-8:08
-test and if you are creating this flow
-8:12
-either an automat or schedule you can
-8:15
-just wait for your trigger to
-8:18
-trigger okay it's going to ask for the
-8:20
-connections continue click run
-8:22
-flow okay so the flow is running I can
-8:25
-go into my final status file and see if
-8:28
-the file is start
-8:30
-moving and you can also see how quick
-8:33
-these flows runs right as you can see
-8:36
-here all the files from this library to
-8:39
-this library has been copied now if I go
-8:41
-to the version
-8:43
-history and as you can see all the
-8:46
-previous versions also moved I can see
-8:50
-any other
-8:54
-file awesome right yeah so this was a
+**Key Parameters**
 
-![Move Action](../images/powerautomate-movefile-bypassinglock/rest_api_createcopyjobs.png.png)
+There are several parameters in the body of the request to control the behavior of the move operation. Here are the key parameters:
 
-By following these steps, you can update the author and editor fields in a SharePoint list item using Power Automate. This is particularly useful for automating the management of SharePoint content and ensuring that the correct user details are recorded.
+* BypassSharedLock
+
+True:  Bypass any shared locks on the file.
+False: Do not bypass any shared locks on the file.
+
+* IncludeItemPermissions
+
+True:  Ensures that item-level permissions are included when moving or copying the file.
+False: Item-level permissions are not included when moving or copying the file.
+
+* SameWebCopyMoveOptimization
+
+True:  Can improve performance and reduce the time required for the operation when moving or copying files within the same site.
+False: Does not have any improvement during move of the file.
+
+* IgnoreVersionHistory:
+
+True: Ignores the version history of the file.
+False: Retains the version history of the file.
+
+* IsMoveMode:
+
+True: Moves the file.
+False: Copies the file.
+
+* AllowSchemaMismatch:
+
+True: Allows the move even if the content types of the source and destination libraries do not match.
+False: Prevents the move if there is a schema mismatch.
+
+* NameConflictBehavior:
+
+1 (Replace): Overwrites the existing file in the destination.
+2 (KeepBoth): Keeps both files by renaming the new file.
+
+![Move Action](../images/powerautomate-movefile-bypassinglock/rest_api_createcopyjobs.png)
+
+By following these steps, files can be moved within SharePoint using Power Automatee, bypassing locked file issues.
