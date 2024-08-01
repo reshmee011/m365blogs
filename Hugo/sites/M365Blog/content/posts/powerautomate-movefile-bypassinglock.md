@@ -1,5 +1,5 @@
 ---
-title: "Power Automate : Move File bypassing locked issue"
+title: "Power Automate : Move File bypassing locked issue using CreateCopyJobs endpoint"
 date: 2024-07-31T09:53:05+01:00
 tags: ["Power Automate","Update Author","Update Editor","REST API","SharePoint","BypassSharedLock"]
 featured_image: '/posts/images/powerautomate-movefile-bypassinglock/rest_api_createcopyjobs.png'
@@ -9,7 +9,7 @@ draft: false
 
 The  `SharePoint - Move file` action can be used to move files, however the file can't be moved if the file was accessed by the current Power Automate flow for any processing reslutng in a locked file error.
 
-! [../images/powerautomate-movefile-bypassinglock/movefile_networkerror.png]
+![locked error](../images/powerautomate-movefile-bypassinglock/movefile_networkerror.png)
 
 > {
   "status": 400,
@@ -22,7 +22,7 @@ There are two options to handlelocked files when using `SharePoint - Move file` 
 
 1. **Handle Locked file in a Loop**: Attempt to move the file in a loop until it is no longer locked.
 
-[../images/powerautomate-movefile-bypassinglock/loop_MoveFileUntilUnlocked.png]
+![Loop](../images/powerautomate-movefile-bypassinglock/loop_MoveFileUntilUnlocked.png)
 
 2. **Add Delay action**: Add a `Delay` action for at least 5-6 minutes to wait until the Power Automate automatically releases the lock.
 
@@ -39,7 +39,7 @@ I attempted to use the endpoint `_api/SP.MoveCopyUtil.MoveFileByPath(overwrite=@
   "errors": []
 }
 
-![../images/powerautomate-movefile-bypassinglock/movefilebypath_badrequest.png]
+![bad request](../images/powerautomate-movefile-bypassinglock/movefilebypath_badrequest.png)
 
 The above posts guided me to dig out the API being called from the network tab from developer tools in the browser to confirm the API called.
 
@@ -55,12 +55,14 @@ When moving a file using the 'Move To' button in a SharePoint Online document li
 https://tenant.sharepoint.com/_api/site/CreateCopyJobs
 ```
 
-## Using Power Automate to Move Files
+## Using Power Automate to Move Files calling CreateCopyJobs
  
 To move a file within SharePoint using the `Send an Http request to SharePoint` action in Power Automate, follow these steps:
 
-
 1. Add `Send an Http request to SharePoint` and rename it to `Move file`
+
+
+![Move Action](../images/powerautomate-movefile-bypassinglock/rest_api_createcopyjobs.png)
 
 ### Properties
 
@@ -103,38 +105,43 @@ There are several parameters in the body of the request to control the behavior 
 * BypassSharedLock
 
 True:  Bypass any shared locks on the file.
+
 False: Do not bypass any shared locks on the file.
 
 * IncludeItemPermissions
 
 True:  Ensures that item-level permissions are included when moving or copying the file.
+
 False: Item-level permissions are not included when moving or copying the file.
 
 * SameWebCopyMoveOptimization
 
 True:  Can improve performance and reduce the time required for the operation when moving or copying files within the same site.
+
 False: Does not have any improvement during move of the file.
 
 * IgnoreVersionHistory:
 
 True: Ignores the version history of the file.
+
 False: Retains the version history of the file.
 
 * IsMoveMode:
 
 True: Moves the file.
+
 False: Copies the file.
 
 * AllowSchemaMismatch:
 
 True: Allows the move even if the content types of the source and destination libraries do not match.
+
 False: Prevents the move if there is a schema mismatch.
 
 * NameConflictBehavior:
 
 1 (Replace): Overwrites the existing file in the destination.
-2 (KeepBoth): Keeps both files by renaming the new file.
 
-![Move Action](../images/powerautomate-movefile-bypassinglock/rest_api_createcopyjobs.png)
+2 (KeepBoth): Keeps both files by renaming the new file.
 
 By following these steps, files can be moved within SharePoint using Power Automatee, bypassing locked file issues.
