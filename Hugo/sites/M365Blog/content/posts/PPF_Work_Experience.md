@@ -9,3 +9,5 @@ I spent a lot of time in the office and I will miss the PPF family and people. I
 I had the chance to help with the move of EDRMS and intranet to SharePoint Online and implementing features. 
 
 I would like to say thank you to everyone for continuous support, recognition.
+
+Life is too short to live with regrets and need to challenge ourselves from our comfort zone, what we find familiar to try something else and grow
