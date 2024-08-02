@@ -125,3 +125,5 @@ https://reshmeeauckloo.sharepoint.com/sites/Company311/_api/web/lists/getbytitle
 [Invoke-PnPSPRestMethod](https://pnp.github.io/powershell/cmdlets/Invoke-PnPSPRestMethod.html)
 
 [SharePoint REST API to retrieve ACLs of a SharePoint object](https://learn.microsoft.com/en-us/answers/questions/208656/sharepoint-rest-api-to-retrieve-acls-of-a-sharepoi)
+
+[Get list of SharePoint files with unique permissions](https://community.powerplatform.com/forums/thread/details/?threadid=ee28b49a-4c5e-4882-b370-32ff84795ffd)
