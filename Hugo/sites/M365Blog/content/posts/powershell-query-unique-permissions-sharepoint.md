@@ -81,6 +81,25 @@ Check out 3rd party tools, like Rencore, Orchestry, AvePoint, ShareGate, etc.
 
 By automating the auditing of SharePoint permissions with PowerShell, organisations can streamline their security and compliance efforts. This script empowers administrators to gain comprehensive insights into permission structures across SharePoint sites and libraries, enabling them to proactively address security vulnerabilities and ensure adherence to regulatory requirements. As SharePoint environments continue to evolve, automation tools like PowerShell play a crucial role in simplifying administrative tasks and enhancing overall governance.
 
+### Additional considerations
+
+The REST API may be faster to get the data and consider updating the script with REST API
+
+Retrieve Role Assignments for a list:
+/_api/web/lists/getbytitle('list title')/roleassignments?$expand=Member/users,RoleDefinitionBindings
+
+
+Retrieve Role Assignments for a listitem:
+/_api/web/lists/getbytitle('list title')/roleassignments?$expand=Member/users,RoleDefinitionBindings
+
+Unique Permissions
+
+```md
+/_api/web/HasUniqueRoleAssignments  
+/_api/web/lists/getbytitle('list title')/HasUniqueRoleAssignments  
+/_api/web/lists/getbytitle('list title')/items(id)/HasUniqueRoleAssignments  
+```
+
 ## References
 
 [Microsoft Copilot for Microsoft 365 - best practices with SharePoint](https://learn.microsoft.com/en-us/SharePoint/sharepoint-copilot-best-practices?wt.mc_id=MVP_308367)
@@ -92,3 +111,9 @@ By automating the auditing of SharePoint permissions with PowerShell, organisati
 [CSOM in PowerShell Query All Unique Permissions](https://reshmeeauckloo.wordpress.com/tag/query-unique-permissions-site-webs-and-lists-csom-powershell/)
 
 [Announcing SharePoint advanced management innovations for the AI and Copilot era](https://techcommunity.microsoft.com/t5/sharepoint-premium-blog/announcing-sharepoint-advanced-management-innovations-for-the-ai/ba-p/4126366?WT.mc_id=5005104&ck_subscriber_id=2673998245)
+
+[Transitive Members](https://learn.microsoft.com/en-us/graph/api/group-list-transitivemembers?view=graph-rest-1.0&tabs=http)
+
+[Nested Groups](https://powerusers.microsoft.com/t5/Building-Flows/List-users-together-with-nested-groups-from-Azure-Active/td-p/2263771)
+
+[SharePoint REST API to retrieve ACLs of a SharePoint object](https://learn.microsoft.com/en-us/answers/questions/208656/sharepoint-rest-api-to-retrieve-acls-of-a-sharepoi)

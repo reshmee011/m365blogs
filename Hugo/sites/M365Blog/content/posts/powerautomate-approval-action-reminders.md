@@ -50,7 +50,15 @@ Add `Do Unitl` loop action
 
 ![Until Loop condition](../images/powerautomate-approval-action-reminders/UntilApprovalIsComplete.png)
 
-Add the following actions within the loop
+Add the following actions within the loop action
+
+Do until loops have a default timeout of 1 hour, which is not an issue if the actions within each loop takes seconds or up to 1 hour.
+
+![Do Until timing out](../images/powerautomate-approval-action-reminders/DoUntil_TimingOut.png)
+
+ Update the limits in the Do Unitl loop to be more than the time expected to take for all actions within the iteration. In my example I would like to send a reminder every 6 days for the approval task with the `Wait for Approval` action timing out every 6 days, hence updating the timeout of the `Do Until` to be 8 days.
+
+![Do Until Updated to 8 days](../images/powerautomate-approval-action-reminders/DoUntil_UpdatedTo8Days.png)
 
 #### Wait for Approval 
 
