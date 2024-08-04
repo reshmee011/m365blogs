@@ -4,7 +4,7 @@ date: 2023-08-04T08:42:13+01:00
 tags: ["SharePoint", "PowerShell","Unique Permissions","PnP PowerShell","REST","HasUniqueRoleAssignments"]
 featured_image: '/posts/images/powershell-Get-all-UniquePermissions/output.png'
 omit_header_text: true
-draft: true
+draft: false
 ---
 
 When working with large SharePoint sites, retrieving unique permissions can be a time-consuming task. This blog post explores methods to optimize PowerShell scripts for fetching unique permissions, including using PnP PowerShell and the SharePoint REST API. We compare their performance and highlight the advantages and limitations of each approach.
