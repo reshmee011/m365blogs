@@ -1,6 +1,6 @@
 ---
 title: "Optimizing PowerShell Scripts to Retrieve Unique Permissions in SharePoint: REST API vs. Get-PnPListItem"
-date: 2023-08-04T08:42:13+01:00
+date: 2023-08-03T08:42:13+01:00
 tags: ["SharePoint", "PowerShell","Unique Permissions","PnP PowerShell","REST","HasUniqueRoleAssignments"]
 featured_image: '/posts/images/powershell-Get-all-UniquePermissions/output.png'
 omit_header_text: true
