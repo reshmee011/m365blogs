@@ -2,6 +2,7 @@
 title: "Copy SharePoint list structure with data - ALM"
 date: 2024-08-03T20:45:31+01:00
 tags: ["SharePoint", "PowerShell","Copy Structure with data"]
+featured_image: '/posts/images/powershell-copy-SharePoint-list-with-data/example.png'
 omit_header_text: true
 draft: false
 ---
@@ -20,8 +21,6 @@ Get-PnPSiteTemplate -Out "C:\temp\Assessment.json"
 #Add Data Rows to the Site Template
 Add-PnPDataRowsToSiteTemplate -Path "C:\temp\Assessment.json" -List 'Skills'
 Add-PnPDataRowsToSiteTemplate -Path "C:\temp\Assessment.json" -List 'Roles' 
-Add-PnPDataRowsToSiteTemplate -Path "C:\temp\Assessment.json" -List 'Learning Catalog' 
-Add-PnPDataRowsToSiteTemplate -Path "C:\temp\Assessment.json" -List 'Skills Score Targets' 
 ```
 
 ## Import Structure and Data from SharePoint Lists
@@ -35,3 +34,5 @@ Connect-PnPOnline -url https://contoso.sharepoint.com/sites/u-LearningCatalog -I
 #Invoke the Site Template to Import Structure and Data:
 Invoke-PnpSiteTemplate -Path "C:\temp\Assessment.json"
 ```
+
+![example](../images/powershell-copy-SharePoint-list-with-data/example.png)
