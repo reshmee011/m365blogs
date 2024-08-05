@@ -4,7 +4,7 @@ date: 2024-08-05T16:49:18Z
 tags: ["Libraries", "List Formatting", "Column Formatting", "Managed Metadata", "fileref", "file type"]
 featured_image: '/posts/images/listformatting-update-managed-metadata-field/Screenshot.png'
 omit_header_text: true
-draft: false
+draft: true
 ---
 ```json
 {
