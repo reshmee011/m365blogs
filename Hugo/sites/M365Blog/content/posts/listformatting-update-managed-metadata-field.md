@@ -6,6 +6,15 @@ featured_image: '/posts/images/listformatting-update-managed-metadata-field/Scre
 omit_header_text: true
 draft: true
 ---
+
+Using column formatting, you are able to update other fields's value using the inline function `setvalue` allowing to build functionaly around lists/libraries without extensive development work and hence might help not to build digital debt.
+
+However updating a managed metadata field is not straight with only specifying the display value.
+
+## Column Fomatting
+
+The column formatting is a combination of online CSS, HTML with JSON. The JSON renders a hyperlink with label 'Set in Review' and on click updates the field 'Approval Status' to 'In-Review' and 'Status' to 'Draft'. 
+
 ```json
 {
   "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
@@ -34,7 +43,7 @@ draft: true
             "action": "setValue",
             "actionInput": {
               "ApprovalStatus": "In-Review",
-              "PPF_Status": "Draft|997ddd6e-c086-4730-adf0-0ca8f9eeac48;"
+              "Status": "Draft|997ddd6e-c086-4730-adf0-0ca8f9eeac48;"
             }
           },
           "attributes": {
@@ -71,7 +80,12 @@ draft: true
         }
       ]
     }
- ]
+   ]
  }
- ```json
- 
+ ```
+
+The JSON renders an inline button
+
+ ![Set in Review button](../images/listformatting-update-managed-metadata-field/Screenshot.png)
+
+OnVlick it updates 

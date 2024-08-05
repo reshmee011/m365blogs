@@ -65,19 +65,19 @@ Here's a PowerShell script leveraging the REST API to retrieve unique permission
 
 For a site with 1600 items, this script takes only 8 seconds. 
 
-![Output REST](../images/powershell_getallitemswithUniquePermissions/Output_REST.png)
+![Output REST](../images/powershell-Get-HasUniqueRoleAssignments/Output_REST.png)
 
 For larger sites with over 100,000 items, it completes in under 11 minutes, significantly faster than the PnP PowerShell approach with retry mechanism under the hood.
 
-![REST Unique Permissions with retired](../images/powershell_getallitemswithUniquePermissions/RESTAPI_UniquePermissions.png)
+![REST Unique Permissions with retired](../images/powershell-Get-HasUniqueRoleAssignments/RESTAPI_UniquePermissions.png)
 
-![Graph does not have property HasUniqueRoleAssignments](../images/powershell_getallitemswithUniquePermissions/MSGraph_HasUniqueRoleAssignments_Does_NotExist.png)
+![Graph does not have property HasUniqueRoleAssignments](../images/powershell-Get-HasUniqueRoleAssignments/MSGraph_HasUniqueRoleAssignments_Does_NotExist.png)
 
 ## Microsoft Graph does not return the property HasUniqueRoleAssignments
 
 Microsoft Graph does not return the HasUniqueRoleAssignments property, limiting its utility for this specific task.
 
-![Graph does not have property HasUniqueRoleAssignments](../images/powershell_getallitemswithUniquePermissions/MSGraph_HasUniqueRoleAssignments_Does_NotExist.png)
+![Graph does not have property HasUniqueRoleAssignments](../images/powershell-Get-HasUniqueRoleAssignments/MSGraph_HasUniqueRoleAssignments_Does_NotExist.png)
 
 
 ## Performance comparison
