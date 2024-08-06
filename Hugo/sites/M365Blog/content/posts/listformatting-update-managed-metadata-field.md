@@ -1,17 +1,17 @@
 ---
 title: "Update managed metadata field using list formatting"
 date: 2024-08-05T16:49:18Z
-tags: ["Libraries", "List Formatting", "Column Formatting", "Managed Metadata", "fileref", "file type"]
-featured_image: '/posts/images/listformatting-update-managed-metadata-field/Screenshot.png'
+tags: ["Libraries", "List Formatting", "Column Formatting", "Managed Metadata"]
+featured_image: '/posts/images/listformatting-update-managed-metadata-field/SetInReview.png'
 omit_header_text: true
 draft: true
 ---
 
 Using column formatting, you are able to update other fields's value using the inline function `setvalue` allowing to build functionaly around lists/libraries without extensive development work and hence might help not to build digital debt.
 
-However updating a managed metadata field is not straight with only specifying the display value.
+Updating a managed metadata field is not straight forward with only specifying the display value. It expects a different format with the termId. 
 
-## Column Fomatting
+## Column Formatting
 
 The column formatting is a combination of online CSS, HTML with JSON. The JSON renders a hyperlink with label 'Set in Review' and on click updates the field 'Approval Status' to 'In-Review' and 'Status' to 'Draft'. 
 
@@ -86,6 +86,13 @@ The column formatting is a combination of online CSS, HTML with JSON. The JSON r
 
 The JSON renders an inline button
 
- ![Set in Review button](../images/listformatting-update-managed-metadata-field/Screenshot.png)
+![Set in Review button](../images/listformatting-update-managed-metadata-field/SetInReview.png)
 
-OnVlick it updates 
+
+The **Managed Metadata field**
+
+ ![MM Field](../images/listformatting-update-managed-metadata-field/MMStatusField.png)
+
+ On Click the managed metadata field is updated to draft
+
+![Status change to draft](../images/listformatting-update-managed-metadata-field/SetToDraft.png)

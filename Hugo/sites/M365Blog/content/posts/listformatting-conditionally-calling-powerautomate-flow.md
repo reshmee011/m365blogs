@@ -1,13 +1,13 @@
 ---
-title: "Effective permissions of end user using across sites PowerShell"
-date: 2024-07-10T16:16:09Z
-tags: ["SharePoint","PnP","PowerShell","Effective permissions" ,"Security","Permissions"]
-featured_image: '/posts/images/PowerShell_PnPUnifiedLog/Sample.png'
+title: "List formatting conditionally display different actions to call a power automate flow"
+date: 2024-08-06T16:16:09Z
+tags: ["List formatting","JSON","HTML","CSS", "SetValue","Trigger Flow"]
+featured_image: '/posts/images/listformatting-conditionally-calling-powerautomate-flow/conditionally-call-different-flows.png'
 omit_header_text: true
 draft: true
 ---
 
-
+List formatting provides a powerful feature to control the flow of a process from filling mandatory fields, create approval tasks. Depending on the status of the list item, different power automate flows can be called.  
 
 ```json
 {
@@ -44,3 +44,5 @@ draft: true
   ]
 }
 ```
+
+![list formatting actions conditionally call power automate flows](../images/listformatting-conditionally-calling-powerautomate-flow/conditionally-call-different-flows.png)
