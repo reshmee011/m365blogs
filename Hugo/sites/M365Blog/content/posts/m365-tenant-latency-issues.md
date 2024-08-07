@@ -9,7 +9,11 @@ draft: true
 
 # Latency issues accessing MS sites - SharePoint, Admin Centre 
 
-The dependency on a SAAS (Software As a Service) product like M365 does not flexibility to troubleshoot at the server level to check network traffic and resources like CPU/RAM/storage spaces that may be impacting performance of SharePoint sites. sudden spike in usage, which caused their Azure Front Door and Azure Content Delivery Network (CDN) services to underperform, leading to errors, timeouts, and delays for users.
+The dependency on a SAAS (Software As a Service) product like M365 does not provide lexibility to troubleshoot at the server level to check network traffic and resources like CPU/RAM/storage spaces that may be impacting performance of SharePoint sites. Sudden spike in usage, which caused their Azure Front Door and Azure Content Delivery Network (CDN) services to underperform, leading to errors, timeouts, delays for users and features not working.
+
+It took weeks to get to the bottom of the issue with questions from the business , can we turn off any process intensive processes.
+
+From the network tab we were getting conn reset issues happening during office hours impacting everyone. 
 
 [Error Conn reset issue](../images/m365-tenant-latency-issues/cdnfileload_errconnreset.png)
 

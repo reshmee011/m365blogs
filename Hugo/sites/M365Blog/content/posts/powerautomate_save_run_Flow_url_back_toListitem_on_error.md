@@ -1,13 +1,13 @@
 ---
-title: "Power Automate: Save Run Flow Url to list Item on Error"
-date: 2024-05-20T12:52:18+01:00
+title: "Power Automate: Save Run Flow Url to list Item"
+date: 2024-08-07T12:52:18+01:00
 tags: ["Power Automate","Save Flow Url","View Formatting"]
 featured_image: '/posts/images/powerautomate_save_run_Flow_url_back_toListitem_on_error/ErrorflowUrl.png'
 omit_header_text: true
 draft: true
 ---
 
-In the Power Automate flow running, the flow url can be captured and saved to the SharePoint List Item making it easier to go back to review in case failures. Bear in mind any flows more than 30 days old won't be available , hence the link saved may not work.
+In the Power Automate flow running, the flow url can be captured and saved to the SharePoint List Item making it easier to go back to review in case failures or auditing. Bear in mind any flows more than 30 days old won't be available , hence the link saved may not work.
 
 ## Save the flow Url
 
@@ -40,3 +40,9 @@ Copy the snippet into the column formatting to improve the view
   }
 }
 ```
+
+## References
+
+[Hyperlink Column JSON](https://tomriha.com/how-to-update-sharepoint-hyperlink-column-in-power-automate/)
+
+[Storing a link into Sharepoint List](https://powerusers.microsoft.com/t5/Building-Flows/Storing-a-link-into-Sharepoint-List-Hyperlink-Column/m-p/1636264#M181989) 
