@@ -1,7 +1,7 @@
 ---
 title: "Optimizing PowerShell Scripts to check for unique permissions in SharePoint: REST API vs. Get-PnPListItem"
 date: 2024-08-04T08:42:13+01:00
-tags: ["SharePoint", "PowerShell","Unique Permissions","PnP PowerShell","REST","HasUniqueRoleAssignments"]
+tags: ["SharePoint", "PowerShell","Unique Permissions","PnP PowerShell","REST","HasUniqueRoleAssignments","Throttling handling"]
 featured_image: '/posts/images/powershell-Get-HasUniqueRoleAssignments/output.png'
 omit_header_text: true
 draft: false
@@ -67,11 +67,9 @@ For a site with 1600 items, this script takes only 8 seconds.
 
 ![Output REST](../images/powershell-Get-HasUniqueRoleAssignments/Output_REST.png)
 
-For larger sites with over 100,000 items, it completes in under 11 minutes, significantly faster than the PnP PowerShell approach with retry mechanism under the hood.
+For larger sites with over 100,000 items, it completes in under 11 minutes, significantly faster than the PnP PowerShell approach with retry mechanism under the hood to handle throttling
 
-![REST Unique Permissions with retired](../images/powershell-Get-HasUniqueRoleAssignments/RESTAPI_UniquePermissions.png)
-
-![Graph does not have property HasUniqueRoleAssignments](../images/powershell-Get-HasUniqueRoleAssignments/MSGraph_HasUniqueRoleAssignments_Does_NotExist.png)
+![REST Unique Permissions with retry](../images/powershell-Get-HasUniqueRoleAssignments/RESTAPI_UniquePermissions.png)
 
 ## Microsoft Graph does not return the property HasUniqueRoleAssignments
 
