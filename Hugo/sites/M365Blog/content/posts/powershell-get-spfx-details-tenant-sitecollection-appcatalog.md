@@ -85,3 +85,41 @@ $appsDetails | Export-CSV $OutPutView -Force -NoTypeInformation
 ```
 
 This script automates the process of collecting and exporting SPFx solution details, which is essential for maintaining an up-to-date inventory and ensuring compliance across your SharePoint environment.
+
+- **Title**: The name of the SPFx solution or app.
+
+- **LinkFilename**: The filename of the app package (.sppkg file).
+
+- **SkipFeatureDeployment**: Indicates whether the app skips feature deployment, meaning it doesn't require activation on individual sites.
+
+- **ContainsTeamsManifest**: Indicates whether the app contains a Microsoft Teams manifest, making it available in Teams.
+
+- **ContainsVivaManifest**: Indicates whether the app contains a Microsoft Viva manifest, allowing integration with Viva.
+
+- **SupportsTeamsTabs**: Shows if the app supports being used as a Teams tab.
+
+- **WebApiPermissionScopesNote**: Lists any API permissions granted to the app, often important for security and compliance reviews.
+
+- **ContainsTenantWideExtension**: Indicates if the app contains a tenant-wide extension, which can affect all sites across the tenant.
+
+- **IsolatedDomain**: Shows whether the app runs in an isolated domain for enhanced security, often used in sandboxed solutions.
+
+- **PackageDefaultSkipFeatureDeployment**: Indicates the default setting of the app package regarding feature deployment skipping.
+
+- **IsClientSideSolutionCurrentVersionDeployed**: Confirms if the currently deployed version of the client-side solution is up-to-date.
+
+- **ExternalContentDomains**: Lists any external content domains the app might interact with, important for understanding potential external dependencies.
+
+- **IsClientSideSolutionDeployed**: Indicates whether the client-side solution is actively deployed in the environment.
+
+- **IsClientSideSolution**: Confirms whether the app is a client-side solution, typically referring to SPFx solutions.
+
+- **AppPackageErrorMessage**: Contains any error messages related to the app package, useful for troubleshooting deployment issues.
+
+- **IsValidAppPackage**: Indicates if the app package is valid and free from errors.
+
+- **SharePointAppCategory**: Specifies the category assigned to the app within SharePoint, often used for organizing and searching for apps.
+
+- **AppDescription**: A description of the app, providing a summary of its functionality and purpose.
+
+- **AppShortDescription**: A shorter version of the app's description, typically used in user interfaces where space is limited.
