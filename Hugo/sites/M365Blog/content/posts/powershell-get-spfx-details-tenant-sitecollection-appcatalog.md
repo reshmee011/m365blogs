@@ -29,7 +29,6 @@ The alternative is to use the REST API endpoint `/_api/web/lists/getbytitle(''Ap
 ```PowerShell
 $AdminCenterURL= Read-Host -Prompt "Enter admin tenant collection URL";
 
-
 $tenantAppCatalogUrl = Get-PnPTenantAppCatalogUrl
 $dateTime = (Get-Date).toString("dd-MM-yyyy")
 $invocation = (Get-Variable MyInvocation).Value
