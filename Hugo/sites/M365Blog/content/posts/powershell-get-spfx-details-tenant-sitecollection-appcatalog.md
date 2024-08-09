@@ -1,7 +1,7 @@
 ---
 title: "Retrieve SPFx Details from Tenant and Site Collection App Catalogs Using PowerShell"
 date: 2024-08-08T07:17:21+01:00
-tags: ["PowerShell", "SPFx","SharePoint Online","App Catalog","Inventory"]
+tags: ["PowerShell", "SPFx","SharePoint Online","App Catalog","Inventory","REST API"]
 featured_image: '/posts/images/powershell-get-spfx-details-tenant-sitecollection-appcatalog/example.png'
 omit_header_text: true
 draft: false
@@ -21,6 +21,8 @@ Both interfaces don't display all details e.g. API Permissions making difficult 
 
 The `Get-PnPApp` returns limited properties
 ![Tenant App Catalog](../images/powershell-get-spfx-details-tenant-sitecollection-appcatalog/GetPnPApp.png)
+
+The alternative is to use the REST API endpoint `/_api/web/lists/getbytitle(''Apps%20for%20SharePoint'')/items?$select=Title` to retrieve specific properties of the apps within the app catalog which is a list under the hood.
 
 ## PowerShell script
 
@@ -64,10 +66,7 @@ $sites | select url | ForEach-Object {
   $siteConnection  = Get-PnPConnection   
 
   try{
-
       if((Get-PnPSiteCollectionAppCatalog -CurrentSite)){
-
-      
         $apps = (Invoke-PnPSPRestMethod -Url $RestMethodUrl -Method Get -Connection $siteConnection).Value
         $apps| foreach-object{
             $app = $_
