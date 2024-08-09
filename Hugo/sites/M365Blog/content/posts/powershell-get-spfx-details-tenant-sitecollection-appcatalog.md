@@ -1,23 +1,34 @@
 ---
-title: "Get SPFx details from Tenant SiteCollection AppCatalog and SiteCollection AppCatalog using PowerShell"
-date: 2024-07-05T07:17:21+01:00
+title: "Retrieve SPFx Details from Tenant and Site Collection App Catalogs Using PowerShell"
+date: 2024-08-08T07:17:21+01:00
 tags: ["PowerShell", "SPFx","SharePoint Online","App Catalog","Inventory"]
 featured_image: '/posts/images/powershell-get-spfx-details-tenant-sitecollection-appcatalog/example.png'
 omit_header_text: true
-draft: true
+draft: false
 ---
 
-# Get SPFx details from Tenant SiteCollection AppCatalog and SiteCollection AppCatalog using PowerShell
+Have you ever needed to gather detailed information about SPFx solutions installed in your SharePoint environment, such as API permissions, for auditing, inventory, or compliance purposes? The PowerShell script below helps you retrieve these details from both the tenant-level and site collection app catalogs.
 
-Ever wondered how to get all the details of SPFx solutions installed within an environment like API Permissions granted
-[App Catalog](../images/powershell-get-spfx-details-tenant-sitecollection-appcatalog/AppCatalogList.png)
+To execute this script, you must have Global Administrator or SharePoint Administrator roles.
 
-[Tenant App Catalog](../images/powershell-get-spfx-details-tenant-sitecollection-appcatalog/TenantAppCatalog.png)
+**Classic View Interface**
+![App Catalog](../images/powershell-get-spfx-details-tenant-sitecollection-appcatalog/AppCatalogList.png)
+
+**Modern View Interface**
+![Tenant App Catalog](../images/powershell-get-spfx-details-tenant-sitecollection-appcatalog/TenantAppCatalog.png)
+
+Both interfaces don't display all details e.g. API Permissions making difficult to know after installations which permissions were granted to each SPFx app. 
+
+The `Get-PnPApp` returns limited properties
+![Tenant App Catalog](../images/powershell-get-spfx-details-tenant-sitecollection-appcatalog/GetPnPApp.png)
+
+## PowerShell script
 
 ```PowerShell
-$AdminCenterURL="https://ppfonline-admin.sharepoint.com"
-$tenantAppCatalogUrl = "https://ppfonline.sharepoint.com/sites/appcatalog"
-$hubSiteUrl = "https://ppfonline.sharepoint.com"
+$AdminCenterURL= Read-Host -Prompt "Enter admin tenant collection URL";
+
+
+$tenantAppCatalogUrl = Get-PnPTenantAppCatalogUrl
 $dateTime = (Get-Date).toString("dd-MM-yyyy")
 $invocation = (Get-Variable MyInvocation).Value
 $directorypath = Split-Path $invocation.MyCommand.Path
@@ -36,30 +47,31 @@ $appsDetails = @()
  
 #Get associated sites with hub
 $sites = Get-PnPTenantSite -Detailed -Connection $adminConnection  | Where-Object -Property Template -NotIn ("PWA#0","SRCHCEN#0", "REDIRECTSITE#0", "SPSMSITEHOST#0", "APPCATALOG#0", "POINTPUBLISHINGHUB#0", "POINTPUBLISHINGTOPIC#0","EDISC#0", "STS#-1") 
-$istenantApp = ""
 $RestMethodUrl = '/_api/web/lists/getbytitle(''Apps%20for%20SharePoint'')/items?$select=Title,LinkFilename,SkipFeatureDeployment,ContainsTeamsManifest,ContainsVivaManifest,SupportsTeamsTabs,WebApiPermissionScopesNote,ContainsTenantWideExtension,IsolatedDomain,PackageDefaultSkipFeatureDeployment,IsClientSideSolutionCurrentVersionDeployed,ExternalContentDomains,IsClientSideSolutionDeployed,IsClientSideSolution,AppPackageErrorMessage,IsValidAppPackage,SharePointAppCategory,AppDescription,AppShortDescription'
 
 $apps = (Invoke-PnPSPRestMethod -Url $RestMethodUrl -Method Get -Connection $appCatConnection).Value
 #export details of apps
 $apps| foreach-object{
     $app = $_
-    $app  | Add-Member -MemberType NoteProperty -name "App Catalog Url" -value $tenantAppCatalogUrl
+    $app  | Add-Member -MemberType NoteProperty -name "Site Url" -value $tenantAppCatalogUrl
     $appsDetails += $app
 }
-$istenantApp = "Tenant App Catalog"
 
 $sites | select url | ForEach-Object {
-  $Site = Get-PnPTenantSite $_.url -Connection $adminConnection
+  write-host "Processing Site:" $_.url -f Yellow
+    $Site = Get-PnPTenantSite $_.url -Connection $adminConnection
   Connect-PnPOnline -Url $Site.url -Interactive
   $siteConnection  = Get-PnPConnection   
 
   try{
 
       if((Get-PnPSiteCollectionAppCatalog -CurrentSite)){
+
+      
         $apps = (Invoke-PnPSPRestMethod -Url $RestMethodUrl -Method Get -Connection $siteConnection).Value
         $apps| foreach-object{
             $app = $_
-            $app  | Add-Member -MemberType NoteProperty -name "App Catalog Url" -value $Site.url
+            $app  | Add-Member -MemberType NoteProperty -name "Site Url" -value $Site.url
             $appsDetails += $app
         }
       }
@@ -70,5 +82,6 @@ $sites | select url | ForEach-Object {
 }
 #Export the result Array to CSV file
 $appsDetails | Export-CSV $OutPutView -Force -NoTypeInformation
- 
 ```
+
+This script automates the process of collecting and exporting SPFx solution details, which is essential for maintaining an up-to-date inventory and ensuring compliance across your SharePoint environment.
